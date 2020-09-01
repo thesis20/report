@@ -1,0 +1,22 @@
+name: LaTeX compile
+
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Github Action for LaTeX
+        # You may pin to the exact commit or the version.
+        # uses: xu-cheng/latex-action@a09bcda10459172e9c371f1156d1285dbf2616c7
+        uses: xu-cheng/latex-action@v2
+        with:
+          # The root LaTeX file to be compiled
+          root_file: master.tex
+          # The working directory for the LaTeX engine
+          working_directory: . # optional
+          # The LaTeX engine to be invoked
+          compiler: latexmk # optional, default is latexmk
+          # Extra arguments to be passed to the LaTeX engine
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode # optional, default is -pdf -file-line-error -halt-on-error -interaction=nonstopmode
