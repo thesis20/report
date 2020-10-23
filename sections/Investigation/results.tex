@@ -59,7 +59,20 @@ The dataset contains the following context variables and their conditions:
     \end{itemize}
 \end{itemize}
 \textit{EndEmo} and \textit{DominantEmo} relate to the emotional state of the user during the consumption stage.
-\textit{DominantEmo} defines the emotional state that was dominant during the consumption of the movie, whereas \textit{EndEmo} defines the emotional state of the user at the end of the movie.
+\textit{DominantEmo} defines the emotional state that was dominant during the consumption of the movie, whereas \textit{EndEmo} defines the emotional state of the user at the end of the movie\todo{add ref to comoda article}.
+\todo{PAPERCITE} indicates that, on other datasets where the only context that could be derived were based on timestamps, many users would leave these ratings in a relatively short period of time, making them not representative of the contextual situation of the user at the time of consumption.
+The paper thus proposes the LDOS-CoMoDa dataset containing potential contextual information from the consumption stage, gathered through ratings and an accompanying questionnaire.
+\todo{Cite comoda paper som start af sætning} employed a relevant-context-detection procedure to determine which of these contextual variables were in fact relevant.
+This was done through statistical hypothesis testing with a power analysis.
+Independence was tested between each contextual variable and the ratings.
+The null hypothesis of the test stated that the two variables were independent, whereas the alternative hypothesis stated that they were dependent.
+If the null hypothesis was rejected, a conclusion was drawn that the contextual variable and the rating were dependent and thus the contextual information was relevant.
+They employed a significance level of $\alpha = 0.05$ for the test.
+The testing determined that six of the variables proved to be relevant, making them contextual - \textit{EndEmo, DominantEmo, Mood, Physical, Decision} and \textit{Interaction}.
+\textit{Location} and \textit{Daytype} could not be declared irrelevant, and \textit{time, season, weather} and \textit{social} were rejected as irrelevant contextual information.
+Generally, the paper finds that the variables detected as relevant perform better than the irrelevant ones, apart from the \textit{Mood} variable, which performed worse than a variable deemed irrelevant.
+This means that, with the exception of the variable \textit{Mood}, the paper finds that the contextual variables detected as relevant tend to perform better than the uncontextualized models, while the contextual variables detected as irrelevant tend to perform worse than the uncontextualized models, if there are enough ratings per each context variable value during training.
+
 
 \todo{A little discussion of how papers use it}
 
