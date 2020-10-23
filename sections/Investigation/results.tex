@@ -1,23 +1,93 @@
 \section{Investigating results in context-aware recommender systems}
 To establish the usefulness of adding context to recommender systems we will conduct an investigation into recent papers relating to the topic examining the experimental results of different proposed methods.
 We will investigate the kinds of context data used in the different papers, how this context data was used and how it was evaluated.
+\autoref{tab:paperdatasets} shows an overview of different papers relating to the topic of context-aware recommendations and the datasets used for evaluation.
+In the following subsections we will discuss the specific datasets and how they were used.
+
+\subsection{LDOS-CoMoDa}
+The LDOS-CoMoDa dataset is a context rich movie recommender dataset\cite{comoda}.
+At the time of access, the dataset contains 121 users, 1232 unique movies and 2296 ratings.
+The dataset contains the following context variables and their conditions:
+\begin{itemize}
+    \item Time
+    \begin{itemize}
+        \item Morning, Afternoon, Evening, Night
+    \end{itemize}
+    \item Daytype
+    \begin{itemize}
+        \item Working day, Weekend, Holiday
+    \end{itemize}
+    \item Season
+    \begin{itemize}
+        \item Spring, Summer, Autumn, Winter
+    \end{itemize}
+    \item Location
+    \begin{itemize}
+        \item Home, Public place, Friend's house
+    \end{itemize}
+    \item Weather
+    \begin{itemize}
+        \item Sunny / clear, Rainy, Stormy, Snowy, Cloudy
+    \end{itemize}
+    \item Social
+    \begin{itemize}
+        \item Alone, My partner, Friends, Colleagues, Parents, Public, My family
+    \end{itemize}
+    \item EndEmo
+    \begin{itemize}
+        \item Sad, Happy, Scared, Surprised, Angry, Disgusted, Neutral
+    \end{itemize}
+    \item DominantEmo
+    \begin{itemize}
+        \item Sad, Happy, Scared, Surprised, Angry, Disgusted, Neutral
+    \end{itemize}
+    \item Mood
+    \begin{itemize}
+        \item Positive, Neutral, Negative
+    \end{itemize}
+    \item Physical
+    \begin{itemize}
+        \item Healthy, Ill
+    \end{itemize}
+    \item Decision
+    \begin{itemize}
+        \item User decided which movie to watch, User was given a movie
+    \end{itemize}
+    \item Interaction
+    \begin{itemize}
+        \item First interaction with a movie, N-th interaction with a movie
+    \end{itemize}
+\end{itemize}
+\textit{EndEmo} and \textit{DominantEmo} relate to the emotional state of the user during the consumption stage.
+\textit{DominantEmo} defines the emotional state that was dominant during the consumption of the movie, whereas \textit{EndEmo} defines the emotional state of the user at the end of the movie.
+
+\todo{A little discussion of how papers use it}
 
 
-% Please add the following required packages to your document preamble:
-% \usepackage[normalem]{ulem}
-% \useunder{\uline}{\ul}{}
-\begin{table}[]
-    \begin{tabular}{llllll}
-     & LDOS-CoMoDa & MovieLens & Frappe & InCarMusic & DePaul \\
-     &             &           &        &            &        \\
-     &             &           &        &            &        \\
-     &             &           &        &            &        \\
-     &             &           &        &            &        \\
-     &             &           &        &            &        \\
-     &             &           &        &            &        \\
-     &             &           &        &            &        \\
-     &             &           &        &            &        \\
-     &             &           &        &            &        \\
-     &             &           &        &            &       
+\subsection{MovieLens}
+\subsection{Frappe}
+\subsection{InCarMusic}
+\subsection{DePaul}
+
+\begin{sidewaystable}[]
+    \begin{tabular}{|l|c|c|c|c|l|}
+    \hline
+                                                                                                                                                                              & \multicolumn{1}{l|}{LDOS-CoMoDa} & \multicolumn{1}{l|}{MovieLens} & \multicolumn{1}{l|}{Frappe} & \multicolumn{1}{l|}{InCarMusic} & DePaul                 \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Enhancing the Role of Large-Scale \\ Recommendation systems in the IoT Context\end{tabular}                                                    & x                                & x                              & x                           & x                               &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}A Three-way Classification with Game-theoretic \\ N-soft Sets for Handling Missing Ratings in\\ Context-aware Recommender Systems\end{tabular} & x                                &                                &                             & x                               &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}A Soft-Rough Set Based Approach for Handling\\ Contextual Sparsity in Context-Aware Video \\ Recommender Systems\end{tabular}                  & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Hierarchical Latent Context Representation for\\ Context-Aware Recommendations\end{tabular}                                                    & x                                &                                & x                           &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Adapt to Emotional reactions in\\ Context-aware Personalization\end{tabular}                                                                   & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}A Personalized Context-Aware Recommender\\ System Based on User-Item Preferences\end{tabular}                                                  & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Correlation-Based Pre-Filtering for\\ Context-Aware Recommendation\end{tabular}                                                                & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Recommendations With Context-Aware\\ Framework Using Particle Swarm\\ Optimization and Unsupervised Learning\end{tabular}                      & x                                &                                &                             & x                               &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Capturing Contextual influence in\\ Context-Aware Recommender Systems\end{tabular}                                                             & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Improving Recommendation Performance\\ With Auxiliary Information\end{tabular}                                                                 & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}An Improved Similarity Measure to\\ Alleviate Sparsity Problem in\\ Context-Aware Recommender Systems\end{tabular}                             & \multicolumn{1}{l|}{}            & x                              &                             & x                               &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Graph-Based Context-Aware\\ Collaborative Filtering\end{tabular}                                                                               & \multicolumn{1}{l|}{}            & x                              &                             & x                               & \multicolumn{1}{c|}{x} \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Movie Recommender System With\\ Metaheuristic Artificial Bee\end{tabular}                                                                      & \multicolumn{1}{l|}{}            & x                              &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Context-Aware Sequential \\ Recommendations With Stacked\\ Recurrent Neural Networks\end{tabular}                                              & \multicolumn{1}{l|}{}            & x                              &                             & \multicolumn{1}{l|}{}           &                        \\ \hline
     \end{tabular}
-\end{table}
+    \caption{Context-Aware papers and the datasets used.}
+    \label{tab:paperdatasets}
+\end{sidewaystable}
