@@ -1,0 +1,133 @@
+\section{Investigating results in context-aware recommender systems}
+Context-aware recommender systems consider various types of contextual information such as time, location, and social information when generating recommendations.
+They have generally been observed to greatly improve the effectiveness of recommendation processes \cite{aggarwal2016recommender}.
+To establish the usefulness of adding context to recommender systems we will conduct an investigation into recent papers relating to the topic examining the experimental results of different proposed methods.
+We will investigate the kinds of context data used in existing papers, how this context data was used, and how it was evaluated.
+\autoref{tab:paperdatasets} shows an overview of different papers relating to the topic of context-aware recommendations and the datasets used for evaluation.
+In the following subsections we will discuss the specific datasets and how they were used.
+
+\subsection{LDOS-CoMoDa}
+The LDOS-CoMoDa dataset is a context rich movie recommender dataset\cite{comoda}.
+At the time of access, the dataset contains 121 users, 1232 unique movies, and 2296 ratings.
+Most context variables are expressed for each rating.
+The dataset contains the following context variables and their conditions:
+\begin{itemize}
+    \item Time
+    \begin{itemize}
+        \item Morning, Afternoon, Evening, Night
+    \end{itemize}
+    \item Daytype
+    \begin{itemize}
+        \item Working day, Weekend, Holiday
+    \end{itemize}
+    \item Season
+    \begin{itemize}
+        \item Spring, Summer, Autumn, Winter
+    \end{itemize}
+    \item Location
+    \begin{itemize}
+        \item Home, Public place, Friend's house
+    \end{itemize}
+    \item Weather
+    \begin{itemize}
+        \item Sunny / clear, Rainy, Stormy, Snowy, Cloudy
+    \end{itemize}
+    \item Social
+    \begin{itemize}
+        \item Alone, My partner, Friends, Colleagues, Parents, Public, My family
+    \end{itemize}
+    \item EndEmo
+    \begin{itemize}
+        \item Sad, Happy, Scared, Surprised, Angry, Disgusted, Neutral
+    \end{itemize}
+    \item DominantEmo
+    \begin{itemize}
+        \item Sad, Happy, Scared, Surprised, Angry, Disgusted, Neutral
+    \end{itemize}
+    \item Mood
+    \begin{itemize}
+        \item Positive, Neutral, Negative
+    \end{itemize}
+    \item Physical
+    \begin{itemize}
+        \item Healthy, Ill
+    \end{itemize}
+    \item Decision
+    \begin{itemize}
+        \item User decided which movie to watch, User was given a movie
+    \end{itemize}
+    \item Interaction
+    \begin{itemize}
+        \item First interaction with a movie, N-th interaction with a movie
+    \end{itemize}
+\end{itemize}
+\textit{EndEmo} and \textit{DominantEmo} relate to the emotional state of the user during the consumption stage.
+\textit{DominantEmo} defines the emotional state that was dominant during the consumption of the movie, whereas \textit{EndEmo} defines the emotional state of the user at the end of the movie\cite{COMODA2013}.
+\cite{COMODA2013} indicates that, on other datasets where the only context that could be derived were based on timestamps, many users would leave these ratings in a relatively short period of time, making them not representative of the contextual situation of the user at the time of consumption.
+The paper thus proposes the LDOS-CoMoDa dataset containing potential contextual information from the consumption stage, gathered through ratings and an accompanying questionnaire.
+\\\\
+\cite{COMODA2013} employed a relevant-context-detection procedure to determine which of these contextual variables were in fact relevant.
+This was done through statistical hypothesis testing with a power analysis, where independence was tested between each contextual variable and the ratings.
+The null hypothesis of the test stated that the two variables were independent, whereas the alternative hypothesis stated that they were dependent.
+If the null hypothesis was rejected, a conclusion was drawn that the contextual variable and the rating were dependent and thus the contextual information was relevant.
+They employed a significance level of $\alpha = 0.05$ for the test.
+\\\\
+The testing determined that six of the variables proved to be relevant, making them contextual - \textit{EndEmo, DominantEmo, Mood, Physical, Decision} and \textit{Interaction}.
+\textit{Location} and \textit{Daytype} could not be declared irrelevant, and \textit{Time, Season, Weather} and \textit{Social} were rejected as irrelevant contextual information.
+Generally, the paper finds that the variables detected as relevant perform better than the irrelevant ones, apart from the \textit{Mood} variable, which performed worse than a variable deemed irrelevant.
+This means that, with the exception of the variable \textit{Mood}, the paper finds that the contextual variables detected as relevant tend to perform better than the uncontextualized models, while the contextual variables detected as irrelevant tend to perform worse than the uncontextualized models, if there are enough ratings per each context variable value during training.
+The anomaly regarding \textit{Mood} can be explained by an insolated case of high sparsity in the negative condition for the dataset.
+
+\todo{A little discussion of how papers use it}
+
+
+\subsection{MovieLens}
+The MovieLens datasets are datasets provided by GroupLens research from the MovieLens web site.
+These datasets were collected over various periods of time, and are available in different sizes\cite{movielens}.
+The papers that were investigated made use of both the 1M dataset and the 100K stable benchmark datasets.
+The 1M dataset contains 1,000,209 ratings of 3706 movies made by 6040 users with a density of 4.47\%, representing the percentage of cells in the full user-item matrix that contain rating values\cite{MovieLens2015}.
+The 100K Dataset contains 100,000 ratings of 1682 movies made by 943 users with a density of 6.30\%\cite{MovieLens2015}.
+Each user in both datasets has rated at least 20 movies.
+The datasets do not contain specific contextual information, but it is possibly to derive a time context dimension from the timestamps provided along the ratings.
+
+\subsection{Frappé}
+Frappé is a mobile app recommender providing context-aware mobile app recommendations by means of a tensor factorization approach based on implicit feedback data\cite{baltrunas2015frappe}.
+Frappé was deployed on Android, leading to a context-aware app usage data set.
+Frappé collected implicit data on the following context dimensions: use count, time of day, weekday, whether or not it is weekend, home or at work, weather, country, city, application package, category, number of downloads, developer, icon, language, description, name, price, rating and short description. 
+The dataset consists of 96203 entries by 957 users for 4082 apps.
+
+\subsection{InCarMusic}
+InCarMusic is a mobile Android application offering music recommendations for the passengers of cars.
+In order to provide these recommendations, \cite{InCarMusic2011} collected the user's assessment of the effect of context on their music preferences, as well as had them enter ratings for tracks assuming certain contextual conditions held.
+\cite{InCarMusic2011} identified the following contextual variables as potentially relevant: driving style, road type, landscape, sleepiness, traffic conditions, mood, weather, natural phenomena.
+The data collection was carried out in two phases: one with an aim of determining the contextual factors that are more influential in changing the propensity of the user to listen to music of different genres, and another interested in individual tracks and their ratings, examining the case without considering any contextual conditions, and the case under the assumption that a certain contextual condition holds.
+Ultimately, this resulted in a dataset consisting of 4012 ratings, given by 42 different users on 139 songs.
+An issue with this dataset is that each entry only has data on one contextual dimension, and the rest are unknown.
+
+\subsection{DePaul}
+The \textit{DePaulMovie} dataset is another alternative.
+This dataset has 5,029 ratings from 1-5, given by 97 users on 79 movies within three different context dimensions: \textit{time, location} and \textit{companion}\cite{DePaulData}.
+The contextual dimensions distinguish between weekday or weekend, whether or not the movie was watched at home or at the cinema, and finally if it was watched alone, with family or with partner. 
+
+\begin{sidewaystable}[]
+    \begin{tabular}{|l|c|c|c|c|l|}
+    \hline
+                                                                                                                                                                              & \multicolumn{1}{l|}{LDOS-CoMoDa} & \multicolumn{1}{l|}{MovieLens} & \multicolumn{1}{l|}{Frappe} & \multicolumn{1}{l|}{InCarMusic} & DePaul                 \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Enhancing the Role of Large-Scale \\ Recommendation systems in the IoT Context\end{tabular}                                                    & x                                & x                              & x                           & x                               &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}A Three-way Classification with Game-theoretic \\ N-soft Sets for Handling Missing Ratings in\\ Context-aware Recommender Systems\end{tabular} & x                                &                                &                             & x                               &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}A Soft-Rough Set Based Approach for Handling\\ Contextual Sparsity in Context-Aware Video \\ Recommender Systems\end{tabular}                  & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Hierarchical Latent Context Representation for\\ Context-Aware Recommendations\end{tabular}                                                    & x                                &                                & x                           &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Adapt to Emotional reactions in\\ Context-aware Personalization\end{tabular}                                                                   & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}A Personalized Context-Aware Recommender\\ System Based on User-Item Preferences\end{tabular}                                                  & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Correlation-Based Pre-Filtering for\\ Context-Aware Recommendation\end{tabular}                                                                & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Recommendations With Context-Aware\\ Framework Using Particle Swarm\\ Optimization and Unsupervised Learning\end{tabular}                      & x                                &                                &                             & x                               &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Capturing Contextual influence in\\ Context-Aware Recommender Systems\end{tabular}                                                             & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Improving Recommendation Performance\\ With Auxiliary Information\end{tabular}                                                                 & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}An Improved Similarity Measure to\\ Alleviate Sparsity Problem in\\ Context-Aware Recommender Systems\end{tabular}                             & \multicolumn{1}{l|}{}            & x                              &                             & x                               &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Graph-Based Context-Aware\\ Collaborative Filtering\end{tabular}                                                                               & \multicolumn{1}{l|}{}            & x                              &                             & x                               & \multicolumn{1}{c|}{x} \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Movie Recommender System With\\ Metaheuristic Artificial Bee\end{tabular}                                                                      & \multicolumn{1}{l|}{}            & x                              &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Context-Aware Sequential \\ Recommendations With Stacked\\ Recurrent Neural Networks\end{tabular}                                              & \multicolumn{1}{l|}{}            & x                              &                             & \multicolumn{1}{l|}{}           &                        \\ \hline
+    \end{tabular}
+    \caption{Context-Aware papers and the datasets used.}
+    \label{tab:paperdatasets}
+\end{sidewaystable}
