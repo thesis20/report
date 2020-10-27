@@ -93,7 +93,7 @@ The datasets do not contain specific contextual information, but it is possibly 
 \subsection{Frappé}
 Frappé is a mobile app recommender providing context-aware mobile app recommendations by means of a tensor factorization approach based on implicit feedback data\cite{baltrunas2015frappe}.
 Frappé was deployed on Android, leading to a context-aware app usage data set.
-Frappé collected implicit data on the following context dimensions: use count, time of day, weekday, whether or not it is weekend, home or at work, weather, country, city, application package, category, number of downloads, developer, icon, language, description, name, price, rating and short description. 
+Frappé collected implicit data on the following relevant context dimensions: time of day, weekday, whether or not it is weekend, at home or at work, weather, country, cost and city. 
 The dataset consists of 96203 entries by 957 users for 4082 apps.
 
 \subsection{InCarMusic}
@@ -123,21 +123,45 @@ Properties relating to algorithmic effectiveness such as prediction accuracy, co
     \begin{tabular}{|l|c|c|c|c|l|}
     \hline
                                                                                                                                                                               & \multicolumn{1}{l|}{LDOS-CoMoDa} & \multicolumn{1}{l|}{MovieLens} & \multicolumn{1}{l|}{Frappe} & \multicolumn{1}{l|}{InCarMusic} & DePaul                 \\ \hline
-    \begin{tabular}[c]{@{}l@{}}Enhancing the Role of Large-Scale \\ Recommendation systems in the IoT Context\end{tabular}                                                    & x                                & x                              & x                           & x                               &                        \\ \hline
-    \begin{tabular}[c]{@{}l@{}}A Three-way Classification with Game-theoretic \\ N-soft Sets for Handling Missing Ratings in\\ Context-aware Recommender Systems\end{tabular} & x                                &                                &                             & x                               &                        \\ \hline
-    \begin{tabular}[c]{@{}l@{}}A Soft-Rough Set Based Approach for Handling\\ Contextual Sparsity in Context-Aware Video \\ Recommender Systems\end{tabular}                  & x                                &                                &                             &                                 &                        \\ \hline
-    \begin{tabular}[c]{@{}l@{}}Hierarchical Latent Context Representation for\\ Context-Aware Recommendations\end{tabular}                                                    & x                                &                                & x                           &                                 &                        \\ \hline
-    \begin{tabular}[c]{@{}l@{}}Adapt to Emotional reactions in\\ Context-aware Personalization\end{tabular}                                                                   & x                                &                                &                             &                                 &                        \\ \hline
-    \begin{tabular}[c]{@{}l@{}}A Personalized Context-Aware Recommender\\ System Based on User-Item Preferences\end{tabular}                                                  & x                                &                                &                             &                                 &                        \\ \hline
-    \begin{tabular}[c]{@{}l@{}}Correlation-Based Pre-Filtering for\\ Context-Aware Recommendation\end{tabular}                                                                & x                                &                                &                             &                                 &                        \\ \hline
-    \begin{tabular}[c]{@{}l@{}}Recommendations With Context-Aware\\ Framework Using Particle Swarm\\ Optimization and Unsupervised Learning\end{tabular}                      & x                                &                                &                             & x                               &                        \\ \hline
-    \begin{tabular}[c]{@{}l@{}}Capturing Contextual influence in\\ Context-Aware Recommender Systems\end{tabular}                                                             & x                                &                                &                             &                                 &                        \\ \hline
-    \begin{tabular}[c]{@{}l@{}}Improving Recommendation Performance\\ With Auxiliary Information\end{tabular}                                                                 & x                                &                                &                             &                                 &                        \\ \hline
-    \begin{tabular}[c]{@{}l@{}}An Improved Similarity Measure to\\ Alleviate Sparsity Problem in\\ Context-Aware Recommender Systems\end{tabular}                             & \multicolumn{1}{l|}{}            & x                              &                             & x                               &                        \\ \hline
-    \begin{tabular}[c]{@{}l@{}}Graph-Based Context-Aware\\ Collaborative Filtering\end{tabular}                                                                               & \multicolumn{1}{l|}{}            & x                              &                             & x                               & \multicolumn{1}{c|}{x} \\ \hline
-    \begin{tabular}[c]{@{}l@{}}Movie Recommender System With\\ Metaheuristic Artificial Bee\end{tabular}                                                                      & \multicolumn{1}{l|}{}            & x                              &                             &                                 &                        \\ \hline
-    \begin{tabular}[c]{@{}l@{}}Context-Aware Sequential \\ Recommendations With Stacked\\ Recurrent Neural Networks\end{tabular}                                              & \multicolumn{1}{l|}{}            & x                              &                             & \multicolumn{1}{l|}{}           &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{IoTLargeScale}\end{tabular}                                                    & x                                & x                              & x                           & x                               &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{GameTheoretic}\end{tabular} & x                                &                                &                             & x                               &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{Soft-RoughArticle}\end{tabular}                  & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{HierarchicalLatentPaper}\end{tabular}                                                    & x                                &                                & x                           &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{AdaptEmotionalReactions}\end{tabular}                                                                   & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{SinghUserItem}\end{tabular}                                                  & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{CorrelationPreFiltering}\end{tabular}                                                                & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Recommendations with context aware framework \\ using particle swarm optimization \\ and unsupervised learning\end{tabular}                      & x                                &                                &                             & x                               &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{ContextualInfluencePaper}\end{tabular}                                                             & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{AuxiliaryInformationPaper}\end{tabular}                                                                 & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{ImprovedSimilarityPaper}\end{tabular}                             & \multicolumn{1}{l|}{}            & x                              &                             & x                               &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{GraphBasedCollaborativePaper}\end{tabular}                                                                               & \multicolumn{1}{l|}{}            & x                              &                             & x                               & \multicolumn{1}{c|}{x} \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{ArtificalBeePaper}\end{tabular}                                                                      & \multicolumn{1}{l|}{}            & x                              &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{StackedRecurrentNeuralPaper}\end{tabular}                                              & \multicolumn{1}{l|}{}            & x                              &                             & \multicolumn{1}{l|}{}           &                        \\ \hline
     \end{tabular}
     \caption{Context-Aware papers and the datasets used.}
     \label{tab:paperdatasets}
 \end{sidewaystable}
+
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|c|c|} 
+    \hline
+               & \#Ratings & \#Items & \#Users & \#Context variables  \\ 
+    \hline
+    LDOS-CoMoDa    & 2296      & 1232    & 121     & 12                   \\ 
+    \hline
+    MovieLens 1M   & 1,000,209 & 3706    & 6040    & 1                    \\ 
+    \hline
+    MovieLens 100K & 100,000   & 1682    & 943     & 1                    \\ 
+    \hline
+    Frappé         & 96203     & 957     & 4082    & 8                    \\ 
+    \hline
+    InCarMusic     & 4012      & 139     & 42      & 8                    \\ 
+    \hline
+    DePaulMovie    & 5029      & 79      & 97      & 3                    \\
+    \hline
+    \end{tabular}
+    \caption{A final summary of the datasets.}
+    \label{tab:datasetstats}
+\end{table}
+
