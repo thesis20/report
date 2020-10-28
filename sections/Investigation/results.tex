@@ -78,9 +78,6 @@ Generally, the paper finds that the variables detected as relevant perform bette
 This means that, with the exception of the variable \textit{Mood}, the paper finds that the contextual variables detected as relevant tend to perform better than the uncontextualized models, while the contextual variables detected as irrelevant tend to perform worse than the uncontextualized models, if there are enough ratings per each context variable value during training.
 The anomaly regarding \textit{Mood} can be explained by an insolated case of high sparsity in the negative condition for the dataset.
 
-\todo{A little discussion of how papers use it}
-
-
 \subsection{MovieLens}
 The MovieLens datasets are datasets provided by GroupLens research from the MovieLens web site.
 These datasets were collected over various periods of time, and are available in different sizes\cite{movielens}.
@@ -117,16 +114,22 @@ When evaluating recommender systems the relevant properties must be determined.
 Each property is suited to certain types of tests, and different metrics are used for evaluating these properties.
 Some, such as user preference and trust are more suitable for testing through user studies.
 Properties relating to algorithmic effectiveness such as prediction accuracy, coverage and confidence are more suitable for offline experiments, while properties that relate to active use of the recommender system, such as serendipity, are suitable for online studies where real users interact with the system.
-\autoref{tab:paperdatasets2} shows the metrics used for evaluation for the different examined papers, as well as the percentage of papers employing that metric for evaluation.
+\\\\
+\autoref{tab:papermetrics} shows the metrics used for evaluation, as well as the percentage of papers employing that metric for evaluation, while \autoref{tab:papermetricsprotocols} examines each paper for the metrics used and the accompanying evaluation protocol.
 It is evident that most of these papers focus on offline evaluation, investigating metrics related to algorithmic precision and efficiency, such as root-mean-square error(RMSE), mean absolute error(MAE) and F1-measure.
 These metrics are useful for two important problems associated with recommender systems: rating prediction and top-N recommendation\cite{RecommenderHandbook2015}.
 The rating prediction problem concerns itself with predicting the rating that a user $u$ will give an unrated item $i$, which is often defined as learning a function $f : U \times I \rightarrow S$, that predicts the rating $f(u, i)$ of a user $u$ for a new item $i$, where $U$ the set of users, $I$ is the set of items, and $S$ is the set of possible values for a rating.
+Typically, ratings in a set of ratings $R$ are divided into a training set $R_train$ used to learn $f$, and a test set $R_test$ used for evaluation prediction accuracy, which is usually done through MAE and RMSE.
 The top-N recommendation problem is the task of recommending a list $L(u_a)$ to an active user $u_a$ containing $N$ items to likely be of interest.
-Generally, the papers examined in \autoref{tab:paperdatasets2} employ cross validation across a number of folds, across a range of 3-10 folds.
-\todo{Særning om at de evaluerer vha crossfold vilidation, giv en range på størrelsen af deres forskellige sæt.}
+Evaluating the quality of such method can be done by splitting $I$ into a training set $I_train$ used to learn $L$ and a test set $I_test$.
+Let $T(u) \subset I_u \cap I_test$, where $I_u$ is the subset of items that have been rated by user $u$.
 
-
-
+\todo{indsæt formler, mae, rmse, precision, recall}
+\todo{ndcg}
+\\\\
+Generally, the papers examined in \autoref{tab:papermetricsprotocols} employ cross validation across a number of folds, in a range of 3-10 folds.
+\cite{GameTheoretic}, \cite{Soft-RoughArticle}, \cite{SinghUserItem}, \cite{StackedRecurrentNeuralPaper} and \cite{ContextualInfluencePaper} do not specify a number of folds, but rather just split the data into either two or three sets, with 20\%-80\% being used for training, and the remaining either spread across validation and testing or just testing.
+\cite{AuxiliaryInformationPaper} and \cite{ArtificalBeePaper} do not specify their protocol, opting to simply report results.
 
 \begin{table}[]
     \centering
@@ -157,11 +160,11 @@ Generally, the papers examined in \autoref{tab:paperdatasets2} employ cross vali
     \hline
        & Evaluation Metrics                                                                      & Evaluation Protocol                                                                                                          \\ \hline
        \cite{IoTLargeScale}  & \begin{tabular}[c]{@{}l@{}}RMSE, MSE, MAE, Precision, \\ Recall, F-measure\end{tabular} & 5-fold, 4 training and 1 test                                                                                                \\ \hline
-       \cite{GameTheoretic}  & \begin{tabular}[c]{@{}l@{}}RMSE, MAE, Recall@N, \\ DCG@N\end{tabular}                   & \begin{tabular}[c]{@{}l@{}}50\% training, 30\% testing,\\ 20\% validation, averaged results\end{tabular}                     \\ \hline
-       \cite{Soft-RoughArticle}  & Recall@N, DCG@N                                                                         & \begin{tabular}[c]{@{}l@{}}20\% training,, 30\% testing, \\ 50\% test and train from learning\end{tabular}                   \\ \hline
+       \cite{GameTheoretic}  & \begin{tabular}[c]{@{}l@{}}RMSE, MAE, Recall@N, \\ DCG@N\end{tabular}                   & \begin{tabular}[c]{@{}l@{}}50\% training, 30\% testing,\\ 20\% validation\end{tabular}                     \\ \hline
+       \cite{Soft-RoughArticle}  & Recall@N, DCG@N                                                                         & \begin{tabular}[c]{@{}l@{}}20\% training, 30\% testing, \\ 50\% test and train from learning\end{tabular}                   \\ \hline
        \cite{HierarchicalLatentPaper}  & RMSE, MAE                                                                               & \begin{tabular}[c]{@{}l@{}}10 subsets, each subset split into \\ 80\% training, 10\% testing,\\ 10\% validation\end{tabular} \\ \hline
        \cite{AdaptEmotionalReactions}  & MAE, NDCG@N, Precision                                                                  & 5-fold, 4 training and 1 test                                                                                                \\ \hline
-       \cite{SinghUserItem}  & MAE, Coverage                                                                           & 50\% training, 20\% test                                                                                                     \\ \hline
+       \cite{SinghUserItem}  & MAE, Coverage                                                                           & 80\% training, 20\% test                                                                                                     \\ \hline
        \cite{CorrelationPreFiltering}  & MAE, RMSE                                                                               & 5-fold                                                                                                                       \\ \hline
        \cite{ParticleSwarmPaper}  & \begin{tabular}[c]{@{}l@{}}MAE, RMSE, Precision, Recall, \\ F1-measure\end{tabular}     & 3-fold, 2 training and 1 test                                                                                                \\ \hline
        \cite{ContextualInfluencePaper}  & RMSE                                                                                    & \begin{tabular}[c]{@{}l@{}}2:1 proportion of training to test,\\ averaged over 20 iterations\end{tabular}                    \\ \hline
@@ -171,20 +174,20 @@ Generally, the papers examined in \autoref{tab:paperdatasets2} employ cross vali
        \cite{ArtificalBeePaper} & \begin{tabular}[c]{@{}l@{}}MAE, Precision@N, \\ Recall@N,\end{tabular}                  & Unspecified                                                                                                                  \\ \hline
        \cite{StackedRecurrentNeuralPaper} & \begin{tabular}[c]{@{}l@{}}Recall@N, Precision@N, \\ F1@N, NDCG\end{tabular}            & \begin{tabular}[c]{@{}l@{}}First 80\% of each user's history for training,\\  remaining 20\% for test\end{tabular}           \\ \hline
     \end{tabular}
+    \caption{Context-Aware papers and the corresponding evaluation metrics and protocols.}
+    \label{tab:papermetricsprotocols}
     \end{table}
-
-
 
 \begin{sidewaystable}[]
     \begin{tabular}{|l|c|c|c|c|l|l|l|}
     \hline
        & \multicolumn{1}{l|}{LDOS-CoMoDa} & \multicolumn{1}{l|}{MovieLens} & \multicolumn{1}{l|}{Frappe} & \multicolumn{1}{l|}{InCarMusic} & DePaul                 & Evaluation Metrics                                                                      & Evaluation Protocol                                                                                                          \\ \hline
        \cite{IoTLargeScale}  & x                                & x                              & x                           & x                               &                        & \begin{tabular}[c]{@{}l@{}}RMSE, MSE, MAE, Precision, \\ Recall, F-measure\end{tabular} & 5-fold, 4 training and 1 test                                                                                                \\ \hline
-       \cite{GameTheoretic}  & x                                &                                &                             & x                               &                        & \begin{tabular}[c]{@{}l@{}}RMSE, MAE, Recall@N, \\ DCG@N\end{tabular}                   & \begin{tabular}[c]{@{}l@{}}50\% training, 30\% testing,\\ 20\% validation, averaged results\end{tabular}                     \\ \hline
-       \cite{Soft-RoughArticle}  & x                                &                                &                             &                                 &                        & Recall@N, DCG@N                                                                         & \begin{tabular}[c]{@{}l@{}}20\% training,, 30\% testing, \\ 50\% test and train from learning\end{tabular}                   \\ \hline
+       \cite{GameTheoretic}  & x                                &                                &                             & x                               &                        & \begin{tabular}[c]{@{}l@{}}RMSE, MAE, Recall@N, \\ DCG@N\end{tabular}                   & \begin{tabular}[c]{@{}l@{}}50\% training, 30\% testing,\\ 20\% validation\end{tabular}                     \\ \hline
+       \cite{Soft-RoughArticle}  & x                                &                                &                             &                                 &                        & Recall@N, DCG@N                                                                         & \begin{tabular}[c]{@{}l@{}}20\% training, 30\% testing, \\ 50\% test and train from learning\end{tabular}                   \\ \hline
        \cite{HierarchicalLatentPaper}  & x                                &                                & x                           &                                 &                        & RMSE, MAE                                                                               & \begin{tabular}[c]{@{}l@{}}10 subsets, each subset split into \\ 80\% training, 10\% testing,\\ 10\% validation\end{tabular} \\ \hline
        \cite{AdaptEmotionalReactions}  & x                                &                                &                             &                                 &                        & MAE, NDCG@N, Precision                                                                  & 5-fold, 4 training and 1 test                                                                                                \\ \hline
-       \cite{SinghUserItem}  & x                                &                                &                             &                                 &                        & MAE, Coverage                                                                           & 50\% training, 20\% test                                                                                                     \\ \hline
+       \cite{SinghUserItem}  & x                                &                                &                             &                                 &                        & MAE, Coverage                                                                           & 80\% training, 20\% test                                                                                                     \\ \hline
        \cite{CorrelationPreFiltering}   & x                                &                                &                             &                                 &                        & MAE, RMSE                                                                               & 5-fold                                                                                                                       \\ \hline
        \cite{ParticleSwarmPaper}  & x                                &                                &                             & x                               &                        & \begin{tabular}[c]{@{}l@{}}MAE, RMSE, Precision, Recall, \\ F1-measure\end{tabular}     & 3-fold, 2 training and 1 test                                                                                                \\ \hline
        \cite{ContextualInfluencePaper}  & x                                &                                &                             &                                 &                        & RMSE                                                                                    & \begin{tabular}[c]{@{}l@{}}2:1 proportion of training to test,\\ averaged over 20 iterations\end{tabular}                    \\ \hline
