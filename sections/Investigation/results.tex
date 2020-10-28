@@ -117,6 +117,15 @@ When evaluating recommender systems the relevant properties must be determined.
 Each property is suited to certain types of tests, and different metrics are used for evaluating these properties.
 Some, such as user preference and trust are more suitable for testing through user studies.
 Properties relating to algorithmic effectiveness such as prediction accuracy, coverage and confidence are more suitable for offline experiments, while properties that relate to active use of the recommender system, such as serendipity, are suitable for online studies where real users interact with the system.
+\autoref{tab:paperdatasets2} shows the metrics used for evaluation for the different examined papers, as well as the percentage of papers employing that metric for evaluation.
+It is evident that most of these papers focus on offline evaluation, investigating metrics related to algorithmic precision and efficiency, such as root-mean-square error(RMSE), mean absolute error(MAE) and F1-measure.
+These metrics are useful for two important problems associated with recommender systems: rating prediction and top-N recommendation\cite{RecommenderHandbook2015}.
+The rating prediction problem concerns itself with predicting the rating that a user $u$ will give an unrated item $i$, which is often defined as learning a function $f : U \times I \rightarrow S$, that predicts the rating $f(u, i)$ of a user $u$ for a new item $i$, where $U$ the set of users, $I$ is the set of items, and $S$ is the set of possible values for a rating.
+The top-N recommendation problem is the task of recommending a list $L(u_a)$ to an active user $u_a$ containing $N$ items to likely be of interest.
+Generally, the papers examined in \autoref{tab:paperdatasets2} employ cross validation across a number of folds, across a range of 3-10 folds.
+\todo{Særning om at de evaluerer vha crossfold vilidation, giv en range på størrelsen af deres forskellige sæt.}
+
+
 
 
 \begin{table}[]
@@ -143,28 +152,80 @@ Properties relating to algorithmic effectiveness such as prediction accuracy, co
     \label{tab:paperdatasets}
 \end{table}
 
-\begin{sidewaystable}[]
-    \begin{tabular}{|l|c|c|c|c|l|l|}
+\begin{table}[]
+    \begin{tabular}{|l|l|l|}
     \hline
-       & \multicolumn{1}{l|}{LDOS-CoMoDa} & \multicolumn{1}{l|}{MovieLens} & \multicolumn{1}{l|}{Frappe} & \multicolumn{1}{l|}{InCarMusic} & DePaul                 & Evaluation Metrics                           \\ \hline
-       \cite{IoTLargeScale}  & x                                & x                              & x                           & x                               &                        & RMSE, MSE, MAE, Precision, Recall, F-measure \\ \hline
-       \cite{GameTheoretic}  & x                                &                                &                             & x                               &                        & RMSE, MAE, Recall@N, DCG@N                   \\ \hline
-       \cite{Soft-RoughArticle}  & x                                &                                &                             &                                 &                        & Recall@N, DCG@N                              \\ \hline
-       \cite{HierarchicalLatentPaper}  & x                                &                                & x                           &                                 &                        & RMSE, MAE                                    \\ \hline
-       \cite{AdaptEmotionalReactions}  & x                                &                                &                             &                                 &                        & MAE, NDCG@N, Precision                       \\ \hline
-       \cite{SinghUserItem}  & x                                &                                &                             &                                 &                        & MAE, Coverage                                \\ \hline
-       \cite{CorrelationPreFiltering}  & x                                &                                &                             &                                 &                        & MAE, RMSE                                    \\ \hline
-       \cite{ParticleSwarmPaper}  & x                                &                                &                             & x                               &                        & MAE, RMSE, Precision, Recall, F1-measure     \\ \hline
-       \cite{ContextualInfluencePaper}  & x                                &                                &                             &                                 &                        & RMSE                                         \\ \hline
-       \cite{AuxiliaryInformationPaper} & x                                &                                &                             &                                 &                        & RMSE, MAE                                    \\ \hline
-       \cite{ImprovedSimilarityPaper} & \multicolumn{1}{l|}{}            & x                              &                             & x                               &                        & RMSE, MAE, Precision@N, Recall@N, F1-measure \\ \hline
-       \cite{GraphBasedCollaborativePaper} & \multicolumn{1}{l|}{}            & x                              &                             & x                               & \multicolumn{1}{c|}{x} & Precision@N, MAP@N                           \\ \hline
-       \cite{ArtificalBeePaper} & \multicolumn{1}{l|}{}            & x                              &                             &                                 &                        & MAE, Precision@N, Recall@N,                  \\ \hline
-       \cite{StackedRecurrentNeuralPaper} & \multicolumn{1}{l|}{}            & x                              &                             & \multicolumn{1}{l|}{}           &                        & Recall@N, Precision@N, F1@N, NDCG            \\ \hline
+       & Evaluation Metrics                                                                      & Evaluation Protocol                                                                                                          \\ \hline
+       \cite{IoTLargeScale}  & \begin{tabular}[c]{@{}l@{}}RMSE, MSE, MAE, Precision, \\ Recall, F-measure\end{tabular} & 5-fold, 4 training and 1 test                                                                                                \\ \hline
+       \cite{GameTheoretic}  & \begin{tabular}[c]{@{}l@{}}RMSE, MAE, Recall@N, \\ DCG@N\end{tabular}                   & \begin{tabular}[c]{@{}l@{}}50\% training, 30\% testing,\\ 20\% validation, averaged results\end{tabular}                     \\ \hline
+       \cite{Soft-RoughArticle}  & Recall@N, DCG@N                                                                         & \begin{tabular}[c]{@{}l@{}}20\% training,, 30\% testing, \\ 50\% test and train from learning\end{tabular}                   \\ \hline
+       \cite{HierarchicalLatentPaper}  & RMSE, MAE                                                                               & \begin{tabular}[c]{@{}l@{}}10 subsets, each subset split into \\ 80\% training, 10\% testing,\\ 10\% validation\end{tabular} \\ \hline
+       \cite{AdaptEmotionalReactions}  & MAE, NDCG@N, Precision                                                                  & 5-fold, 4 training and 1 test                                                                                                \\ \hline
+       \cite{SinghUserItem}  & MAE, Coverage                                                                           & 50\% training, 20\% test                                                                                                     \\ \hline
+       \cite{CorrelationPreFiltering}  & MAE, RMSE                                                                               & 5-fold                                                                                                                       \\ \hline
+       \cite{ParticleSwarmPaper}  & \begin{tabular}[c]{@{}l@{}}MAE, RMSE, Precision, Recall, \\ F1-measure\end{tabular}     & 3-fold, 2 training and 1 test                                                                                                \\ \hline
+       \cite{ContextualInfluencePaper}  & RMSE                                                                                    & \begin{tabular}[c]{@{}l@{}}2:1 proportion of training to test,\\ averaged over 20 iterations\end{tabular}                    \\ \hline
+       \cite{AuxiliaryInformationPaper} & RMSE, MAE                                                                               & Unspecified                                                                                                                  \\ \hline
+       \cite{ImprovedSimilarityPaper} & \begin{tabular}[c]{@{}l@{}}RMSE, MAE, Precision@N, \\ Recall@N, F1-measure\end{tabular} & \begin{tabular}[c]{@{}l@{}}3 random partitions, 2 for training and\\ 1 for testing, average over 5 iterations\end{tabular}   \\ \hline
+       \cite{GraphBasedCollaborativePaper} & Precision@N, MAP@N                                                                      & 10-fold, average over 10 iterations                                                                                          \\ \hline
+       \cite{ArtificalBeePaper} & \begin{tabular}[c]{@{}l@{}}MAE, Precision@N, \\ Recall@N,\end{tabular}                  & Unspecified                                                                                                                  \\ \hline
+       \cite{StackedRecurrentNeuralPaper} & \begin{tabular}[c]{@{}l@{}}Recall@N, Precision@N, \\ F1@N, NDCG\end{tabular}            & \begin{tabular}[c]{@{}l@{}}First 80\% of each user's history for training,\\  remaining 20\% for test\end{tabular}           \\ \hline
+    \end{tabular}
+    \end{table}
+
+
+
+\begin{sidewaystable}[]
+    \begin{tabular}{|l|c|c|c|c|l|l|l|}
+    \hline
+       & \multicolumn{1}{l|}{LDOS-CoMoDa} & \multicolumn{1}{l|}{MovieLens} & \multicolumn{1}{l|}{Frappe} & \multicolumn{1}{l|}{InCarMusic} & DePaul                 & Evaluation Metrics                                                                      & Evaluation Protocol                                                                                                          \\ \hline
+       \cite{IoTLargeScale}  & x                                & x                              & x                           & x                               &                        & \begin{tabular}[c]{@{}l@{}}RMSE, MSE, MAE, Precision, \\ Recall, F-measure\end{tabular} & 5-fold, 4 training and 1 test                                                                                                \\ \hline
+       \cite{GameTheoretic}  & x                                &                                &                             & x                               &                        & \begin{tabular}[c]{@{}l@{}}RMSE, MAE, Recall@N, \\ DCG@N\end{tabular}                   & \begin{tabular}[c]{@{}l@{}}50\% training, 30\% testing,\\ 20\% validation, averaged results\end{tabular}                     \\ \hline
+       \cite{Soft-RoughArticle}  & x                                &                                &                             &                                 &                        & Recall@N, DCG@N                                                                         & \begin{tabular}[c]{@{}l@{}}20\% training,, 30\% testing, \\ 50\% test and train from learning\end{tabular}                   \\ \hline
+       \cite{HierarchicalLatentPaper}  & x                                &                                & x                           &                                 &                        & RMSE, MAE                                                                               & \begin{tabular}[c]{@{}l@{}}10 subsets, each subset split into \\ 80\% training, 10\% testing,\\ 10\% validation\end{tabular} \\ \hline
+       \cite{AdaptEmotionalReactions}  & x                                &                                &                             &                                 &                        & MAE, NDCG@N, Precision                                                                  & 5-fold, 4 training and 1 test                                                                                                \\ \hline
+       \cite{SinghUserItem}  & x                                &                                &                             &                                 &                        & MAE, Coverage                                                                           & 50\% training, 20\% test                                                                                                     \\ \hline
+       \cite{CorrelationPreFiltering}   & x                                &                                &                             &                                 &                        & MAE, RMSE                                                                               & 5-fold                                                                                                                       \\ \hline
+       \cite{ParticleSwarmPaper}  & x                                &                                &                             & x                               &                        & \begin{tabular}[c]{@{}l@{}}MAE, RMSE, Precision, Recall, \\ F1-measure\end{tabular}     & 3-fold, 2 training and 1 test                                                                                                \\ \hline
+       \cite{ContextualInfluencePaper}  & x                                &                                &                             &                                 &                        & RMSE                                                                                    & \begin{tabular}[c]{@{}l@{}}2:1 proportion of training to test,\\ averaged over 20 iterations\end{tabular}                    \\ \hline
+       \cite{AuxiliaryInformationPaper} & x                                &                                &                             &                                 &                        & RMSE, MAE                                                                               & Unspecified                                                                                                                  \\ \hline
+       \cite{ImprovedSimilarityPaper} & \multicolumn{1}{l|}{}            & x                              &                             & x                               &                        & \begin{tabular}[c]{@{}l@{}}RMSE, MAE, Precision@N, \\ Recall@N, F1-measure\end{tabular} & \begin{tabular}[c]{@{}l@{}}3 random partitions, 2 for training\\ and 1 for testing, \\average over 5 iterations\end{tabular}   \\ \hline
+       \cite{GraphBasedCollaborativePaper} & \multicolumn{1}{l|}{}            & x                              &                             & x                               & \multicolumn{1}{c|}{x} & Precision@N, MAP@N                                                                      & 10-fold, average over 10 iterations                                                                                          \\ \hline
+       \cite{ArtificalBeePaper} & \multicolumn{1}{l|}{}            & x                              &                             &                                 &                        & \begin{tabular}[c]{@{}l@{}}MAE, Precision@N, \\ Recall@N,\end{tabular}                  & Unspecified                                                                                                                  \\ \hline
+       \cite{StackedRecurrentNeuralPaper} & \multicolumn{1}{l|}{}            & x                              &                             & \multicolumn{1}{l|}{}           &                        & \begin{tabular}[c]{@{}l@{}}Recall@N, Precision@N, \\ F1@N, NDCG\end{tabular}            & \begin{tabular}[c]{@{}l@{}}First 80\% of each user's history\\ for training, remaining 20\% for test\end{tabular}           \\ \hline
     \end{tabular}
     \caption{Context-Aware papers and the datasets used.}
-    \label{tab:paperdatasets}
-\end{sidewaystable}
+    \label{tab:paperdatasets3}
+    \end{sidewaystable}
+
+
+    \begin{table}
+        \centering
+        \begin{tabular}{|c|c|c|} 
+        \hline
+                   & \#Number & Percentage  \\ 
+        \hline
+        RMSE       & 8        & 57.14       \\ 
+        \hline
+        MAE        & 10       & 71.43       \\ 
+        \hline
+        MSE        & 1        & 7.14        \\ 
+        \hline
+        Precision  & 7        & 50          \\ 
+        \hline
+        Recall     & 7        & 50          \\ 
+        \hline
+        DCG        & 4        & 28.57       \\ 
+        \hline
+        NDCG       & 2        & 14.29       \\ 
+        \hline
+        F1-measure & 3        & 21.43       \\
+        \hline
+        \end{tabular}
+        \caption{Total number of papers using a given metric.}
+        \label{tab:papermetrics}
+    \end{table}
+
 
 \begin{table}
     \centering
