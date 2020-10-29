@@ -106,8 +106,6 @@ The \textit{DePaulMovie} dataset is another alternative.
 This dataset has 5,029 ratings from 1-5, given by 97 users on 79 movies within three different context dimensions: \textit{time, location} and \textit{companion}\cite{DePaulData}.
 The contextual dimensions distinguish between weekday or weekend, whether or not the movie was watched at home or at the cinema, and finally if it was watched alone, with family or with partner.
 
-\section{How the papers used the datasets}
-
 \section{Evaluation protocols}
 When evaluating recommender systems the relevant properties must be determined.
 \cite{RecommenderHandbook2015} defines a set of properties for recommender systems: \textit{user preference, prediction accuracy, coverage, confidence, trust, novelty, serendipity, diversity, utility, risk, robustness, privacy, adaptivity} and \textit{scalability}.
@@ -118,14 +116,46 @@ Properties relating to algorithmic effectiveness such as prediction accuracy, co
 \autoref{tab:papermetrics} shows the metrics used for evaluation, as well as the percentage of papers employing that metric for evaluation, while \autoref{tab:papermetricsprotocols} examines each paper for the metrics used and the accompanying evaluation protocol.
 It is evident that most of these papers focus on offline evaluation, investigating metrics related to algorithmic precision and efficiency, such as root-mean-square error(RMSE), mean absolute error(MAE) and F1-measure.
 These metrics are useful for two important problems associated with recommender systems: rating prediction and top-N recommendation\cite{RecommenderHandbook2015}.
-The rating prediction problem concerns itself with predicting the rating that a user $u$ will give an unrated item $i$, which is often defined as learning a function $f : U \times I \rightarrow S$, that predicts the rating $f(u, i)$ of a user $u$ for a new item $i$, where $U$ the set of users, $I$ is the set of items, and $S$ is the set of possible values for a rating.
-Typically, ratings in a set of ratings $R$ are divided into a training set $R_train$ used to learn $f$, and a test set $R_test$ used for evaluation prediction accuracy, which is usually done through MAE and RMSE.
+\\\\
+The rating prediction problem concerns itself with predicting the rating that a user $u$ will give an unrated item $i$ denoted as $r_{ui}$, which is often defined as learning a function $f : U \times I \rightarrow S$, that predicts the rating $f(u, i)$ of a user $u$ for a new item $i$, where $U$ the set of users, $I$ is the set of items, and $S$ is the set of possible values for a rating.
+Typically, ratings in a set of ratings $R$ are divided into a training set $R_{train}$ used to learn $f$, and a test set $R_{test}$ used for evaluation prediction accuracy, which is usually done through MAE and RMSE.
+MAE is calculated according to \autoref{eqn:MAE}.
+\begin{equation}
+    \label{eqn:MAE}
+    MAE(f) = \frac{1}{|R_{test}|} \sum\limits_{r_{ui} \epsilon R_{test}} |f(u,i)-r_{ui}|
+\end{equation}
+RMSE is calculated according to \autoref{eqn:RMSE}.
+\begin{equation}
+    \label{eqn:RMSE}
+    RMSE(f) = \sqrt{\frac{1}{R_{test}} \sum\limits_{r_{ui} \epsilon R_{test}} (f(u, i) - r_{ui})^2}
+\end{equation}
 The top-N recommendation problem is the task of recommending a list $L(u_a)$ to an active user $u_a$ containing $N$ items to likely be of interest.
-Evaluating the quality of such method can be done by splitting $I$ into a training set $I_train$ used to learn $L$ and a test set $I_test$.
-Let $T(u) \subset I_u \cap I_test$, where $I_u$ is the subset of items that have been rated by user $u$.
-
-\todo{indsæt formler, mae, rmse, precision, recall}
-\todo{ndcg}
+Evaluating the quality of such method can be done by splitting $I$ into a training set $I_{train}$ used to learn $L$ and a test set $I_{test}$.
+Let $T(u) \subset I_u \cap I_{test}$, where $I_u$ is the subset of items that have been rated by user $u$, then precision can be calculated according to \autoref{eqn:precision}, and recall according to \autoref{eqn:recall}.
+\begin{equation}
+    \label{eqn:precision}
+    Precision(L) = \frac{1}{|U|} \sum\limits_{u \epsilon U} |L(u) \cap T(u)| / |L(u)|
+\end{equation}
+\begin{equation}
+    \label{eqn:recall}
+    Recall(L) = \frac{1}{|U|} \sum\limits_{u \epsilon U} |L(u) \cap T(u)| / |T(u)|
+\end{equation}
+The f1-measure also employed by some of the papers summarizes precision and recall into a single number, defined by \autoref{eqn:f1}.
+\begin{equation}
+    \label{eqn:f1}
+    \frac{2*precision*recall}{precision+recall}
+\end{equation}
+Finally, some of the papers use the Discounted Cumulative Gain(DCG) metric, or the normalized version NDCG.
+Assuming each user $u$ has a gain $g_{ui}$ from being recommended item $i$, then the average DCG for a list of $J$ items is defined in \autoref{eqn:dcg}, where $i_j$ is the item at position $j$ in the list, and the logarithm base is a free parameter, where $2$ is most commonly used to ensure all positions are discounted.
+\begin{equation}
+    \label{eqn:dcg}
+    DCG = \frac{1}{N} \sum\limits_{u=1}^N \sum\limits_{j = 1}^J \frac{g_{ui_j}}{log_b (j+1)}
+\end{equation}
+NDCG is defined in \autoref{eqn:ndcg}, where $DCG*$ is the ideal DCG, which is defined by sorting the DCG vector such that the most relevant items appear in the start of the list\cite{dcgpaper}, resulting in the biggest possible DCG value.
+\begin{equation}
+    \label{eqn:ndcg}
+    NDCG = \frac{DCG}{DCG*}
+\end{equation}
 \\\\
 Generally, the papers examined in \autoref{tab:papermetricsprotocols} employ cross validation across a number of folds, in a range of 3-10 folds.
 \cite{GameTheoretic}, \cite{Soft-RoughArticle}, \cite{SinghUserItem}, \cite{StackedRecurrentNeuralPaper} and \cite{ContextualInfluencePaper} do not specify a number of folds, but rather just split the data into either two or three sets, with 20\%-80\% being used for training, and the remaining either spread across validation and testing or just testing.
@@ -178,30 +208,6 @@ Generally, the papers examined in \autoref{tab:papermetricsprotocols} employ cro
     \label{tab:papermetricsprotocols}
     \end{table}
 
-\begin{sidewaystable}[]
-    \begin{tabular}{|l|c|c|c|c|l|l|l|}
-    \hline
-       & \multicolumn{1}{l|}{LDOS-CoMoDa} & \multicolumn{1}{l|}{MovieLens} & \multicolumn{1}{l|}{Frappe} & \multicolumn{1}{l|}{InCarMusic} & DePaul                 & Evaluation Metrics                                                                      & Evaluation Protocol                                                                                                          \\ \hline
-       \cite{IoTLargeScale}  & x                                & x                              & x                           & x                               &                        & \begin{tabular}[c]{@{}l@{}}RMSE, MSE, MAE, Precision, \\ Recall, F-measure\end{tabular} & 5-fold, 4 training and 1 test                                                                                                \\ \hline
-       \cite{GameTheoretic}  & x                                &                                &                             & x                               &                        & \begin{tabular}[c]{@{}l@{}}RMSE, MAE, Recall@N, \\ DCG@N\end{tabular}                   & \begin{tabular}[c]{@{}l@{}}50\% training, 30\% testing,\\ 20\% validation\end{tabular}                     \\ \hline
-       \cite{Soft-RoughArticle}  & x                                &                                &                             &                                 &                        & Recall@N, DCG@N                                                                         & \begin{tabular}[c]{@{}l@{}}20\% training, 30\% testing, \\ 50\% test and train from learning\end{tabular}                   \\ \hline
-       \cite{HierarchicalLatentPaper}  & x                                &                                & x                           &                                 &                        & RMSE, MAE                                                                               & \begin{tabular}[c]{@{}l@{}}10 subsets, each subset split into \\ 80\% training, 10\% testing,\\ 10\% validation\end{tabular} \\ \hline
-       \cite{AdaptEmotionalReactions}  & x                                &                                &                             &                                 &                        & MAE, NDCG@N, Precision                                                                  & 5-fold, 4 training and 1 test                                                                                                \\ \hline
-       \cite{SinghUserItem}  & x                                &                                &                             &                                 &                        & MAE, Coverage                                                                           & 80\% training, 20\% test                                                                                                     \\ \hline
-       \cite{CorrelationPreFiltering}   & x                                &                                &                             &                                 &                        & MAE, RMSE                                                                               & 5-fold                                                                                                                       \\ \hline
-       \cite{ParticleSwarmPaper}  & x                                &                                &                             & x                               &                        & \begin{tabular}[c]{@{}l@{}}MAE, RMSE, Precision, Recall, \\ F1-measure\end{tabular}     & 3-fold, 2 training and 1 test                                                                                                \\ \hline
-       \cite{ContextualInfluencePaper}  & x                                &                                &                             &                                 &                        & RMSE                                                                                    & \begin{tabular}[c]{@{}l@{}}2:1 proportion of training to test,\\ averaged over 20 iterations\end{tabular}                    \\ \hline
-       \cite{AuxiliaryInformationPaper} & x                                &                                &                             &                                 &                        & RMSE, MAE                                                                               & Unspecified                                                                                                                  \\ \hline
-       \cite{ImprovedSimilarityPaper} & \multicolumn{1}{l|}{}            & x                              &                             & x                               &                        & \begin{tabular}[c]{@{}l@{}}RMSE, MAE, Precision@N, \\ Recall@N, F1-measure\end{tabular} & \begin{tabular}[c]{@{}l@{}}3 random partitions, 2 for training\\ and 1 for testing, \\average over 5 iterations\end{tabular}   \\ \hline
-       \cite{GraphBasedCollaborativePaper} & \multicolumn{1}{l|}{}            & x                              &                             & x                               & \multicolumn{1}{c|}{x} & Precision@N, MAP@N                                                                      & 10-fold, average over 10 iterations                                                                                          \\ \hline
-       \cite{ArtificalBeePaper} & \multicolumn{1}{l|}{}            & x                              &                             &                                 &                        & \begin{tabular}[c]{@{}l@{}}MAE, Precision@N, \\ Recall@N,\end{tabular}                  & Unspecified                                                                                                                  \\ \hline
-       \cite{StackedRecurrentNeuralPaper} & \multicolumn{1}{l|}{}            & x                              &                             & \multicolumn{1}{l|}{}           &                        & \begin{tabular}[c]{@{}l@{}}Recall@N, Precision@N, \\ F1@N, NDCG\end{tabular}            & \begin{tabular}[c]{@{}l@{}}First 80\% of each user's history\\ for training, remaining 20\% for test\end{tabular}           \\ \hline
-    \end{tabular}
-    \caption{Context-Aware papers and the datasets used.}
-    \label{tab:paperdatasets3}
-    \end{sidewaystable}
-
-
     \begin{table}
         \centering
         \begin{tabular}{|c|c|c|} 
@@ -229,6 +235,10 @@ Generally, the papers examined in \autoref{tab:papermetricsprotocols} employ cro
         \label{tab:papermetrics}
     \end{table}
 
+\section{Summary}
+A summary of the details of the datasets can be seen in \autoref{tab:datasetstats}.
+The most interesting datasets for context-aware recommendation are LDOS-CoMoDa due to the amount of contextual values, the MovieLens datasets due to their size and ability to extract a temporal context, as well as Frappé due to its size.
+Most of the examined papers perform offline evaluation, mainly employing RMSE and MAE to evaluate the algorithms, and cross-validate on the sets when testing.
 
 \begin{table}
     \centering
