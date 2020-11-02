@@ -145,7 +145,7 @@ The F1-measure also employed by some of the papers summarizes precision and reca
     \label{eqn:f1}
     \frac{2*precision*recall}{precision+recall}
 \end{equation}
-Finally, some of the papers use the Discounted Cumulative Gain(DCG) metric, or the normalized version NDCG.
+Finally, some of the papers use the Discounted Cumulative Gain(DCG) metric or the normalized version NDCG.
 Assuming each user $u$ has a gain $g_{ui}$ from being recommended item $i$, then the average DCG for a list of $J$ items is defined in \autoref{eqn:dcg}, where $i_j$ is the item at position $j$ in the list, and the logarithm base is a free parameter, where $2$ is most commonly used to ensure all positions are discounted.
 \begin{equation}
     \label{eqn:dcg}
