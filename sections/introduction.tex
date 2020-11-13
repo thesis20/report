@@ -3,7 +3,7 @@ Recommender systems(RS) are widely used to combat information overload for users
 RS are conventionally defined through three categories - \textit{content-based}, \textit{collaborative filtering} and \textit{hybrid}.
 \textit{Content-based} RS provide recommendations based on content information such as genre, \textit{collaborative filtering} recommend items based on similar users, and \textit{hybrid} combines the approaches\cite{ContextSurvey2020}.
 \textit{Context-Aware Recommender Systems} (CARS) exist as a subset of RS, aiming to incorporate contextual information into the process of recommendation.
-For a movie RS, the objective is to estimate a rating function $R: User \times Item \rightarrow Rating$ for the $(user, \ item)$ pairs that are not yet rated\cite{RecommenderHandbook2015}.
+For a movie RS, the objective is to estimate a rating function $R: User \times Item \rightarrow Rating$ for the $(user, \ item)$ pairs that are not yet rated\cite[p.~191-227]{RecommenderHandbook2015}.
 CARS extends this function to $R: User \times Item \times Context \rightarrow Rating$, taking the known contextual information associated with the application into account.
 Contextual information can be classified into three categories: \textit{fully observable}, \textit{partially observable} and \textit{unobservable}.
 Fully observable contextual information is available explicitly, partially observable defines that only some of the information is available, and unobservable defines that no contextual information is explicitly available.
