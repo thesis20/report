@@ -142,7 +142,21 @@ Let $T(u) \subset I_u \cap I_{test}$, where $I_u$ is the subset of items that ha
 The F1-measure also employed by some of the papers summarizes precision and recall into a single number, defined by \autoref{eqn:f1}.
 \begin{equation}
     \label{eqn:f1}
-    \frac{2*precision*recall}{precision+recall}
+    F1-measure = \frac{2*precision*recall}{precision+recall}
+\end{equation}
+Other metrics are derived from these basic information retrieval metrics, with \textit{Mean Average Precision} (MAP) representing a popular metric\cite{ChoosingMetricsEvaluation}.
+To calculate MAP, \textit{Average Precision} (AP) must first be calculated.
+This measure takes each relevant item and calculates precision in relation to the position of the item in the recommendation set.
+This is defined in \autoref{eq:averageprecision}, where $P(r)$ is the precision at the $r^{th}$ item and $rel(r)$ is an indicator that the item was relevant, taking the value of either 1 if relevant, or 0 if not.
+A point to note about AP is that it rewards recommendation lists with relevant items appearing at the front of the list, leading to a higher AP value in comparison to lists where all relevant items appear nearer the N value. 
+\begin{equation}
+    \label{eq:averageprecision}
+    AP = \frac{\sum\limits_{r=1}^N (P(r) \times rel(r))}{number \: of \: relevant \: documents}
+\end{equation}
+Once AP is calculated for a single user $u$, MAP@N for a recommender system is defined through \autoref{eq:map}, where $U$ is the set of all users: 
+\begin{equation}
+    \label{eq:map}
+    MAP = \frac{\sum\limits_{u=1}^U AP_u}{U}
 \end{equation}
 Finally, some of the papers use the Discounted Cumulative Gain(DCG) metric or the normalized version NDCG.
 Assuming each user $u$ has a gain $g_{ui}$ from being recommended item $i$, then the average DCG for a list of $J$ items is defined in \autoref{eqn:dcg}, where $i_j$ is the item at position $j$ in the list, and the logarithm base is a free parameter, where $2$ is most commonly used to ensure all positions are discounted.
