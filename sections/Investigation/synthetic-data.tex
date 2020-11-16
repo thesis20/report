@@ -7,3 +7,32 @@ If \texttt{c} is 1, the corresponding rating, between 1 and 5, is increased by 1
 If \texttt{c} is 0, the rating is instead decreased by 1 if is not already 1.
 An $\alpha$ value is then chosen between 0 and 1 which determines the fractions of ratings that are affected by the contextual feature \texttt{c}.
 By using this method, one can modify a dataset into being artificially context dependent for testing purposes.
+This approach can be seen in \autoref{tab:synthetic-data1} and \autoref{tab:synthetic-data2}.
+\begin{table}[hbt!]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    UserId & MovieId & Rating \\ [0.5ex] 
+    \hline\hline
+    1 & 101 & 3 \\
+    \hline
+    2 & 102 & 4 \\
+    \hline
+    \end{tabular}
+    \caption{Ratings table without the contextual feature}
+    \label{tab:synthetic-data1}
+\end{table}
+\begin{table}[hbt!]
+    \centering
+    \begin{tabular}{|c|c|c|c|} 
+    \hline
+    UserId & MovieId & Rating & ContextualFeature \\ [0.5ex] 
+    \hline\hline
+    1 & 101 & 2 & 0 \\
+    \hline
+    2 & 102 & 5 & 1 \\
+    \hline
+    \end{tabular}
+    \caption{Ratings table with the contextual feature}
+    \label{tab:synthetic-data2}
+\end{table}
