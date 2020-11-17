@@ -145,7 +145,7 @@ The F1-measure also employed by some of the papers summarizes precision and reca
     F1-measure = \frac{2*precision*recall}{precision+recall}
 \end{equation}
 Other metrics are derived from these basic information retrieval metrics, with \textit{Mean Average Precision} (MAP) representing a popular metric \cite{ChoosingMetricsEvaluation}.
-To calculate MAP, \textit{Average Precision} (AP) must first be calculated.
+To calculate MAP, the first step is to calculate the \textit{Average Precision} (AP).
 This measure takes each relevant item and calculates precision in relation to the position of the item in the recommendation set.
 This is defined in \autoref{eq:averageprecision}, where $P(r)$ is the precision at the $r^{th}$ item and $rel(r)$ is an indicator that the item was relevant, taking the value of either 1 if relevant, or 0 if not.
 A point to note about AP is that it rewards recommendation lists with relevant items appearing at the front of the list, leading to a higher AP value in comparison to lists where all relevant items appear nearer the N value. 
