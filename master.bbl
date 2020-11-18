@@ -1,0 +1,1145 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nty/global//global/global}
+  \entry{Soft-RoughArticle}{article}{}
+    \name{author}{3}{}{%
+      {{hash=AS}{%
+         family={Abbas},
+         familyi={A\bibinitperiod},
+         given={Syed},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=AK}{%
+         family={Alam},
+         familyi={A\bibinitperiod},
+         given={Khubaib},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=BS}{%
+         family={Band},
+         familyi={B\bibinitperiod},
+         given={Shahab},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ASAKBS1}
+    \strng{fullhash}{ASAKBS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \verb{doi}
+    \verb 10.3390/math7080740
+    \endverb
+    \field{pages}{740}
+    \field{title}{A Soft-Rough Set Based Approach for Handling Contextual
+  Sparsity in Context-Aware Video Recommender Systems}
+    \field{volume}{7}
+    \field{journaltitle}{Mathematics}
+    \field{month}{08}
+    \field{year}{2019}
+  \endentry
+
+  \entry{GameTheoretic}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=AS}{%
+         family={Abbas},
+         familyi={A\bibinitperiod},
+         given={Syed},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=AK}{%
+         family={Alam},
+         familyi={A\bibinitperiod},
+         given={Khubaib},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=KKM}{%
+         family={Ko},
+         familyi={K\bibinitperiod},
+         given={Kwang-Man},
+         giveni={K\bibinithyphendelim M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ASAKKKM1}
+    \strng{fullhash}{ASAKKKM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \verb{doi}
+    \verb 10.1109/FUZZ48607.2020.9177701
+    \endverb
+    \field{pages}{1\bibrangedash 8}
+    \field{title}{A Three-way Classification with Game-theoretic N-Soft Sets
+  for Handling Missing Ratings in Context-aware Recommender Systems}
+    \field{month}{07}
+    \field{year}{2020}
+  \endentry
+
+  \entry{Adomavicius2011}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=AG}{%
+         family={Adomavicius},
+         familyi={A\bibinitperiod},
+         given={Gediminas},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=TA}{%
+         family={Tuzhilin},
+         familyi={T\bibinitperiod},
+         given={Alexander},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \name{editor}{4}{}{%
+      {{hash=RF}{%
+         family={Ricci},
+         familyi={R\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=RL}{%
+         family={Rokach},
+         familyi={R\bibinitperiod},
+         given={Lior},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Shapira},
+         familyi={S\bibinitperiod},
+         given={Bracha},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=KPB}{%
+         family={Kantor},
+         familyi={K\bibinitperiod},
+         given={Paul\bibnamedelima B.},
+         giveni={P\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer US}%
+    }
+    \strng{namehash}{AGTA1}
+    \strng{fullhash}{AGTA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{abstract}{%
+    The importance of contextual information has been recognized by researchers
+  and practitioners in many disciplines, including e-commerce personalization,
+  information retrieval, ubiquitous and mobile computing, data mining,
+  marketing, and management. While a substantial amount of research has already
+  been performed in the area of recommender systems, most existing approaches
+  focus on recommending the most relevant items to users without taking into
+  account any additional contextual information, such as time, location, or the
+  company of other people (e.g., for watching movies or dining out). In this
+  chapter we argue that relevant contextual information does matter in
+  recommender systems and that it is important to take this information into
+  account when providing recommendations. We discuss the general notion of
+  context and how it can be modeled in recommender systems. Furthermore, we
+  introduce three different algorithmic paradigms -- contextual prefiltering,
+  post-filtering, and modeling -- for incorporating contextual information into
+  the recommendation process, discuss the possibilities of combining several
+  contextaware recommendation techniques into a single unifying approach, and
+  provide a case study of one such combined approach. Finally, we present
+  additional capabilities for context-aware recommenders and discuss important
+  and promising directions for future research.%
+    }
+    \field{booktitle}{Recommender Systems Handbook}
+    \verb{doi}
+    \verb 10.1007/978-0-387-85820-3_7
+    \endverb
+    \field{isbn}{978-0-387-85820-3}
+    \field{pages}{217\bibrangedash 253}
+    \field{title}{Context-Aware Recommender Systems}
+    \verb{url}
+    \verb https://doi.org/10.1007/978-0-387-85820-3_7
+    \endverb
+    \list{location}{1}{%
+      {Boston, MA}%
+    }
+    \field{year}{2011}
+  \endentry
+
+  \entry{aggarwal2016recommender}{book}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{1}{}{%
+      {{hash=ACC}{%
+         family={Aggarwal},
+         familyi={A\bibinitperiod},
+         given={Charu\bibnamedelima C},
+         giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{ACC+1}
+    \strng{fullhash}{ACC+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{Recommender systems}
+    \field{volume}{1}
+    \field{year}{2016}
+  \endentry
+
+  \entry{baltrunasContextItemSplit}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=BL}{%
+         family={Baltrunas},
+         familyi={B\bibinitperiod},
+         given={Linas},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=RF}{%
+         family={Ricci},
+         familyi={R\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BLRF1}
+    \strng{fullhash}{BLRF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1145/1639714.1639759
+    \endverb
+    \field{pages}{245\bibrangedash 248}
+    \field{title}{Context-based splitting of item ratings in collaborative
+  filtering}
+    \field{journaltitle}{RecSys'09 - Proceedings of the 3rd ACM Conference on
+  Recommender Systems}
+    \field{month}{01}
+    \field{year}{2009}
+  \endentry
+
+  \entry{baltrunas2015frappe}{misc}{}
+    \name{author}{4}{}{%
+      {{hash=BL}{%
+         family={Baltrunas},
+         familyi={B\bibinitperiod},
+         given={Linas},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=CK}{%
+         family={Church},
+         familyi={C\bibinitperiod},
+         given={Karen},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=KA}{%
+         family={Karatzoglou},
+         familyi={K\bibinitperiod},
+         given={Alexandros},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=ON}{%
+         family={Oliver},
+         familyi={O\bibinitperiod},
+         given={Nuria},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BL+1}
+    \strng{fullhash}{BLCKKAON1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{eprint}
+    \verb 1505.03014
+    \endverb
+    \field{title}{Frappe: Understanding the Usage and Perception of Mobile App
+  Recommendations In-The-Wild}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.IR}
+    \field{year}{2015}
+  \endentry
+
+  \entry{InCarMusic2011}{inproceedings}{}
+    \name{author}{8}{}{%
+      {{hash=BL}{%
+         family={Baltrunas},
+         familyi={B\bibinitperiod},
+         given={Linas},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Kaminskas},
+         familyi={K\bibinitperiod},
+         given={Marius},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LB}{%
+         family={Ludwig},
+         familyi={L\bibinitperiod},
+         given={Bernd},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=MO}{%
+         family={Moling},
+         familyi={M\bibinitperiod},
+         given={Omar},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=RF}{%
+         family={Ricci},
+         familyi={R\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=AA}{%
+         family={Aydin},
+         familyi={A\bibinitperiod},
+         given={Aykan},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=LKH}{%
+         family={Lüke},
+         familyi={L\bibinitperiod},
+         given={Karl-Heinz},
+         giveni={K\bibinithyphendelim H\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Schwaiger},
+         familyi={S\bibinitperiod},
+         given={Roland},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BL+1}
+    \strng{fullhash}{BLKMLBMORFAALKHSR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.1007/978-3-642-23014-1_8
+    \endverb
+    \field{isbn}{978-3-642-23013-4}
+    \field{pages}{89\bibrangedash 100}
+    \field{title}{InCarMusic: Context-Aware Music Recommendations in a Car}
+    \field{volume}{85}
+    \field{journaltitle}{Lect. Note. Bus. Info. Proc.}
+    \field{month}{08}
+    \field{year}{2011}
+  \endentry
+
+  \entry{10.1007/978-3-642-39878-0_13}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=CPG}{%
+         family={Campos},
+         familyi={C\bibinitperiod},
+         given={Pedro\bibnamedelima G.},
+         giveni={P\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=FTI}{%
+         family={Fern{\'a}ndez-Tob{\'i}as},
+         familyi={F\bibinithyphendelim T\bibinitperiod},
+         given={Ignacio},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=CI}{%
+         family={Cantador},
+         familyi={C\bibinitperiod},
+         given={Iv{\'a}n},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=DF}{%
+         family={D{\'i}ez},
+         familyi={D\bibinitperiod},
+         given={Fernando},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \name{editor}{2}{}{%
+      {{hash=HC}{%
+         family={Huemer},
+         familyi={H\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=LP}{%
+         family={Lops},
+         familyi={L\bibinitperiod},
+         given={Pasquale},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Berlin Heidelberg}%
+    }
+    \strng{namehash}{CPG+1}
+    \strng{fullhash}{CPGFTICIDF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{abstract}{%
+    Context-aware recommender systems have been proven to improve the
+  performance of recommendations in a wide array of domains and applications.
+  Despite individual improvements, little work has been done on comparing
+  different approaches, in order to determine which of them outperform the
+  others, and under what circumstances. In this paper we address this issue by
+  conducting an empirical comparison of several pre-filtering, post-filtering
+  and contextual modeling approaches on the movie recommendation domain. To
+  acquire confident contextual information, we performed a user study where
+  participants were asked to rate movies, stating the time and social companion
+  with which they preferred to watch the rated movies. The results of our
+  evaluation show that there is neither a clear superior contextualization
+  approach nor an always best contextual signal, and that achieved improvements
+  depend on the recommendation algorithm used together with each
+  contextualization approach. Nonetheless, we conclude with a number of cues
+  and advices about which particular combinations of contextualization
+  approaches and recommendation algorithms could be better suited for the movie
+  recommendation domain.%
+    }
+    \field{booktitle}{E-Commerce and Web Technologies}
+    \field{isbn}{978-3-642-39878-0}
+    \field{pages}{137\bibrangedash 149}
+    \field{title}{Context-Aware Movie Recommendations: An Empirical Comparison
+  of Pre-filtering, Post-filtering and Contextual Modeling Approaches}
+    \list{location}{1}{%
+      {Berlin, Heidelberg}%
+    }
+    \field{year}{2013}
+  \endentry
+
+  \entry{ImprovedSimilarityPaper}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=DV}{%
+         family={Dixit},
+         familyi={D\bibinitperiod},
+         given={V.s},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=JP}{%
+         family={Jain},
+         familyi={J\bibinitperiod},
+         given={Parul},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DVJP1}
+    \strng{fullhash}{DVJP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \verb{doi}
+    \verb 10.1007/978-981-13-2348-5_21
+    \endverb
+    \field{isbn}{978-981-13-2347-8}
+    \field{pages}{281\bibrangedash 295}
+    \field{title}{An Improved Similarity Measure to Alleviate Sparsity Problem
+  in Context-Aware Recommender Systems}
+    \field{month}{01}
+    \field{year}{2018}
+  \endentry
+
+  \entry{ParticleSwarmPaper}{article}{}
+    \name{author}{2}{}{%
+      {{hash=DV}{%
+         family={Dixit},
+         familyi={D\bibinitperiod},
+         given={V.s},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=JP}{%
+         family={Jain},
+         familyi={J\bibinitperiod},
+         given={Parul},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DVJP1}
+    \strng{fullhash}{DVJP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \verb{doi}
+    \verb 10.3233/JIFS-179001
+    \endverb
+    \field{pages}{1\bibrangedash 12}
+    \field{title}{Recommendations with context aware framework using particle
+  swarm optimization and unsupervised learning}
+    \field{volume}{36}
+    \field{journaltitle}{Journal of Intelligent \& Fuzzy Systems}
+    \field{month}{02}
+    \field{year}{2019}
+  \endentry
+
+  \entry{CorrelationPreFiltering}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=FZV}{%
+         family={{Ferdousi}},
+         familyi={F\bibinitperiod},
+         given={Z.\bibnamedelima V.},
+         giveni={Z\bibinitperiod\bibinitdelim V\bibinitperiod},
+      }}%
+      {{hash=CD}{%
+         family={{Colazzo}},
+         familyi={C\bibinitperiod},
+         given={D.},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=NE}{%
+         family={{Negre}},
+         familyi={N\bibinitperiod},
+         given={E.},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FZVCDNE1}
+    \strng{fullhash}{FZVCDNE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{booktitle}{2018 IEEE International Conference on Pervasive Computing
+  and Communications Workshops (PerCom Workshops)}
+    \verb{doi}
+    \verb 10.1109/PERCOMW.2018.8480278
+    \endverb
+    \field{pages}{89\bibrangedash 94}
+    \field{title}{Correlation-Based Pre-Filtering for Context-Aware
+  Recommendation}
+    \field{year}{2018}
+  \endentry
+
+  \entry{MovieLens2015}{article}{}
+    \name{author}{2}{}{%
+      {{hash=HFM}{%
+         family={Harper},
+         familyi={H\bibinitperiod},
+         given={F.\bibnamedelima Maxwell},
+         giveni={F\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=KJA}{%
+         family={Konstan},
+         familyi={K\bibinitperiod},
+         given={Joseph\bibnamedelima A.},
+         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computing Machinery}%
+    }
+    \keyw{ratings, Datasets, MovieLens, recommendations}
+    \strng{namehash}{HFMKJA1}
+    \strng{fullhash}{HFMKJA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{abstract}{%
+    The MovieLens datasets are widely used in education, research, and
+  industry. They are downloaded hundreds of thousands of times each year,
+  reflecting their use in popular press programming books, traditional and
+  online courses, and software. These datasets are a product of member activity
+  in the MovieLens movie recommendation system, an active research platform
+  that has hosted many experiments since its launch in 1997. This article
+  documents the history of MovieLens and the MovieLens datasets. We include a
+  discussion of lessons learned from running a long-standing, live research
+  platform from the perspective of a research organization. We document best
+  practices and limitations of using the MovieLens datasets in new research.%
+    }
+    \verb{doi}
+    \verb 10.1145/2827872
+    \endverb
+    \field{issn}{2160-6455}
+    \field{number}{4}
+    \field{title}{The MovieLens Datasets: History and Context}
+    \verb{url}
+    \verb https://doi-org.zorac.aub.aau.dk/10.1145/2827872
+    \endverb
+    \field{volume}{5}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{journaltitle}{ACM Trans. Interact. Intell. Syst.}
+    \field{month}{12}
+    \field{year}{2015}
+  \endentry
+
+  \entry{dcgpaper}{article}{}
+    \name{author}{2}{}{%
+      {{hash=JK}{%
+         family={J\"{a}rvelin},
+         familyi={J\bibinitperiod},
+         given={Kalervo},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=KJ}{%
+         family={Kek\"{a}l\"{a}inen},
+         familyi={K\bibinitperiod},
+         given={Jaana},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computing Machinery}%
+    }
+    \keyw{Graded relevance judgments, cumulated gain}
+    \strng{namehash}{JKKJ1}
+    \strng{fullhash}{JKKJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{abstract}{%
+    Modern large retrieval environments tend to overwhelm their users by their
+  large output. Since all documents are not of equal relevance to their users,
+  highly relevant documents should be identified and ranked first for
+  presentation. In order to develop IR techniques in this direction, it is
+  necessary to develop evaluation approaches and methods that credit IR methods
+  for their ability to retrieve highly relevant documents. This can be done by
+  extending traditional evaluation methods, that is, recall and precision based
+  on binary relevance judgments, to graded relevance judgments. Alternatively,
+  novel measures based on graded relevance judgments may be developed. This
+  article proposes several novel measures that compute the cumulative gain the
+  user obtains by examining the retrieval result up to a given ranked position.
+  The first one accumulates the relevance scores of retrieved documents along
+  the ranked result list. The second one is similar but applies a discount
+  factor to the relevance scores in order to devaluate late-retrieved
+  documents. The third one computes the relative-to-the-ideal performance of IR
+  techniques, based on the cumulative gain they are able to yield. These novel
+  measures are defined and discussed and their use is demonstrated in a case
+  study using TREC data: sample system run results for 20 queries in TREC-7. As
+  a relevance base we used novel graded relevance judgments on a four-point
+  scale. The test results indicate that the proposed measures credit IR methods
+  for their ability to retrieve highly relevant documents and allow testing of
+  statistical significance of effectiveness differences. The graphs based on
+  the measures also provide insight into the performance IR techniques and
+  allow interpretation, for example, from the user point of view.%
+    }
+    \verb{doi}
+    \verb 10.1145/582415.582418
+    \endverb
+    \field{issn}{1046-8188}
+    \field{number}{4}
+    \field{pages}{422–446}
+    \field{title}{Cumulated Gain-Based Evaluation of IR Techniques}
+    \verb{url}
+    \verb https://doi-org.zorac.aub.aau.dk/10.1145/582415.582418
+    \endverb
+    \field{volume}{20}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{journaltitle}{ACM Trans. Inf. Syst.}
+    \field{month}{10}
+    \field{year}{2002}
+  \endentry
+
+  \entry{IoTLargeScale}{article}{}
+    \name{author}{1}{}{%
+      {{hash=KR}{%
+         family={{Kashef}},
+         familyi={K\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KR1}
+    \strng{fullhash}{KR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \verb{doi}
+    \verb 10.1109/ACCESS.2020.3026310
+    \endverb
+    \field{pages}{178248\bibrangedash 178257}
+    \field{title}{Enhancing the Role of Large-Scale Recommendation Systems in
+  the IoT Context}
+    \field{volume}{8}
+    \field{journaltitle}{IEEE Access}
+    \field{year}{2020}
+  \endentry
+
+  \entry{ArtificalBeePaper}{article}{}
+    \name{author}{1}{}{%
+      {{hash=KR}{%
+         family={Katarya},
+         familyi={K\bibinitperiod},
+         given={Rahul},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KR2}
+    \strng{fullhash}{KR2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \verb{doi}
+    \verb 10.1007/s00521-017-3338-4
+    \endverb
+    \field{title}{Movie recommender system with metaheuristic artificial bee}
+    \field{volume}{30}
+    \field{journaltitle}{Neural Computing and Applications}
+    \field{month}{09}
+    \field{year}{2018}
+  \endentry
+
+  \entry{comoda}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+  \field{howpublished}{\url{https://www.lucami.org/en/research/ldos-comoda-dataset/}}
+    \field{note}{Accessed: 2020-10-23}
+    \field{title}{LDOS-CoMoDa}
+  \endentry
+
+  \entry{movielens}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{howpublished}{\url{https://grouplens.org/datasets/movielens/}}
+    \field{note}{Accessed: 2020-10-23}
+    \field{title}{MovieLens}
+  \endentry
+
+  \entry{COMODA2013}{article}{}
+    \name{author}{4}{}{%
+      {{hash=OA}{%
+         family={{Odić}},
+         familyi={O\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=TM}{%
+         family={{Tkalčič}},
+         familyi={T\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=TJF}{%
+         family={{Tasič}},
+         familyi={T\bibinitperiod},
+         given={J.\bibnamedelima F.},
+         giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=KA}{%
+         family={{Košir}},
+         familyi={K\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{OA+1}
+    \strng{fullhash}{OATMTJFKA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{O}
+    \field{sortinithash}{O}
+    \verb{doi}
+    \verb 10.1093/iwc/iws003
+    \endverb
+    \field{number}{1}
+    \field{pages}{74\bibrangedash 90}
+    \field{title}{Predicting and Detecting the Relevant Contextual Information
+  in a Movie-Recommender System}
+    \field{volume}{25}
+    \field{journaltitle}{Interacting with Computers}
+    \field{year}{2013}
+  \endentry
+
+  \entry{ContextualInfluencePaper}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=PVA}{%
+         family={{Patil}},
+         familyi={P\bibinitperiod},
+         given={V.\bibnamedelima A.},
+         giveni={V\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=JDJ}{%
+         family={{Jayaswal}},
+         familyi={J\bibinitperiod},
+         given={D.\bibnamedelima J.},
+         giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PVAJDJ1}
+    \strng{fullhash}{PVAJDJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{booktitle}{2019 International Conference on Data Science and
+  Engineering (ICDSE)}
+    \verb{doi}
+    \verb 10.1109/ICDSE47409.2019.8971789
+    \endverb
+    \field{pages}{96\bibrangedash 102}
+    \field{title}{Capturing Contextual Influence in Context Aware Recommender
+  Systems}
+    \field{year}{2019}
+  \endentry
+
+  \entry{GraphBasedCollaborativePaper}{article}{}
+    \name{author}{3}{}{%
+      {{hash=PT}{%
+         family={Phuong},
+         familyi={P\bibinitperiod},
+         given={Tu},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=DTL}{%
+         family={Do\bibnamedelima Thi},
+         familyi={D\bibinitperiod\bibinitdelim T\bibinitperiod},
+         given={Lien},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=NDP}{%
+         family={Nguyen\bibnamedelima Duy},
+         familyi={N\bibinitperiod\bibinitdelim D\bibinitperiod},
+         given={Phuong},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PTDTLNDP1}
+    \strng{fullhash}{PTDTLNDP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \verb{doi}
+    \verb 10.1016/j.eswa.2019.02.015
+    \endverb
+    \field{title}{Graph-based Context-Aware Collaborative Filtering}
+    \field{volume}{126}
+    \field{journaltitle}{Expert Systems with Applications}
+    \field{month}{02}
+    \field{year}{2019}
+  \endentry
+
+  \entry{StackedRecurrentNeuralPaper}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=RL}{%
+         family={Rakkappan},
+         familyi={R\bibinitperiod},
+         given={Lakshmanan},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=RV}{%
+         family={Rajan},
+         familyi={R\bibinitperiod},
+         given={Vaibhav},
+         giveni={V\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computing Machinery}%
+    }
+    \keyw{Context-Aware Recommendation, Stacked Recurrent Neural Network,
+  Sequential Recommendation}
+    \strng{namehash}{RLRV1}
+    \strng{fullhash}{RLRV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{abstract}{%
+    Sequential history of user interactions as well as the context of
+  interactions provide valuable information to recommender systems, for
+  modeling user behavior. Modeling both contexts and sequential information
+  simultaneously, in context-aware sequential recommenders, has been shown to
+  outperform methods that model either one of the two aspects. In long
+  sequential histories, temporal trends are also found within sequences of
+  contexts and temporal gaps that are not modeled by previous methods. In this
+  paper we design new context-aware sequential recommendation methods, based on
+  Stacked Recurrent Neural Networks, that model the dynamics of contexts and
+  temporal gaps. Experiments on two large benchmark datasets demonstrate the
+  advantages of modeling the evolution of contexts and temporal gaps - our
+  models significantly outperform state-of-the-art context-aware sequential
+  recommender systems.%
+    }
+    \field{booktitle}{The World Wide Web Conference}
+    \verb{doi}
+    \verb 10.1145/3308558.3313567
+    \endverb
+    \field{isbn}{9781450366748}
+    \field{pages}{3172–3178}
+    \field{series}{WWW '19}
+    \field{title}{Context-Aware Sequential Recommendations WithStacked
+  Recurrent Neural Networks}
+    \verb{url}
+    \verb https://doi.org/10.1145/3308558.3313567
+    \endverb
+    \list{location}{1}{%
+      {San Francisco, CA, USA}%
+    }
+    \field{year}{2019}
+    \warn{\item Can't use 'location' + 'address'}
+  \endentry
+
+  \entry{RecommenderHandbook2015}{book}{}
+    \name{author}{3}{}{%
+      {{hash=RF}{%
+         family={Ricci},
+         familyi={R\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=RL}{%
+         family={Rokach},
+         familyi={R\bibinitperiod},
+         given={Lior},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Shapira},
+         familyi={S\bibinitperiod},
+         given={Bracha},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{RFRLSB1}
+    \strng{fullhash}{RFRLSB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{Recommender systems Handbook}
+    \field{volume}{2}
+    \field{year}{2015}
+  \endentry
+
+  \entry{ChoosingMetricsEvaluation}{article}{}
+    \name{author}{3}{}{%
+      {{hash=SG}{%
+         family={Schröder},
+         familyi={S\bibinitperiod},
+         given={Gunnar},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=TM}{%
+         family={Thiele},
+         familyi={T\bibinitperiod},
+         given={Maik},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LW}{%
+         family={Lehner},
+         familyi={L\bibinitperiod},
+         given={Wolfgang},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SGTMLW1}
+    \strng{fullhash}{SGTMLW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Setting Goals and Choosing Metrics for Recommender System
+  Evaluations}
+    \field{volume}{811}
+    \field{month}{01}
+    \field{year}{2011}
+  \endentry
+
+  \entry{SinghUserItem}{inbook}{}
+    \name{author}{3}{}{%
+      {{hash=SM}{%
+         family={Singh},
+         familyi={S\bibinitperiod},
+         given={Mandheer},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SH}{%
+         family={Sahu},
+         familyi={S\bibinitperiod},
+         given={Himanshu},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=SN}{%
+         family={Sharma},
+         familyi={S\bibinitperiod},
+         given={Neha},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SMSHSN1}
+    \strng{fullhash}{SMSHSN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{doi}
+    \verb 10.1007/978-981-13-1274-8_28
+    \endverb
+    \field{isbn}{978-981-13-1273-1}
+    \field{pages}{357\bibrangedash 374}
+    \field{title}{A Personalized Context-Aware Recommender System Based on
+  User-Item Preferences: Proceedings of ICDMAI 2018, Volume 2}
+    \field{journaltitle}{Advances in Intelligent Systems and Computing}
+    \field{month}{01}
+    \field{year}{2019}
+  \endentry
+
+  \entry{HierarchicalLatentPaper}{article}{}
+    \name{author}{2}{}{%
+      {{hash=UM}{%
+         family={{Unger}},
+         familyi={U\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=TA}{%
+         family={{Tuzhilin}},
+         familyi={T\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{UMTA1}
+    \strng{fullhash}{UMTA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{U}
+    \field{sortinithash}{U}
+    \verb{doi}
+    \verb 10.1109/TKDE.2020.3022102
+    \endverb
+    \field{pages}{1\bibrangedash 1}
+    \field{title}{Hierarchical Latent Context Representation for Context-Aware
+  Recommendations}
+    \field{journaltitle}{IEEE Transactions on Knowledge and Data Engineering}
+    \field{year}{2020}
+  \endentry
+
+  \entry{DePaulData}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=ZY}{%
+         family={{Zheng}},
+         familyi={Z\bibinitperiod},
+         given={Y.},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=MB}{%
+         family={{Mobasher}},
+         familyi={M\bibinitperiod},
+         given={B.},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=BR}{%
+         family={{Burke}},
+         familyi={B\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZYMBBR1}
+    \strng{fullhash}{ZYMBBR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Z}
+    \field{sortinithash}{Z}
+    \field{booktitle}{2015 IEEE International Conference on Data Mining
+  Workshop (ICDMW)}
+    \verb{doi}
+    \verb 10.1109/ICDMW.2015.222
+    \endverb
+    \field{pages}{1668\bibrangedash 1671}
+    \field{title}{CARSKit: A Java-Based Context-Aware Recommendation Engine}
+    \field{year}{2015}
+  \endentry
+
+  \entry{AdaptEmotionalReactions}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=ZY}{%
+         family={Zheng},
+         familyi={Z\bibinitperiod},
+         given={Yong},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZY1}
+    \strng{fullhash}{ZY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Z}
+    \field{sortinithash}{Z}
+    \field{title}{Adapt to Emotional Reactions In Context-aware
+  Personalization}
+    \field{month}{09}
+    \field{year}{2016}
+  \endentry
+
+  \entry{AuxiliaryInformationPaper}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=ZW}{%
+         family={{Zhou}},
+         familyi={Z\bibinitperiod},
+         given={W.},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=LJ}{%
+         family={{Li}},
+         familyi={L\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=CY}{%
+         family={{Cai}},
+         familyi={C\bibinitperiod},
+         given={Y.},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GL}{%
+         family={{Guo}},
+         familyi={G\bibinitperiod},
+         given={L.},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZW+1}
+    \strng{fullhash}{ZWLJCYGL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Z}
+    \field{sortinithash}{Z}
+    \field{booktitle}{2019 16th International Computer Conference on Wavelet
+  Active Media Technology and Information Processing}
+    \verb{doi}
+    \verb 10.1109/ICCWAMTIP47768.2019.9067537
+    \endverb
+    \field{pages}{105\bibrangedash 108}
+    \field{title}{Improving Recommendation Performance with Auxiliary
+  Information}
+    \field{year}{2019}
+  \endentry
+\enddatalist
+\endinput
