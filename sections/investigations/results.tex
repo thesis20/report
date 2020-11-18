@@ -1,0 +1,241 @@
+\section{Investigating results in context-aware recommender systems}
+Context-aware recommender systems consider various types of contextual information such as time, location, and social information when generating recommendations.
+They have generally been observed to greatly improve the effectiveness of recommendation processes \cite{aggarwal2016recommender}.
+To establish the usefulness of adding context to recommender systems we will conduct an investigation into recent papers relating to the topic examining the experimental results of different proposed methods.
+We will investigate the kinds of context data used in existing papers, how this context data was used, and how it was evaluated.
+\autoref{tab:paperdatasets} shows an overview of different papers relating to the topic of context-aware recommendations and the datasets used for evaluation.
+In the following subsections we will discuss the specific datasets and how they were used.
+
+\subsection{LDOS-CoMoDa}
+The LDOS-CoMoDa dataset is a context rich movie recommender dataset\cite{comoda}.
+At the time of access, the dataset contains 121 users, 1232 unique movies, and 2296 ratings.
+Most context variables are expressed for each rating.
+The dataset contains the following context variables and their conditions:
+\begin{itemize}
+    \item Time: Morning, Afternoon, Evening, Night
+    \item Daytype: Working day, Weekend, Holiday
+    \item Season: Spring, Summer, Autumn, Winter
+    \item Location:  Home, Public place, Friend's house
+    \item Weather: Sunny / clear, Rainy, Stormy, Snowy, Cloudy
+    \item Social: Alone, My partner, Friends, Colleagues, Parents, Public, My family
+    \item EndEmo: Sad, Happy, Scared, Surprised, Angry, Disgusted, Neutral
+    \item DominantEmo: Sad, Happy, Scared, Surprised, Angry, Disgusted, Neutral
+    \item Mood: Positive, Neutral, Negative
+    \item Physical: Healthy, Ill
+    \item Decision: User decided which movie to watch, User was given a movie
+    \item Interaction: First interaction with a movie, N-th interaction with a movie
+\end{itemize}
+\textit{EndEmo} and \textit{DominantEmo} relate to the emotional state of the user during the consumption stage.
+\textit{DominantEmo} defines the emotional state that was dominant during the consumption of the movie, whereas \textit{EndEmo} defines the emotional state of the user at the end of the movie\cite{COMODA2013}.
+\cite{COMODA2013} indicates that, on other datasets where the only context that could be derived were based on timestamps, many users would leave these ratings in a relatively short period of time, making them not representative of the contextual situation of the user at the time of consumption.
+The paper thus proposes the LDOS-CoMoDa dataset containing potential contextual information from the consumption stage, gathered through ratings and an accompanying questionnaire.
+\\\\
+\cite{COMODA2013} employed a relevant-context-detection procedure to determine which of these contextual variables were in fact relevant.
+This was done through statistical hypothesis testing with a power analysis, where independence was tested between each contextual variable and the ratings.
+The null hypothesis of the test stated that the two variables were independent, whereas the alternative hypothesis stated that they were dependent.
+If the null hypothesis was rejected, a conclusion was drawn that the contextual variable and the rating were dependent and thus the contextual information was relevant.
+They employed a significance level of $\alpha = 0.05$ for the test.
+\\\\
+The testing determined that six of the variables proved to be relevant, making them contextual - \textit{EndEmo, DominantEmo, Mood, Physical, Decision} and \textit{Interaction}.
+\textit{Location} and \textit{Daytype} could not be declared irrelevant, and \textit{Time, Season, Weather} and \textit{Social} were rejected as irrelevant contextual information.
+Generally, the paper finds that the variables detected as relevant perform better than the irrelevant ones, apart from the \textit{Mood} variable, which performed worse than a variable deemed irrelevant.
+This means that, with the exception of the variable \textit{Mood}, the paper finds that the contextual variables detected as relevant tend to perform better than the uncontextualized models, while the contextual variables detected as irrelevant tend to perform worse than the uncontextualized models, if there are enough ratings per each context variable value during training.
+The anomaly regarding \textit{Mood} can be explained by an insolated case of high sparsity in the negative condition for the dataset.
+
+\subsection{MovieLens}
+The MovieLens datasets are datasets provided by GroupLens research from the MovieLens web site.
+These datasets were collected over various periods of time, and are available in different sizes\cite{movielens}.
+The papers that were investigated made use of both the 1M dataset and the 100K stable benchmark datasets.
+The 1M dataset contains 1,000,209 ratings of 3706 movies made by 6040 users with a density of 4.47\%, representing the percentage of cells in the full user-item matrix that contain rating values\cite{MovieLens2015}.
+The 100K Dataset contains 100,000 ratings of 1682 movies made by 943 users with a density of 6.30\%\cite{MovieLens2015}.
+Each user in both datasets has rated at least 20 movies.
+The datasets do not contain specific contextual information, but it is possibly to derive a time context dimension from the timestamps provided along the ratings.
+
+\subsection{Frappé}
+Frappé is a mobile app recommender providing context-aware mobile app recommendations by means of a tensor factorization approach based on implicit feedback data\cite{baltrunas2015frappe}.
+Frappé was deployed on Android, leading to a context-aware app usage data set.
+Frappé collected implicit data on the following relevant context dimensions: \textit{time of day, weekday, whether or not it is weekend, at home or at work, weather, country, cost} and \textit{city}. 
+The dataset consists of 96203 entries by 957 users for 4082 apps.
+
+\subsection{InCarMusic}
+InCarMusic is a mobile Android application offering music recommendations for the passengers of cars.
+In order to provide these recommendations, \cite{InCarMusic2011} collected the user's assessment of the effect of context on their music preferences, as well as had them enter ratings for tracks assuming certain contextual conditions held.
+\cite{InCarMusic2011} identified the following contextual variables as potentially relevant: driving style, road type, landscape, sleepiness, traffic conditions, mood, weather, natural phenomena.
+The data collection was carried out in two phases: one with an aim of determining the contextual factors that are more influential in changing the propensity of the user to listen to music of different genres, and another interested in individual tracks and their ratings, examining the case without considering any contextual conditions, and the case under the assumption that a certain contextual condition holds.
+Ultimately, this resulted in a dataset consisting of 4012 ratings, given by 42 different users on 139 songs.
+An issue with this dataset is that each entry only has data on one contextual dimension, and the rest are unknown.
+
+\subsection{DePaul}
+The \textit{DePaulMovie} dataset is another alternative.
+This dataset has 5,029 ratings from 1-5, given by 97 users on 79 movies within three different context dimensions: \textit{time, location} and \textit{companion}\cite{DePaulData}.
+The contextual dimensions distinguish between weekday or weekend, whether or not the movie was watched at home or at the cinema, and finally if it was watched alone, with family or with partner.
+
+\section{Evaluation protocols}
+Ricci et al. \cite{RecommenderHandbook2015} defines a set of properties for recommender systems for evaluation: \textit{user preference, prediction accuracy, coverage, confidence, trust, novelty, serendipity, diversity, utility, risk, robustness, privacy, adaptivity} and \textit{scalability}.
+Each property is suited to certain types of tests, and different metrics are used for evaluating these properties.
+Some, such as user preference and trust are more suitable for testing through user studies.
+Properties relating to algorithmic effectiveness such as prediction accuracy, coverage and confidence are more suitable for offline experiments, while properties that relate to active use of the recommender system, such as serendipity, are suitable for online studies where real users interact with the system.
+\\\\
+\autoref{tab:papermetrics} shows the metrics used for evaluation, as well as the percentage of papers employing that metric for evaluation, while \autoref{tab:papermetricsprotocols} examines each paper for the metrics used and the accompanying evaluation protocol.
+It is evident that most of these papers focus on offline evaluation, investigating metrics related to algorithmic precision and efficiency, such as root-mean-square error(RMSE), mean absolute error(MAE) and F1-measure.
+These metrics are useful for two important problems associated with recommender systems: rating prediction and top-N recommendation\cite{RecommenderHandbook2015}.
+\\\\
+The rating prediction problem concerns itself with predicting the rating that a user $u$ will give an unrated item $i$ denoted as $r_{ui}$, which is often defined as learning a function $f : U \times I \rightarrow S$, that predicts the rating $f(u, i)$ of a user $u$ for a new item $i$, where $U$ the set of users, $I$ is the set of items, and $S$ is the set of possible values for a rating.
+Typically, ratings in a set of ratings $R$ are divided into a training set $R_{train}$ used to learn $f$, and a test set $R_{test}$ used for evaluation prediction accuracy, which is usually done through MAE and RMSE.
+MAE is calculated according to \autoref{eqn:MAE}.
+\begin{equation}
+    \label{eqn:MAE}
+    MAE(f) = \frac{1}{|R_{test}|} \sum\limits_{r_{ui} \epsilon R_{test}} |f(u,i)-r_{ui}|
+\end{equation}
+RMSE is calculated according to \autoref{eqn:RMSE}.
+\begin{equation}
+    \label{eqn:RMSE}
+    RMSE(f) = \sqrt{\frac{1}{R_{test}} \sum\limits_{r_{ui} \epsilon R_{test}} (f(u, i) - r_{ui})^2}
+\end{equation}
+The top-N recommendation problem is the task of recommending a list $L(u_a)$ to an active user $u_a$ containing $N$ items to likely be of interest.
+Evaluating the quality of such method can be done by splitting $I$ into a training set $I_{train}$ used to learn $L$ and a test set $I_{test}$.
+Let $T(u) \subset I_u \cap I_{test}$, where $I_u$ is the subset of items that have been rated by user $u$, then precision can be calculated according to \autoref{eqn:precision}, and recall according to \autoref{eqn:recall}.
+\begin{equation}
+    \label{eqn:precision}
+    Precision(L) = \frac{1}{|U|} \sum\limits_{u \epsilon U} |L(u) \cap T(u)| / |L(u)|
+\end{equation}
+\begin{equation}
+    \label{eqn:recall}
+    Recall(L) = \frac{1}{|U|} \sum\limits_{u \epsilon U} |L(u) \cap T(u)| / |T(u)|
+\end{equation}
+The F1-measure also employed by some of the papers summarizes precision and recall into a single number, defined by \autoref{eqn:f1}.
+\begin{equation}
+    \label{eqn:f1}
+    F1-measure = \frac{2*precision*recall}{precision+recall}
+\end{equation}
+Other metrics are derived from these basic information retrieval metrics, with \textit{Mean Average Precision} (MAP) representing a popular metric \cite{ChoosingMetricsEvaluation}.
+To calculate MAP, the first step is to calculate the \textit{Average Precision} (AP).
+This measure takes each relevant item and calculates precision in relation to the position of the item in the recommendation set.
+This is defined in \autoref{eq:averageprecision}, where $P(r)$ is the precision at the $r^{th}$ item and $rel(r)$ is an indicator that the item was relevant, taking the value of either 1 if relevant, or 0 if not.
+A point to note about AP is that it rewards recommendation lists with relevant items appearing at the front of the list, leading to a higher AP value in comparison to lists where all relevant items appear nearer the N value. 
+\begin{equation}
+    \label{eq:averageprecision}
+    AP = \frac{\sum\limits_{r=1}^N (P(r) \times rel(r))}{number \: of \: relevant \: documents}
+\end{equation}
+Once the AP is calculated for a single user $u$, MAP@N for a recommender system is defined through \autoref{eq:map}, where $U$ is the set of all users: 
+\begin{equation}
+    \label{eq:map}
+    MAP = \frac{\sum\limits_{u=1}^U AP_u}{U}
+\end{equation}
+Finally, some of the papers use the Discounted Cumulative Gain(DCG) metric or the normalized version NDCG.
+Assuming each user $u$ has a gain $g_{ui}$ from being recommended item $i$, then the average DCG for a list of $J$ items is defined in \autoref{eqn:dcg}, where $i_j$ is the item at position $j$ in the list, and the logarithm base is a free parameter, where $2$ is most commonly used to ensure all positions are discounted.
+\begin{equation}
+    \label{eqn:dcg}
+    DCG = \frac{1}{N} \sum\limits_{u=1}^N \sum\limits_{j = 1}^J \frac{g_{ui_j}}{log_b (j+1)}
+\end{equation}
+NDCG is defined in \autoref{eqn:ndcg}, where $DCG*$ is the ideal DCG, which is defined by sorting the DCG vector such that the most relevant items appear in the start of the list\cite{dcgpaper}, resulting in the biggest possible DCG value.
+\begin{equation}
+    \label{eqn:ndcg}
+    NDCG = \frac{DCG}{DCG*}
+\end{equation}
+\\\\
+Generally, the papers examined in \autoref{tab:papermetricsprotocols} employ cross validation across a number of folds, in a range of 3-10 folds.
+\cite{GameTheoretic}, \cite{Soft-RoughArticle}, \cite{SinghUserItem}, \cite{StackedRecurrentNeuralPaper} and \cite{ContextualInfluencePaper} do not specify a number of folds, but rather just split the data into either two or three sets, with 20\%-80\% being used for training, and the remaining either spread across validation and testing or just testing.
+\cite{AuxiliaryInformationPaper} and \cite{ArtificalBeePaper} do not specify their protocol, opting to simply report results.
+
+\begin{table*}[]
+    \centering
+    \begin{tabular}{|l|c|c|c|c|l|}
+    \hline
+                                                                                                                                                                              & \multicolumn{1}{l|}{LDOS-CoMoDa} & \multicolumn{1}{l|}{MovieLens} & \multicolumn{1}{l|}{Frappe} & \multicolumn{1}{l|}{InCarMusic} & DePaul                 \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{IoTLargeScale}\end{tabular}                                                    & x                                & x                              & x                           & x                               &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{GameTheoretic}\end{tabular} & x                                &                                &                             & x                               &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{Soft-RoughArticle}\end{tabular}                  & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{HierarchicalLatentPaper}\end{tabular}                                                    & x                                &                                & x                           &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{AdaptEmotionalReactions}\end{tabular}                                                                   & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{SinghUserItem}\end{tabular}                                                  & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{CorrelationPreFiltering}\end{tabular}                                                                & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{ParticleSwarmPaper}\end{tabular}                      & x                                &                                &                             & x                               &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{ContextualInfluencePaper}\end{tabular}                                                             & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{AuxiliaryInformationPaper}\end{tabular}                                                                 & x                                &                                &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{ImprovedSimilarityPaper}\end{tabular}                             & \multicolumn{1}{l|}{}            & x                              &                             & x                               &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{GraphBasedCollaborativePaper}\end{tabular}                                                                               & \multicolumn{1}{l|}{}            & x                              &                             & x                               & \multicolumn{1}{c|}{x} \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{ArtificalBeePaper}\end{tabular}                                                                      & \multicolumn{1}{l|}{}            & x                              &                             &                                 &                        \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\cite{StackedRecurrentNeuralPaper}\end{tabular}                                              & \multicolumn{1}{l|}{}            & x                              &                             & \multicolumn{1}{l|}{}           &                        \\ \hline
+    \end{tabular}
+    \caption{Context-Aware papers and the datasets used.}
+    \label{tab:paperdatasets}
+\end{table*}
+
+\begin{table*}[]
+    \begin{tabular}{|l|l|l|}
+    \hline
+       & Evaluation Metrics                                                                      & Evaluation Protocol                                                                                                          \\ \hline
+       \cite{IoTLargeScale}  & \begin{tabular}[c]{@{}l@{}}RMSE, MSE, MAE, Precision, \\ Recall, F-measure\end{tabular} & 5-fold, 4 training and 1 test                                                                                                \\ \hline
+       \cite{GameTheoretic}  & \begin{tabular}[c]{@{}l@{}}RMSE, MAE, Recall@N, \\ DCG@N\end{tabular}                   & \begin{tabular}[c]{@{}l@{}}50\% training, 30\% testing,\\ 20\% validation\end{tabular}                     \\ \hline
+       \cite{Soft-RoughArticle}  & Recall@N, DCG@N                                                                         & \begin{tabular}[c]{@{}l@{}}20\% training, 30\% testing, \\ 50\% test and train from learning\end{tabular}                   \\ \hline
+       \cite{HierarchicalLatentPaper}  & RMSE, MAE                                                                               & \begin{tabular}[c]{@{}l@{}}10 subsets, each subset split into \\ 80\% training, 10\% testing,\\ 10\% validation\end{tabular} \\ \hline
+       \cite{AdaptEmotionalReactions}  & MAE, NDCG@N, Precision                                                                  & 5-fold, 4 training and 1 test                                                                                                \\ \hline
+       \cite{SinghUserItem}  & MAE, Coverage                                                                           & 80\% training, 20\% test                                                                                                     \\ \hline
+       \cite{CorrelationPreFiltering}  & MAE, RMSE                                                                               & 5-fold                                                                                                                       \\ \hline
+       \cite{ParticleSwarmPaper}  & \begin{tabular}[c]{@{}l@{}}MAE, RMSE, Precision, Recall, \\ F1-measure\end{tabular}     & 3-fold, 2 training and 1 test                                                                                                \\ \hline
+       \cite{ContextualInfluencePaper}  & RMSE                                                                                    & \begin{tabular}[c]{@{}l@{}}2:1 proportion of training to test,\\ averaged over 20 iterations\end{tabular}                    \\ \hline
+       \cite{AuxiliaryInformationPaper} & RMSE, MAE                                                                               & Unspecified                                                                                                                  \\ \hline
+       \cite{ImprovedSimilarityPaper} & \begin{tabular}[c]{@{}l@{}}RMSE, MAE, Precision@N, \\ Recall@N, F1-measure\end{tabular} & \begin{tabular}[c]{@{}l@{}}3 random partitions, 2 for training and\\ 1 for testing, average over 5 iterations\end{tabular}   \\ \hline
+       \cite{GraphBasedCollaborativePaper} & Precision@N, MAP@N                                                                      & 10-fold, average over 10 iterations                                                                                          \\ \hline
+       \cite{ArtificalBeePaper} & \begin{tabular}[c]{@{}l@{}}MAE, Precision@N, \\ Recall@N,\end{tabular}                  & Unspecified                                                                                                                  \\ \hline
+       \cite{StackedRecurrentNeuralPaper} & \begin{tabular}[c]{@{}l@{}}Recall@N, Precision@N, \\ F1@N, NDCG\end{tabular}            & \begin{tabular}[c]{@{}l@{}}First 80\% of each user's history for training,\\  remaining 20\% for test\end{tabular}           \\ \hline
+    \end{tabular}
+    \caption{Context-Aware papers and the corresponding evaluation metrics and protocols.}
+    \label{tab:papermetricsprotocols}
+    \end{table*}
+
+    \begin{table*}
+        \centering
+        \begin{tabular}{|c|c|c|} 
+        \hline
+                   & \#Number & Percentage  \\ 
+        \hline
+        RMSE       & 8        & 57.14       \\ 
+        \hline
+        MAE        & 10       & 71.43       \\ 
+        \hline
+        MSE        & 1        & 7.14        \\ 
+        \hline
+        Precision  & 7        & 50          \\ 
+        \hline
+        Recall     & 7        & 50          \\ 
+        \hline
+        DCG        & 4        & 28.57       \\ 
+        \hline
+        NDCG       & 2        & 14.29       \\ 
+        \hline
+        F1-measure & 3        & 21.43       \\
+        \hline
+        \end{tabular}
+        \caption{Total number of papers using a given metric.}
+        \label{tab:papermetrics}
+    \end{table*}
+
+\section{Summary}
+A summary of the details of the datasets can be seen in \autoref{tab:datasetstats}.
+The most interesting datasets for context-aware recommendation are LDOS-CoMoDa due to the amount of contextual values, the MovieLens datasets due to their size and ability to extract a temporal context, as well as Frappé due to its size.
+Most of the examined papers perform offline evaluation, mainly employing RMSE and MAE to evaluate the algorithms, and cross-validate on the sets when testing.
+
+\begin{table*}
+    \centering
+    \begin{tabular}{|c|c|c|c|c|} 
+    \hline
+               & \#Ratings & \#Items & \#Users & \#Context variables  \\ 
+    \hline
+    LDOS-CoMoDa    & 2296      & 1232    & 121     & 12                   \\ 
+    \hline
+    MovieLens 1M   & 1,000,209 & 3706    & 6040    & 1                    \\ 
+    \hline
+    MovieLens 100K & 100,000   & 1682    & 943     & 1                    \\ 
+    \hline
+    Frappé         & 96203     & 957     & 4082    & 8                    \\ 
+    \hline
+    InCarMusic     & 4012      & 139     & 42      & 8                    \\ 
+    \hline
+    DePaulMovie    & 5029      & 79      & 97      & 3                    \\
+    \hline
+    \end{tabular}
+    \caption{A final summary of the datasets.}
+    \label{tab:datasetstats}
+\end{table*}
