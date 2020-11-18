@@ -12,54 +12,18 @@ At the time of access, the dataset contains 121 users, 1232 unique movies, and 2
 Most context variables are expressed for each rating.
 The dataset contains the following context variables and their conditions:
 \begin{itemize}
-    \item Time
-    \begin{itemize}
-        \item Morning, Afternoon, Evening, Night
-    \end{itemize}
-    \item Daytype
-    \begin{itemize}
-        \item Working day, Weekend, Holiday
-    \end{itemize}
-    \item Season
-    \begin{itemize}
-        \item Spring, Summer, Autumn, Winter
-    \end{itemize}
-    \item Location
-    \begin{itemize}
-        \item Home, Public place, Friend's house
-    \end{itemize}
-    \item Weather
-    \begin{itemize}
-        \item Sunny / clear, Rainy, Stormy, Snowy, Cloudy
-    \end{itemize}
-    \item Social
-    \begin{itemize}
-        \item Alone, My partner, Friends, Colleagues, Parents, Public, My family
-    \end{itemize}
-    \item EndEmo
-    \begin{itemize}
-        \item Sad, Happy, Scared, Surprised, Angry, Disgusted, Neutral
-    \end{itemize}
-    \item DominantEmo
-    \begin{itemize}
-        \item Sad, Happy, Scared, Surprised, Angry, Disgusted, Neutral
-    \end{itemize}
-    \item Mood
-    \begin{itemize}
-        \item Positive, Neutral, Negative
-    \end{itemize}
-    \item Physical
-    \begin{itemize}
-        \item Healthy, Ill
-    \end{itemize}
-    \item Decision
-    \begin{itemize}
-        \item User decided which movie to watch, User was given a movie
-    \end{itemize}
-    \item Interaction
-    \begin{itemize}
-        \item First interaction with a movie, N-th interaction with a movie
-    \end{itemize}
+    \item Time: Morning, Afternoon, Evening, Night
+    \item Daytype: Working day, Weekend, Holiday
+    \item Season: Spring, Summer, Autumn, Winter
+    \item Location:  Home, Public place, Friend's house
+    \item Weather: Sunny / clear, Rainy, Stormy, Snowy, Cloudy
+    \item Social: Alone, My partner, Friends, Colleagues, Parents, Public, My family
+    \item EndEmo: Sad, Happy, Scared, Surprised, Angry, Disgusted, Neutral
+    \item DominantEmo: Sad, Happy, Scared, Surprised, Angry, Disgusted, Neutral
+    \item Mood: Positive, Neutral, Negative
+    \item Physical: Healthy, Ill
+    \item Decision: User decided which movie to watch, User was given a movie
+    \item Interaction: First interaction with a movie, N-th interaction with a movie
 \end{itemize}
 \textit{EndEmo} and \textit{DominantEmo} relate to the emotional state of the user during the consumption stage.
 \textit{DominantEmo} defines the emotional state that was dominant during the consumption of the movie, whereas \textit{EndEmo} defines the emotional state of the user at the end of the movie\cite{COMODA2013}.
@@ -107,7 +71,7 @@ This dataset has 5,029 ratings from 1-5, given by 97 users on 79 movies within t
 The contextual dimensions distinguish between weekday or weekend, whether or not the movie was watched at home or at the cinema, and finally if it was watched alone, with family or with partner.
 
 \section{Evaluation protocols}
-Ricci et al.\cite{RecommenderHandbook2015} defines a set of properties for recommender systems for evaluation: \textit{user preference, prediction accuracy, coverage, confidence, trust, novelty, serendipity, diversity, utility, risk, robustness, privacy, adaptivity} and \textit{scalability}.
+Ricci et al. \cite{RecommenderHandbook2015} defines a set of properties for recommender systems for evaluation: \textit{user preference, prediction accuracy, coverage, confidence, trust, novelty, serendipity, diversity, utility, risk, robustness, privacy, adaptivity} and \textit{scalability}.
 Each property is suited to certain types of tests, and different metrics are used for evaluating these properties.
 Some, such as user preference and trust are more suitable for testing through user studies.
 Properties relating to algorithmic effectiveness such as prediction accuracy, coverage and confidence are more suitable for offline experiments, while properties that relate to active use of the recommender system, such as serendipity, are suitable for online studies where real users interact with the system.
@@ -174,7 +138,7 @@ Generally, the papers examined in \autoref{tab:papermetricsprotocols} employ cro
 \cite{GameTheoretic}, \cite{Soft-RoughArticle}, \cite{SinghUserItem}, \cite{StackedRecurrentNeuralPaper} and \cite{ContextualInfluencePaper} do not specify a number of folds, but rather just split the data into either two or three sets, with 20\%-80\% being used for training, and the remaining either spread across validation and testing or just testing.
 \cite{AuxiliaryInformationPaper} and \cite{ArtificalBeePaper} do not specify their protocol, opting to simply report results.
 
-\begin{table}[]
+\begin{table*}[]
     \centering
     \begin{tabular}{|l|c|c|c|c|l|}
     \hline
@@ -196,9 +160,9 @@ Generally, the papers examined in \autoref{tab:papermetricsprotocols} employ cro
     \end{tabular}
     \caption{Context-Aware papers and the datasets used.}
     \label{tab:paperdatasets}
-\end{table}
+\end{table*}
 
-\begin{table}[]
+\begin{table*}[]
     \begin{tabular}{|l|l|l|}
     \hline
        & Evaluation Metrics                                                                      & Evaluation Protocol                                                                                                          \\ \hline
@@ -219,9 +183,9 @@ Generally, the papers examined in \autoref{tab:papermetricsprotocols} employ cro
     \end{tabular}
     \caption{Context-Aware papers and the corresponding evaluation metrics and protocols.}
     \label{tab:papermetricsprotocols}
-    \end{table}
+    \end{table*}
 
-    \begin{table}
+    \begin{table*}
         \centering
         \begin{tabular}{|c|c|c|} 
         \hline
@@ -246,14 +210,14 @@ Generally, the papers examined in \autoref{tab:papermetricsprotocols} employ cro
         \end{tabular}
         \caption{Total number of papers using a given metric.}
         \label{tab:papermetrics}
-    \end{table}
+    \end{table*}
 
 \section{Summary}
 A summary of the details of the datasets can be seen in \autoref{tab:datasetstats}.
 The most interesting datasets for context-aware recommendation are LDOS-CoMoDa due to the amount of contextual values, the MovieLens datasets due to their size and ability to extract a temporal context, as well as Frappé due to its size.
 Most of the examined papers perform offline evaluation, mainly employing RMSE and MAE to evaluate the algorithms, and cross-validate on the sets when testing.
 
-\begin{table}
+\begin{table*}
     \centering
     \begin{tabular}{|c|c|c|c|c|} 
     \hline
@@ -274,4 +238,4 @@ Most of the examined papers perform offline evaluation, mainly employing RMSE an
     \end{tabular}
     \caption{A final summary of the datasets.}
     \label{tab:datasetstats}
-\end{table}
+\end{table*}
