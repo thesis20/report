@@ -5,7 +5,7 @@ This section describes these experiments and the protocol used.
 \subsection{Datasets}
 Four datasets are considered for experimentation based on the investigation in \autoref{sec:datasetsummary}: \textit{MovieLens 100k}, \textit{LDOS-CoMoDa}, \textit{Frappé}, as well as the \textit{Yahoo!} movie dataset of ratings and descriptive content information \cite{yahoo-movie}.
 These datasets all provide contextual information, or allow for context to be inferred through the timestamps provided.
-USers that have not provided at least 5 ratings are pruned for the \textit{LDOS-CoMoDa} dataset.
+Users that have not provided at least 5 ratings are pruned for the \textit{LDOS-CoMoDa} dataset.
 The \textit{Frappé} dataset does not provide explicit ratings, and methods that require this do not report results on this dataset.
 The remaining datasets provide ratings in the range of $1-5$.
 \\\\
@@ -19,31 +19,33 @@ The movies are also linked to $32$ types of content information, such as \textit
 For each dataset we employ $5-fold$ cross-validation.
 We split the data into 5 folds, and employ 4 of these as training and 1 as test.
 This procedure is repeated 5 times.
-For each method we evaluate with the same splits.
+The same splits are used for evaluation for each method.
 
 \subsection{Experimental settings}
 In the following we define the evaluation metrics used, the baselines that are compared as well as the hyperparameter settings used.
-\subsubsection{Evaluation metrics}
+\\\\
+\textbf{Evaluation metrics}\\
 As defined in \autoref{sec:evaluationmetrics}, the metrics used are $precision@k$, $recall@k$, $map@k$, $RMSE$ and $MAE$.
 All five metrics are reported for baselines that provide rating predictions, whereas $RMSE$ and $MAE$ are not reported for methods that only compute a list of $topK$ recommendations.
 For $precision@k$, $recall@k$ and $map@k$, the k-value is defined as $10$.
 For evaluation purposes we define a relevant item for a given user as an item in which a rating with a value of $3$ or more is observed. 
-\subsubsection{Baselines}
+\\\\
+\textbf{Baselines}\\
 The experiments are carried out on the following baselines:
 \begin{itemize}
     \item \textbf{Random}: Using random predictions
     \item \textbf{ItemAVG}: A global average of items as predictions
     \item \textbf{TopPopular}
-    \item \textbf{SVD\cite{standardMF}}: A standard matrix factorization approach
-    \item \textbf{SVD++\cite{svd++}}
-    \item \textbf{Non-negative MF\cite{NMF}}
-    \item \textbf{CAMF-C\cite{baltrunasCAMF}}
-    \item \textbf{CAMF-CI\cite{baltrunasCAMF}}
-    \item \textbf{DeepWalk + knn\cite{DeepWalk}}
-    \item \textbf{NeuMF\cite{neuMF}}
-    \item \textbf{KGAT\cite{KGAT}}
+    \item \textbf{SVD\cite{standardMF}}: A standard matrix factorization approach. This is a latent factor approach, where items and users are transformed to the same latent factor space, explaining items and users on factors automatically inferred.
+    \item \textbf{SVD++\cite{svd++}}: An extension of the matrix factorization latent factor approach, combining it with neighborhood models that analyze similarities between products and users.
+    \item \textbf{Non-negative MF\cite{NMF}}: Another variation of a matrix factorization approach for collaborative filtering, in which the matrices representing the latent factor space are subject to the non-negative constraint, i.e. $\geq$ 0.
+    \item \textbf{CAMF-C\cite{baltrunasCAMF}}: A context-aware extension of the SVD approach, introducing a single parameter for all contextual conditions, modeling how the rating deviates from the effect of the context.
+    \item \textbf{CAMF-CI\cite{baltrunasCAMF}}: A variation of CAMF-C, introducing one parameter per contextual condition and item pair.
+    \item \textbf{DeepWalk + knn\cite{DeepWalk}}: This approach learns latent representations of vertices in a network, using information from truncated random walks. The embeddings learned through this approach are used for a k-nearest neighbor recommendation approach.
+    \item \textbf{NeuMF\cite{neuMF}}: Replaces the inner product commonly used for matrix factorization approaches with a neural architecture combining learned embeddings from a matrix factorization and multi-layer perceptron approach.
+    \item \textbf{KGAT\cite{KGAT}}: Considers side information when providing recommendation by linking items with their attributes as higher-order relations in a knowledge graph. Embeddings from a node's neighbor are recursively propagated, and an attention mechanism is used to discriminate importance of neighbors.
     \item \textbf{ItemSplitting\cite{GraphBasedCollaborativePaper}}: A context based recommendation approach making use of transitivity in a bipartite graph to model and nearest neighbor similarity to produce recommendations on a dataset that has been split on items.
-    \item \textbf{NGCF\cite{NGCF}}: Integrates user-item interactions into embeddings through a bipartite graph-structure, leveraging higher-order connectivities to incorporate the collaborative signal.
-    \item \textbf{LightGCN\cite{LightGCN}}
+    \item \textbf{NGCF\cite{NGCF}}: A neural-network based approach that integrates user-item interactions into embeddings through a bipartite graph-structure, leveraging higher-order connectivities to incorporate the collaborative signal.
+    \item \textbf{LightGCN\cite{LightGCN}}: A graph-convolutional network approach that learns user and item embeddings by linearly propagating them on a user-item interaction graph and uses the weighted sum of the embeddings learned at all layers as the final embedding.
 \end{itemize}
-\subsubsection{Parameter settings}
+\textbf{Parameter settings}\\
