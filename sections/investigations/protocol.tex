@@ -1,0 +1,49 @@
+\section{Experiments}
+Experiments are carried out in order to gain an understanding of baselines that employ different methods and investigate the impact of contextual data.
+This section describes these experiments and the protocol used.
+
+\subsection{Datasets}
+Four datasets are considered for experimentation based on the investigation in \autoref{sec:datasetsummary}: \textit{MovieLens 100k}, \textit{LDOS-CoMoDa}, \textit{Frappé}, as well as the \textit{Yahoo!} movie dataset of ratings and descriptive content information \cite{yahoo-movie}.
+These datasets all provide contextual information, or allow for context to be inferred through the timestamps provided.
+USers that have not provided at least 5 ratings are pruned for the \textit{LDOS-CoMoDa} dataset.
+The \textit{Frappé} dataset does not provide explicit ratings, and methods that require this do not report results on this dataset.
+The remaining datasets provide ratings in the range of $1-5$.
+\\\\
+\textbf{Yahoo! Movies}\\
+The \textit{Yahoo!} dataset contains a dataset of $7642$ users, $11915$ movies and $211231$ ratings.
+All users have rated at least one item, and all items are rated by at least one user.
+In terms of contextual information, the dataset provides \textit{year of birth} for the user, \textit{gender} and \textit{ager group} which is discretized as either child or adult.
+The movies are also linked to $32$ types of content information, such as \textit{synopsis}, \textit{running time}, \textit{release date}, \textit{list of genres} and \textit{list of crew members}.
+\\\\
+\textbf{Cross-validation}\\
+For each dataset we employ $5-fold$ cross-validation.
+We split the data into 5 folds, and employ 4 of these as training and 1 as test.
+This procedure is repeated 5 times.
+For each method we evaluate with the same splits.
+
+\subsection{Experimental settings}
+In the following we define the evaluation metrics used, the baselines that are compared as well as the hyperparameter settings used.
+\subsubsection{Evaluation metrics}
+As defined in \autoref{sec:evaluationmetrics}, the metrics used are $precision@k$, $recall@k$, $map@k$, $RMSE$ and $MAE$.
+All five metrics are reported for baselines that provide rating predictions, whereas $RMSE$ and $MAE$ are not reported for methods that only compute a list of $topK$ recommendations.
+For $precision@k$, $recall@k$ and $map@k$, the k-value is defined as $10$.
+For evaluation purposes we define a relevant item for a given user as an item in which a rating with a value of $3$ or more is observed. 
+\subsubsection{Baselines}
+The experiments are carried out on the following baselines:
+\begin{itemize}
+    \item \textbf{Random}: Using random predictions
+    \item \textbf{ItemAVG}: A global average of items as predictions
+    \item \textbf{TopPopular}
+    \item \textbf{SVD\cite{standardMF}}: A standard matrix factorization approach
+    \item \textbf{SVD++\cite{svd++}}
+    \item \textbf{Non-negative MF\cite{NMF}}
+    \item \textbf{CAMF-C\cite{baltrunasCAMF}}
+    \item \textbf{CAMF-CI\cite{baltrunasCAMF}}
+    \item \textbf{DeepWalk + knn\cite{DeepWalk}}
+    \item \textbf{NeuMF\cite{neuMF}}
+    \item \textbf{KGAT\cite{KGAT}}
+    \item \textbf{ItemSplitting\cite{GraphBasedCollaborativePaper}}: A context based recommendation approach making use of transitivity in a bipartite graph to model and nearest neighbor similarity to produce recommendations on a dataset that has been split on items.
+    \item \textbf{NGCF\cite{NGCF}}: Integrates user-item interactions into embeddings through a bipartite graph-structure, leveraging higher-order connectivities to incorporate the collaborative signal.
+    \item \textbf{LightGCN\cite{LightGCN}}
+\end{itemize}
+\subsubsection{Parameter settings}
