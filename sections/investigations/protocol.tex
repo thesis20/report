@@ -36,7 +36,7 @@ The experiments are carried out on the following baselines:
 \begin{itemize}
     \item \textbf{Random}: Using random predictions
     \item \textbf{ItemAVG}: An average rating of the item across all users is used for predictions
-    \item \textbf{TopPopular}
+    \item \textbf{TopPopular}: Always recommends the top k most popular items to a user
     \item \textbf{SVD\cite{standardMF}}: A standard matrix factorization approach. This is a latent factor approach, where items and users are transformed to the same latent factor space, explaining items and users on factors automatically inferred.
     \item \textbf{SVD++\cite{svd++}}: An extension of the matrix factorization latent factor approach, combining it with neighborhood models that analyze similarities between products and users.
     \item \textbf{Non-negative MF\cite{NMF}}: Another variation of a matrix factorization approach for collaborative filtering, in which the matrices representing the latent factor space are subject to the non-negative constraint, i.e. $\geq$ 0.
