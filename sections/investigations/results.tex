@@ -70,7 +70,7 @@ The \textit{DePaulMovie} dataset is another alternative.
 This dataset has 5,029 ratings from 1-5, given by 97 users on 79 movies within three different context dimensions: \textit{time, location} and \textit{companion}\cite{DePaulData}.
 The contextual dimensions distinguish between weekday or weekend, whether or not the movie was watched at home or at the cinema, and finally if it was watched alone, with family or with partner.
 
-\section{Evaluation protocols}
+\section{Evaluation protocols}\label{sec:evaluationmetrics}
 Ricci et al. \cite{RecommenderHandbook2015} defines a set of properties for recommender systems for evaluation: \textit{user preference, prediction accuracy, coverage, confidence, trust, novelty, serendipity, diversity, utility, risk, robustness, privacy, adaptivity} and \textit{scalability}.
 Each property is suited to certain types of tests, and different metrics are used for evaluating these properties.
 Some, such as user preference and trust are more suitable for testing through user studies.
@@ -212,7 +212,7 @@ Generally, the papers examined in \autoref{tab:papermetricsprotocols} employ cro
         \label{tab:papermetrics}
     \end{table*}
 
-\section{Summary}
+\section{Summary}\label{sec:datasetsummary}
 A summary of the details of the datasets can be seen in \autoref{tab:datasetstats}.
 The most interesting datasets for context-aware recommendation are LDOS-CoMoDa due to the amount of contextual values, the MovieLens datasets due to their size and ability to extract a temporal context, as well as Frappé due to its size.
 Most of the examined papers perform offline evaluation, mainly employing RMSE and MAE to evaluate the algorithms, and cross-validate on the sets when testing.
