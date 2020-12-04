@@ -1,4 +1,4 @@
-\section{Utilizing and obtaining context}
+\subsection{Utilizing and obtaining context}
 Context-aware recommender systems take the contextual information associated with the collected interaction into consideration.
 This contextual information can be obtained through several ways, including: \textit{Explicitly}, \textit{implicitly} and \textit{inferring} \cite{RecommenderHandbook2015}.
 Obtaining the data is explicitly done by approaching relevant people and asking direct questions, or, for example, eliciting the information through a questionnaire.
@@ -8,7 +8,7 @@ The relevance of each contextual factor can differ, identifying a candidate set 
 This context is traditionally dealt with in one of three ways \cite{Adomavicius2011}: \textit{Contextual pre-filtering}, \textit{contextual post-filtering}, and \textit{contextual modelling}.
 In the following section, we will investigate each of these and briefly explain how they deal with contextual information.
 
-\subsection*{Pre-filtering}
+\subsubsection*{Pre-filtering}
 For all three approaches, we start with data in the form $U \times I \times C \rightarrow R$ where C is the additional contextual dimension.\\
 With contextual pre-filtering, the data selected for the recommendation process is filtered based on the current context $c$.
 This leads to recommendations being based on a subset of the original data, where we only consider the items observed in the current context.\\
@@ -30,12 +30,12 @@ Utilizing this hierarchy structure, we can for example make the following genera
 
 Choosing the correct generalized pre-filter is important for accurate recommendations, and can either be done manually or by empirically evaluating the performance of the system based on each generalized pre-filter.
 
-\subsection*{Post-filtering}
+\subsubsection*{Post-filtering}
 In contextual post-filtering, the contextual information is, at first, ignored while generating recommendations.
 Unlike pre-filtering, the recommendations will be made based on the full dataset, and then after the recommendations have been generated, they will be filtered based on the current context $c$.\\
 It is possible to do two kinds of post-filtering: Either you remove the ratings that do not fit the context, or adjust the ranking of the items based on the given context.
 
-\subsection*{Contextual modelling}
+\subsubsection*{Contextual modelling}
 Contextual modelling is slightly different than the two other approaches, in that it does not use the context for filtering, but rather the contextual information is used directly in the modelling technique.
 In traditional recommendation systems you work with ratings in the form $Rating = R(User, Item)$, but adding the contextual information to the actual model means that we modify this to $Rating = R(User, Item, Context)$.
 This means that traditional recommendation systems will not work on this set, since it has an extra dimension that they do not account for, however, multiple models have been suggested to fit this form \cite{Adomavicius2011}.\\\\
