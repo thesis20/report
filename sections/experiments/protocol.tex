@@ -9,13 +9,6 @@ Users that have not provided at least 5 ratings are pruned for the \textit{LDOS-
 The \textit{Frappé} dataset does not provide explicit ratings, and methods that require this do not report results on this dataset.
 The remaining datasets provide ratings in the range of $1-5$.
 \\\\
-\textbf{Yahoo! Movies}\\
-The \textit{Yahoo!} dataset contains a dataset of $7642$ users, $11915$ movies and $211231$ ratings.
-All users have rated at least one item, and all items are rated by at least one user.
-In terms of contextual information, the dataset provides \textit{year of birth} for the user, \textit{gender} and \textit{age group} which is discretized as either child, adult or elder.
-The movies are also linked to $32$ types of content information, such as \textit{synopsis}, \textit{running time}, \textit{release date}, \textit{list of genres} and \textit{list of crew members}.
-This information can be used for methods that utilize knowledge, such as knowledge-graph-based methods.
-\\\\
 \textbf{Cross-validation}\\
 For each dataset we employ $5-fold$ cross-validation.
 We split the data into 5 folds, and employ 4 of these as training and 1 as test.
