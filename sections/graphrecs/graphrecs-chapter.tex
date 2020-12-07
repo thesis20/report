@@ -1,7 +1,8 @@
 \section{Graph recommender systems}
 One of the problems often encountered in recommender systems is the problem of sparsity in larger recommender systems.
 Two different kinds of approaches are often used to combat this. 
-The first is to use dimensionality reduction where the representation of users and items are converted into a more compact representation, which should capture the most important features.
+The first is to use dimensionality reduction where the representation of users and items are converted into a more compact representation, which should capture the most important features that describe the user or item.
+An example of this is the matrix factorization technique, where a matrix $U \times I$ is decomposed into the product of two matrices $U \times K $ and $ K \times I$ where $K$ is the number of features to capture.
 These representations are able to capture meaningful information about the relations between users and items, even if users have rated different items, or items were rated by different users. 
 The other approach used for the sparsity problem is the use of graph representations for the data.
 When using graph representations for the data, graph-based methods are able to utilize the transitivity in the relations between the data points. 
