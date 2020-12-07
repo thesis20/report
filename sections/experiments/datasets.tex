@@ -92,15 +92,15 @@ Typically, ratings in a set of ratings $R$ are divided into a training set $R_{t
 These metrics compare the predicted ratings to the observed values in the test set, meaning they depend on the magnitude of the errors made.
 \autoref{tab:rmsevsmae} illustrates two potential test sets along with fictive predicted errors for the items they contain.
 The main difference between the two metrics is that RMSE penalizes larger errors more harshly compared to MAE.
-RMSE would prefer test set 1 in \autoref{tab:rmsevsmae}, even though it has an aggregated error of 6 compared to test set 2 with an error of 3, due to the larger error of 3 on item 3.
-The RMSE for the first test set would be 3.46 versus 3 on the second set.
-MAE would prefer test set 2 with a score of 0.75 versus 1.5 on the first.
+RMSE would prefer test set 1 in \autoref{tab:rmsevsmae}, even though it has an aggregated error of 6 compared to test set 2 with an error of 4, due to the larger error of 4 on item 3.
+The RMSE for the first test set would be 3.46 versus 4 on the second set.
+MAE would prefer test set 2 with a score of 1 versus 1.5 on the first.
 \begin{table}[]
     \begin{tabular}{|l|l|l|l|l|}
     \hline
                & Item 1 & Item 2 & Item 3 & Item 4 \\ \hline
     Test set 1 & 2      & 0      & 2      & 2      \\ \hline
-    Test set 2 & 0      & 0      & 3      & 0      \\ \hline
+    Test set 2 & 0      & 0      & 4      & 0      \\ \hline
     \end{tabular}
     \caption{Example of two test sets and the predicted errors on the items}
     \label{tab:rmsevsmae}
