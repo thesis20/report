@@ -30,16 +30,16 @@ The experiments are carried out on the following baselines:
     \item \textbf{Random}: Using random predictions
     \item \textbf{ItemAVG}: An average rating of the item across all users is used for predictions
     \item \textbf{TopPopular}: Always recommends the top k most popular items to a user
-    \item \textbf{SVD\cite{standardMF}}: A standard matrix factorization approach. This is a latent factor approach, where items and users are transformed to the same latent factor space, explaining items and users on factors automatically inferred.
-    \item \textbf{SVD++\cite{svd++}}: An extension of the matrix factorization latent factor approach, combining it with neighborhood models that analyze similarities between products and users.
-    \item \textbf{Non-negative MF\cite{NMF}}: Another variation of a matrix factorization approach for collaborative filtering, in which the matrices representing the latent factor space are subject to the non-negative constraint, i.e. $\geq$ 0.
-    \item \textbf{CAMF-C\cite{baltrunasCAMF}}: A context-aware extension of the SVD approach, introducing a single parameter for all contextual conditions, modeling how the rating deviates from the effect of the context.
-    \item \textbf{CAMF-CI\cite{baltrunasCAMF}}: A variation of CAMF-C, introducing one parameter per contextual condition and item pair.
-    \item \textbf{DeepWalk + knn\cite{DeepWalk}}: This approach learns latent representations of vertices in a network, using information from truncated random walks. The embeddings learned through this approach are used for a k-nearest neighbor recommendation approach.
-    \item \textbf{NeuMF\cite{neuMF}}: Replaces the inner product commonly used for matrix factorization approaches with a neural architecture combining learned embeddings from a matrix factorization and multi-layer perceptron approach.
-    \item \textbf{KGAT\cite{KGAT}}: Considers side information when providing recommendation by linking items with their attributes as higher-order relations in a knowledge graph. Embeddings from a node's neighbor are recursively propagated, and an attention mechanism is used to discriminate importance of neighbors.
-    \item \textbf{ItemSplitting\cite{GraphBasedCollaborativePaper}}: A context-based recommendation approach making use of transitive associations in a bipartite graph to model and find nearest neighbor similarity to produce recommendations on a dataset that has been split on items.
-    \item \textbf{NGCF\cite{NGCF}}: A neural-network based approach that integrates user-item interactions into embeddings through a bipartite graph-structure, leveraging higher-order connectivities to incorporate the collaborative signal.
-    \item \textbf{LightGCN\cite{LightGCN}}: A graph-convolutional network approach that learns user and item embeddings by linearly propagating them on a user-item interaction graph and uses the weighted sum of the embeddings learned at all layers as the final embedding.
+    \item \textbf{KGAT}: Considers side information when providing recommendation by linking items with their attributes as higher-order relations in a knowledge graph. Embeddings from a node's neighbor are recursively propagated, and an attention mechanism is used to discriminate importance of neighbors.
+    \item \textbf{ItemSplitting}: A context-based recommendation approach making use of transitive associations in a bipartite graph to model and find nearest neighbor similarity to produce recommendations on a dataset that has been split on items.
+    \item \textbf{NeuMF}: Replaces the inner product commonly used for matrix factorization approaches with a neural architecture combining learned embeddings from a matrix factorization and multi-layer perceptron approach.
+    \item \textbf{LightGCN}: A graph-convolutional network approach that learns user and item embeddings by linearly propagating them on a user-item interaction graph and uses the weighted sum of the embeddings learned at all layers as the final embedding.
+    \item \textbf{NGCF}: A neural-network based approach that integrates user-item interactions into embeddings through a bipartite graph-structure, leveraging higher-order connectivities to incorporate the collaborative signal.
+    \item \textbf{DeepWalk + KNN}: This approach learns latent representations of vertices in a network, using information from truncated random walks. The embeddings learned through this approach are used for a k-nearest neighbor recommendation approach.
+    \item \textbf{Non-negative MF}: Another variation of a matrix factorization approach for collaborative filtering, in which the matrices representing the latent factor space are subject to the non-negative constraint, i.e. $\geq$ 0.
+    \item \textbf{CAMF-C}: A context-aware extension of the SVD approach, introducing a single parameter for all contextual conditions, modeling how the rating deviates from the effect of the context.
+    \item \textbf{CAMF-CI}: A variation of CAMF-C, introducing one parameter per contextual condition and item pair.
+    \item \textbf{SVD}: A standard matrix factorization approach. This is a latent factor approach, where items and users are transformed to the same latent factor space, explaining items and users on factors automatically inferred.
+    \item \textbf{SVD++}: An extension of the matrix factorization latent factor approach, combining it with neighborhood models that analyze similarities between products and users.
 \end{itemize}
 \textbf{Parameter settings}\\

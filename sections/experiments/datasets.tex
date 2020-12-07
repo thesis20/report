@@ -151,16 +151,16 @@ The results of this can be seen on \autoref{tab:metricsused}.
     \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
     \hline
              & \textbf{MSE} & \textbf{RMSE} & \textbf{MAE} & \textbf{Precision} & \textbf{Recall} & \textbf{NDCG} & \textbf{F1} & \textbf{Hit rate} & \textbf{MAP} \\ \hline
-KGAT         &              &               &              &                    &                 & x             &             &                   &              \\ \hline
-IS-UserBased &              &               &              &                    &                 & x             &             &                   & x            \\ \hline
-NeuMF        &              &               &              &                    &                 & x             &             & x                 &              \\ \hline
-LightGCN     &              &               &              &                    & x               & x             &             &                   &              \\ \hline
-NGCF         &              &               &              &                    & x               & x             &             &                   &              \\ \hline
-DW           &              &               &              & Implicit                & Implicit             &               & x           &                   &              \\ \hline
-NMF          &              & x             &              &                    &                 &               &             &                   &              \\ \hline
-CAMF         &              &               & x            &                    &                 &               &             &                   &              \\ \hline
-SVD          & x            & x             &              &                    &                 &               &             &                   &              \\ \hline
-SVD++        &              & x             &              &                    &                 &               &             &                   &              \\ \hline
+KGAT \cite{KGAT}        &              &               &              &                    &                 & x             &             &                   &              \\ \hline
+IS-UserBased \cite{GraphBasedCollaborativePaper} &              &               &              &                    &                 & x             &             &                   & x            \\ \hline
+NeuMF \cite{neuMF}       &              &               &              &                    &                 & x             &             & x                 &              \\ \hline
+LightGCN \cite{LightGCN}    &              &               &              &                    & x               & x             &             &                   &              \\ \hline
+NGCF \cite{NGCF}         &              &               &              &                    & x               & x             &             &                   &              \\ \hline
+DeepWalk \cite{DeepWalk}          &              &               &              & Implicit                & Implicit             &               & x           &                   &              \\ \hline
+NMF \cite{NMF}          &              & x             &              &                    &                 &               &             &                   &              \\ \hline
+CAMF(I) \cite{baltrunasCAMF}         &              &               & x            &                    &                 &               &             &                   &              \\ \hline
+SVD \cite{standardMF}          & x            & x             &              &                    &                 &               &             &                   &              \\ \hline
+SVD++ \cite{svd++}       &              & x             &              &                    &                 &               &             &                   &              \\ \hline
     \end{tabular}
     \caption{Metrics used}
     \label{tab:metricsused}
