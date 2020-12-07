@@ -90,8 +90,20 @@ These metrics are useful for two important problems associated with recommender 
 The rating prediction problem concerns itself with predicting the rating that a user $u$ will give an unrated item $i$ denoted as $r_{ui}$, which is often defined as learning a function $f : U \times I \rightarrow S$, that predicts the rating $f(u, i)$ of a user $u$ for a new item $i$, where $U$ the set of users, $I$ is the set of items, and $S$ is the set of possible values for a rating.
 Typically, ratings in a set of ratings $R$ are divided into a training set $R_{train}$ used to learn $f$, and a test set $R_{test}$ used for evaluation prediction accuracy, which is usually done through MAE and RMSE.
 These metrics compare the predicted ratings to the observed values in the test set, meaning they depend on the magnitude of the errors made.
-The main difference is that RMSE places a larger penalization on large errors, such that given a test set with four items RMSE would prefer a system that makes an error of 2 on three ratings and 0 on the fourth, to one that makes an error of 3 on one rating and 0 on the others.
-MAE would prefer the second system.
+\autoref{tab:rmsevsmae} illustrates two potential test sets along with fictive predicted errors for the items they contain.
+The main difference between the two metrics is that RMSE penalizes larger errors more harshly compared to MAE.
+RMSE would prefer test set 1 in \autoref{tab:rmsevsmae}, even though it has an aggregated error of 6 compared to test set 2 with an error of 3, due to the larger error of 3 on item 3.
+MAE would prefer test set 2.
+\begin{table}[]
+    \begin{tabular}{|l|l|l|l|l|}
+    \hline
+               & Item 1 & Item 2 & Item 3 & Item 4 \\ \hline
+    Test set 1 & 2      & 0      & 2      & 2      \\ \hline
+    Test set 2 & 0      & 0      & 3      & 0      \\ \hline
+    \end{tabular}
+    \caption{Example of two test sets and the predicted errors on the items}
+    \label{tab:rmsevsmae}
+\end{table}
 MAE is calculated according to \autoref{eqn:MAE}.
 \begin{equation}
     \label{eqn:MAE}
@@ -106,7 +118,7 @@ The top-N recommendation problem is the task of recommending a list $L(u_a)$ to 
 Evaluating the quality of such method can be done by splitting $I$ into a training set $I_{train}$ used to learn $L$ and a test set $I_{test}$.
 Let $T(u) \subset I_u \cap I_{test}$, where $I_u$ is the subset of items that have been rated by user $u$, then precision can be calculated according to \autoref{eqn:precision}, and recall according to \autoref{eqn:recall}.
 Precision defines the proportion of relevant instances among the predicted relevant items, while recall is the proportion of true positives that were correctly predicted.
-Typically, a trade off between these measures is expected.
+A trade off between these measures is expected.
 Allowing longer recommendation lists improves recall and is likely to reduce precision \cite{RecommenderHandbook2015}.
 \begin{equation}
     \label{eqn:precision}
