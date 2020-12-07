@@ -1,2 +1,23 @@
 \section{Graph recommender systems}
-Something about why graph recommender systems are interesting to look at.
+One of the problems often encountered in recommender systems is the problem of sparsity in larger recommender systems.
+Two different kinds of approaches are often used to combat this. 
+The first is to use dimensionality reduction where the representation of users and items are converted into a more compact representation, which should capture the most important features.
+These representations are able to capture meaningful information about the relations between users and items, even if users have rated different items, or items were rated by different users. 
+The other approach used for the sparsity problem is the use of graph representations for the data.
+When using graph representations for the data, graph-based methods are able to utilize the transitivity in the relations between the data points. 
+This means that similarity can be found between users that are not directly connected, which can help alleviate the sparsity problem.
+Compared to the dimensionality reduction approach, graph representations are also able to preserve some of the local relations in the data\cite{RecommenderHandbook2015}.
+\\\\
+A typical graph representation used for the data used in recommender systems is the bipartite graph.
+In a bipartite graph, there are two sets of nodes.
+One set of nodes are the users and the other set are the items.
+The edges in the bipartite graph connect the user and item nodes if the user has rated the item. 
+The edge can have the rating as it's weight if a rating is given.
+\\\\
+As mentioned, with the use of graph representations, users and items not directly connected can influence each other.
+There are two properties that are often explored for graph-based approaches when doing similarity measures, namely propagation, and attenuation.
+Propagation is done through propagating information along the edges of the graph, also using the weight of the edge to determine how much information is allowed to pass through.
+Attenuation considers that nodes that are further away from each other in the graph should influence each other less.
+This transitive association in graph-based approaches can be used in two ways to recommend items.
+The relevance between a user \textit{u} and an item \textit{i} can be evaluated using the proximity \textit{u} to \textit{i}.
+A similarity between a pair of users or items can also be found which can be expressed as a weight between them\cite{RecommenderHandbook2015}.
