@@ -139,10 +139,11 @@ Other metrics are derived from these basic information retrieval metrics, with \
 To calculate MAP, the first step is to calculate the \textit{Average Precision} (AP).
 This measure takes each relevant item and calculates precision in relation to the position of the item in the recommendation set.
 This is defined in \autoref{eq:averageprecision}, where $P(r)$ is the precision at the $r^{th}$ item and $rel(r)$ is an indicator that the item was relevant, taking the value of either 1 if relevant, or 0 if not.
-A point to note about AP is that it rewards recommendation lists with relevant items appearing at the front of the list, leading to a higher AP value in comparison to lists where all relevant items appear nearer the N value. 
+The denominator used for the calculation is normalized to be the smaller of either the length of the list, the $N$ value, or the number of relevant items in case the user has few observed ratings.
+A point to note about AP is that it rewards recommendation lists with relevant items appearing at the front of the list, leading to a higher AP value in comparison to lists where relevant items appear nearer the N value. 
 \begin{equation}
     \label{eq:averageprecision}
-    AP = \frac{\sum\limits_{r=1}^N (P(r) \times rel(r))}{number \: of \: relevant \: documents}
+    AP = \frac{\sum\limits_{r=1}^N (P(r) \times rel(r))}{minimum(number \: of \: relevant \: documents, N)}
 \end{equation}
 Once the AP is calculated for a single user $u$, MAP@N for a recommender system is defined through \autoref{eq:map}, where $U$ is the set of all users: 
 \begin{equation}
