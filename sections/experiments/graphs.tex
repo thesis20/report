@@ -1,0 +1,98 @@
+\subsection{Graphs test}
+
+\begin{figure}[h]
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    enlargelimits=0.15,
+    enlarge y limits={upper,value=0.3},
+    legend style={at={(0.5,1)},
+      anchor=north,legend columns=-1},
+    ylabel={RMSE for CoMoDa},
+    symbolic x coords={ItemSplitting,CAMF-C,CAMF-CI,DW+kNN,NMF,Random,SVD++,SVD},
+    x tick label style={font=\tiny,rotate=75,anchor=east},
+    xtick=data,
+    nodes near coords,
+    every node near coord/.append style={rotate=90, anchor=west},
+    nodes near coords align={vertical},
+    ymin=0
+    ]
+\addplot coordinates {(ItemSplitting,1.118) (CAMF-C,0.669) (CAMF-CI,0.824) (DW+kNN,1.211) (NMF,1.173) (Random,1.763) (SVD++,1.02) (SVD,1.019)};
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\begin{figure}[h]
+\begin{tikzpicture}
+\begin{axis} [
+    title    = RMSE,
+    xbar=5pt,
+    /pgf/bar width=5pt,
+    y axis line style = { opacity = 0 },
+    axis x line       = none,
+    tickwidth         = 0pt,
+    enlarge y limits  = 0.2,
+    enlarge x limits  = 0.02,
+    ytick=data,
+    y=1.3cm,
+    nodes near coords,
+    legend style={at={(0.5,1)}, anchor=north,legend columns=-1},
+    symbolic y coords = {ItemSplitting,CAMF-C,CAMF-CI,DW+kNN,NMF,Random,SVD++,SVD},
+  ]
+\addplot coordinates{(1.118,ItemSplitting) (0.669,CAMF-C) (0.824,CAMF-CI) (1.211,DW+kNN) (1.173,NMF) (1.763,Random) (1.02,SVD++) (1.019,SVD)};
+\addplot coordinates{(1.234,ItemSplitting) (1.003,CAMF-C) (1.03,CAMF-CI) (1.195,DW+kNN) (1.089,NMF) (1.996,Random) (0.999,SVD++) (1.013,SVD)};
+\addplot coordinates{(0,ItemSplitting) (0.931,CAMF-C) (0.978,CAMF-CI) (0,DW+kNN) (0.962,NMF) (1.702,Random) (0.917,SVD++) (0.935,SVD)};
+\legend{CoMoDa, Yahoo, MovieLens}
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\begin{figure}[h]
+\begin{tikzpicture}
+\begin{axis} [
+    title    = NDCG,
+    xbar=5pt,
+    /pgf/bar width=5pt,
+    y axis line style = { opacity = 0 },
+    axis x line       = none,
+    tickwidth         = 0pt,
+    enlarge y limits  = 0.2,
+    enlarge x limits  = 0.02,
+    ytick=data,
+    y=1.3cm,
+    nodes near coords,
+    legend style={at={(0.5,1)}, anchor=north,legend columns=-1},
+    symbolic y coords = {ItemSplitting,CAMF-C,CAMF-CI,DW+kNN,NMF,Random,SVD++,SVD},
+  ]
+\addplot coordinates{(0.565,ItemSplitting) (0.477,CAMF-C) (0.469,CAMF-CI) (0.583,DW+kNN) (0.539,NMF) (0.484,Random) (0.478,SVD++) (0.502,SVD)};
+\addplot coordinates{(0.502,ItemSplitting) (0.492,CAMF-C) (0.476,CAMF-CI) (0.509,DW+kNN) (0.473,NMF) (0.451,Random) (0.507,SVD++) (0.502,SVD)};
+\addplot coordinates{(0,ItemSplitting) (0.375,CAMF-C) (0.403,CAMF-CI) (0,DW+kNN) (0.441,NMF) (0.476,Random) (0.540,SVD++) (0.508,SVD)};
+\legend{CoMoDa, Yahoo, MovieLens}
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\begin{figure}[h]
+\begin{tikzpicture}
+\begin{axis} [
+    title    = F1@10,
+    xbar=5pt,
+    /pgf/bar width=5pt,
+    y axis line style = { opacity = 0 },
+    axis x line       = none,
+    tickwidth         = 0pt,
+    enlarge y limits  = 0.2,
+    enlarge x limits  = 0.02,
+    ytick=data,
+    y=1.3cm,
+    nodes near coords,
+    legend style={at={(0.5,1)}, anchor=north,legend columns=-1},
+    symbolic y coords = {ItemSplitting,CAMF-C,CAMF-CI,DW+kNN,NMF,Random,SVD++,SVD},
+  ]
+\addplot coordinates{(0.274,ItemSplitting) (0.615,CAMF-C) (0.609,CAMF-CI) (0.512,DW+kNN) (0.550,NMF) (0.364,Random) (0.614,SVD++) (0.617,SVD)};
+\addplot coordinates{(0.350,ItemSplitting) (0.549,CAMF-C) (0.543,CAMF-CI) (0.437,DW+kNN) (0.523,NMF) (0.308,Random) (0.540,SVD++) (0.543,SVD)};
+\addplot coordinates{(0,ItemSplitting) (0.683,CAMF-C) (0.668,CAMF-CI) (0,DW+kNN) (0.650,NMF) (0.469,Random) (0.673,SVD++) (0.673,SVD)};
+\legend{CoMoDa, Yahoo, MovieLens}
+\end{axis}
+\end{tikzpicture}
+\end{figure}
