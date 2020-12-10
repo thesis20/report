@@ -6,9 +6,5 @@ RS are conventionally defined through three categories: \textit{content-based}, 
 Contextual information is intuitively useful for making recommendations, in a movie recommendation situation this context could be company, time, or mood.
 For example, a user may not want to watch the same movies in the company of their significant other, as they would with their parents.
 Likewise, time could be an important factor, since movies such as \textit{A Christmas Story} may be more relevant during the winter months than during summer.\\\
-Generally, for a movie RS, the objective is to estimate a rating function $R: User \times Item \rightarrow Rating$ for the $(user, \ item)$ pairs that are not yet rated \cite{RecommenderHandbook2015}.
-CARS extends this function to $R: User \times Item \times Context \rightarrow Rating$, taking the known contextual information associated with the application into account.
-Contextual information can be classified into three categories: \textit{fully observable}, \textit{partially observable} and \textit{unobservable}.
-Fully observable contextual information is available explicitly, partially observable defines that only some of the information is available, and unobservable defines that no contextual information is explicitly available.
-The structure of contextual information can remain stable over time, defined as static, or change in some way over time, defined as dynamic.
-This paper will explore the state-of-the-art within CARS in order to examine open problems.
+Generally, for a RS, the objective is to either: estimate a rating function $R: User \times Item \rightarrow Rating$ for the $(user, \ item)$ pairs that are not yet rated, or to compute a list $L$ of the top recommended items for an active user $U_a$ containing items that are likely to be of interest $R: User \times Item \rightarrow L(Ua)$\cite{RecommenderHandbook2015}.
+CARS extends these functions to respectively $R: User \times Item \times Context \rightarrow Rating$ and $R: User \times Item \times Context \rightarrow L(Ua)$ and  taking the known contextual information associated with the application into account.
