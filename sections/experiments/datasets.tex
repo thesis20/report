@@ -85,7 +85,7 @@ Some, such as user preference and trust are more suitable for testing through us
 Properties relating to algorithmic effectiveness such as prediction accuracy, coverage and confidence are more suitable for offline experiments, while properties that relate to active use of the recommender system, such as serendipity, are suitable for online studies where real users interact with the system.
 \\\\
 \autoref{tab:metricsused} shows the metrics used for evaluation for the relevant methods, while \autoref{tab:methodsused} examines each paper for the evaluation protocol.
-It is evident that most of these papers focus on offline evaluation, investigating metrics related to algorithmic precision and efficiency, such as root-mean-square error(RMSE), mean absolute error(MAE) and F1-measure.
+It is evident that most of these papers focus on offline evaluation, investigating metrics related to algorithmic precision and efficiency, such as root-mean-square error (RMSE), mean absolute error (MAE) and F1-measure.
 These metrics are useful for two important problems associated with recommender systems: rating prediction and top-N recommendation\cite{RecommenderHandbook2015}.
 \\\\
 The rating prediction problem concerns itself with predicting the rating that a user $u$ will give an unrated item $i$ denoted as $r_{ui}$, which is often defined as learning a function $f : U \times I \rightarrow S$, that predicts the rating $f(u, i)$ of a user $u$ for a new item $i$, where $U$ the set of users, $I$ is the set of items, and $S$ is the set of possible values for a rating.
@@ -151,7 +151,7 @@ Once the AP is calculated for a single user $u$, MAP@N for a recommender system 
     \label{eq:map}
     MAP = \frac{\sum\limits_{u=1}^U AP_u}{U}
 \end{equation}
-Finally, some of the papers use the Discounted Cumulative Gain(DCG) metric or the normalized version NDCG.
+Finally, some of the papers use the Discounted Cumulative Gain (DCG) metric or the normalized version NDCG.
 Assuming each user $u$ has a gain $g_{ui}$ from being recommended item $i$, then the average DCG for a list of $J$ items is defined in \autoref{eqn:dcg}, where $i_j$ is the item at position $j$ in the list, and the logarithm base is a free parameter, where $2$ is most commonly used to ensure all positions are discounted.
 This metric also rewards lists that frontload relevant items.
 \begin{equation}
