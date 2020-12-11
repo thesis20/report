@@ -1,12 +1,12 @@
 \subsection{Context-Aware Matrix Factorization}
 One of the context-aware recommender system methods we have looked into is context-aware matrix factorization (CAMF)\cite{baltrunasCAMF}.
-As no implementation was available, we decided to make our own implementation of CAMF.
-The method is an extention of the classical Matrix Factorization (MF) approach which takes the contextual side information into account when making rating predictions.
+As no implementation was available for the method, all results are based on our implementation.
+The method is an extension of the classical Matrix Factorization (MF) approach which takes the contextual side information into account when making rating predictions.
 There are different models of CAMF that deal with different levels of granularity in terms of the context.
-For CAMF-C, its assumed that each of the contextual conditions have a global influence on the ratings independently of the items.
+For CAMF-C, it is assumed that each of the contextual conditions has a global influence on the ratings independently of the items.
 In the CAMF-C model, a single parameter is introduced for each value of each contextual factor.
 The second model is CAMF-CI which introduces a parameter for each contextual condition and item pair, meaning that it has a finer granularity.
-By modelling it like this, it can capture when the contextual factor's have a different effect on the rating depending on which item it is.
+By modeling it like this, it is possible to capture when the contextual factors have a different effect on the rating depending on which item it is.
 The expression for predicting ratings with the CAMF models is seen in \autoref{eqn:camf-rating-pred}.
 \begin{equation}
     \label{eqn:camf-rating-pred}
@@ -14,10 +14,10 @@ The expression for predicting ratings with the CAMF models is seen in \autoref{e
 \end{equation}
 We have that $\hat{r}_{uic_1...c_k}$ is the predicted rating for user $u$, item $i$ under the contextual values $c_1...c_k$.
 The variables $\vec{v_u} $ and $ \vec{q_i}$ are the feature vectors for user $u$ and item $i$ which are multiplied, just as in matrix factorization.
-$\bar{i}$ is the global average rating for item $i$ and $\bar{b_u}$ is a user bias. 
+$\bar{i}$ is the global average rating for item $i$, meaning the average rating across all users in the training set, and $\bar{b_u}$ is a user bias.
 $B_{ijc_j}$ are the parameters modeling the interaction of the contextual conditions and the items.
-For the CAMF-CI model, $B_{ijc_j}$ will result a lot of parameters, and for CAMF-C it will result in less, as a results of how the two differnet approaches model the context.
-All of the parameters in the model, except for the average item rating, are learnt through stochastic gradient descent.
+For the CAMF-CI model, $B_{ijc_j}$ will result in a lot of parameters, and for CAMF-C it will result in less, as a result of how the two different approaches perform the contextual modeling.
+All of the parameters in the model, except for the average item rating, are learned through stochastic gradient descent.
 This is done through the use of a loss function which is seen in \autoref{eqn:camf-loss-func}.
 \begin{equation}
     \label{eqn:camf-loss-func}
@@ -28,4 +28,4 @@ This is done through the use of a loss function which is seen in \autoref{eqn:ca
 \end{equation}
 Here we have that $r = (u,i,c_1...c_k)$ and that R is the context-dependent ratings from the training set.
 The loss function includes regularization controlled by the $\lambda$ parameter to avoid overfitting the training data.
-The models parameters are then updated based on the gradient of the loss function for each of the ratings in the training set.
+The parameters are then updated based on the gradient of the loss function for each of the ratings in the training set.
