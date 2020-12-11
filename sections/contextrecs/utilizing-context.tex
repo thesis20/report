@@ -1,19 +1,19 @@
 \subsection{Utilizing and obtaining context}
-The contextual information used for CARS can be obtained through several ways, including: \textit{Explicitly}, \textit{implicitly} and \textit{inferring} \cite{RecommenderHandbook2015}.
+The contextual information used for CARS can be obtained through several ways, including: \textit{Explicitly}, \textit{implicitly} and \textit{inferring}\cite{RecommenderHandbook2015}.
 Obtaining the data is explicitly done by approaching relevant people and asking direct questions, or, for example, eliciting the information through a questionnaire.
 Implicit collection is done from the data or environment, such as a change in the location of the user, or a time derived from a timestamp.
 Finally, inferring the contextual information is done through statistical or data mining methods where the information is modeled as a latent variable, for example by analyzing a customer review or inferring who is watching TV by the programs being watched.
 The relevance of each contextual factor can differ, identifying a candidate set of these factors for an application requires leveraging domain expertise from a designer, or computing relevance computationally.
-This context is traditionally dealt with in one of three ways \cite{Adomavicius2011}: \textit{Contextual pre-filtering}, \textit{contextual post-filtering}, and \textit{contextual modelling}.
+This context is traditionally dealt with in one of three ways\cite{Adomavicius2011}: \textit{Contextual pre-filtering}, \textit{contextual post-filtering}, and \textit{contextual modelling}.
 In the following section, we will investigate each of these and briefly explain how they deal with contextual information.
 
 \subsubsection*{Pre-filtering}
 For all three approaches, we start with data in the form $U \times I \times C \rightarrow R$ where C is the additional contextual dimension.\\
 With contextual pre-filtering, the data selected for the recommendation process is filtered based on the current context $c$.
 This leads to recommendations being based on a subset of the original data, where we only consider the items observed in the current context.\\
-An advantage of this approach is that it allows the use of any of the traditional recommendation techniques \cite{Adomavicius2011}.
+An advantage of this approach is that it allows the use of any of the traditional recommendation techniques\cite{Adomavicius2011}.
 The filtering step can be done either as an \textit{exact pre-filter}, where the context has to fit the exact context of other interactions, such as being made on a \textit{Sunday} in the company of the user's \textit{Partner}.
-Alternatively, generalized pre-filtering can be used \cite{Adomavicius2011}, in which contextual variables can be seen as hierarchical items, for example:
+Alternatively, generalized pre-filtering can be used\cite{Adomavicius2011}, in which contextual variables can be seen as hierarchical items, for example:
 \begin{itemize}
 	\item \textit{Company}: Partner $\rightarrow$ Family $\rightarrow$ Friends $\rightarrow$ AnyCompany
 	\item \textit{Time}: Sunday $\rightarrow$ Weekend $\rightarrow$ AnyTime
@@ -37,8 +37,8 @@ It is possible to do two kinds of post-filtering: Either you remove the ratings 
 \subsubsection*{Contextual modelling}
 Contextual modelling is slightly different than the two other approaches, in that it does not use the context for filtering, but rather the contextual information is used directly in the modelling technique.
 In traditional recommendation systems you work with ratings in the form $Rating = R(User, Item)$, but adding the contextual information to the actual model means that we modify this to $Rating = R(User, Item, Context)$.
-This means that traditional recommendation systems will not work on this set, since it has an extra dimension that they do not account for, however, multiple models have been suggested to fit this form \cite{Adomavicius2011}.\\
+This means that traditional recommendation systems will not work on this set, since it has an extra dimension that they do not account for, however, multiple models have been suggested to fit this form\cite{Adomavicius2011}.\\
 
-According to a comparison study conducted by Campos et. al \cite{10.1007/978-3-642-39878-0_13}, which aimed to see which of these three approaches gave the better results, there is not a single approach that is clearly superior to the others.
+According to a comparison study conducted by Campos et. al\cite{10.1007/978-3-642-39878-0_13}, which aimed to see which of these three approaches gave the better results, there is not a single approach that is clearly superior to the others.
 Rather, they observed that the performance depends to a large extent on the particular combination of the contextualization approach and the underlying recommendation used.\\
 Additionally, they conclude that using all available context information does not necessarily result in the best recommendations since this will introduce higher dimensionality, leading to even sparser data.
