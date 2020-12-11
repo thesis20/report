@@ -156,7 +156,7 @@ Assuming each user $u$ has a gain $g_{ui}$ from being recommended item $i$, then
 This metric also rewards lists that frontload relevant items.
 \begin{equation}
     \label{eqn:dcg}
-    DCG = \frac{1}{|U|} \sum\limits_{u=1}^|U| \sum\limits_{i = 1}^L \frac{g_{ui_l}}{log_b (l+1)}
+    DCG = \frac{1}{|U|} \sum\limits_{u=1}^|U| \sum\limits_{i = 1}^|L| \frac{g_{ui_l}}{log_b (l+1)}
 \end{equation}
 NDCG is defined in \autoref{eqn:ndcg}, where $DCG*$ is the ideal DCG, which is defined by sorting the DCG vector such that the most relevant items appear in the start of the list\cite{dcgpaper}, resulting in the biggest possible DCG value.
 \begin{equation}
