@@ -9,7 +9,7 @@ The second model is CAMF-CI which introduces a parameter for each contextual con
 By modelling it like this, it can capture when the contextual factor's have a different effect on the rating depending on which item it is.
 In this case, CAMF is able to capture two different levels of granularity.
 With CAMF-C for example, we have that when it is raining outside as the contextual value, every movie will get an increased predicted rating across the board.
-For CAMF-CI however, we have that when it is raining outside as the contextual value, only some specific movies will have their predicted ratings increased, while others may have their predicted ratings decreased.
+For CAMF-CI, however, only some specific movies will have their predicted ratings increased, while others may have their predicted ratings decreased when raining outside is used as the contextual value.
 The expression for predicting ratings with the CAMF models is seen in \autoref{eqn:camf-rating-pred}.
 \begin{equation}
     \label{eqn:camf-rating-pred}
