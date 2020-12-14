@@ -6,15 +6,19 @@ There are different models of CAMF that deal with different levels of granularit
 For CAMF-C, it is assumed that each of the contextual conditions has a global influence on the ratings independently of the items.
 In the CAMF-C model, a single parameter is introduced for each value of each contextual factor.
 The second model is CAMF-CI which introduces a parameter for each contextual condition and item pair, meaning that it has a finer granularity.
-By modeling it like this, it is possible to capture when the contextual factors have a different effect on the rating depending on which item it is.
+By modelling it like this, it can capture when the contextual factor's have a different effect on the rating depending on which item it is.
+In this case, CAMF is able to capture two different levels of granularity.
+With CAMF-C for example, we have that when it is raining outside as the contextual value, every movie will get an increased predicted rating across the board.
+For CAMF-CI however, we have that when it is raining outside as the contextual value, only some specific movies will have their predicted ratings increased, while others may have their predicted ratings decreased.
 The expression for predicting ratings with the CAMF models is seen in \autoref{eqn:camf-rating-pred}.
 \begin{equation}
     \label{eqn:camf-rating-pred}
     \hat{r}_{uic_1...c_k} = \vec{v_u} * \vec{q_i} + \bar{i} + b_u + \sum\limits_{j = 1}^k B_{ijc_j}
 \end{equation}
 We have that $\hat{r}_{uic_1...c_k}$ is the predicted rating for user $u$, item $i$ under the contextual values $c_1...c_k$.
-The variables $\vec{v_u} $ and $ \vec{q_i}$ are the feature vectors for user $u$ and item $i$ which are multiplied, just as in matrix factorization.
-$\bar{i}$ is the global average rating for item $i$, meaning the average rating across all users in the training set, and $\bar{b_u}$ is a user bias.
+The variables $\vec{v_u} $ and $ \vec{q_i}$ are the feature vectors for user $u$ and item $i$ which are multiplied.
+This part is identical to what happens in matrix factorization, where the rating matrix is decomposed into the multiplication of two feature matrices, where one contains the features for each user and the other contains the features for each item.
+$\bar{i}$ is the global average rating for item $i$ and $\bar{b_u}$ is a user bias. 
 $B_{ijc_j}$ are the parameters modeling the interaction of the contextual conditions and the items.
 For the CAMF-CI model, $B_{ijc_j}$ will result in a lot of parameters, and for CAMF-C it will result in less, as a result of how the two different approaches perform the contextual modeling.
 All of the parameters in the model, except for the average item rating, are learned through stochastic gradient descent.
