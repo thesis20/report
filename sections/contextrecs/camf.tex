@@ -31,5 +31,6 @@ This is done through the use of a loss function which is seen in \autoref{eqn:ca
     \end{split}
 \end{equation}
 Here we have that $r = (u,i,c_1...c_k)$ and that R is the context-dependent ratings from the training set.
+$k$ is the number of different contextual factors and $z_j$ is the number of different contextual values for the contextual factor $j$.
 The loss function includes regularization controlled by the $\lambda$ parameter to avoid overfitting the training data.
 The parameters are then updated based on the gradient of the loss function for each of the ratings in the training set.
