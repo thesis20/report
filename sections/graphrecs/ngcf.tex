@@ -1,0 +1,33 @@
+\subsection{Neural Graph Collaborative Filtering}
+\textit{Neural Graph Collaborative Filtering} (NGCF) is a state-of-the-art recommendation framework for collaborative filtering, exploiting a user-item bipartite graph structure by propagating embeddings on it.
+Learnable collaborative filtering models contain two key components: embedding, which transforms users and items to representations, and interaction modeling, which reconstructs interactions based on these embeddings.
+NGCF aims to enhance recommendation by integrating user-item interactions into the embedding function, which has previously been built with descriptive features only, such as ID and attributes.
+It does this through three components: an embedding layer that initializes user and item embeddings, embedding propagation layers that refine the embeddings and a prediction layer aggregating the refined embeddings.
+An initial embedding for a user $u$ is described as an embedding vector $e_u \in \R^d$, where $d$ is the embedding size.
+Embeddings are propagated through two operations, construction and aggregation.
+The embedding from item $i$ to user $u$ is defined as
+\begin{equation}
+    m_{u \leftarrow i} = \frac{1}{\sqrt{|N_u||N_i|}} (W_1e_i + W_2(e_i \odot e_u))
+\end{equation}
+where $m_{u \leftarrow i}$ is the information to be propagated, $N_u$ and $N_i$ are the first-hop neighbors of user $u$ and item $i$, $W_1, W_2 \in \R^{(d' \times d)}$ are trainable weight matrices, $d'$ is the transformation size and $\odot$ is the element-wise product.
+The element-wise product ensures that the interaction between the embedding of item $i$ and user $u$ contribute to the result.
+Aggregation for high-order propagation is defined through the equation:
+
+\begin{equation}
+    e_{u}^{(l)} = \textrm{LeakyReLU}(m_{u \leftarrow u} + \sum_{i \in N_u} m_{u \leftarrow i})
+\end{equation}
+where $e_u^{(l)}$ is the representation of $u$ obtained at the propagation layer and LeakyReLU is the activation function.
+
+
+\begin{math}
+    \left\{
+      \begin{array}{l}
+        m_{u \leftarrow i}^{(l)} = \frac{1}{\sqrt{|N_u||N_i|}} (W_1^{(l)} e_i^{(l-1)} + W_2^{(l)} (e_i^{(l-1)} \odot e_u^{(l-1)}))\\
+        m_{u \leftarrow u}^{(l)} = W_1^{(l)}e_u^{(l-1)}
+      \end{array}
+    \right.
+  \end{math}
+
+\begin{equation}
+    Loss = \sum_{(u, i, j) \in O} - \textrm{ln} \: \sigma (\hat{y}_{ui} - \hat{y}_{uj}) + \lambda ||\Theta||_2^2
+\end{equation}
