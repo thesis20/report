@@ -15,7 +15,7 @@ The expression for predicting ratings with the CAMF models is seen in \autoref{e
     \label{eqn:camf-rating-pred}
     \hat{r}_{uic_1...c_k} = \vec{v_u} * \vec{q_i} + \bar{i} + b_u + \sum\limits_{j = 1}^k B_{ijc_j}
 \end{equation}
-We have that $\hat{r}_{uic_1...c_k}$ is the predicted rating for user $u$, item $i$ under the contextual values $c_1...c_k$.
+We have that $\hat{r}_{uic_1...c_k}$ is the predicted rating for user $u$ for item $i$ under the contextual values $c_1...c_k$.
 The variables $\vec{v_u} $ and $ \vec{q_i}$ are the feature vectors for user $u$ and item $i$ which are multiplied.
 This part is identical to what happens in matrix factorization, where the rating matrix is decomposed into the multiplication of two feature matrices, where one contains the features for each user and the other contains the features for each item.
 $\bar{i}$ is the global average rating for item $i$ and $\bar{b_u}$ is a user bias. 
