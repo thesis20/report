@@ -21,6 +21,7 @@
 \legend{RMSE,MAE}
 \end{axis}
 \end{tikzpicture}
+\label{graph:MLRMSEMAE}
 \caption{RMSE and MAE results for MovieLens dataset across the investigated methods}
 \end{figure}
 
@@ -45,7 +46,8 @@
 \legend{RMSE,MAE}
 \end{axis}
 \end{tikzpicture}
-\label{fig:yahoormsemae}
+\label{graph:YahooRMSEMAE}
+\caption{RMSE and MAE results for Yahoo dataset across the investigated methods}
 \end{figure}
 
 \begin{figure}[h]
@@ -69,12 +71,14 @@
 \legend{RMSE,MAE}
 \end{axis}
 \end{tikzpicture}
+\label{graph:CoMoDaRMSEMAE}
+\caption{RMSE and MAE results for LDOS-CoMoDa dataset across the investigated methods}
 \end{figure}
 
 \begin{figure}[h]
 \begin{tikzpicture}
 \begin{axis} [
-    title    = {MovieLens: Precision@10, Recall@10, F-1},
+    title    = {MovieLens: Precision@10, Recall@10, F1},
     xbar=5pt,
     /pgf/bar width=5pt,
     y axis line style = { opacity = 0 },
@@ -93,12 +97,14 @@
 \legend{Precision,Recall,F-1}
 \end{axis}
 \end{tikzpicture}
+\label{graph:MLPrecRecF1}
+\caption{Precision, recall and F1 results for MovieLens dataset across the investigated methods}
 \end{figure}
 
 \begin{figure}[h]
 \begin{tikzpicture}
 \begin{axis} [
-    title    = {Yahoo: Precision@10, Recall@10, F-1},
+    title    = {Yahoo: Precision@10, Recall@10, F1},
     xbar=5pt,
     /pgf/bar width=5pt,
     y axis line style = { opacity = 0 },
@@ -117,12 +123,14 @@
 \legend{Precision,Recall,F-1}
 \end{axis}
 \end{tikzpicture}
+\label{graph:YahooPrecRecF1}
+\caption{Precision, recall and F1 results for Yahoo dataset across the investigated methods}
 \end{figure}
 
 \begin{figure}[h]
 \begin{tikzpicture}
 \begin{axis} [
-    title    = {LDOS-CoMoDa: Precision@10, Recall@10, F-1},
+    title    = {LDOS-CoMoDa: Precision@10, Recall@10, F1},
     xbar=5pt,
     /pgf/bar width=5pt,
     y axis line style = { opacity = 0 },
@@ -141,6 +149,8 @@
 \legend{Precision,Recall,F-1}
 \end{axis}
 \end{tikzpicture}
+\label{graph:CoMoDaPrecRecF1}
+\caption{Precision, recall and F1 results for LDOS-CoMoDa dataset across the investigated methods}
 \end{figure}
 
 \begin{figure}[h]
@@ -165,6 +175,8 @@
 \legend{MovieLens,Yahoo,LDOS-CoMoDa}
 \end{axis}
 \end{tikzpicture}
+\label{graph:MAP10}
+\caption{MAP@10 results for the dataset across the investigated methods}
 \end{figure}
 
 \begin{figure}[h]
@@ -189,4 +201,6 @@
 \legend{MovieLens,Yahoo,LDOS-CoMoDa}
 \end{axis}
 \end{tikzpicture}
+\label{graph:NDCG10}
+\caption{NDCG@10 results for the dataset across the investigated methods}
 \end{figure}
