@@ -30,13 +30,40 @@ This is why it achieves comparable results to other methods that would be expect
 \subsubsection{Are the results comparable?}
 \subsubsection{Inferred information on the datasets}
 
-\subsection{Graph based and context-aware methods}
+\subsection{Graph based methods, context-aware methods and utilizing side information}
+\subsubsection{How the data was split for context and side information}
+For the datasets we chose to focus on certain contextual variables or side information categories.
+The side information employed are defined in \autoref{tbl:sideinfodiscussion}.
+The context variables employed are defined in \autoref{tbl:contextdiscussion}, which is chosen based on \cite{COMODA2013} for CoMoDa and timestamp for MovieLens as it is the only context variable available.
+
+\begin{table*}[]
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+                                                                         & \textbf{Yahoo}                                                                          & \textbf{MovieLens}                                                                  & \textbf{Frappe}                                                                                                                                        \\ \hline
+    \textbf{\begin{tabular}[c]{@{}l@{}}Side-\\ information\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Age group\\ (3 values)\\ \\ Gender\\ (2 values)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Age group\\ (3 values)\\ \\ Gender\\ (2 values)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Category\\ (32 values)\\ \\ Downloads\\ (16 values)\\ \\ Developer\\ (2809 values)\\ \\ Language\\ (29 values)\end{tabular} \\ \hline
+    \end{tabular}
+    \caption{The side information categories used for the experiments along with their dimensions.}
+    \label{tbl:sideinfodiscussion}
+\end{table*}
+
+\begin{table*}[]
+    \begin{tabular}{|l|l|l|}
+    \hline
+                                                                            & \textbf{MovieLens}                                                                            & \textbf{LDOS-CoMoDa}                                                                        \\ \hline
+    \textbf{\begin{tabular}[c]{@{}l@{}}Contextual\\ variables\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Day Of Week\\ (2 values)\\ \\ Time intervals\\ (4 values)\end{tabular} & \begin{tabular}[c]{@{}l@{}}DominantEmo\\ (5 values)\\ \\ Physical\\ (2 values)\end{tabular} \\ \hline
+    \end{tabular}
+    \caption{The contextual variables used for the experiments along with their dimensions.}
+    \label{tbl:contextdiscussion}
+\end{table*}
+
 \subsubsection{How do the context-aware methods utilize context?}
 CAMF 
 ItemSplitting
 
-\subsubsection{Did context matter?}
-yes felipe showed this xd
+
+\subsubsection{Did context and side information matter?}
+\autoref{subsec:experimentresult}
+yes felibe showed this xd
 sparsity problem
 alleviating sprasity through knowledge
 \subsubsection{Contextual discretization}
@@ -47,7 +74,7 @@ contextual information vs metainformation
 Often the only available context variable in larger datasets.
 Can be extracted and used.
 However, an assumption made when doing so is that the rating was given by the user at the time of finishing consumption of the item??
-As described in \autoref{subsec:desc-of-datasets}, \cite{COMODA2013} defines that some of the most infulential context variables are the dominant emotions during the watching of the movie as well as the final emotion felt.
+As described in \autoref{subsec:desc-of-datasets}, \cite{COMODA2013} defines that some of the most influential context variables are the dominant emotions during the watching of the movie as well as the final emotion felt.
 As such, we can infer that ratings provided shortly after watching does a better job of reflecting the contextual influence on the rating.
 However, this cannot be guaranteed as some users might rate a batch of items in quick succession, or even rate a single item after a substantial amount of time has passed since consumption.
 This means the data could lose some of the contextual impact if timestamp is the only context variable that is available or inferable.  
