@@ -63,7 +63,7 @@ A similarity between a pair of users or items can also be found which can be exp
 
 \subsection{Side-information in graphs}
 With the structure of a graph, it is possible to extend it with side-information.
-This can be done either with information about the interaction between user and an item by adding side-information to the edge between the two nodes, such that the edge $(U, I)$ that previously indicated an interaction between an user and an item is extended with a relation such as $U, r, I$ where $r$ is a rating that user $U$ has assigned to item $I$\cite{aggarwal2016recommender}. 
+This can be done either with information about the interaction between user and an item by adding side-information to the edge between the two nodes, such that the edge $(U, I)$ that previously indicated an interaction between an user and an item is extended with edge side-information such as $(U, r, I)$ where $r$ is a rating that user $U$ has assigned to item $I$\cite{aggarwal2016recommender}. 
 Additionally, side-information can be added to user or item nodes, which allows us to do constraints on the recommendations, similar to how contextual filtering works, as described in \autoref{subsec:utilizingandobtainingcontext}.
 For users, this side-information can be attributes such as their age, location or gender.
 For a movie, it can be attributes such as actors, genre or budget.
