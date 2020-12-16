@@ -209,7 +209,7 @@ Here we have that $N$ is 4 as that is the length of the recommendation list.
 \begin{align}
     AP = \frac{(\frac{1}{1}*1+\frac{1}{2}*0+\frac{2}{3}*1+\frac{3}{4}*1)}{4} = 0.604 \label{eqn:ap-example}
 \end{align}
-The Precision@n from $n=1$ to $N$, multiplied by 1 if item $n$ is relevant and 0 if not, are all summed together in the numerator as seen in \autoref{eqn:ap-example}.
+The Precision@N from $n=1$ to $N$, multiplied by 1 if item $n$ is relevant and 0 if not, are all summed together in the numerator as seen in \autoref{eqn:ap-example}.
 The resulting value is then divided by the minimum of either $N$ or the length of the relevant item set for the user, which in this case is equal to $N$.
 To find the MAP value, the AP values are simply summed together for each user in $U$ and divided by $|U|$.
 In this example we only have a single user, so the MAP is the same as the AP.

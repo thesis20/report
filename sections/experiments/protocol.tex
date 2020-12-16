@@ -19,9 +19,9 @@ The same splits are used for evaluation for each method to ensure proper compara
 In the following we define the evaluation metrics used, the baselines that are compared as well as the hyperparameter settings used.
 \\\\
 \textbf{Evaluation metrics}\\
-As defined in \autoref{sec:evaluationmetrics}, the metrics used are $precision@k$, $recall@k$, $map@k$, $RMSE$ and $MAE$.
+As defined in \autoref{sec:evaluationmetrics}, the metrics used are $precision@N$, $recall@N$, $map@N$, $RMSE$ and $MAE$.
 All five metrics are reported for baselines that provide rating predictions, whereas $RMSE$ and $MAE$ are not reported for methods that only compute a list of $top-N$ recommendations.
-For $precision@k$, $recall@k$ and $map@k$, the k-value is defined as $10$.
+For $precision@N$, $recall@N$ and $map@N$, the k-value is defined as $10$.
 For evaluation purposes we define a relevant item for a given user as an item in which a rating with a value of $3$ or more is observed. 
 \\\\
 \textbf{Baselines}\\
