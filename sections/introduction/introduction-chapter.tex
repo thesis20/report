@@ -9,3 +9,10 @@ For example, a user may not want to watch the same movies in the company of thei
 Likewise, time could be an important factor, since movies such as \textit{A Christmas Story} may be more relevant during the winter months than during summer.\\\
 Generally, for a RS, the objective is to either: estimate a rating function $R: User \times Item \rightarrow Rating$ for the $(user, \ item)$ pairs that are not yet rated, or to compute a list $L$ of the top recommended items for an active user $U_a$ containing items that are likely to be of interest $R: User \times Item \rightarrow L(Ua)$\cite{RecommenderHandbook2015}.
 CARS extends these functions to respectively $R: User \times Item \times Context \rightarrow Rating$ and $R: User \times Item \times Context \rightarrow L(Ua)$ by taking the known contextual information associated with the application into account.
+\\\\
+The remainder of the paper is organized as follows. 
+\autoref{sec:contextinrecommendersystems} is a brief overview of how context is used in recommender systems.
+\autoref{sec:graph-rec-sys} introduces how graphs are used for recommender systems.
+\autoref{sec:experiments} describes how we investigated various methods for recommendations on different datasets and how they compare in a series of metrics such as RMSE, precision and NDCG.
+\autoref{sec:discussion} is a discussion about the results acquired in the previous section, and how context is used in the various recommender system methods.
+We conclude the paper in Sections~\ref{sec:conclusion} and \ref{sec:futurework} by summarizing our research contributions and pointing out future directions.
