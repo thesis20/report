@@ -6,8 +6,8 @@ This results in a low dimensional vector representation of each vertex in the gr
 The random walks are done a number of times for each vertex $v_i$.
 The vertices in the walk are chosen at random to form the random walks $W_{vi}$ which are used as "sentences" in the neural language model and the vertices are the "words" of the sentences.
 The language model is then used to estimate the likelihood that vertices appear in the same random walk.
-This is done using the language model SkipGram, and the result of this is a vector representation of each vertex in d-dimensional space.
+This is done using the language model SkipGram, and the result of this is a vector representation of each vertex in $d$-dimensional space.
 \\\\
 The next step is to then use the vector representations to generate recommendations.
-Here we opted to go for a k-nearest neighbor (kNN) approach where we find the 10 nearest neighbor user-vertices to a user vertex $u$ using the vector representations.
-To then generate a rating prediction for a specific item $i$, we look at whether the 10 neighbors have rated item $i$ and use the average of their ratings of $i$ as the predicted rating for user $u$ to item $i$.
+Here we opted to go for a k-nearest neighbor (kNN) approach where we find the 10 nearest user-vertices to a user vertex $u$ using the vector representations.
+To then generate a rating prediction for a specific item $i$, we look at whether the 10 neighbors have rated item $i$ and use the average of their ratings of $i$ as the predicted rating for user $u$ on item $i$.
