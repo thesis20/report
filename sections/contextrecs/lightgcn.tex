@@ -12,7 +12,7 @@ They propose an aggregation function called Light Graph Convolution (LGC) seen i
 \end{align}
 $e_{u}^{(k+1)}$ and $e_{i}^{(k+1)}$ are the embeddings at layer $k+1$ for a user $u$ and item $i$ respectively.
 $N_u$ are the items that user $u$ has interacted with and $N_i$ are the users that have interacted with item $i$.
-Note that this aggregation does not contain any nonlinear activation function nor any feature transformation.
+Note that this aggregation does not contain any nonlinear activation function nor any feature transformation, unlike NGCF's aggregation function described in \autoref{eqn:ngcf-agg}.
 $\frac{1}{\sqrt{\left | N_u \right |}\sqrt{\left | N_i \right |}}$ is a symmetric normalization term which makes sure that the embeddings do not scale with increasing graph convolution operations.
 In LGC the target node is not included in the aggregation and only the neighboring nodes are used which means that it does not handle self-connections.
 This is instead handled in a later operation where the layers are combined.
