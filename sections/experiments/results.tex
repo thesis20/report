@@ -2,7 +2,7 @@
 In this section we look at the results from the experiments.
 \subsubsection{LDOS-CoMoDa}
 For the experiments conducted on the LDOS-CoMoDa dataset, we should see the methods that handle context do well, as this dataset has many context variables that the rating depends on.
-As mentioned, we are looking at two of these context variables, which are the \textit{dominantEmo} and the \textit{physical} attributes as these are some of the most influential, as described in \autoref{subsec:desc-of-datasets}.
+Two of these context variables are used for the experiments, which are the \textit{dominantEmo} and the \textit{physical} attributes as these are some of the most influential, as described in \autoref{subsec:desc-of-datasets}.
 The methods that handle context are \texttt{Itemsplitting} and the \texttt{CAMF} methods.
 We see that \texttt{Itemsplitting} has the largest Recall@10, but also the smallest Precision@10, resulting in a small F1@10 value, and in general, it does not perform well on LDOS-CoMoDa, which is surprising as it is able to utilize the context.
 However, \texttt{Itemsplitting} is able to achieve one of the highest NDCG scores.
