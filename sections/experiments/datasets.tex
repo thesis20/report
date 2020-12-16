@@ -46,7 +46,7 @@ The papers that were investigated made use of both the 1M dataset and the 100K s
 The 1M dataset contains 1,000,209 ratings of 3,706 movies made by 6,040 users with a density of 4.47\%, representing the percentage of cells in the full user-item matrix that contain rating values \cite{MovieLens2015}.
 The 100K Dataset contains 100,000 ratings of 1,682 movies made by 943 users with a density of 6.30\% \cite{MovieLens2015}.
 Each user in both datasets has rated at least 20 movies.
-The datasets do not contain specific contextual information, but it is possibly to derive a time context dimension from the timestamps provided along the ratings.
+The datasets do not contain specific contextual information, but it is possible to derive a time context dimension from the timestamps provided along the ratings.
 
 \subsubsection{Frappé}
 Frappé is a mobile app recommender providing context-aware mobile app recommendations by means of a tensor factorization approach based on implicit feedback data\cite{baltrunas2015frappe}.
@@ -71,8 +71,10 @@ The contextual dimensions distinguish between weekday or weekend, whether or not
 \subsubsection{Yahoo! Movies}
 The \textit{Yahoo!} dataset contains a dataset of $7,642$ users, $11,915$ movies and $211,231$ ratings.
 All users have rated at least one item, and all items are rated by at least one user.
-In terms of contextual information, the dataset provides \textit{year of birth} for the user, \textit{gender} and \textit{age group} which is discretized as either child, adult or elder.
-The movies are also linked to $32$ types of content information, such as \textit{synopsis}, \textit{running time}, \textit{release date}, \textit{list of genres} and \textit{list of crew members}.
+In terms of contextual information, the dataset does not provide any contextual information to the recorded ratings.
+It instead provides information such as \textit{year of birth} for the user, \textit{gender} and \textit{age group} which is discretized as either child, adult or elder.
+We opted to try and use this information as context for the context-aware methods.
+The movies are also linked to $32$ types of side information, such as \textit{synopsis}, \textit{running time}, \textit{release date}, \textit{list of genres} and \textit{list of crew members}.
 This information can be used for methods that utilize knowledge, such as knowledge-graph-based methods.
 
 \subsection{Evaluation protocols}\label{sec:evaluationmetrics}
