@@ -30,7 +30,7 @@ There are a few reasons why the layer combination is a good thing to do.
 First of all, the embeddings become over-smoothed with an increasing number of layers, meaning that the embeddings slowly become indistinguishable when too much graph convolution is done.
 This may be avoided by combining the embeddings at the different layers in the final step of the model.
 Secondly, the embeddings at the different layers capture different features that would not be expressed if only the last layer's embeddings were used for the final embeddings.
-For example, aggregation at the first layer capture the direction interaction between users and items, the second layer capture users that have an overlap in their interactions and so on.
+For example, aggregation at the first layer captures the direct interactions between users and items, the second layer captures users that have an overlap in their item interactions, and so on.
 Finally, when the embeddings at different layers are combined with a weighted sum, the effect of graph convolution with self-connections is captured.
 \\
 After the layer combination, the final embeddings can be used to make predictions with the model as seen in \autoref{eqn:lgcn-pred}.
