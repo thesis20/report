@@ -32,13 +32,13 @@ Choosing the correct generalized pre-filter is important for accurate recommenda
 \subsubsection*{Post-filtering}
 In contextual post-filtering, the contextual information is, at first, ignored while generating recommendations.
 Unlike pre-filtering, the recommendations will be made based on the full dataset, and then after the recommendations have been generated, they will be filtered based on the current context $c$.\\
-It is possible to do two kinds of post-filtering: Either you remove the ratings that do not fit the context, or adjust the ranking of the items based on the given context.
+It is possible to do two kinds of post-filtering: Either you remove the predicted ratings that do not fit the context if the method produces predictions for all items for all possible contexts, such that the user is only recommended items that correlate with the context $c$, or adjust the ranking of the items based on the given context.
 
 \subsubsection*{Contextual modelling}
 Contextual modelling is slightly different than the two other approaches, in that it does not use the context for filtering, but rather the contextual information is used directly in the modelling technique.
 In traditional recommendation systems you work with ratings in the form $Rating = R(User, Item)$, but adding the contextual information to the actual model means that we modify this to $Rating = R(User, Item, Context)$.
-This means that traditional recommendation systems will not work on this set, since it has an extra dimension that they do not account for, however, multiple models have been suggested to fit this form\cite{Adomavicius2011}.\\
-
+This means that traditional recommendation systems will not work on this set, since it has an extra dimension that they do not account for, however, multiple models have been suggested to fit this form\cite{Adomavicius2011}.
+\\\\
 According to a comparison study conducted by Campos et. al\cite{10.1007/978-3-642-39878-0_13}, which aimed to see which of these three approaches gave the better results, there is not a single approach that is clearly superior to the others.
 Rather, they observed that the performance depends to a large extent on the particular combination of the contextualization approach and the underlying recommendation used.\\
 Additionally, they conclude that using all available context information does not necessarily result in the best recommendations since this will introduce higher dimensionality, leading to even sparser data.
