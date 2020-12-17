@@ -276,3 +276,5 @@ TSWLatexianTemp*
 *.lpz
 
 master.pdf
+master.run.xml
+master.synctex.gz
