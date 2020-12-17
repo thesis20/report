@@ -123,7 +123,7 @@ SVD++\cite{svd++}       &              & x             &              &         
 
 \autoref{tab:metricsused} shows the metrics used for evaluation for the relevant methods, while \autoref{tab:methodsused} examines each paper for the evaluation protocol.
 It is evident that most of these papers focus on offline evaluation, investigating metrics related to algorithmic precision and efficiency, such as root-mean-square error (RMSE), mean absolute error (MAE) and F1-measure.
-These metrics are useful for two important problems associated with recommender systems: rating prediction and top-N recommendation\cite{RecommenderHandbook2015}.
+These metrics are useful for two important problems associated with recommender systems: rating prediction and top-$N$ recommendation\cite{RecommenderHandbook2015}.
 \\
 The rating prediction problem concerns itself with predicting the rating that a user $u$ will give an unrated item $i$ denoted as $r_{ui}$, which is often defined as learning a function $f : U \times I \rightarrow S$, that predicts the rating $f(u, i)$ of a user $u$ for a new item $i$, where $U$ the set of users, $I$ is the set of items, and $S$ is the set of possible values for a rating.
 Typically, ratings in a set of ratings $R$ are divided into a training set $R_{train}$ used to learn $f$, and a test set $R_{test}$ used for evaluation prediction accuracy, which is usually done through MAE and RMSE.
@@ -257,7 +257,7 @@ A summary of the details of the datasets can be seen in \autoref{tab:datasetstat
 The most interesting datasets for context-aware recommendation are LDOS-CoMoDa due to the amount of contextual values, the Yahoo! dataset due to the size and inclusion of context, the MovieLens datasets due to their size and ability to extract a temporal context, as well as Frappé due to its size.
 Most of the examined papers perform offline evaluation, mainly employing recall and NDCG to evaluate the algorithms, and cross-validate on the sets when testing.
 
-\begin{table*}[]
+\begin{table*}[!htb]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|} 
     \hline
