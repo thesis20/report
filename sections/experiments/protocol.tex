@@ -45,7 +45,10 @@ In the following we define the evaluation metrics used, the baselines that are c
 As defined in \autoref{sec:evaluationmetrics}, the metrics used are \textit{precision@N}, \textit{recall@N}, \textit{map@N}, \textit{RMSE} and \textit{MAE}.
 All five metrics are reported for baselines that provide rating predictions, whereas \textit{RMSE} and \textit{MAE} are not reported for methods that only compute a list of \textit{top-N} recommendations.
 For \textit{precision@N}, \textit{recall@N} and \textit{map@N}, the k-value is defined as $10$.
-For evaluation purposes we define a relevant item for a given user as an item in which a rating with a value of $3$ or more is observed. 
+For evaluation purposes we define a relevant item for a given user as an item in which a rating with a value of $3$ or more is observed.
+For methods that evaluate on batches, we employ a batch size of approximately one tenth of the total number of users.
+For different learning rates and embedding sizes for methods that require these, we use the ones provided by the authors as examples for the methods. 
+If the methods require random sampling, we employed the number 42 as the seed.
 \\\\
 \textbf{Baselines and state-of-the-art}\\
 The experiments are carried out on the following baselines:

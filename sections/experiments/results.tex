@@ -36,8 +36,8 @@ DeepWalk excels on the MAP@10 metric and outperforms other graph based methods o
 In terms of RMSE and MAE, we see that both CAMF and both SVD approaches perform the best, with random underperforming as expected.
 Overall, we see a tendency for the graph-based methods to perform poorly on this dataset except for DeepWalk, while the SVD-based approaches perform the best in terms of F1.
 
-\subsubsection{Yahoo! Movies}
-For the Yahoo! Movies dataset we opted to use side information such as \textit{gender} and \textit{age_group} as the contextual variables for the context-aware method since the dataset does not contain any contextual information with the recorded interactions.
+\subsubsection{Yahoo Movies}
+For the Yahoo Movies dataset we opted to use side information such as \textit{gender} and \textit{age group} as the contextual variables for the context-aware method since the dataset does not contain any contextual information with the recorded interactions.
 Because of this we do not expect the context-aware methods to perform better than the other baselines.
 We see that SVD++ performs best in terms of RMSE and MAE, closely followed by other methods such as SVD, CAMF and NMF.
 CAMF-C is able to achieve the highest Precision@10 which could suggest that it is able to utilize the side information, but it is only marginally better than SVD, SVD++ and CAMF-C.
@@ -48,7 +48,7 @@ However IS-UserBased does not perform well in Precision@10 nor RMSE and MAE.
 DeepWalk only performs well on Recall@10 and NDCG@10 and struggles on the other metrics.
 \\
 In terms of graph-based methods they do not perform well on this dataset.
-LightGCN is able to achieve a comparable Precision@10 to the other methods, but it's Recall@10 and NDCG@10 are worse than many of the baselines.
+LightGCN is able to achieve a comparable Precision@10 to the other methods, but its Recall@10 and NDCG@10 are worse than many of the baselines.
 All of the graph-based methods achieve much worse MAP@10 values than the non graph-based methods.
 KGAT has a very low Precision@10 but achieves an NDCG@10 that is comparable to the other baselines.
 In general, it does not seem like the graph-based methods are suitable for this kind of dataset.
