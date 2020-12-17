@@ -1,4 +1,4 @@
-\subsection{Experiments}
+\subsection{Experiments}\label{subsec:experimentprotocol}
 Experiments are carried out in order to gain an understanding of baselines that employ different methods and investigate the impact of contextual data.
 This section describes these experiments and the protocol used.
 
@@ -8,7 +8,32 @@ These datasets all provide contextual information, or allow for context to be in
 Users that have not provided at least 5 ratings are pruned for the \textit{LDOS-CoMoDa} dataset.
 The \textit{Frappé} dataset does not provide explicit ratings, and methods that require this do not report results on this dataset.
 The remaining datasets provide ratings in the range of $1-5$.
-\\\\
+The contextual variables and side information used is defined in \autoref{tbl:sideinfoprotocol} and \autoref{tbl:contextprotocol}.
+For the time interval defined based on the timestamp there are five possible values as defined in \autoref{tbl:contextprotocol}.
+For the experiments, we define these as $06.00$-$09.00$ being the morning, $09.00$-$12.00$ being noon, $12.00$-$17.00$ being afternoon, $17.00$-$22.00$ being evening, and the remaining interval $22.00$-$05.00$ being night.
+\\
+\begin{table*}[!htb]
+	\centering
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+                                                                         & \textbf{Yahoo}                                                                          & \textbf{MovieLens}                                                                  & \textbf{Frappe}                                                                                                                                        \\ \hline
+    \textbf{\begin{tabular}[c]{@{}l@{}}Side-\\ information\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Age group\\ (3 values)\\ \\ Gender\\ (2 values)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Age group\\ (3 values)\\ \\ Gender\\ (2 values)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Category\\ (32 values)\\ \\ Downloads\\ (16 values)\\ \\ Developer\\ (2809 values)\\ \\ Language\\ (29 values)\end{tabular} \\ \hline
+    \end{tabular}
+    \caption{The contextual variables used for the experiments along with their amount of possible values.}
+    \label{tbl:sideinfoprotocol}
+\end{table*}
+
+\begin{table*}[!htb]
+	\centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+                                                                            & \textbf{MovieLens}                                                                            & \textbf{LDOS-CoMoDa}                                                                        \\ \hline
+    \textbf{\begin{tabular}[c]{@{}l@{}}Contextual\\ variables\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Day Of Week\\ (7 values)\\ \\ Time intervals\\ (5 values)\end{tabular} & \begin{tabular}[c]{@{}l@{}}DominantEmo\\ (5 values)\\ \\ Physical\\ (2 values)\end{tabular} \\ \hline
+    \end{tabular}
+    \caption{The contextual variables used for the experiments along with their amount of possible values.}
+    \label{tbl:contextprotocol}
+\end{table*}
+\noindent
 \textbf{Cross-validation}\\
 For each dataset we employ \textit{5-fold} cross-validation.
 We split the data into 5 folds, and employ 4 of these as training and 1 as test.
@@ -22,7 +47,10 @@ In the following we define the evaluation metrics used, the baselines that are c
 As defined in \autoref{sec:evaluationmetrics}, the metrics used are \textit{precision@N}, \textit{recall@N}, \textit{map@N}, \textit{RMSE} and \textit{MAE}.
 All five metrics are reported for baselines that provide rating predictions, whereas \textit{RMSE} and \textit{MAE} are not reported for methods that only compute a list of \textit{top-N} recommendations.
 For \textit{precision@N}, \textit{recall@N} and \textit{map@N}, the k-value is defined as $10$.
-For evaluation purposes we define a relevant item for a given user as an item in which a rating with a value of $3$ or more is observed. 
+For evaluation purposes we define a relevant item for a given user as an item in which a rating with a value of $3$ or more is observed.
+For methods that evaluate on batches, we employ a batch size of approximately one tenth of the total number of users.
+For different learning rates and embedding sizes for methods that require these, we use the ones provided by the authors as examples for the methods. 
+If the methods require random sampling, we employed a seed for consistent results.
 \\\\
 \textbf{Baselines and state-of-the-art}\\
 The experiments are carried out on the following baselines:
