@@ -3,61 +3,61 @@ In this section we look at the results from the experiments.
 \subsubsection{LDOS-CoMoDa}
 For the experiments conducted on the LDOS-CoMoDa dataset, we should see the methods that handle context do well, as this dataset has many context variables that the rating depends on.
 Two of these context variables are used for the experiments, which are the \textit{dominantEmo} and the \textit{physical} attributes as these are some of the most influential, as described in \autoref{subsec:desc-of-datasets}.
-The methods that handle context are \texttt{IS-UserBased} and the \texttt{CAMF} methods.
-We see that \texttt{IS-UserBased} has the largest Recall@10, but also the smallest Precision@10, resulting in a small F1@10 value, and in general, it does not perform well on LDOS-CoMoDa, which is surprising as it is able to utilize the context.
-However, \texttt{IS-UserBased} is able to achieve one of the highest NDCG scores.
-Both \texttt{CAMF-C} and \texttt{CAMF-CI} perform well on LDOS-CoMoDA in terms of most metrics, except for MAP@N.
+The methods that handle context are \textit{IS-UserBased} and the \textit{CAMF} methods.
+We see that \textit{IS-UserBased} has the largest Recall@10, but also the smallest Precision@10, resulting in a small F1@10 value, and in general, it does not perform well on LDOS-CoMoDa, which is surprising as it is able to utilize the context.
+However, \textit{IS-UserBased} is able to achieve one of the highest NDCG scores.
+Both \textit{CAMF-C} and \textit{CAMF-CI} perform well on LDOS-CoMoDA in terms of most metrics, except for MAP@N.
 They are able to achieve the lowest prediction errors amongst all methods in terms of RMSE and MAE, which could indicate that they are able to make good use of the context.
-Close to \texttt{CAMF} methods we have baselines such as \texttt{SVD} and \texttt{SVD++} which both are competitive in terms of precision@10, Recall@10 and F1@10. 
-These also achieve the highest MAP@N values but do not have as low prediction errors as the \texttt{CAMF} methods.
-\texttt{NMF} generally perform a little worse in all metrics compared to \texttt{SVD}, except for NDCG.
-The \texttt{DeepWalk + kNN} method has high prediction errors and low Precision@10 and MAP@10 values but has the second-highest Recall@10 and one of the highest NDCG value.
+Close to \textit{CAMF} methods we have baselines such as \textit{SVD} and \textit{SVD++} which both are competitive in terms of Precision@10, Recall@10 and F1@10. 
+These also achieve the highest MAP@N values but do not have as low prediction errors as the \textit{CAMF} methods.
+\textit{NMF} generally perform a little worse in all metrics compared to \textit{SVD}, except for NDCG.
+The \textit{DeepWalk + kNN} method has high prediction errors and low Precision@10 and MAP@10 values but has the second-highest Recall@10 and one of the highest NDCG value.
 Finally, we have the methods that do not handle rating predictions but only do top-$N$ recommendations, so these do not have RMSE and MAE values, since they work with interactions rather than ratings.
-We see that \texttt{LightGCN} is not able to perform well on any of the metrics.
+We see that \textit{LightGCN} is not able to perform well on any of the metrics.
 We suspect that this is because the LDOS-CoMoDa dataset is as small as it is with only 121 users, 1,232 unique movies, and 2,296 ratings, and it is therefore not able to utilize its strengths.
 And all of these numbers are considerably lower on the actual data used, due to pruning.
-However, \texttt{NGCF} is able to achieve both the highest Precision@10 as well as the highest NDCG but does have a lower Recall@10 resulting in a low F1@10 score.
+However, \textit{NGCF} is able to achieve both the highest Precision@10 as well as the highest NDCG but does have a lower Recall@10 resulting in a low F1@10 score.
 \\\\
 To summarize, we expected the context-aware methods to perform well on the LDOS-CoMoDA dataset, as the ratings are context-dependent. 
-The \texttt{CAMF} methods do perform well as expected, but \texttt{IS-UserBased} is underperforming in most metrics.
-Some baselines such as \texttt{SVD} and \texttt{SVD++} are closely competitive with \texttt{CAMF} as the best performing methods.
-The results of the experiment could also indicate that \texttt{NGCF} could be interesting to look at in terms of adding context, as it is able to perform well on a context dataset without utilizing the context available. 
-\texttt{NGCF} is also a graph-based approach which, as mentioned in \autoref{sec:graph-rec-sys}, is able to alleviate the sparsity problem introduced by adding context.
+The \textit{CAMF} methods do perform well as expected, but \textit{IS-UserBased} is underperforming in most metrics.
+Some baselines such as \textit{SVD} and \textit{SVD++} are closely competitive with \textit{CAMF} as the best performing methods.
+The results of the experiment could also indicate that \textit{NGCF} could be interesting to look at in terms of adding context, as it is able to perform well on a context dataset without utilizing the context available. 
+\textit{NGCF} is also a graph-based approach which, as mentioned in \autoref{sec:graph-rec-sys}, is able to alleviate the sparsity problem introduced by adding context.
 
 \subsubsection{MovieLens 100k}
 The MovieLens 100k dataset does not contain any contextual variables outside of a timestamp that can be discretized.
 \autoref{subsec:experimentprotocol} defined how the timestamp was discretized into the day of the week and a time interval.
 Compared to the LDOS-CoMoDa we expected context-aware methods to not perform substantially better since only context based on the timestamp is available compared to the different contextual variables included in the LDOS-CoMoDa dataset. 
-In terms of the methods that handle context, we see that CAMF-C achieves the highest Precision@10 and F1@10, while IS-UserBased underperforms most methods on Precision@10 and outperforms all methods on Recall@10.
-In terms of NDCG IS-UserBased underperforms on MovieLens compared to other datasets, showing the worst results, while both CAMF methods also provide poor NDCG.
-KGAT, a graph-based method utilizing side information performs the best in terms of NDCG on the MovieLens data but underperforms on MAP@10, precision, and F1.
-Other graph-based methods, such as NGCF and LightGCN show similar poor performances as well on this dataset, being outperformed on precision@10, recall@10, F1, and MAP@10.
-DeepWalk excels on the MAP@10 metric and outperforms other graph-based methods on precision, recall, and F1, showing results close to SVD-based approaches.
-In terms of RMSE and MAE, we see that both CAMF and both SVD approaches perform the best, with Random underperforming as expected.
-Overall, we see a tendency for the graph-based methods to perform poorly on this dataset except for DeepWalk, while the SVD-based methods perform the best in terms of F1.
+In terms of the methods that handle context, we see that \textit{CAMF-C} achieves the highest Precision@10 and F1@10, while \textit{IS-UserBased} underperforms most methods on Precision@10 and outperforms all methods on Recall@10.
+In terms of NDCG \textit{IS-UserBased} underperforms on MovieLens compared to other datasets, showing the worst results, while both \textit{CAMF} methods also provide poor NDCG.
+\textit{KGAT}, a graph-based method utilizing side information performs the best in terms of NDCG on the MovieLens data but underperforms on MAP@10, Precision@10, and F1@10.
+Other graph-based methods, such as \textit{NGCF} and \textit{LightGCN} show similar poor performances as well on this dataset, being outperformed on Precision@10, Recall@10, F1@10, and MAP@10.
+DeepWalk excels on the MAP@10 metric and outperforms other graph-based methods on Precision@10, Recall@10, and F1@10, showing results close to SVD-based approaches.
+In terms of RMSE and MAE, we see that both \textit{CAMF} and both SVD approaches perform the best, with Random underperforming as expected.
+Overall, we see a tendency for the graph-based methods to perform poorly on this dataset except for DeepWalk, while the SVD-based methods perform the best in terms of F1@10.
 
 \subsubsection{Yahoo Movies}
 For the Yahoo Movies dataset, we opted to use side information such as \textit{gender} and \textit{age group} as the contextual variables for the context-aware methods since the dataset does not contain any contextual information with the recorded interactions.
 Because of this, we do not expect the context-aware methods to perform better than the other baselines.
-We see that SVD++ performs best in terms of RMSE and MAE, closely followed by other methods such as SVD, CAMF, and NMF.
-CAMF-C is able to achieve the highest Precision@10 which could suggest that it is able to utilize the side information, but it is only marginally better than SVD, SVD++, and CAMF-C.
-For Recall@10, MAP@10, and NDCG@10 IS-UserBased is the best performing method.
+We see that SVD++ performs best in terms of RMSE and MAE, closely followed by other methods such as \textit{SVD}, \textit{CAMF}, and \textit{NMF}.
+\textit{CAMF-C} is able to achieve the highest Precision@10 which could suggest that it is able to utilize the side information, but it is only marginally better than \textit{SVD}, \textit{SVD++}, and \texit{CAMF-C}.
+For Recall@10, MAP@10, and NDCG@10 \textit{IS-UserBased} is the best performing method.
 As this method is context-aware, this could suggest that it is able to improve its predictions using side information.
 The high values of MAP@10 and NDCG@10 also suggest that it is better at recommending relevant items in the front of the list compared to other methods.
 However \textit{IS-UserBased} does not perform well in Precision@10 nor RMSE and MAE.
 DeepWalk only performs well on Recall@10 and NDCG@10 and struggles on the other metrics.
 \\
 In terms of graph-based methods, they do not perform well on this dataset.
-LightGCN is able to achieve a comparable Precision@10 to the other methods, but its Recall@10 and NDCG@10 are worse than many of the baselines.
+\textit{LightGCN} is able to achieve a comparable Precision@10 to the other methods, but its Recall@10 and NDCG@10 are worse than many of the baselines.
 All of the graph-based methods achieve much worse MAP@10 values than the non-graph-based methods.
-KGAT has a very low Precision@10 but achieves an NDCG@10 that is comparable to the other baselines.
+\textit{KGAT} has a very low Precision@10 but achieves an NDCG@10 that is comparable to the other baselines.
 In general, it does not seem like the graph-based methods are suitable for this kind of dataset.
 
 \subsubsection{Frappé}
 The Frappé dataset is a little different, in that it is the only dataset used without ratings, focusing solely on interactions.
 As such, only results from methods that are able to produce a top-$N$ list are reported.
-For precision@10 we see that LightGCN outperforms the others, and KGAT shows very poor performance on the metric compared to both LightGCN and NGCF.
-For Recall@10 however, KGAT shows the best performance by a substantial amount, whereas LightGCN and NGCF perform mostly evenly.
-KGAT's poor performance on Precision@10, however, still leads to it underperforming on F1@10, where LightGCN once again outperforms NGCF.
+For Precision@10 we see that \textit{LightGCN} outperforms the others, and \textit{KGAT} shows very poor performance on the metric compared to both \textit{LightGCN} and \texit{NGCF}.
+For Recall@10 however, \textit{KGAT} shows the best performance by a substantial amount, whereas \textit{LightGCN} and \textit{NGCF} perform mostly evenly.
+\textit{KGAT}'s poor performance on Precision@10, however, still leads to it underperforming on F1@10, where \textit{LightGCN} once again outperforms \textit{NGCF}.
 For these metrics, we see that the random baseline performs substantially worse than the state-of-the-art methods.
-KGAT outperforms the other methods except for random on NDCG, while performing poorly on MAP@10, which NGCF performs the best on with the exception of random that surprisingly performs decently on the MAP@10 metric.
+\textit{KGAT} outperforms the other methods except for random on NDCG, while performing poorly on MAP@10, which \textit{NGCF} performs the best on with the exception of random that surprisingly performs decently on the MAP@10 metric.

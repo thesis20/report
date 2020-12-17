@@ -1,7 +1,7 @@
 \subsubsection{Neural Graph Collaborative Filtering}\label{subsec:ngcf-desc}
 \textit{Neural Graph Collaborative Filtering} (NGCF) is a state-of-the-art recommendation framework for collaborative filtering, employing a user-item bipartite graph structure.
 Learnable collaborative filtering models contain two key components: embedding, which transforms users and items to representations, and interaction modeling, which reconstructs interactions based on these embeddings.
-NGCF aims to enhance recommendation by integrating user-item interactions into the embedding function, which has previously been built with descriptive features only, such as ID and attributes.
+\textit{NGCF} aims to enhance recommendation by integrating user-item interactions into the embedding function, which has previously been built with descriptive features only, such as ID and attributes.
 It does this through three components: an embedding layer that initializes user and item embeddings, embedding propagation layers that refine the embeddings, and a prediction layer aggregating the refined embeddings.
 An initial embedding for a user $u$ is described as an embedding vector $e_u \in \R^d$, where $d$ is the embedding size.
 Embeddings are propagated through two operations, construction and aggregation.
@@ -30,12 +30,12 @@ Finally, the inner product is calculated between the user and given item represe
   \hat{y}(u, i) = e_U^{*^\textrm{T}} e_i^*
 \end{equation}
 where $*$ is used to denote the final concatenated representation of the user and the item.
-Learning model parameters with NGCF is done through optimizing the pairwise Bayesian Personalized Ranking (BPR) loss.
+Learning model parameters with \textit{NGCF} is done through optimizing the pairwise Bayesian Personalized Ranking (BPR) loss.
 BPR assumes that observed interactions should be assigned higher prediction values than unobserved ones since these are more reflective of preferences.
 The objective function is defined in \autoref{eqn:ngcf-loss}.
 \begin{equation}\label{eqn:ngcf-loss}
     Loss = \sum_{(u, i, j) \in O} - \textrm{ln} \: \sigma (\hat{y}_{ui} - \hat{y}_{uj}) + \lambda ||\Theta||_2^2
 \end{equation}
 where $O = {(u, i, j) | (u, i) \in R^+, (u, j) \in R^-}$, where $i$ and $j$ are items from respectively observed interactions $R^+$ and unobserved interactions $R^-$, $\sigma$ is the sigmoid function, $\Theta$ denotes all trainable model parameters and $\lambda$ is a regularization parameter.
-NGCF employs dropout to avoid overfitting in neural networks.
-NGCF randomly drops information being propagated through \autoref{eqn:ngcf-userrep} by a probability, as well as dropping nodes in training by randomly blocking and discarding all its outgoing information.
+\textit{NGCF} employs dropout to avoid overfitting in neural networks.
+\textit{NGCF} randomly drops information being propagated through \autoref{eqn:ngcf-userrep} by a probability, as well as dropping nodes in training by randomly blocking and discarding all its outgoing information.
