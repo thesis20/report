@@ -19,7 +19,7 @@ For the experiments, we define these as $06.00$-$09.00$ being the morning, $09.0
                                                                          & \textbf{Yahoo}                                                                          & \textbf{MovieLens}                                                                  & \textbf{Frappe}                                                                                                                                        \\ \hline
     \textbf{\begin{tabular}[c]{@{}l@{}}Side-\\ information\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Age group\\ (3 values)\\ \\ Gender\\ (2 values)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Age group\\ (3 values)\\ \\ Gender\\ (2 values)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Category\\ (32 values)\\ \\ Downloads\\ (16 values)\\ \\ Developer\\ (2809 values)\\ \\ Language\\ (29 values)\end{tabular} \\ \hline
     \end{tabular}
-    \caption{The side information categories used for the experiments along with their dimensions.}
+    \caption{The contextual variables used for the experiments along with their amount of possible values.}
     \label{tbl:sideinfoprotocol}
 \end{table*}
 
@@ -50,7 +50,7 @@ For \textit{precision@N}, \textit{recall@N} and \textit{map@N}, the k-value is d
 For evaluation purposes we define a relevant item for a given user as an item in which a rating with a value of $3$ or more is observed.
 For methods that evaluate on batches, we employ a batch size of approximately one tenth of the total number of users.
 For different learning rates and embedding sizes for methods that require these, we use the ones provided by the authors as examples for the methods. 
-If the methods require random sampling, we employed the number 42 as the seed.
+If the methods require random sampling, we employed a seed for consistent results.
 \\\\
 \textbf{Baselines and state-of-the-art}\\
 The experiments are carried out on the following baselines:

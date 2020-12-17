@@ -55,16 +55,16 @@ This approach does, however, have a minor flaw: When doing top-$N$ recommendatio
 This can influence the results, since we do not know whether these $N$ items are the best, or if the best results are actually in the remainder of the list.
 None the less, the methods that are taken out of their initial purpose have actually shown good results in other metrics, such as SVD performing the best in precision on the MovieLens dataset, even though it is meant for rating prediction.
 
-\subsection{Graph based methods, context-aware methods and utilizing side information}
+\subsection{Graph-based methods, context-aware methods and utilizing side information}
 In the following subsection, we will try to answer the following questions: 
 \begin{itemize}
-    \item How do the context-aware methods utilize context?
+    \item What are the challenges with utilizing context?
     \item Did context and side information matter?
     \item Are timestamps good contextual variables?
-    \item How do graph-based methods compare to non-graph based methods?
+    \item How do graph-based methods compare to non-graph-based methods?
 \end{itemize}
 
-\subsubsection{How do the context-aware methods utilize context?} 
+\subsubsection{Challenges with utilizing context}
 \textit{IS-UserBased} utilizes context by performing item splitting as described in \autoref{method:IS-UserBased-Graph}.
 While this item splitting approach is a simple method to model the context for items, it generates more sparsity in the data.
 Before performing the item splitting, two users could be connected through a common item, but this connection will be broken in case they did not rate the item in the same context.
@@ -90,7 +90,7 @@ Looking at the other context-based methods, \textit{CAMF-C} and \textit{CAMF-CI}
 For MovieLens, \textit{CAMF-C} gets a first place on F1, and \textit{CAMF-CI} on a fifth place, being outperformed by \textit{SVD, SVD++} and \textit{DeepWalk}.\\
 Looking at the results in general, the \textit{IS-Userbased} method does well on recall, and \textit{CAMF-C(I)} does well on F1 scores, which bodes well for using context and side-information.\\
 The \textit{MAP@10} results are a slightly more inconclusive on the other hand, we see that the \textit{IS-UserBased} method achieves the best results on the Yahoo dataset, while the \textit{CAMF-C(I)} methods perform very poorly on the same dataset.
-For the two other datasets, both methods give very mediocre results.
+For the two other datasets, both methods give mediocre results.
 Finally, for the NDCG metric, we see that \textit{IS-Userbased} performs very well on the Yahoo dataset, mediocre on LDOS-CoMoDa and poorly on MovieLens.\\\\
 \\\\
 The Yahoo dataset does not contain timestamps, nor any other contextual information.
@@ -116,7 +116,7 @@ To check whether using the side-information in contextual methods made a differe
     \bottomrule
     \end{tabular}
 \end{table*}
-As seen on \autoref{tab:movielenscontextsideinfo}, the models generally perform better when provided with side-information rather than contextual information.
+As seen on \autoref{tab:movielenscontextsideinfo}, the model generally performs better when provided with side-information rather than contextual information.
 \\\\
 To conclude, it is inconclusive whether adding context or side-information improves the methods in general, but we have observed that it does well on some metrics in some datasets, while performing poorly on others.
 These varying performances amongst datasets can be due to a variety of factors, including the size and density of the datasets, the quality of the contextual variables used and how the contextual variables have been discretized.\\
@@ -140,13 +140,13 @@ However, this cannot be guaranteed as some users might rate a batch of items in 
 This means the data could lose some of the contextual impact if timestamp is the only context variable that is available or inferable.
 \autoref{tbl:contextprotocol} defines the context variables used for the experiments, in which it is shown that the MovieLens dataset only has a timestamp for context, meaning this is at least a factor for the results on this dataset. 
 
-\subsubsection{The performance of graph based methods} 
-The results were shortly examined in \autoref{subsec:desc-of-datasets}, where it was noted that the graph based methods generally did not perform well.
+\subsubsection{The performance of graph-based methods} 
+The results were shortly examined in \autoref{subsec:resultsofexperiment}, where it was noted that the graph-based methods generally did not perform well.
 For precision and F1, only NGCF achieved comparable results on a single dataset, which was LDOS-CoMoDa.
 IS-UserBased and KGAT generally showed good performance on recall.
 In terms of frontloading the top-$N$ list, KGAT, NGCF and IS-UserBased show the best results on MovieLens, LDOS-CoMoDa and Yahoo respectively.
 While this does not indicate that the graph-based methods overall outperform the other methods, they show decent performance in terms of frontloading items.
-A reason for the poorer performance of graph based methods might be the sizes of the datasets.
+A reason for the poorer performance of graph-based methods might be the sizes of the datasets.
 We suspect this because the datasets that were used for the development of these methods are generally a lot larger.
 For example, the smallest dataset used in the \textit{LightGCN}\cite{LightGCN} paper has about a million interactions.
 Therefore it could be interesting to run the experiment on a larger dataset to see if the graph-based methods achieve better performance.
