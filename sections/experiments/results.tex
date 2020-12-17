@@ -40,7 +40,7 @@ Overall, we see a tendency for the graph-based methods to perform poorly on this
 For the Yahoo Movies dataset, we opted to use side information such as \textit{gender} and \textit{age group} as the contextual variables for the context-aware methods since the dataset does not contain any contextual information with the recorded interactions.
 Because of this, we do not expect the context-aware methods to perform better than the other baselines.
 We see that SVD++ performs best in terms of RMSE and MAE, closely followed by other methods such as \textit{SVD}, \textit{CAMF}, and \textit{NMF}.
-\textit{CAMF-C} is able to achieve the highest Precision@10 which could suggest that it is able to utilize the side information, but it is only marginally better than \textit{SVD}, \textit{SVD++}, and \texit{CAMF-C}.
+\textit{CAMF-C} is able to achieve the highest Precision@10 which could suggest that it is able to utilize the side information, but it is only marginally better than \textit{SVD}, \textit{SVD++}, and \textit{CAMF-C}.
 For Recall@10, MAP@10, and NDCG@10 \textit{IS-UserBased} is the best performing method.
 As this method is context-aware, this could suggest that it is able to improve its predictions using side information.
 The high values of MAP@10 and NDCG@10 also suggest that it is better at recommending relevant items in the front of the list compared to other methods.
@@ -56,7 +56,7 @@ In general, it does not seem like the graph-based methods are suitable for this 
 \subsubsection{Frappé}
 The Frappé dataset is a little different, in that it is the only dataset used without ratings, focusing solely on interactions.
 As such, only results from methods that are able to produce a top-$N$ list are reported.
-For Precision@10 we see that \textit{LightGCN} outperforms the others, and \textit{KGAT} shows very poor performance on the metric compared to both \textit{LightGCN} and \texit{NGCF}.
+For Precision@10 we see that \textit{LightGCN} outperforms the others, and \textit{KGAT} shows very poor performance on the metric compared to both \textit{LightGCN} and \textit{NGCF}.
 For Recall@10 however, \textit{KGAT} shows the best performance by a substantial amount, whereas \textit{LightGCN} and \textit{NGCF} perform mostly evenly.
 \textit{KGAT}'s poor performance on Precision@10, however, still leads to it underperforming on F1@10, where \textit{LightGCN} once again outperforms \textit{NGCF}.
 For these metrics, we see that the random baseline performs substantially worse than the state-of-the-art methods.
