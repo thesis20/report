@@ -30,7 +30,7 @@ The MovieLens 100k dataset does not contain any contextual variables outside of 
 Compared to the LDOS-CoMoDa we expected context-aware methods to not perform substantially better since only context based on the timestamp is available compared to the different contextual variables included in the LDOS-CoMoDa dataset. 
 In terms of the methods that handle context, we see that CAMF-C achieves the highest precision and F1, while IS-UserBased underperforms most methods on precision@N and outperforms all methods on recall@N.
 In terms of NDCG IS-UserBased underperforms on MovieLens compared to other datasets, showing the worst results, while both CAMF methods also provide poor NDCG.
-KGAT, a graph-based method utilizing side information performs the best in terms of NDCG on the MovieLens data, but underperforms on MAP@10, precision and F1.
+KGAT, a graph-based method utilizing side information performs the best in terms of NDCG on the MovieLens data but underperforms on MAP@10, precision, and F1.
 Other graph-based methods, such as NGCF and LightGCN show similar poor performances as well on this dataset, being outperformed on precision@10, recall@10, F1 and MAP@10.
 DeepWalk excels on the MAP@10 metric and outperforms other graph based methods on precision, recall and F1, showing results close to SVD-based approaches.
 In terms of RMSE and MAE, we see that both CAMF and both SVD approaches perform the best, with random underperforming as expected.
