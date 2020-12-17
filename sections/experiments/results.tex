@@ -28,12 +28,12 @@ The results of the experiment could also indicate that \texttt{NGCF} could be in
 The MovieLens 100k dataset does not contain any contextual variables outside of a timestamp that can be discretized.
 \autoref{subsec:experimentprotocol} defined how the timestamp was discretized into the day of the week and a time interval.
 Compared to the LDOS-CoMoDa we expected context-aware methods to not perform substantially better since only context based on the timestamp is available compared to the different contextual variables included in the LDOS-CoMoDa dataset. 
-In terms of the methods that handle context, we see that CAMF-C achieves the highest precision and F1, while IS-UserBased underperforms most methods on precision@N and outperforms all methods on recall@N.
+In terms of the methods that handle context, we see that CAMF-C achieves the highest Precision@10 and F1@10, while IS-UserBased underperforms most methods on Precision@10 and outperforms all methods on Recall@10.
 In terms of NDCG IS-UserBased underperforms on MovieLens compared to other datasets, showing the worst results, while both CAMF methods also provide poor NDCG.
 KGAT, a graph-based method utilizing side information performs the best in terms of NDCG on the MovieLens data but underperforms on MAP@10, precision, and F1.
 Other graph-based methods, such as NGCF and LightGCN show similar poor performances as well on this dataset, being outperformed on precision@10, recall@10, F1, and MAP@10.
 DeepWalk excels on the MAP@10 metric and outperforms other graph-based methods on precision, recall, and F1, showing results close to SVD-based approaches.
-In terms of RMSE and MAE, we see that both CAMF and both SVD approaches perform the best, with random underperforming as expected.
+In terms of RMSE and MAE, we see that both CAMF and both SVD approaches perform the best, with Random underperforming as expected.
 Overall, we see a tendency for the graph-based methods to perform poorly on this dataset except for DeepWalk, while the SVD-based methods perform the best in terms of F1.
 
 \subsubsection{Yahoo Movies}
@@ -57,7 +57,7 @@ In general, it does not seem like the graph-based methods are suitable for this 
 The Frappé dataset is a little different, in that it is the only dataset used without ratings, focusing solely on interactions.
 As such, only results from methods that are able to produce a top-$N$ list are reported.
 For precision@10 we see that LightGCN outperforms the others, and KGAT shows very poor performance on the metric compared to both LightGCN and NGCF.
-For recall@10 however, KGAT shows the best performance by a substantial amount, whereas LightGCN and NGCF perform mostly evenly.
-KGAT's poor performance on precision, however, still leads to it underperforming on F1, where lightGCN once again outperforms NGCF.
+For Recall@10 however, KGAT shows the best performance by a substantial amount, whereas LightGCN and NGCF perform mostly evenly.
+KGAT's poor performance on Precision@10, however, still leads to it underperforming on F1@10, where LightGCN once again outperforms NGCF.
 For these metrics, we see that the random baseline performs substantially worse than the state-of-the-art methods.
 KGAT outperforms the other methods except for random on NDCG, while performing poorly on MAP@10, which NGCF performs the best on with the exception of random that surprisingly performs decently on the MAP@10 metric.
