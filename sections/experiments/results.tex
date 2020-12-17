@@ -6,13 +6,13 @@ Two of these context variables are used for the experiments, which are the \text
 The methods that handle context are \texttt{Itemsplitting} and the \texttt{CAMF} methods.
 We see that \texttt{Itemsplitting} has the largest Recall@10, but also the smallest Precision@10, resulting in a small F1@10 value, and in general, it does not perform well on LDOS-CoMoDa, which is surprising as it is able to utilize the context.
 However, \texttt{Itemsplitting} is able to achieve one of the highest NDCG scores.
-Both \texttt{CAMF-C} and \texttt{CAMF-CI} perform well on LDOS-CoMoDA in terms of most metrics, except for MAP@K.
+Both \texttt{CAMF-C} and \texttt{CAMF-CI} perform well on LDOS-CoMoDA in terms of most metrics, except for MAP@N.
 They are able to achieve the lowest prediction errors amongst all methods in terms of RMSE and MAE, which could indicate that they are able to make good use of the context.
 Close to \texttt{CAMF} methods we have baselines such as \texttt{SVD} and \texttt{SVD++} which both are competitive in terms of precision@10, Recall@10 and F1@10. 
-These also achieve the highest MAP@K values but do not have as low prediction errors as the \texttt{CAMF} methods.
+These also achieve the highest MAP@N values but do not have as low prediction errors as the \texttt{CAMF} methods.
 \texttt{NMF} generally perform a little worse in all metrics compared to \texttt{SVD}, except for NDCG.
 The \texttt{DeepWalk + kNN} method has high prediction errors and low Precision@10 and MAP@10 values but has the second-highest Recall@10 and one of the highest NDCG value.
-Finally, we have the methods that do not handle rating predictions but only do top K recommendations, so these do not have RMSE and MAE values, since they work with interactions rather than ratings.
+Finally, we have the methods that do not handle rating predictions but only do top-$N$ recommendations, so these do not have RMSE and MAE values, since they work with interactions rather than ratings.
 We see that \texttt{LightGCN} is not able to perform well on any of the metrics.
 We suspect that this is because the LDOS-CoMoDa dataset is as small as it is with only 121 users, 1,232 unique movies, and 2,296 ratings, and it is therefore not able to utilize its strengths.
 And all of these numbers are considerably lower on the actual data used, due to pruning.
