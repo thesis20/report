@@ -4,7 +4,8 @@ This section describes these experiments and the protocol used.
 
 \subsubsection{Datasets}
 Four datasets are considered for experimentation based on the investigation in \autoref{subsec:desc-of-datasets} and \autoref{sec:evaluationmetrics}: \textit{MovieLens 100k}, \textit{LDOS-CoMoDa}, \textit{Frappé}, as well as the \textit{Yahoo!} movie dataset of ratings and descriptive content information\cite{yahoo-movie}.
-These datasets all provide contextual information, or allow for context to be inferred through the timestamps provided.
+Most of the datasets provide contextual information, or allow for context to be inferred through the timestamps provided.
+The exception is the Yahoo! dataset where we experiment with using user information such as \textit{age group} and \textit{gender} as context.
 Users that have not provided at least 5 ratings are pruned for the \textit{LDOS-CoMoDa} dataset.
 The \textit{Frappé} dataset does not provide explicit ratings, and methods that require this do not report results on this dataset.
 The remaining datasets provide ratings in the range of 1 to 5.
@@ -73,6 +74,7 @@ And the following state-of-the-art methods:
 \end{itemize}
 
 \textbf{Method setup and parameter settings}
+\\\\
 This part describes the setup used for the different methods and how the parameters were set.
 For all methods that include random initialization, a seed is used to allow the methods to be rerun under the same conditions.
 \begin{itemize}
