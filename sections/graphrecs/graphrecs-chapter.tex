@@ -4,15 +4,16 @@ Two different kinds of approaches are often used to combat this.
 The first is to use dimensionality reduction where the representation of users and items are converted into a more compact representation, which should capture the most important features that describe the user or item.
 An example of this is the matrix factorization technique, where a matrix $U \times I$ is decomposed into the product of two matrices $U \times K $ and $ K \times I$ where $K$ is the number of features to capture.
 These representations are able to capture meaningful information about the relations between users and items, even if users have rated different items, or items were rated by different users. 
+\\
 The other approach used for the sparsity problem is the use of graph representations for the data.
 When using graph representations for the data, graph-based methods are able to utilize the transitivity in the relations between the data points. 
 This means that similarity can be found between users that are not directly connected, which can help alleviate the sparsity problem.
 Graph representations are also able to preserve the local relations as they have the edges between them that show the local neighborhood and how closely connected the nodes are, compared to the dimensionality reduction approach where some of this local information is lost as a result of the feature extraction\cite{RecommenderHandbook2015}.
 \\\\
-A typical way to represent graphs in recommender systems is using bipartite graphs.
+A typical way to represent data in graph recommender systems is using bipartite graphs.
 In a bipartite graph, there are two distinct sets of nodes.
-One set of nodes is the users and the other set is the items.
-The edges in the bipartite graph connect the user and item nodes if the user has rated the item. 
+One set of nodes is the users, which is usually referred to as $U$, and the other set is the items, which is usually referred to as $I$.
+The edges in the bipartite graph connect the user and item nodes if the user has rated the item which is expressed with the notation $(u, i)$. 
 The edge can have the rating as its weight if a rating is given.
 An example of how a bipartite graph could look can be seen on \autoref{fig:bipartite-graph}.
 \begin{figure}[h]
@@ -58,7 +59,7 @@ There are two properties that are often explored for graph-based approaches when
 Propagation is done through propagating information along the edges of the graph, also using the weight of the edge to determine how much information is allowed to pass through.
 Attenuation considers that nodes that are further away from each other in the graph should influence each other less.
 This transitive association in graph-based approaches can be used in two ways to recommend items.
-The relevance between a user \textit{u} and an item \textit{i} can be evaluated using the proximity of \textit{u} to the item \textit{i}, meaning that the items that are "closest" in the graph to \textit{u} will be recommended.
+The relevance between a user and an item can be evaluated using the proximity of the user to the item, meaning that the items that are "closest" in the graph to the user will be recommended.
 A similarity between a pair of users or items can also be found which can be expressed as a weight between them\cite{RecommenderHandbook2015}.
 
 \subsection{Side-information in graphs}

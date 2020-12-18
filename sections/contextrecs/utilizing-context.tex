@@ -4,11 +4,12 @@ Obtaining the data is explicitly done by approaching relevant people and asking 
 Implicit collection is done from the data or environment, such as a change in the location of the user, or a time derived from a timestamp.
 Finally, inferring the contextual information is done through statistical or data mining methods where the information is modeled as a latent variable, for example by analyzing a customer review or inferring who is watching TV by the programs being watched.
 The relevance of each contextual factor can differ, identifying a candidate set of these factors for an application requires leveraging domain expertise from a designer, or computing relevance computationally.
-This context is traditionally dealt with in one of three ways\cite{Adomavicius2011}: \textit{Contextual pre-filtering}, \textit{contextual post-filtering}, and \textit{contextual modelling}.
+This context is dealt with in one of three ways\cite{Adomavicius2011}: \textit{Contextual pre-filtering}, \textit{contextual post-filtering}, and \textit{contextual modelling}.
 In the following section, we will investigate each of these and briefly explain how they deal with contextual information.
 
 \subsubsection*{Pre-filtering}
-For all three approaches, we start with data in the form $U \times I \times C \rightarrow R$ where C is the additional contextual dimension.\\
+For all three approaches, we will look at the rating prediction task and start with data in the form $U \times I \times C \rightarrow R$ where C is the additional contextual dimension.\\
+Applying the filtering approaches to top-$N$ generation should be trivial.
 With contextual pre-filtering, the data selected for the recommendation process is filtered based on the current context $c$.
 This leads to recommendations being based on a subset of the original data, where we only consider the items observed in the current context.\\
 An advantage of this approach is that it allows the use of any of the traditional recommendation techniques\cite{Adomavicius2011}.
@@ -46,7 +47,7 @@ Additionally, they conclude that using all available context information does no
 \subsubsection*{Discretizing the context}
 Some context variables can be very specific, such as a timestamp, which will usually include the year, month, day, hour, minute, and even seconds for when the rating was made.
 In order for this information to be more useful, it needs to be discretized.
-For time units such as hours and smaller units, this can be done by discretizing it into categories such as \textit{morning (6-11 am}, \textit{evening (11-2 pm)} and so on.
-This allows the recommender to better group ratings together, since the movies a user watches at 1 pm may not be very different from 2 pm, but it may differ from morning time to night time.
+For time units such as hours and smaller units, this can be done by discretizing it into categories such as \textit{morning (06.00-11.00}), \textit{evening (11.00-14.00)} and so on.
+This allows the recommender to better group ratings together, since the movies a user watches at 13.00 may not be very different from 14.00, but it may differ from morning time to night time.
 The timestamp can also be split into categories such as whether it is a weekend or not or the current season at the time of the interaction.
 

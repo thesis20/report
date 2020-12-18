@@ -10,11 +10,11 @@ Likewise, time could be an important factor, since movies such as \textit{A Chri
 Generally, for a RS, the objective is to either: estimate a rating function $R: User \times Item \rightarrow Rating$ for the $(user, \ item)$ pairs that are not yet rated, or to compute a list $L$ of the top recommended items for an active user $U_a$ containing items that are likely to be of interest $R: User \times Item \rightarrow L(Ua)$\cite{RecommenderHandbook2015}.
 CARS typically extend these functions to respectively $R: User \times Item \times Context \rightarrow Rating$ and $R: User \times Item \times Context \rightarrow L(Ua)$ by taking the known contextual information associated with the application into account.
 \\\\
-This paper will explore some state-of-the-art methods for recommendation with an emphasis on utilizing graphs and the value of context for recommendation in order to identify open problems.
+This paper will explore some state-of-the-art methods for recommendation with an emphasis on utilizing graphs and the value of context and side-information for recommendation.
 The methods are compared against baselines on certain relevant datasets containing contextual information.
 The remainder of the paper is organized as follows. 
 \autoref{sec:contextinrecommendersystems} is a brief overview of how context is used in recommender systems.
 \autoref{sec:graph-rec-sys} introduces how graphs are used for recommender systems.
 \autoref{sec:experiments} describes how we investigated various methods for recommendations on different datasets and how they compare in a series of metrics such as RMSE, Precision and NDCG.
 \autoref{sec:discussion} is a discussion about the results acquired in the previous section, and how context is used in the various recommender system methods.
-We conclude the paper in Sections~\ref{sec:conclusion} and \ref{sec:futurework} by summarizing our research contributions and pointing out future directions.
+We conclude the paper in Sections~\ref{sec:conclusion} and \ref{sec:futurework} by summarizing our research contributions and pointing out possible future work.

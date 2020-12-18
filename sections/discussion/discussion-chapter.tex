@@ -46,8 +46,8 @@ Since it counts frontloaded items only in lists that contain relevant items, it 
 This is why it achieves comparable results to other methods that would be expected to outperform a random choice on this metric.
 
 \subsubsection{Are the results comparable?}
-The algorithms investigated were split into two categories: Top-$N$ recommendations and rating prediction.
-While some of the algorithms (\textit{SVD, SVD++}) focus on rating prediction, most of the algorithms focus on generating a Top-$N$ list of recommendations for a given user.
+The algorithms investigated were split into two categories: top-$N$ recommendations and rating prediction.
+While some of the algorithms (\textit{SVD, SVD++}) focus on rating prediction, most of the algorithms focus on generating a top-$N$ list of recommendations for a given user.
 This means that some of the metrics used for the various methods may not be related to their original goals, such as using the SVD algorithms for top-$N$ recommendations.
 However, as we wanted the focus of this paper to be a broad comparison of state-of-the-art methods, we concluded that it would be beneficial to include all algorithms in all metrics.
 For the rating prediction methods, this was done by generating a predicted rating for all items for a given user, and sorting it by estimated rating and presenting the highest rated values in this list to the user.
@@ -130,7 +130,7 @@ For future work, it may be interesting to look into other ways to discretize the
 
 \subsubsection{Timestamp as a context variable}
 A timestamp is often the only available context variable in larger datasets that can be extracted and used.
-However, an assumption made when doing so is that the rating was given by the user at the time of finishing consumption of the item, if we wish to use it for recommendations.
+However, as mentioned in \autoref{subsub:desc-comoda}, an assumption that has to be made when doing so is that the rating was given by the user at the time of finishing consumption of the item, if we wish to use it for recommendations.
 For example, if a user just signed up for a service in the summer and starts rating Christmas movies, the system might assume that the user has a preference for watching Christmas movies in the summer.
 To combat this, the collection of data will have to keep track of both when the rating was made, and when the item was consumed.
 This information is not available in any datasets that we are aware of, meaning that the assumption that a rating is made soon after consumption is required.
