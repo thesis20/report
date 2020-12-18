@@ -130,7 +130,7 @@ For future work, it may be interesting to look into other ways to discretize the
 
 \subsubsection{Timestamp as a context variable}
 A timestamp is often the only available context variable in larger datasets that can be extracted and used.
-However, an assumption made when doing so is that the rating was given by the user at the time of finishing consumption of the item, if we wish to use it for recommendations.
+However, as mentioned in \autoref{subsub:desc-comoda}, an assumption that has to be made when doing so is that the rating was given by the user at the time of finishing consumption of the item, if we wish to use it for recommendations.
 For example, if a user just signed up for a service in the summer and starts rating Christmas movies, the system might assume that the user has a preference for watching Christmas movies in the summer.
 To combat this, the collection of data will have to keep track of both when the rating was made, and when the item was consumed.
 This information is not available in any datasets that we are aware of, meaning that the assumption that a rating is made soon after consumption is required.

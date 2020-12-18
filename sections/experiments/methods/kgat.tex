@@ -3,7 +3,8 @@ Knowledge Graph Attention Network for Recommendation (KGAT) was proposed by Xian
 The main contribution for KGAT is the ability to model side information, such as item attributes and context while taking high-order connectivity into account by utilizing a collaborative knowledge graph (CKG).
 This collaborative knowledge graph is presented as an extension to the bipartite graph with the two distinct sets $U$ and $I$ indicating respectively users and items.
 In addition to the bipartite graph, we have a knowledge graph containing side information for items, where an interaction between users $U$ and items $I$ is described as a tuple $(u, r, i)$ indicating that a user $u \in U$ has a relation $r$ to an item $i \in I$.
-These two are combined as a CKG where we represent a user behavior triplet as $(u, Interact, i)$ to indicate an interaction between $u$ and $i$, by unifying the two graphs as $G = \{(u, r, i) | u, i \in E, r \in R\}$ where E is the set of entities describing side-information and R is the set of possible relations between entities.\\
+These two are combined as a CKG where we represent a user behavior triplet as $(u, Interact, i)$ to indicate an interaction between $u$ and $i$, by unifying the two graphs as $G = \{(u, r, i) | u, i \in E, r \in R\}$ where E is the set of entities describing items and side-information and R is the set of possible relations between entities.\\
+These relations can, for example, \textit{actor, director, genre}, such that a tuple \textit{(Bruce Willis, Actor, Die Hard}) can be constructed, which indicates that Bruce Willis was an actor in the entity Die Hard.
 Finally, KGAT utilizes high-order connectivity to increase recommendation quality.
 The \textit{L-order connectivity} between nodes is defined as a multi-hop relational path between entities: $e_0 \overset{r_1}{\rightarrow} e_1 \overset{r_2}{\rightarrow} \dots \overset{r_L}{\rightarrow} e_L$ where $e_l \in E$, $r_l \in R$ and $l \in L$.
 In a real world scenario, this could look like: $u_1 \overset{r_1}{\rightarrow} i_1 \overset{-r_1}{\rightarrow} u_2 \overset{r_1}{\rightarrow} i_2$ suggesting that $u_1$ would be interested in $i_2$ since their similar user $u_2$ has expressed interest in $i_2$.
@@ -14,4 +15,3 @@ The methodology for doing this consists of three main components: An embedding l
 For an overview, the embedding layer handles mapping entities and their relations into a lower dimension space.
 The attention embedding propagation layer is responsible for generating weights between entities.
 The prediction layer is responsible for generating an ordered list of recommendations for the users by aggregating the information from the previous layers.
-For more details about each layer, we refer to \cite{KGAT}.

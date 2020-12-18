@@ -1,9 +1,8 @@
 \subsection{Description of datasets}\label{subsec:desc-of-datasets}
-Context-aware recommender systems consider various types of contextual information such as time, location, and social information when generating recommendations.
-They have generally been observed to greatly improve the effectiveness of recommendation processes \cite{aggarwal2016recommender}.
+Context-aware recommender systems consider various types of contextual information such as time, location, and social information when generating recommendations\cite{aggarwal2016recommender}.
 In the following subsections, we will discuss specific datasets containing information that can be used for making context-aware recommenders.
 
-\subsubsection{LDOS-CoMoDa}
+\subsubsection{LDOS-CoMoDa}\label{subsub:desc-comoda}
 The LDOS-CoMoDa dataset is a context rich movie recommender dataset\cite{comoda}.
 At the time of access, the dataset contains 121 users, 1,232 unique movies, and 2,296 ratings.
 Most context variables are expressed for each rating.
@@ -24,10 +23,10 @@ The dataset contains the following context variables and their conditions:
 \end{itemize}
 \textit{EndEmo} and \textit{DominantEmo} relate to the emotional state of the user during the consumption stage.
 \textit{DominantEmo} defines the emotional state that was dominant during the consumption of the movie, whereas \textit{EndEmo} defines the emotional state of the user at the end of the movie\cite{COMODA2013}.
-\cite{COMODA2013} indicates that, on other datasets where the only context that could be derived were based on timestamps, many users would leave these ratings in a relatively short period of time, making them not representative of the contextual situation of the user at the time of consumption.
+Ante Odić et. al \cite{COMODA2013} indicates that, on other datasets where the only context that could be derived were based on timestamps, many users would leave these ratings in a relatively short period of time, making them not representative of the contextual situation of the user at the time of consumption.
 The paper thus proposes the LDOS-CoMoDa dataset containing potential contextual information from the consumption stage, gathered through ratings and an accompanying questionnaire.
 \\\\
-\cite{COMODA2013} employed a relevant-context-detection procedure to determine which of these contextual variables were in fact relevant.
+In \cite{COMODA2013}, they employed a relevant-context-detection procedure to determine which of these contextual variables were in fact relevant.
 This was done through statistical hypothesis testing with a power analysis, where independence was tested between each contextual variable and the ratings.
 The null hypothesis of the test stated that the two variables were independent, whereas the alternative hypothesis stated that they were dependent.
 If the null hypothesis was rejected, a conclusion was drawn that the contextual variable and the rating were dependent and thus the contextual information was relevant.
@@ -75,7 +74,7 @@ In terms of contextual information, the dataset does not provide any contextual 
 It instead provides information such as \textit{year of birth} for the user, \textit{gender} and \textit{age group} which is discretized as either child, adult or elder.
 We opted to try and use this information as context for the context-aware methods.
 The movies are also linked to $32$ types of side information, such as \textit{synopsis}, \textit{running time}, \textit{release date}, \textit{list of genres} and \textit{list of crew members}.
-This information can be used for methods that utilize knowledge, such as knowledge-graph-based methods.
+This information can be used for methods that utilize item side-information, such as knowledge-graph-based methods.
 
 \subsection{Evaluation protocols}\label{sec:evaluationmetrics}
 Ricci et al.\cite{RecommenderHandbook2015} defines a set of properties for recommender systems for evaluation: \textit{user preference, prediction accuracy, coverage, confidence, trust, novelty, serendipity, diversity, utility, risk, robustness, privacy, adaptivity} and \textit{scalability}.
