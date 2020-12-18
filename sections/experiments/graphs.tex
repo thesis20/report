@@ -78,7 +78,7 @@
 \begin{figure}[h]
 \begin{tikzpicture}
 \begin{axis} [
-    title    = {MovieLens: Precision@10, Recall@10, F1},
+    title    = {MovieLens: Precision@10, Recall@10, F1@10},
     xbar=5pt,
     /pgf/bar width=5pt,
     y axis line style = { opacity = 0 },
@@ -94,17 +94,17 @@
 \addplot coordinates{(0.719,SVD) (0.721,SVD++) (0.726,CAMF-C) (0.713,CAMF-CI) (0.344,IS-UserBased) (0.702,NMF) (0.679,DeepWalk+kNN) (0.538,Random) (0.3299,LightGCN) (0.1320,KGAT) (0.3386,NGCF)};
 \addplot coordinates{(0.633,SVD) (0.631,SVD++) (0.645,CAMF-C) (0.629,CAMF-CI) (0.785,IS-UserBased) (0.606,NMF) (0.659,DeepWalk+kNN) (0.415,Random) (0.2222,LightGCN) (0.7072,KGAT) (0.2228,NGCF)};
 \addplot coordinates{(0.673,SVD) (0.673,SVD++) (0.683,CAMF-C) (0.668,CAMF-CI) (0.478,IS-UserBased) (0.650,NMF) (0.669,DeepWalk+kNN) (0.469,Random) (0.265514,LightGCN) (0.222441,KGAT) (0.268757,NGCF)};
-\legend{Precision,Recall,F-1}
+\legend{Precision@10,Recall@10,F1@10}
 \end{axis}
 \end{tikzpicture}
-\caption{Precision, recall and F1 results for MovieLens dataset across the investigated methods}
+\caption{Precision@10, Recall@10 and F1@10 results for MovieLens dataset across the investigated methods}
 \label{graph:MLPrecRecF1}
 \end{figure}
 
 \begin{figure}[h]
 \begin{tikzpicture}
 \begin{axis} [
-    title    = {Yahoo: Precision@10, Recall@10, F1},
+    title    = {Yahoo: Precision@10, Recall@10, F1@10},
     xbar=5pt,
     /pgf/bar width=5pt,
     y axis line style = { opacity = 0 },
@@ -120,10 +120,10 @@
 \addplot coordinates{(0.390,SVD) (0.388,SVD++) (0.394,CAMF-C) (0.390,CAMF-CI) (0.217,IS-UserBased) (0.377,NMF) (0.291,DeepWalk+kNN) (0.227,Random) (0.3544,LightGCN) (0.0342,KGAT) (0.1414,NGCF)};
 \addplot coordinates{(0.894,SVD) (0.886,SVD++) (0.903,CAMF-C) (0.892,CAMF-CI) (0.910,IS-UserBased) (0.853,NMF) (0.878,DeepWalk+kNN) (0.481,Random) (0.1548,LightGCN) (0.6840,KGAT) (0.3280,NGCF)};
 \addplot coordinates{(0.543,SVD) (0.540,SVD++) (0.549,CAMF-C) (0.543,CAMF-CI) (0.350,IS-UserBased) (0.523,NMF) (0.437,DeepWalk+kNN) (0.308,Random) (0.2155,LightGCN) (0.0652,KGAT) (0.1976,NGCF)};
-\legend{Precision,Recall,F-1}
+\legend{Precision@10,Recall@10,F1@10}
 \end{axis}
 \end{tikzpicture}
-\caption{Precision, recall and F1 results for Yahoo dataset across the investigated methods}
+\caption{Precision@10, Recall@10 and F1@10 results for Yahoo dataset across the investigated methods}
 \label{graph:YahooPrecRecF1}
 \end{figure}
 
@@ -146,10 +146,10 @@
 \addplot coordinates{(0.482,SVD) (0.480,SVD++) (0.487,CAMF-C) (0.483,CAMF-CI) (0.161,IS-UserBased) (0.438,NMF) (0.361,DeepWalk+kNN) (0.305,Random) (0.08665008,LightGCN) (0.20284,KGAT) (0.5416,NGCF)};
 \addplot coordinates{(0.856,SVD) (0.853,SVD++) (0.834,CAMF-C) (0.823,CAMF-CI) (0.919,IS-UserBased) (0.739,NMF) (0.884,DeepWalk+kNN) (0.450,Random) (0.067787792,LightGCN) (0.220396,KGAT) (0.41,NGCF)};
 \addplot coordinates{(0.617,SVD) (0.614,SVD++) (0.615,CAMF-C) (0.609,CAMF-CI) (0.274,IS-UserBased) (0.550,NMF) (0.512,DeepWalk+kNN) (0.364,Random) (0.0760671,LightGCN) (0.211254,KGAT) (0.466700,NGCF)};
-\legend{Precision,Recall,F-1}
+\legend{Precision@10,Recall@10,F1@10}
 \end{axis}
 \end{tikzpicture}
-\caption{Precision, recall and F1 results for LDOS-CoMoDa dataset across the investigated methods}
+\caption{Precision@10, Recall@10 and F1@10 results for LDOS-CoMoDa dataset across the investigated methods}
 \label{graph:CoMoDaPrecRecF1}
 \end{figure}
 

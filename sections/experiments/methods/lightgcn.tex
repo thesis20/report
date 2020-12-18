@@ -1,7 +1,7 @@
 \subsubsection{LightGCN}
-In \cite{LightGCN} they investigated the NCGF method by exploring the effects that the nonlinear activation function and feature transformation had on the model's results.
-They found that by removing these parts of the NGCF model they were able to achieve better results, meaning that they negatively affected the training of the model.
-Inspired by this, \cite{LightGCN} came up with a light but effective model of a graph convolutional network (GCN) with only the most essential parts used for recommendation called LightGCN.
+In \cite{LightGCN} they investigated the \textit{NGCF} method by exploring the effects that the nonlinear activation function and feature transformation had on the model's results.
+They found that by removing these parts of the \textit{NGCF} model they were able to achieve better results, meaning that they negatively affected the training of the model.
+Inspired by this, \cite{LightGCN} came up with a light but effective model of a graph convolutional network (GCN) with only the most essential parts used for recommendation called \textit{LightGCN}.
 \\\\
 The idea of a GCN is to learn the representation of nodes by smoothing features over the graph \cite{LightGCN}.
 This is done by performing graph convolution where features of neighboring nodes are aggregated to give a new representation of the target node.
@@ -17,7 +17,7 @@ $\frac{1}{\sqrt{\left | N_u \right |}\sqrt{\left | N_i \right |}}$ is a symmetri
 In LGC the target node is not included in the aggregation and only the neighboring nodes are used which means that it does not handle self-connections.
 This is instead handled in a later operation where the layers are combined.
 \\
-The only trainable model parameters in LightGCN are the embeddings at the 0-th layer which are $e_{u}^{(0)}$ for the users and $e_{i}^{(0)}$ for the items.
+The only trainable model parameters in \textit{LightGCN} are the embeddings at the 0-th layer which are $e_{u}^{(0)}$ for the users and $e_{i}^{(0)}$ for the items.
 Embeddings at higher layers are computed using the LGC aggregation function. 
 When the embeddings at the final layer has been computed, layers are combined through a summation to get a final presentation of the users and items.
 \begin{align}\label{eqn:lgcn-layer-comb}
