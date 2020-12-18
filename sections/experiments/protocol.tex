@@ -7,7 +7,7 @@ Four datasets are considered for experimentation based on the investigation in \
 These datasets all provide contextual information, or allow for context to be inferred through the timestamps provided.
 Users that have not provided at least 5 ratings are pruned for the \textit{LDOS-CoMoDa} dataset.
 The \textit{Frappé} dataset does not provide explicit ratings, and methods that require this do not report results on this dataset.
-The remaining datasets provide ratings in the range of $1-5$.
+The remaining datasets provide ratings in the range of 1 to 5.
 The contextual variables and side information used is defined in \autoref{tbl:sideinfoprotocol} and \autoref{tbl:contextprotocol}.
 For the time interval defined based on the timestamp there are five possible values as defined in \autoref{tbl:contextprotocol}.
 For the experiments, we define these as $06.00$-$09.00$ being the morning, $09.00$-$12.00$ being noon, $12.00$-$17.00$ being afternoon, $17.00$-$22.00$ being evening, and the remaining interval $22.00$-$05.00$ being night.
@@ -55,7 +55,7 @@ If the methods require random sampling, we employed a seed for consistent result
 \textbf{Baselines and state-of-the-art}\\
 The experiments are carried out on the following baselines:
 \begin{itemize}
-    \item \textbf{Random}: Using random predictions, which is done by either assigning a random rating for rating prediction, or by generating a random list for top K list recommendations.
+    \item \textbf{Random}: Using random predictions, which is done by either assigning a random rating for rating prediction, or by generating a random list for top-$N$ list recommendations.
     \item \textbf{Non-negative MF}: Another variation of a matrix factorization approach for collaborative filtering, in which the matrices representing the latent factor space are subject to the non-negative constraint, i.e. $\geq$ 0.
     \item \textbf{SVD}: A standard matrix factorization approach. This is a latent factor approach, where items and users are transformed to the same latent factor space, explaining items and users on factors automatically inferred.
     \item \textbf{SVD++}: An extension of the matrix factorization latent factor approach, combining it with neighborhood models that analyze similarities between products and users.
