@@ -36,7 +36,7 @@ The testing determined that six of the variables proved to be relevant, making t
 \textit{Location} and \textit{Daytype} could not be declared irrelevant, and \textit{Time, Season, Weather} and \textit{Social} were rejected as irrelevant contextual information.
 Generally, the paper finds that the variables detected as relevant perform better than the irrelevant ones, apart from the \textit{Mood} variable, which performed worse than a variable deemed irrelevant.
 This means that, with the exception of the variable \textit{Mood}, the paper finds that the contextual variables detected as relevant tend to perform better than the uncontextualized models, while the contextual variables detected as irrelevant tend to perform worse than the uncontextualized models, if there are enough ratings per each context variable value during training.
-The anomaly regarding \textit{Mood} can be explained by an insolated case of high sparsity in the negative condition for the dataset.
+The anomaly regarding \textit{Mood} can be explained by an isolated case of high sparsity in the \textit{negative} condition of the variable for the dataset.
 
 \subsubsection{MovieLens}
 The MovieLens datasets are datasets provided by GroupLens research from the MovieLens web site.
@@ -45,7 +45,7 @@ The papers that were investigated made use of both the 1M dataset and the 100K s
 The 1M dataset contains 1,000,209 ratings of 3,706 movies made by 6,040 users with a density of 4.47\%, representing the percentage of cells in the full user-item matrix that contain rating values \cite{MovieLens2015}.
 The 100K Dataset contains 100,000 ratings of 1,682 movies made by 943 users with a density of 6.30\% \cite{MovieLens2015}.
 Each user in both datasets has rated at least 20 movies.
-The datasets do not contain specific contextual information, but it is possible to derive a time context dimension from the timestamps provided along the ratings.
+The datasets do not contain specific contextual information, but it is possible to derive a time context variable from the timestamps provided along the ratings.
 
 \subsubsection{Frappé}
 Frappé is a mobile app recommender providing context-aware mobile app recommendations by means of a tensor factorization approach based on implicit feedback data\cite{baltrunas2015frappe}.
@@ -57,15 +57,15 @@ Implicit data in this context means that the data is gathered without the user e
 \subsubsection{InCarMusic}
 InCarMusic is a mobile Android application offering music recommendations for the passengers of cars.
 In order to provide these recommendations, \cite{InCarMusic2011} collected the user's assessment of the effect of context on their music preferences, as well as had them enter ratings for tracks assuming certain contextual conditions held.
-\cite{InCarMusic2011} identified the following contextual variables as potentially relevant: driving style, road type, landscape, sleepiness, traffic conditions, mood, weather, natural phenomena.
+\cite{InCarMusic2011} identified the following contextual variables as potentially relevant: \textit{driving style, road type, landscape, sleepiness, traffic conditions, mood, weather, natural phenomena}.
 The data collection was carried out in two phases: one with an aim of determining the contextual factors that are more influential in changing the propensity of the user to listen to music of different genres, and another interested in individual tracks and their ratings, examining the case without considering any contextual conditions, and the case under the assumption that a certain contextual condition holds.
 Ultimately, this resulted in a dataset consisting of 4,012 ratings, given by 42 different users on 139 songs.
-An issue with this dataset is that each entry only has data on one contextual dimension, and the rest are unknown.
+An issue with this dataset is that each entry only has data on one contextual variable, and the rest are unknown.
 
 \subsubsection{DePaul}
 The \textit{DePaulMovie} dataset is another alternative.
-This dataset has 5,029 ratings from 1-5, given by 97 users on 79 movies within three different context dimensions: \textit{time, location} and \textit{companion}\cite{DePaulData}.
-The contextual dimensions distinguish between weekday or weekend, whether or not the movie was watched at home or at the cinema, and finally if it was watched alone, with family or with partner.
+This dataset has 5,029 ratings from 1-5, given by 97 users on 79 movies within three different context variables: \textit{time, location} and \textit{companion}\cite{DePaulData}.
+The contextual variables distinguish between weekday or weekend, whether or not the movie was watched at home or at the cinema, and finally if it was watched alone, with family or with partner.
 
 \subsubsection{Yahoo! Movies}
 The \textit{Yahoo!} dataset contains a dataset of $7,642$ users, $11,915$ movies and $211,231$ ratings.
@@ -77,10 +77,10 @@ The movies are also linked to $32$ types of side information, such as \textit{sy
 This information can be used for methods that utilize item side-information, such as knowledge-graph-based methods.
 
 \subsection{Evaluation protocols}\label{sec:evaluationmetrics}
-Ricci et al.\cite{RecommenderHandbook2015} defines a set of properties for recommender systems for evaluation: \textit{user preference, prediction accuracy, coverage, confidence, trust, novelty, serendipity, diversity, utility, risk, robustness, privacy, adaptivity} and \textit{scalability}.
+Ricci et al.\cite{RecommenderHandbook2015} defines a set of properties for RS for evaluation: \textit{user preference, prediction accuracy, coverage, confidence, trust, novelty, serendipity, diversity, utility, risk, robustness, privacy, adaptivity} and \textit{scalability}.
 Each property is suited to certain types of tests, and different metrics are used for evaluating these properties.
 Some, such as user preference and trust are more suitable for testing through user studies.
-Properties relating to algorithmic effectiveness such as prediction accuracy, coverage and confidence are more suitable for offline experiments, while properties that relate to active use of the recommender system, such as serendipity, are suitable for online studies where real users interact with the system.
+Properties relating to algorithmic effectiveness such as prediction accuracy, coverage and confidence are more suitable for offline experiments, while properties that relate to active use of the RS, such as serendipity, are suitable for online studies where real users interact with the system.
 \\\\
 \begin{table*}[!htp]
     \centering
@@ -119,7 +119,6 @@ SVD++\cite{svd++}       &              & x             &              &         
     \caption{Methods used.}
     \label{tab:methodsused}
 \end{table}
-
 \autoref{tab:metricsused} shows the metrics used for evaluation for the relevant methods, while \autoref{tab:methodsused} examines each paper for the evaluation protocol.
 It is evident that most of these papers focus on offline evaluation, investigating metrics related to algorithmic precision and efficiency, such as root-mean-square error (RMSE), mean absolute error (MAE) and F1-measure.
 These metrics are useful for two important problems associated with recommender systems: rating prediction and top-$N$ recommendation\cite{RecommenderHandbook2015}.
@@ -152,7 +151,7 @@ RMSE is calculated according to \autoref{eqn:RMSE}.
     \label{eqn:RMSE}
     RMSE(f) = \sqrt{\frac{1}{R_{test}} \sum\limits_{r_{ui} \epsilon R_{test}} (f(u, i) - r_{ui})^2}
 \end{equation}
-The top-N recommendation problem is the task of recommending a list $L(u_a)$ to an active user $u_a$ containing $N$ items to likely be of interest.
+The top-$N$ recommendation problem is the task of recommending a list $L(u_a)$ to an active user $u_a$ containing $N$ items to likely be of interest.
 Evaluating the quality of such method can be done by splitting $I$ into a training set $I_{train}$ used to learn $L$ and a test set $I_{test}$ for each user $u$.
 Let $T(u) \subset I_u \cap I_{test}$, where $I_u$ is the subset of items that have been rated by user $u$, then precision can be calculated according to \autoref{eqn:precision}, and recall according to \autoref{eqn:recall}.
 Precision defines the proportion of relevant instances among the predicted relevant items, while recall is the proportion of true positives that were correctly predicted.
@@ -178,7 +177,7 @@ To give an example of the calculation of Precision(L), Recall(L) and F1-measure,
      item6\} \nonumber \\
     L(u) = \{item1, \: item2, \: item3, \: item4\}\label{eqn:item-lists}
 \end{align}
-The intersection between the top-$N$ set $L(u)$, and the relevant items $T(u)$, is a set containing three items $\{item1, \: item3, \: item4\}$.
+The intersection between the top-$N$ set $L(u)$ and the relevant items $T(u)$ is a set containing three items $\{item1, \: item3, \: item4\}$.
 The lengths of the $L(u)$ and $T(u)$ sets in this example are four and five respectively.
 These values are then plotted into the equations to get the precision and recall values.
 Note that for this example there is only a single user.
@@ -200,13 +199,13 @@ A point to note about AP is that it rewards recommendation lists with relevant i
     \label{eq:averageprecision}
     AP = \frac{\sum\limits_{n=1}^N (Precision(n) \times Relevant(n))}{min(|Relevant(N)|,\:N)}
 \end{equation}
-Once the AP is calculated for a single user $u_a$, MAP@N for a recommender system is defined through \autoref{eq:map}, where $U$ is the set of all users: 
+Once the AP is calculated for a single user $u$, MAP@N for a recommender system is defined through \autoref{eq:map}, where $U$ is the set of all users: 
 \begin{equation}
     \label{eq:map}
     MAP = \frac{\sum\limits_{u=1}^{|U|} AP_u}{|U|}
 \end{equation}
 To show an example of how to calculate AP and MAP, the sets defined in \autoref{eqn:item-lists} are used once again.
-Here we have that $N$ is 4 as that is the length of the recommendation list.
+Here we have that $N$ is 4 as that is the length of the recommendation list $L(u)$.
 \begin{align}
     AP = \frac{(\frac{1}{1}*1+\frac{1}{2}*0+\frac{2}{3}*1+\frac{3}{4}*1)}{4} = 0.604 \label{eqn:ap-example}
 \end{align}
@@ -253,7 +252,7 @@ Another interesting aspect to look into for the various papers that have been re
 The results of this can be seen on \autoref{tab:metricsused}.
 \\\\
 A summary of the details of the datasets can be seen in \autoref{tab:datasetstats}.
-The most interesting datasets for context-aware recommendation are LDOS-CoMoDa due to the amount of contextual values, the Yahoo! dataset due to the size and inclusion of context, the MovieLens datasets due to their size and ability to extract a temporal context, as well as Frappé due to its size.
+The most interesting datasets for context-aware recommendation and side-information are LDOS-CoMoDa due to the amount of contextual values, the Yahoo! dataset due to the size and inclusion of side-information, the MovieLens datasets due to their size and ability to extract a temporal context, as well as Frappé due to its size.
 Most of the examined papers perform offline evaluation, mainly employing Recall@N and NDCG@N to evaluate the algorithms, and cross-validate on the sets when testing.
 
 \begin{table*}[!htb]
