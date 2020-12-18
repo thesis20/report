@@ -46,8 +46,8 @@ Since it counts frontloaded items only in lists that contain relevant items, it 
 This is why it achieves comparable results to other methods that would be expected to outperform a random choice on this metric.
 
 \subsubsection{Are the results comparable?}
-The algorithms investigated were split into two categories: Top-$N$ recommendations and rating prediction.
-While some of the algorithms (SVD, SVD++) focus on rating prediction, most of the algorithms focus on generating a Top-$N$ list of recommendations for a given user.
+The algorithms investigated were split into two categories: top-$N$ recommendations and rating prediction.
+While some of the algorithms (SVD, SVD++) focus on rating prediction, most of the algorithms focus on generating a top-$N$ list of recommendations for a given user.
 This means that some of the metrics used for the various methods may not be related to their original goals, such as using the SVD algorithms for top-$N$ recommendations.
 However, as we wanted the focus of this paper to be a broad comparison of state-of-the-art methods, we concluded that it would be beneficial to include all algorithms in all metrics.
 For the rating prediction methods, this was done by generating a predicted rating for all items for a given user, and sorting it by estimated rating and presenting the highest rated values in this list to the user.

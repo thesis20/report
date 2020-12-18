@@ -9,7 +9,7 @@ In the following section, we will investigate each of these and briefly explain 
 
 \subsubsection*{Pre-filtering}
 For all three approaches, we will look at the rating prediction task and start with data in the form $U \times I \times C \rightarrow R$ where C is the additional contextual dimension.\\
-Applying the filtering approaches to Top-$N$ generation should be elementary.
+Applying the filtering approaches to top-$N$ generation should be trivial.
 With contextual pre-filtering, the data selected for the recommendation process is filtered based on the current context $c$.
 This leads to recommendations being based on a subset of the original data, where we only consider the items observed in the current context.\\
 An advantage of this approach is that it allows the use of any of the traditional recommendation techniques\cite{Adomavicius2011}.

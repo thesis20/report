@@ -11,7 +11,7 @@ Both of these methods results in a list of the top-$N$ similar users, from which
 $r_{aj} = \frac{\sum_{R_{ij} \in R_j} r_{ij}}{|R_j|}, R_j = \{ r_{ij} | r_{ij} \neq \O , i \in U_a \}$
 
 The method takes 2 parameters that influence the performance.
-First is the \textit{L} value that indicates how many steps away from the current user you can move to calculate similarity by utilizing transitive associations.
+First is the \textit{L} value that indicates how many steps away from the current user you can move to calculate similarity by utilizing transitive associations, meaning that you take multiple steps away from the current node in a graph.
 Second is the \textit{k} value which is the delimiter used for the \textit{kNN} algorithm in the next step.
 
 After calculating the missing ratings, the last step is to map the fictitious items back to real items with their contextual information.
