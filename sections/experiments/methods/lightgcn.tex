@@ -19,7 +19,7 @@ This is instead handled in a later operation where the layers are combined.
 \\
 The only trainable model parameters in \textit{LightGCN} are the embeddings at the 0-th layer which are $e_{u}^{(0)}$ for the users and $e_{i}^{(0)}$ for the items.
 Embeddings at higher layers are computed using the LGC aggregation function. 
-When the embeddings at the final layer has been computed, layers are combined through a summation to get a final presentation of the users and items.
+When the embeddings at the final layer have been computed, layers are combined through a summation to get a final presentation of the users and items.
 \begin{align}\label{eqn:lgcn-layer-comb}
     e_{u} = \sum_{k=0}^K \alpha_k e_{u}^{(k)} \nonumber\\
     e_{i} = \sum_{k=0}^K \alpha_k e_{i}^{(k)}
