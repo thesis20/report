@@ -48,9 +48,6 @@ As defined in \autoref{sec:evaluationmetrics}, the metrics used are \textit{Prec
 All five metrics are reported for baselines that provide rating predictions, whereas \textit{RMSE} and \textit{MAE} are not reported for methods that only compute a list of top-$N$ recommendations.
 For \textit{Precision@N}, \textit{Recall@N} and \textit{MAP@N}, the $k$-value is defined as $10$.
 For evaluation purposes we define a relevant item for a given user as an item in which a rating with a value of $3$ or more is observed.
-For methods that evaluate on batches, we employ a batch size of approximately one tenth of the total number of users.
-For different learning rates and embedding sizes for methods that require these, we use the ones provided by the authors as examples for the methods. 
-If the methods require random sampling, we employed a seed for consistent results.
 \\\\
 \textbf{Baselines and state-of-the-art}\\
 The experiments are carried out on the following baselines:
