@@ -4,8 +4,7 @@ This section describes these experiments and the protocol used.
 
 \subsubsection{Datasets}
 Four datasets are considered for experimentation based on the investigation in \autoref{subsec:desc-of-datasets} and \autoref{sec:evaluationmetrics}: \textit{MovieLens 100k}, \textit{LDOS-CoMoDa}, \textit{Frappé}, as well as the \textit{Yahoo!} movie dataset of ratings and descriptive content information\cite{yahoo-movie}.
-Most of the datasets provide contextual information, or allow for context to be inferred through the timestamps provided.
-The exception is the Yahoo! dataset where we experiment with using user information such as \textit{age group} and \textit{gender} as context.
+These datasets all provide contextual information, side-information, or allow for context to be inferred through the timestamps provided.
 Users that have not provided at least 5 ratings are pruned for the \textit{LDOS-CoMoDa} dataset.
 The \textit{Frappé} dataset does not provide explicit ratings, and methods that require this do not report results on this dataset.
 The remaining datasets provide ratings in the range of 1 to 5.
@@ -20,7 +19,7 @@ For the experiments, we define these as $06.00$-$09.00$ being the morning, $09.0
                                                                          & \textbf{Yahoo}                                                                          & \textbf{MovieLens}                                                                  & \textbf{Frappe}                                                                                                                                        \\ \hline
     \textbf{\begin{tabular}[c]{@{}l@{}}Side-\\ information\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Age group\\ (3 values)\\ \\ Gender\\ (2 values)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Age group\\ (3 values)\\ \\ Gender\\ (2 values)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Category\\ (32 values)\\ \\ Downloads\\ (16 values)\\ \\ Developer\\ (2809 values)\\ \\ Language\\ (29 values)\end{tabular} \\ \hline
     \end{tabular}
-    \caption{The contextual variables used for the experiments along with their amount of possible values.}
+    \caption{The side-information used for the experiments along with their amount of possible values.}
     \label{tbl:sideinfoprotocol}
 \end{table*}
 
@@ -47,7 +46,7 @@ In the following we define the evaluation metrics used, the baselines that are c
 \textbf{Evaluation metrics}\\
 As defined in \autoref{sec:evaluationmetrics}, the metrics used are \textit{Precision@N}, \textit{Recall@N}, \textit{MAP@N}, \textit{RMSE} and \textit{MAE}.
 All five metrics are reported for baselines that provide rating predictions, whereas \textit{RMSE} and \textit{MAE} are not reported for methods that only compute a list of top-$N$ recommendations.
-For \textit{Precision@N}, \textit{Recall@N} and \textit{MAP@N}, the k-value is defined as $10$.
+For \textit{Precision@N}, \textit{Recall@N} and \textit{MAP@N}, the $k$-value is defined as $10$.
 For evaluation purposes we define a relevant item for a given user as an item in which a rating with a value of $3$ or more is observed.
 For methods that evaluate on batches, we employ a batch size of approximately one tenth of the total number of users.
 For different learning rates and embedding sizes for methods that require these, we use the ones provided by the authors as examples for the methods. 
@@ -57,18 +56,18 @@ If the methods require random sampling, we employed a seed for consistent result
 The experiments are carried out on the following baselines:
 \begin{itemize}
     \item \textbf{Random}: Using random predictions, which is done by either assigning a random rating for rating prediction, or by generating a random list for top-$N$ list recommendations.
-    \item \textbf{Non-negative MF}: Another variation of a matrix factorization approach for collaborative filtering, in which the matrices representing the latent factor space are subject to the non-negative constraint, i.e. $\geq$ 0.
     \item \textbf{SVD}: A standard matrix factorization approach. This is a latent factor approach, where items and users are transformed to the same latent factor space, explaining items and users on factors automatically inferred.
     \item \textbf{SVD++}: An extension of the matrix factorization latent factor approach, combining it with neighborhood models that analyze similarities between products and users.
+    \item \textbf{Non-negative MF}: A variation of a matrix factorization approach for collaborative filtering, in which the matrices representing the latent factor space are subject to the non-negative constraint, i.e. $\geq$ 0.
 \end{itemize}
 
 And the following state-of-the-art methods:
 \begin{itemize}
-    \item \textbf{KGAT}: Considers side information when providing recommendation by linking items with their attributes as higher-order relations in a knowledge graph. Embeddings from a node's neighbor are recursively propagated, and an attention mechanism is used to discriminate importance of neighbors.
+    \item \textbf{KGAT}: Considers side-information when providing recommendation by linking items with their attributes as higher-order relations in a knowledge graph. Embeddings from a node's neighbor are propagated, and an attention mechanism is used to discriminate importance of neighbors.
     \item \textbf{IS-UserBased}: A context-based recommendation approach making use of transitive associations in a bipartite graph to model and find nearest neighbor similarity to produce recommendations on a dataset that has been split on items.
-    \item \textbf{LightGCN}: A graph-convolutional network approach that learns user and item embeddings by linearly propagating them on a user-item interaction graph and uses the weighted sum of the embeddings learned at all layers as the final embedding.
-    \item \textbf{NGCF}: A neural-network based approach that integrates user-item interactions into embeddings through a bipartite graph-structure, leveraging higher-order connectivities to incorporate the collaborative signal.
-    \item \textbf{DeepWalk + KNN}: This approach learns latent representations of nodes in a network, using information from truncated random walks. The embeddings learned through this approach are used for a k-nearest neighbor recommendation approach.
+    \item \textbf{LightGCN}: A graph-convolutional network approach that learns user and item embeddings by propagating them on a user-item interaction graph and uses the weighted sum of the embeddings learned at all layers as the final embedding.
+    \item \textbf{NGCF}: A neural-network based approach that integrates user-item interactions into embeddings through a bipartite graph-structure.
+    \item \textbf{DeepWalk + KNN}: This approach learns latent representations of nodes in a network, using information from truncated random walks. The embeddings learned through this approach are used for a $k$-nearest neighbor recommendation approach.
     \item \textbf{CAMF-C}: A context-aware extension of the SVD approach, introducing a single parameter for all contextual conditions, modeling how the rating deviates from the effect of the context.
     \item \textbf{CAMF-CI}: A variation of CAMF-C, introducing one parameter per contextual condition and item pair.
 \end{itemize}

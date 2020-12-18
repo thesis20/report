@@ -1,5 +1,5 @@
 \subsubsection{Context-Aware Matrix Factorization}\label{subsec:camf}
-Another approach to making a context-aware recommender system is \textit{context-aware matrix factorization} (CAMF)\cite{baltrunasCAMF}.
+Another approach to CARS is \textit{context-aware matrix factorization} (CAMF)\cite{baltrunasCAMF}.
 As no implementation was available for the method, all results are based on our implementation.
 The method is an extension of the classical Matrix Factorization (MF) approach which takes the contextual side information into account when making rating predictions.
 There are different models of \textit{CAMF} that deal with different levels of granularity in terms of the context.
@@ -22,7 +22,7 @@ $\bar{i}$ is the global average rating for item $i$ and $\bar{b_u}$ is a user bi
 $B_{ijc_j}$ are the parameters modeling the interaction of the contextual conditions and the items.
 For the \textit{CAMF-CI} model, $B_{ijc_j}$ will result in a lot of parameters, and for \textit{CAMF-C} it will result in less, as a result of how the two different approaches perform the contextual modeling.
 All of the parameters in the model, except for the average item rating, are learned through stochastic gradient descent.
-This is done through the use of a loss function which is seen in \autoref{eqn:camf-loss-func}.
+This is done through the use of the loss function seen in \autoref{eqn:camf-loss-func}.
 \begin{equation}
     \label{eqn:camf-loss-func}
     \begin{split}
@@ -30,7 +30,7 @@ This is done through the use of a loss function which is seen in \autoref{eqn:ca
         \left. + \lambda \left({b_u}^2 +{\left \| \vec{v_u} \right \|}^2  + {\left \|\vec{q_i}  \right \|}^2 + \sum\limits_{j = 1}^k \sum\limits_{c_j = 1}^{z_j} B_{ijc_j}^{2}\right ) \right ]
     \end{split}
 \end{equation}
-Here we have that $r = (u,i,c_1...c_k)$ and that R is the context-dependent ratings from the training set.
+Here we have that $r = (u,i,c_1...c_k)$ and $R$ is the context-dependent ratings from the training set.
 $k$ is the number of different contextual factors and $z_j$ is the number of different contextual values for the contextual factor $j$.
 The loss function includes regularization controlled by the $\lambda$ parameter to avoid overfitting the training data.
 The parameters are then updated based on the gradient of the loss function for each of the ratings in the training set.
