@@ -34,14 +34,14 @@ We thus use F1 as a metric to combine these metrics and generate more comparable
 Because of the trade-off, F1 is the most interesting metric for comparison.
 
 \subsubsection{Comparison of MAP@N and NDCG}
-MAP@N and NDCG serve a similar purpose, as defined in \autoref{sec:evaluationmetrics}.
+MAP@N and NDCG@N serve a similar purpose, as defined in \autoref{sec:evaluationmetrics}.
 For the predicted top-$N$ list we are not just interested in hitting relevant items, but also frontloading the list with these relevant items.
 These metrics serve to measure how well a method accomplishes this.
 As is evident from \autoref{graph:MAP10}, the MAP@N metric is very punishing, culminating in results of very small values approaching 0.
-NDCG on the other hand, \autoref{graph:NDCG10} tends to report more easily relatable results between 0 and 1 as an indicator.
+NDCG@N on the other hand, \autoref{graph:NDCG10} tends to report more easily relatable results between 0 and 1 as an indicator.
 The reason for this discrepancy is in the way the calculation takes place.
-NDCG looks at whether or not items are frontloaded in a top-$N$ list whenever the top-$N$ list contains relevant items, unlike MAP@N, for which any list of top-$N$ contributes to the final results, rather than just those containing relevant items.
-A shortcoming of the NDCG approach is that it is easier for baselines such as random to perform well on this metric.
+NDCG@N looks at whether or not items are frontloaded in a top-$N$ list whenever the top-$N$ list contains relevant items, unlike MAP@N, for which any list of top-$N$ contributes to the final results, rather than just those containing relevant items.
+A shortcoming of the NDCG@N approach is that it is easier for baselines such as random to perform well on this metric.
 Since it counts frontloaded items only in lists that contain relevant items, it can get lucky and produce a list for a user containing frontloaded items and thus achieve a good result.
 This is why it achieves comparable results to other methods that would be expected to outperform a random choice on this metric.
 
@@ -91,7 +91,7 @@ For MovieLens, \textit{CAMF-C} gets a first place on F1@10, and \textit{CAMF-CI}
 Looking at the results in general, the \textit{IS-Userbased} method does well on Recall@10, and \textit{CAMF} methods do well on F1@10 scores, which bodes well for using context and side-information.\\
 The MAP@10 results are a slightly more inconclusive on the other hand, we see that the \textit{IS-UserBased} method achieves the best results on the Yahoo dataset, while the \textit{CAMF} methods perform very poorly on the same dataset.
 For the two other datasets, both methods give mediocre results.
-Finally, for the NDCG metric, we see that \textit{IS-Userbased} performs very well on the Yahoo dataset, mediocre on LDOS-CoMoDa and poorly on MovieLens.\\\\
+Finally, for the NDCG@10 metric, we see that \textit{IS-Userbased} performs very well on the Yahoo dataset, mediocre on LDOS-CoMoDa and poorly on MovieLens.\\\\
 \\\\
 The Yahoo dataset does not contain timestamps, nor any other contextual information.
 It includes age of the user and their gender, which are considered to be user attributes rather than contextual information.
