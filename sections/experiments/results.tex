@@ -9,9 +9,9 @@ However, \textit{IS-UserBased} is able to achieve one of the highest NDCG scores
 Both \textit{CAMF-C} and \textit{CAMF-CI} perform well on LDOS-CoMoDA in terms of most metrics, except for MAP@N.
 They are able to achieve the lowest prediction errors amongst all methods in terms of RMSE and MAE, which could indicate that they are able to make good use of the context.
 Close to \textit{CAMF} methods we have baselines such as \textit{SVD} and \textit{SVD++} which both are competitive in terms of Precision@10, Recall@10 and F1@10. 
-These also achieve the highest MAP@N values but do not have as low prediction errors as the \textit{CAMF} methods.
-\textit{NMF} generally perform a little worse in all metrics compared to \textit{SVD}, except for NDCG.
-The \textit{DeepWalk + kNN} method has high prediction errors and low Precision@10 and MAP@10 values but has the second-highest Recall@10 and one of the highest NDCG value.
+These also achieve the highest MAP@10 values but do not have as low prediction errors as the \textit{CAMF} methods.
+\textit{NMF} generally perform a little worse in all metrics compared to \textit{SVD}, except for NDCG@10.
+The \textit{DeepWalk + kNN} method has high prediction errors and low Precision@10 and MAP@10 values but has the second-highest Recall@10 and one of the highest NDCG@10 values.
 Finally, we have the methods that do not handle rating predictions but only do top-$N$ recommendations, so these do not have RMSE and MAE values, since they work with interactions rather than ratings.
 We see that \textit{LightGCN} is not able to perform well on any of the metrics.
 We suspect that this is because the LDOS-CoMoDa dataset is as small as it is with only 121 users, 1,232 unique movies, and 2,296 ratings, and it is therefore not able to utilize its strengths.
@@ -29,17 +29,17 @@ The MovieLens 100k dataset does not contain any contextual variables outside of 
 \autoref{subsec:experimentprotocol} defined how the timestamp was discretized into the day of the week and a time interval.
 Compared to the LDOS-CoMoDa we expected context-aware methods to not perform substantially better since only context based on the timestamp is available compared to the different contextual variables included in the LDOS-CoMoDa dataset. 
 In terms of the methods that handle context, we see that \textit{CAMF-C} achieves the highest Precision@10 and F1@10, while \textit{IS-UserBased} underperforms most methods on Precision@10 and outperforms all methods on Recall@10.
-In terms of NDCG \textit{IS-UserBased} underperforms on MovieLens compared to other datasets, showing the worst results, while both \textit{CAMF} methods also provide poor NDCG.
+In terms of NDCG@10 \textit{IS-UserBased} underperforms on MovieLens compared to other datasets, showing the worst results, while both \textit{CAMF} methods also provide poor NDCG.
 \textit{KGAT}, a graph-based method utilizing side information performs the best in terms of NDCG on the MovieLens data but underperforms on MAP@10, Precision@10, and F1@10.
 Other graph-based methods, such as \textit{NGCF} and \textit{LightGCN} show similar poor performances as well on this dataset, being outperformed on Precision@10, Recall@10, F1@10, and MAP@10.
 DeepWalk excels on the MAP@10 metric and outperforms other graph-based methods on Precision@10, Recall@10, and F1@10, showing results close to SVD-based approaches.
-In terms of RMSE and MAE, we see that both \textit{CAMF} and both SVD approaches perform the best, with Random underperforming as expected.
-Overall, we see a tendency for the graph-based methods to perform poorly on this dataset except for DeepWalk, while the SVD-based methods perform the best in terms of F1@10.
+In terms of RMSE and MAE, we see that both \textit{CAMF} and both SVD approaches perform the best, with \textit{Random} underperforming as expected.
+Overall, we see a tendency for the graph-based methods to perform poorly on this dataset except for \textit{DeepWalk}, while the SVD-based methods perform the best in terms of F1@10.
 
 \subsubsection{Yahoo Movies}
 For the Yahoo Movies dataset, we opted to use side information such as \textit{gender} and \textit{age group} as the contextual variables for the context-aware methods since the dataset does not contain any contextual information with the recorded interactions.
 Because of this, we do not expect the context-aware methods to perform better than the other baselines.
-We see that SVD++ performs best in terms of RMSE and MAE, closely followed by other methods such as \textit{SVD}, \textit{CAMF}, and \textit{NMF}.
+We see that \textit{SVD++} performs best in terms of RMSE and MAE, closely followed by other methods such as \textit{SVD}, \textit{CAMF}, and \textit{NMF}.
 \textit{CAMF-C} is able to achieve the highest Precision@10 which could suggest that it is able to utilize the side information, but it is only marginally better than \textit{SVD}, \textit{SVD++}, and \textit{CAMF-C}.
 For Recall@10, MAP@10, and NDCG@10 \textit{IS-UserBased} is the best performing method.
 As this method is context-aware, this could suggest that it is able to improve its predictions using side information.
@@ -60,4 +60,4 @@ For Precision@10 we see that \textit{LightGCN} outperforms the others, and \text
 For Recall@10 however, \textit{KGAT} shows the best performance by a substantial amount, whereas \textit{LightGCN} and \textit{NGCF} perform mostly evenly.
 \textit{KGAT}'s poor performance on Precision@10, however, still leads to it underperforming on F1@10, where \textit{LightGCN} once again outperforms \textit{NGCF}.
 For these metrics, we see that the random baseline performs substantially worse than the state-of-the-art methods.
-\textit{KGAT} outperforms the other methods except for random on NDCG, while performing poorly on MAP@10, which \textit{NGCF} performs the best on with the exception of random that surprisingly performs decently on the MAP@10 metric.
+\textit{KGAT} outperforms the other methods except for random on NDCG@10, while performing poorly on MAP@10, which \textit{NGCF} performs the best on with the exception of random that surprisingly performs decently on the MAP@10 metric.
