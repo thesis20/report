@@ -247,7 +247,7 @@ In terms of RMSE and MAE, we see that both \textit{CAMF} and both \textit{SVD} a
 Overall, we see a tendency for the graph-based methods to perform poorly on this dataset except for \textit{DeepWalk}, while the SVD-based methods perform the best in terms of F1@10.
 
 \subsubsection{Yahoo! Movies}
-For the Yahoo! Movies dataset, we opted to use side-information such as \textit{gender} and \textit{age group} as the contextual variables for the context-aware methods since the dataset does not contain any contextual information with the recorded interactions.
+For the Yahoo! Movies dataset, we opted to use side-information such as gender and age group as the contextual variables for the context-aware methods since the dataset does not contain any contextual information with the recorded interactions.
 Because of this, we do not expect the context-aware methods to perform better than the other baselines.
 We see that \textit{SVD++} performs best in terms of RMSE and MAE, closely followed by other methods such as \textit{SVD}, \textit{CAMF}, and \textit{NMF}.
 \textit{CAMF-C} is able to achieve the highest Precision@10 which could suggest that it is able to utilize the side information, but it is only marginally better than \textit{SVD}, \textit{SVD++}, and \textit{CAMF-C}.
