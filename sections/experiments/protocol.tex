@@ -3,10 +3,10 @@ Experiments are carried out in order to gain an understanding of baselines that 
 This section describes these experiments and the protocol used.
 
 \subsubsection{Datasets}
-Four datasets are considered for experimentation based on the investigation in \autoref{subsec:desc-of-datasets} and \autoref{sec:evaluationmetrics}: \textit{MovieLens 100k}, \textit{LDOS-CoMoDa}, \textit{Frappé}, as well as the \textit{Yahoo!} movie dataset of ratings and descriptive content information\cite{yahoo-movie}.
+Four datasets are considered for experimentation based on the investigation in \autoref{subsec:desc-of-datasets} and \autoref{sec:evaluationmetrics}: MovieLens 100k, LDOS-CoMoDa, Frappé, as well as the Yahoo! movie dataset of ratings and descriptive content information\cite{Yahoo!-movie}.
 These datasets all provide contextual information, side-information, or allow for context to be inferred through the timestamps provided.
-Users that have not provided at least 5 ratings are pruned for the \textit{LDOS-CoMoDa} dataset.
-The \textit{Frappé} dataset does not provide explicit ratings, and methods that require this do not report results on this dataset.
+Users that have not provided at least 5 ratings are pruned for the LDOS-CoMoDa dataset.
+The Frappé dataset does not provide explicit ratings, and methods that require this do not report results on this dataset.
 The remaining datasets provide ratings in the range of 1 to 5.
 The contextual variables and side information used is defined in \autoref{tbl:sideinfoprotocol} and \autoref{tbl:contextprotocol}.
 For the time interval defined based on the timestamp there are five possible values as defined in \autoref{tbl:contextprotocol}.
@@ -16,7 +16,7 @@ For the experiments, we define these as $06.00$-$09.00$ being the morning, $09.0
 	\centering
     \begin{tabular}{|l|l|l|l|}
     \hline
-                                                                         & \textbf{Yahoo}                                                                          & \textbf{MovieLens}                                                                  & \textbf{Frappe}                                                                                                                                        \\ \hline
+                                                                         & \textbf{Yahoo!}                                                                          & \textbf{MovieLens}                                                                  & \textbf{Frappe}                                                                                                                                        \\ \hline
     \textbf{\begin{tabular}[c]{@{}l@{}}Side-\\ information\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Age group\\ (3 values)\\ \\ Gender\\ (2 values)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Age group\\ (3 values)\\ \\ Gender\\ (2 values)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Category\\ (32 values)\\ \\ Downloads\\ (16 values)\\ \\ Developer\\ (2809 values)\\ \\ Language\\ (29 values)\end{tabular} \\ \hline
     \end{tabular}
     \caption{The side-information used for the experiments along with their amount of possible values.}
@@ -44,9 +44,9 @@ The same splits are used for evaluation for each method to ensure proper compara
 In the following we define the evaluation metrics used, the baselines that are compared as well as the hyperparameter settings used.
 \\\\
 \textbf{Evaluation metrics}\\
-As defined in \autoref{sec:evaluationmetrics}, the metrics used are \textit{Precision@N}, \textit{Recall@N}, \textit{MAP@N}, \textit{RMSE} and \textit{MAE}.
-All five metrics are reported for baselines that provide rating predictions, whereas \textit{RMSE} and \textit{MAE} are not reported for methods that only compute a list of top-$N$ recommendations.
-For \textit{Precision@N}, \textit{Recall@N} and \textit{MAP@N}, the $k$-value is defined as $10$.
+As defined in \autoref{sec:evaluationmetrics}, the metrics used are Precision@N, Recall@N, MAP@N, RMSE and MAE.
+All five metrics are reported for baselines that provide rating predictions, whereas RMSE and MAE are not reported for methods that only compute a list of top-$N$ recommendations.
+For Precision@N, Recall@N and MAP@N, the $k$-value is defined as $10$.
 For evaluation purposes we define a relevant item for a given user as an item in which a rating with a value of $3$ or more is observed.
 \\\\
 \textbf{Baselines and state-of-the-art}\\
@@ -74,7 +74,7 @@ This part describes the setup used for the different methods and how the paramet
 For all methods that include random initialization, a seed is used to allow the methods to be rerun under the same conditions.
 \begin{itemize}
     \item \textbf{KGAT}: A batch size of $1/10$ of the users in dataset is used. The learning rate used is 0.0001 for all datasets. An embedding size of 64 is used.
-    \item \textbf{IS-UserBased}: For LDOS-CoMoDa the setup is $L=10$, $n=12$. For Yahoo it is $L=8$, $n=10$. For MovieLens $L=10$, $n=20$.
+    \item \textbf{IS-UserBased}: For LDOS-CoMoDa the setup is $L=10$, $n=12$. For Yahoo! it is $L=8$, $n=10$. For MovieLens $L=10$, $n=20$.
     \item \textbf{LightGCN}: For all datasets, the setup is a learning rate of 0.001, 3 layers, an embedding size of 64 and a top-$N$ list of size 10 is generated. The batch size used is $1/10$ of the users in dataset.
     \item \textbf{NGCF}: For all datasets the setup is a learning rate of 0.0005, 3 layers, and an embedding size of 64 is used. The batch size used is $1/10$ of the users in dataset.
     \item \textbf{DeepWalk + KNN}: For all datasets, the embedding size used for \textit{DeepWalk} is 20. The number of neighbors used in \textit{kNN} is 10.
