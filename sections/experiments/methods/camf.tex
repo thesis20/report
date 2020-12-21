@@ -26,7 +26,7 @@ This is done through the use of the loss function seen in \autoref{eqn:camf-loss
 \begin{equation}
     \label{eqn:camf-loss-func}
     \begin{split}
-        \min_{v*, q*, b*, B*}\sum \limits_{r \in  R}\left [ \left (  \hat{r}_{uic_1...c_k} - \vec{v_u} * \vec{q_i} - \bar{i} - b_u - \sum\limits_{j = 1}^k B_{ijc_j}\right )^2 \right. \\
+        \min_{v*, q*, b*, B*}\sum \limits_{r \in  R}\left [ \left (  r_{uic_1...c_k} - \vec{v_u} * \vec{q_i} - \bar{i} - b_u - \sum\limits_{j = 1}^k B_{ijc_j}\right )^2 \right. \\
         \left. + \lambda \left({b_u}^2 +{\left \| \vec{v_u} \right \|}^2  + {\left \|\vec{q_i}  \right \|}^2 + \sum\limits_{j = 1}^k \sum\limits_{c_j = 1}^{z_j} B_{ijc_j}^{2}\right ) \right ]
     \end{split}
 \end{equation}
