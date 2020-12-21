@@ -6,14 +6,15 @@ For example, if we are considering the movie \textit{Die Hard}, and the contextu
 Based on these fictional items, a bipartite graph is generated with the two sets $U$ for users and $I$ for fictional items, with each edge containing the rating that a user has rated a given fictional item.\\
 To generate recommendations, the method utilizes a user similarity matrix to find the $N$ most similar users to the current user we are trying to generate recommendations for.\\
 They present two ways to do this: Either by using matrix factorization or by using a spreading activation algorithm on the bipartite graph.
-Both of these methods results in a list of the top-$N$ similar users, from which it is possible to estimate the missing rating $r_{ij}$ of the current user $U_a$ for a given item $i$:
-\\\\
-$r_{aj} = \frac{\sum_{R_{ij} \in R_j} r_{ij}}{|R_j|}, R_j = \{ r_{ij} | r_{ij} \neq \O , i \in U_a \}$
-\\\\
+Both of these methods results in a list of the top-$N$ similar users, from which it is possible to estimate the missing rating $r_{ij}$ of the current user $u$ for a given item $i$,as seen on \autoref{eqn:israj}.
+\begin{equation}
+    \label{eqn:israj}
+    r_{aj} = \frac{\sum_{R_{ij} \in R_j} r_{ij}}{|R_j|}, R_j = \{ r_{ij} | r_{ij} \neq \O , i \in u \}
+\end{equation}
 The method takes 2 parameters that influence the performance.
 First is the \textit{L} value that indicates how many steps away from the current user you can move to calculate similarity by utilizing transitive associations, meaning that you take multiple steps away from the current node in a graph.
 Second is the \textit{k} value which is the delimiter used for the \textit{kNN} algorithm in the next step.
 After calculating the missing ratings, the last step is to map the fictitious items back to real items with their contextual information.
 For example, if the fictional item \textit{(Die Hard, Family)} was the top recommendation, this would need to be mapped back to the movie Die Hard with the observed contextual variable \textit{watch with family}.\\
 Finally, we apply post-filtering and remove all movies from the top-$N$ recommendations that do not fit the user's current context.\\
-With this we now have a list of the top-$N$ recommended movies for the user $U_a$ in their given contextual situation.
+With this we now have a list of the top-$N$ recommended movies for the user $u$ in their given contextual situation.

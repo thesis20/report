@@ -8,8 +8,8 @@ In the \textit{CAMF-C} model, a single parameter is introduced for each value of
 The second model is \textit{CAMF-CI} which introduces a parameter for each contextual value and item pair, meaning that it has a finer granularity.
 By modelling it like this, it can capture when the contextual factors have a different effect on the rating depending on which item it is.
 In this case, \textit{CAMF} is able to capture two different levels of granularity.
-With \textit{CAMF-C}, for example, every movie will get an increased predicted rating across the board when it is raining outside as the contextual value.
-For \textit{CAMF-CI}, however, only some specific movies will have their predicted ratings increased, while others may have their predicted ratings decreased when raining outside is used as the contextual value.
+With \textit{CAMF-C}, for example, every movie will get an increased predicted rating across the board when it is \textit{raining outside} as the contextual value.
+For \textit{CAMF-CI}, however, only some specific movies will have their predicted ratings increased, while others may have their predicted ratings decreased when \textit{raining outside} is used as the contextual value.
 The expression for predicting ratings with the \textit{CAMF} models is seen in \autoref{eqn:camf-rating-pred}.
 \begin{equation}
     \label{eqn:camf-rating-pred}

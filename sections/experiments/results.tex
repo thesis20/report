@@ -28,7 +28,7 @@ In this section we look at the results from the experiments.
 \begin{figure}[!hbt]
     \begin{tikzpicture}
     \begin{axis} [
-        title    = {Yahoo: RMSE and MAE},
+        title    = {Yahoo!: RMSE and MAE},
         xbar=5pt,
         /pgf/bar width=5pt,
         y axis line style = { opacity = 0 },
@@ -46,7 +46,7 @@ In this section we look at the results from the experiments.
     \legend{RMSE,MAE}
     \end{axis}
     \end{tikzpicture}
-    \caption{RMSE and MAE results for Yahoo dataset across the investigated methods}
+    \caption{RMSE and MAE results for Yahoo! dataset across the investigated methods}
     \label{graph:YahooRMSEMAE}
     \end{figure}
     
@@ -104,7 +104,7 @@ In this section we look at the results from the experiments.
 \begin{figure}[!hbt]
     \begin{tikzpicture}
     \begin{axis} [
-        title    = {Yahoo: Precision@10, Recall@10, F1@10},
+        title    = {Yahoo!: Precision@10, Recall@10, F1@10},
         xbar=5pt,
         /pgf/bar width=5pt,
         y axis line style = { opacity = 0 },
@@ -123,7 +123,7 @@ In this section we look at the results from the experiments.
     \legend{Precision@10,Recall@10,F1@10}
     \end{axis}
     \end{tikzpicture}
-    \caption{Precision@10, Recall@10 and F1@10 results for Yahoo dataset across the investigated methods}
+    \caption{Precision@10, Recall@10 and F1@10 results for Yahoo! dataset across the investigated methods}
     \label{graph:YahooPrecRecF1}
 \end{figure}
     
@@ -170,9 +170,9 @@ In this section we look at the results from the experiments.
         symbolic y coords = {SVD,SVD++,CAMF-C,CAMF-CI,IS-UserBased,NMF,DeepWalk+kNN,Random,LightGCN,KGAT,NGCF},
       ]
     \addplot coordinates{(0.0162465951248284,SVD) (0.0230514217391177,SVD++) (0.00249,CAMF-C) (0.000707,CAMF-CI) (0.0120,IS-UserBased) (0.00470921880091866,NMF) (0.0302,DeepWalk+kNN) (0.00443467504522534,Random) (0.0000892961875081354,LightGCN) (0.0000332,KGAT) (0.0002538,NGCF)}; % MovieLens
-    \addplot coordinates{(0.00459364446058646,SVD) (0.00622607894470324,SVD++) (0.00013,CAMF-C) (0.000069,CAMF-CI) (0.046,IS-UserBased) (0.000747900814877045,NMF) (0.0439,DeepWalk+kNN) (0.000546288347257189,Random) (0.00000693,LightGCN) (0.0000017781423399345,KGAT) (0.0000112,NGCF)}; % Yahoo
+    \addplot coordinates{(0.00459364446058646,SVD) (0.00622607894470324,SVD++) (0.00013,CAMF-C) (0.000069,CAMF-CI) (0.046,IS-UserBased) (0.000747900814877045,NMF) (0.0439,DeepWalk+kNN) (0.000546288347257189,Random) (0.00000693,LightGCN) (0.0000017781423399345,KGAT) (0.0000112,NGCF)}; % Yahoo!
     \addplot coordinates{(0.022,SVD) (0.02,SVD++) (0.0083,CAMF-C) (0.0103,CAMF-CI) (0.007,IS-UserBased) (0.0136,NMF) (0.01127,DeepWalk+kNN) (0.0126990696917064,Random) (0.00337181254,LightGCN) (0.00035,KGAT) (0.020748,NGCF)}; % CoMoDa
-    \legend{MovieLens,Yahoo,LDOS-CoMoDa}
+    \legend{MovieLens,Yahoo!,LDOS-CoMoDa}
     \end{axis}
     \end{tikzpicture}
     \caption{MAP@10 results for the dataset across the investigated methods}
@@ -196,23 +196,23 @@ In this section we look at the results from the experiments.
         symbolic y coords = {SVD,SVD++,CAMF-C,CAMF-CI,IS-UserBased,NMF,DeepWalk+kNN,Random,LightGCN,KGAT,NGCF},
       ]
     \addplot coordinates{(0.507788476243958,SVD) (0.540462250066491,SVD++) (0.3752,CAMF-C) (0.4025,CAMF-CI) (0.270,IS-UserBased) (0.441025641977599,NMF) (0.5201,DeepWalk+kNN) (0.475627993916583,Random) (0.3939,LightGCN) (0.6497,KGAT) (0.4204,NGCF)}; % MovieLens
-    \addplot coordinates{(0.501928001717915,SVD) (0.507223962441533,SVD++) (0.492,CAMF-C) (0.476,CAMF-CI) (0.558,IS-UserBased) (0.472880077638768,NMF) (0.5089,DeepWalk+kNN) (0.451040991988228,Random) (0.3090,LightGCN) (0.4618,KGAT) (0.3164,NGCF)}; % Yahoo
+    \addplot coordinates{(0.501928001717915,SVD) (0.507223962441533,SVD++) (0.492,CAMF-C) (0.476,CAMF-CI) (0.558,IS-UserBased) (0.472880077638768,NMF) (0.5089,DeepWalk+kNN) (0.451040991988228,Random) (0.3090,LightGCN) (0.4618,KGAT) (0.3164,NGCF)}; % Yahoo!
     \addplot coordinates{(0.502,SVD) (0.478,SVD++) (0.477,CAMF-C) (0.469,CAMF-CI) (0.565,IS-UserBased) (0.5385,NMF) (0.5828,DeepWalk+kNN) (0.484100128099788,Random) (0.103,LightGCN) (0.21176,KGAT) (0.6522,NGCF) }; % CoMoDa
-    \legend{MovieLens,Yahoo,LDOS-CoMoDa}
+    \legend{MovieLens,Yahoo!,LDOS-CoMoDa}
     \end{axis}
     \end{tikzpicture}
     \caption{NDCG@10 results for the dataset across the investigated methods}
     \label{graph:NDCG10}
 \end{figure}
 \noindent
-\autoref{graph:MLRMSEMAE}, \autoref{graph:YahooRMSEMAE} and \autoref{graph:CoMoDaRMSEMAE} visualize RMSE and MAE for MovieLens, Yahoo and CoMoDa respectively.
-Precision@10, Recall@10 and F1@10 are visualized in \autoref{graph:MLPrecRecF1}, \autoref{graph:YahooPrecRecF1} and \autoref{graph:CoMoDaPrecRecF1} for MovieLens, Yahoo and CoMoDa respectively.
+\autoref{graph:MLRMSEMAE}, \autoref{graph:YahooRMSEMAE} and \autoref{graph:CoMoDaRMSEMAE} visualize RMSE and MAE for MovieLens, Yahoo! and CoMoDa respectively.
+Precision@10, Recall@10 and F1@10 are visualized in \autoref{graph:MLPrecRecF1}, \autoref{graph:YahooPrecRecF1} and \autoref{graph:CoMoDaPrecRecF1} for MovieLens, Yahoo! and CoMoDa respectively.
 Finally, \autoref{graph:MAP10} visualizes MAP@10 scores for all datasets, while \autoref{graph:NDCG10} visualizes NDCG@10 scores for all datasets.
 
 
 \subsubsection{LDOS-CoMoDa}
 For the experiments conducted on the LDOS-CoMoDa dataset, we should see the methods that handle context do well, as this dataset has many context variables that the rating depends on.
-Two of these context variables are used for the experiments, which are the \textit{dominantEmo} and the \textit{physical} attributes as these are some of the most influential, as described in \autoref{subsec:desc-of-datasets}.
+Two of these context variables are used for the experiments, which are the dominantEmo and Physical as these are some of the most influential, as described in \autoref{subsec:desc-of-datasets}.
 The methods that handle context are \textit{IS-UserBased} and the \textit{CAMF} methods.
 We see that \textit{IS-UserBased} has the largest Recall@10, but also the smallest Precision@10, resulting in a small F1@10 value, and in general, it does not perform well on LDOS-CoMoDa, which is surprising as it is able to utilize the context.
 However, \textit{IS-UserBased} is able to achieve one of the highest NDCG@10 scores.
@@ -246,8 +246,8 @@ Other graph-based methods, such as \textit{NGCF} and \textit{LightGCN} show simi
 In terms of RMSE and MAE, we see that both \textit{CAMF} and both \textit{SVD} approaches perform the best, with \textit{Random} underperforming as expected.
 Overall, we see a tendency for the graph-based methods to perform poorly on this dataset except for \textit{DeepWalk}, while the SVD-based methods perform the best in terms of F1@10.
 
-\subsubsection{Yahoo Movies}
-For the Yahoo Movies dataset, we opted to use side-information such as \textit{gender} and \textit{age group} as the contextual variables for the context-aware methods since the dataset does not contain any contextual information with the recorded interactions.
+\subsubsection{Yahoo! Movies}
+For the Yahoo! Movies dataset, we opted to use side-information such as gender and age group as the contextual variables for the context-aware methods since the dataset does not contain any contextual information with the recorded interactions.
 Because of this, we do not expect the context-aware methods to perform better than the other baselines.
 We see that \textit{SVD++} performs best in terms of RMSE and MAE, closely followed by other methods such as \textit{SVD}, \textit{CAMF}, and \textit{NMF}.
 \textit{CAMF-C} is able to achieve the highest Precision@10 which could suggest that it is able to utilize the side information, but it is only marginally better than \textit{SVD}, \textit{SVD++}, and \textit{CAMF-C}.
