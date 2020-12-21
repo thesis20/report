@@ -5,6 +5,7 @@ In the following subsections, we will discuss specific datasets containing infor
 \subsubsection{LDOS-CoMoDa}\label{subsub:desc-comoda}
 The LDOS-CoMoDa dataset is a context rich movie recommender dataset\cite{comoda}.
 At the time of access, the dataset contains 121 users, 1,232 unique movies, and 2,296 ratings.
+The dataset has a density of 1.54\%, representing the percentage of cells in the full user-item matrix that contain rating values
 Most context variables are expressed for each rating.
 The dataset contains the following context variables and their conditions:
 \begin{itemize}
@@ -42,7 +43,7 @@ The anomaly regarding \textit{Mood} can be explained by an isolated case of high
 The MovieLens datasets are datasets provided by GroupLens research from the MovieLens web site.
 These datasets were collected over various periods of time, and are available in different sizes\cite{movielens}.
 The papers that were investigated made use of both the 1M dataset and the 100K stable benchmark datasets.
-The 1M dataset contains 1,000,209 ratings of 3,706 movies made by 6,040 users with a density of 4.47\%, representing the percentage of cells in the full user-item matrix that contain rating values \cite{MovieLens2015}.
+The 1M dataset contains 1,000,209 ratings of 3,706 movies made by 6,040 users with a density of 4.47\% \cite{MovieLens2015}.
 The 100K Dataset contains 100,000 ratings of 1,682 movies made by 943 users with a density of 6.30\% \cite{MovieLens2015}.
 Each user in both datasets has rated at least 20 movies.
 The datasets do not contain specific contextual information, but it is possible to derive a time context variable from the timestamps provided along the ratings.
@@ -51,7 +52,7 @@ The datasets do not contain specific contextual information, but it is possible 
 Frappé is a mobile app recommender providing context-aware mobile app recommendations by means of a tensor factorization approach based on implicit feedback data\cite{baltrunas2015frappe}.
 Frappé was deployed on Android, leading to a context-aware app usage data set.
 Frappé collected implicit data on the following relevant context dimensions: \textit{time of day, weekday, whether or not it is weekend, at home or at work, weather, country, cost} and \textit{city}. 
-The dataset consists of 96,203 entries by 957 users for 4,082 apps.
+The dataset consists of 96,203 entries by 957 users for 4,082 apps, and a density of 2.46\%.
 Implicit data in this context means that the data is gathered without the user explicitly giving a rating, unlike the other datasets where a user has explicitly given a rating from 1-5 before an interaction is registered.
 
 \subsubsection{InCarMusic}
@@ -59,16 +60,17 @@ InCarMusic is a mobile Android application offering music recommendations for th
 In order to provide these recommendations, \cite{InCarMusic2011} collected the user's assessment of the effect of context on their music preferences, as well as had them enter ratings for tracks assuming certain contextual conditions held.
 \cite{InCarMusic2011} identified the following contextual variables as potentially relevant: \textit{driving style, road type, landscape, sleepiness, traffic conditions, mood, weather, natural phenomena}.
 The data collection was carried out in two phases: one with an aim of determining the contextual factors that are more influential in changing the propensity of the user to listen to music of different genres, and another interested in individual tracks and their ratings, examining the case without considering any contextual conditions, and the case under the assumption that a certain contextual condition holds.
-Ultimately, this resulted in a dataset consisting of 4,012 ratings, given by 42 different users on 139 songs.
+Ultimately, this resulted in a dataset consisting of 4,012 ratings, given by 42 different users on 139 songs for a density of 68.72\%.
 An issue with this dataset is that each entry only has data on one contextual variable, and the rest are unknown.
 
 \subsubsection{DePaul}
 The \textit{DePaulMovie} dataset is another alternative.
 This dataset has 5,029 ratings from 1-5, given by 97 users on 79 movies within three different context variables: \textit{time, location} and \textit{companion}\cite{DePaulData}.
+This dataset has a density of 65.63\%.
 The contextual variables distinguish between weekday or weekend, whether or not the movie was watched at home or at the cinema, and finally if it was watched alone, with family or with partner.
 
 \subsubsection{Yahoo! Movies}
-The \textit{Yahoo!} dataset contains a dataset of $7,642$ users, $11,915$ movies and $211,231$ ratings.
+The \textit{Yahoo!} dataset contains a dataset of $7,642$ users, $11,915$ movies and $211,231$ ratings, representing the most sparse dataset being investigated with a density of 0.23\%.
 All users have rated at least one item, and all items are rated by at least one user.
 In terms of contextual information, the dataset does not provide any contextual information for the recorded ratings.
 It instead provides information such as \textit{year of birth} for the user, \textit{gender} and \textit{age group} which is discretized as either child, adult or elder.
