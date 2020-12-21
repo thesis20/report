@@ -32,7 +32,7 @@ The null hypothesis of the test stated that the two variables were independent, 
 If the null hypothesis was rejected, a conclusion was drawn that the contextual variable and the rating were dependent and thus the contextual information was relevant.
 They employed a significance level of $\alpha = 0.05$ for the test.
 \\\\
-The testing determined that six of the variables proved to be relevant, making them contextual - EndEmo, DominantEmo, Mood, Physical, Decision and Interaction.
+The testing determined that six of the variables proved to be relevant - EndEmo, DominantEmo, Mood, Physical, Decision and Interaction.
 Location and Daytype could not be declared irrelevant, and Time, Season, Weather and Social were rejected as irrelevant contextual information.
 Generally, the paper finds that the variables detected as relevant perform better than the irrelevant ones, apart from the Mood variable, which performed worse than a variable deemed irrelevant.
 This means that, with the exception of the variable Mood, the paper finds that the contextual variables detected as relevant tend to perform better than the uncontextualized models, while the contextual variables detected as irrelevant tend to perform worse than the uncontextualized models, if there are enough ratings per each context variable value during training.
@@ -81,7 +81,7 @@ Ricci et al.\cite{RecommenderHandbook2015} define a set of properties for RS for
 Each property is suited to certain types of tests, and different metrics are used for evaluating these properties.
 Some, such as user preference and trust are more suitable for testing through user studies.
 Properties relating to algorithmic effectiveness such as prediction accuracy, coverage and confidence are more suitable for offline experiments, while properties that relate to active use of the RS, such as serendipity, are suitable for online studies where real users interact with the system.
-\\\\
+For the purposes of this paper, offline evaluation metrics are the focus as the experiments carried out are not suited for user studies and there is no available environment in which to carry out online testing.
 \begin{table*}[!htp]
     \centering
     \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
@@ -119,6 +119,7 @@ SVD++\cite{svd++}       &              & x             &              &         
     \caption{Methods used.}
     \label{tab:methodsused}
 \end{table}
+\\\\
 \autoref{tab:metricsused} shows the metrics used for evaluation for the relevant methods, while \autoref{tab:methodsused} examines each paper for the evaluation protocol.
 It is evident that most of these papers focus on offline evaluation, investigating metrics related to algorithmic precision and efficiency, such as root-mean-square error (RMSE), mean absolute error (MAE) and F1-measure.
 These metrics are useful for two important problems associated with recommender systems: rating prediction and top-$N$ recommendation\cite{RecommenderHandbook2015}.
