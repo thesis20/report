@@ -57,7 +57,7 @@ Implicit data in this context means that the data is gathered without the user e
 \subsubsection{InCarMusic}
 InCarMusic\cite{InCarMusic2011} is a mobile Android application offering music recommendations for the passengers of cars.
 In order to provide these recommendations, \cite{InCarMusic2011} collected the user's assessment of the effect of context on their music preferences, as well as had them enter ratings for tracks assuming certain contextual conditions held.
-\cite{InCarMusic2011} identified the following contextual variables as potentially relevant: driving style, road type, landscape, sleepiness, traffic conditions, mood, weather, natural phenomena.
+\cite{InCarMusic2011} identified the following contextual variables as potentially relevant: driving style, road type, landscape, sleepiness, traffic conditions, mood, weather, and natural phenomena.
 The data collection was carried out in two phases: one with an aim of determining the contextual factors that are more influential in changing the propensity of the user to listen to music of different genres, and another interested in individual tracks and their ratings, examining the case without considering any contextual conditions, and the case under the assumption that a certain contextual condition holds.
 Ultimately, this resulted in a dataset consisting of 4,012 ratings, given by 42 different users on 139 songs.
 An issue with this dataset is that each entry only has data on one contextual variable, and the rest are unknown.
@@ -77,7 +77,7 @@ The movies are also linked to $32$ types of side information, such as synopsis, 
 This information can be used for methods that utilize item side-information, such as knowledge-graph-based methods.
 
 \subsection{Evaluation protocols}\label{sec:evaluationmetrics}
-Ricci et al.\cite{RecommenderHandbook2015} defines a set of properties for RS for evaluation: user preference, prediction accuracy, coverage, confidence, trust, novelty, serendipity, diversity, utility, risk, robustness, privacy, adaptivity, and scalability.
+Ricci et al.\cite{RecommenderHandbook2015} define a set of properties for RS for evaluation: user preference, prediction accuracy, coverage, confidence, trust, novelty, serendipity, diversity, utility, risk, robustness, privacy, adaptivity, and scalability.
 Each property is suited to certain types of tests, and different metrics are used for evaluating these properties.
 Some, such as user preference and trust are more suitable for testing through user studies.
 Properties relating to algorithmic effectiveness such as prediction accuracy, coverage and confidence are more suitable for offline experiments, while properties that relate to active use of the RS, such as serendipity, are suitable for online studies where real users interact with the system.
@@ -165,7 +165,7 @@ Allowing longer recommendation lists improves recall and is likely to reduce pre
     \label{eqn:recall}
     Recall(L) = \frac{1}{|U|} \sum\limits_{u \epsilon U} \frac{|L(u) \cap T(u)|}{|T(u)|}
 \end{equation}
-The F1-measure also employed by some of the papers.
+The F1-measure is also employed by some of the papers.
 This measure summarizes precision and recall into a single number as defined in \autoref{eqn:f1}.
 It is useful for the purposes of comparison rather than employing either recall or precision by itself, taking the trade off into account.
 \begin{equation}
