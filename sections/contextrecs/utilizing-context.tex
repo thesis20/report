@@ -6,7 +6,8 @@ Finally, inferring the contextual information is done through statistical or dat
 The relevance of each contextual factor can differ.
 Identifying a candidate set of factors for an application requires leveraging domain expertise from a designer, or computing relevance computationally.
 This context is dealt with in one of three ways\cite{Adomavicius2011}: \textit{Contextual pre-filtering}, \textit{contextual post-filtering}, and \textit{contextual modelling}.
-In the following section, we will investigate each of these and briefly explain how they deal with contextual information.
+When dealing with context it might also be necessary to discretize certain values.
+In the following section, we will investigate each of the methods for handling context and briefly explain how they deal with contextual information as well as define when discretizing context is useful.
 
 \subsubsection*{Pre-filtering}
 For all three approaches, we will look at the rating prediction task and start with data in the form $U \times I \times C \rightarrow R$ where $C$ is the additional contextual dimension.\\
