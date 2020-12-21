@@ -1,5 +1,6 @@
 \subsubsection{Neural Graph Collaborative Filtering}\label{subsec:ngcf-desc}
 \textit{Neural Graph Collaborative Filtering} (NGCF) is a method for collaborative filtering, employing a user-item bipartite graph structure.
+For the experiments we use the official implementation of the paper.
 Learnable collaborative filtering models contain two key components: embedding, which transforms users and items to representations, and interaction modeling, which reconstructs interactions based on these embeddings.
 \textit{NGCF} aims to enhance recommendation by integrating user-item interactions into the embedding function, which has previously been built with descriptive features only, such as ID and attributes.
 It does this through three components: an embedding layer that initializes user and item embeddings, embedding propagation layers that refine the embeddings, and a prediction layer aggregating the refined embeddings.

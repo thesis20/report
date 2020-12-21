@@ -2,6 +2,7 @@
 In \cite{LightGCN}, Xiangnan He et. al investigated the \textit{NCGF} method by exploring the effects that the nonlinear activation function and feature transformation had on the model's results.
 They found that by removing these parts of the \textit{NGCF} model they were able to achieve better results, meaning that these parts negatively affected the training of the model.
 Inspired by this, Xiangnan He et. al came up with a light but effective model of a graph convolutional network (GCN) with only the most essential parts used for collaborative filtering called \textit{LightGCN}.
+For the experiments we use the official implementation of the paper.
 \\\\
 The idea of a GCN is to learn the representation of nodes by smoothing features over the graph \cite{LightGCN}.
 This is done by performing graph convolution where features of neighboring nodes are aggregated to give a new representation of the target node.
