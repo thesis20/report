@@ -1,6 +1,8 @@
 \subsubsection{Neural Graph Collaborative Filtering}\label{subsec:ngcf-desc}
-\textit{Neural Graph Collaborative Filtering} (NGCF), proposed by Wang et al. in \cite{NGCF}, is a method for collaborative filtering, employing a user-item bipartite graph structure.
-Different to \textit{IS-UserBased} and \textit{CAMF} that make rating predictions, this method instead produces implicit ratings in the form of a top-$N$ list.
+\textit{Neural Graph Collaborative Filtering} (NGCF) is a method for collaborative filtering, employing a user-item bipartite graph structure.
+For the experiments we use the official TensorFlow implementation of the paper, available on \href{https://github.com/xiangwang1223/neural_graph_collaborative_filtering}{GitHub}.
+Different to \textit{IS-UserBased} and \textit{CAMF} that make rating precitions, this method instead produces implicit ratings in the form of a top-$N$ list.
+\\\\
 Learnable collaborative filtering models contain two key components: embedding, which transforms users and items to representations, and interaction modeling, which reconstructs interactions based on these embeddings.
 \textit{NGCF} aims to enhance recommendation by integrating user-item interactions into the embedding function, which has previously been built with descriptive features only, such as ID.
 It does this through three components: an embedding layer that initializes user and item embeddings, embedding propagation layers that refine the embeddings, and a prediction layer aggregating the refined embeddings.
