@@ -55,10 +55,7 @@ An example of how a bipartite graph could look can be seen on \autoref{fig:bipar
 \label{fig:bipartite-graph}
 \end{figure}
 As mentioned, with the use of graph representations, users and items not directly connected can influence each other.
-There are two properties that are often explored for graph-based approaches when doing similarity measures, namely propagation and attenuation.
-Propagation is done through propagating information along the edges of the graph, also using the weight of the edge to determine how much information is allowed to pass through.
-Attenuation considers that nodes that are further away from each other in the graph should influence each other less.
-This transitive association in graph-based approaches can be used in two ways to recommend items.
+This is because of the transitive association that exists between users and items in graph-based approaches, which can be used in two ways to recommend items.
 The relevance between a user and an item can be evaluated using the proximity of the user to the item, meaning that the items that are "closest" in the graph to the user will be recommended.
 A similarity between a pair of users or items can also be found which can be expressed as a weight between them\cite{RecommenderHandbook2015}.
 
