@@ -3,6 +3,7 @@ In \cite{LightGCN}, Xiangnan He et. al investigated the \textit{NCGF} method by 
 They found that by removing these parts of the \textit{NGCF} model they were able to achieve better results, meaning that these parts negatively affected the training of the model.
 Inspired by this, Xiangnan He et. al came up with a light but effective model of a graph convolutional network (GCN) with only the most essential parts used for collaborative filtering called \textit{LightGCN}.
 For the experiments, we use the official TensorFlow based implementation of the paper available on \href{https://github.com/kuandeng/LightGCN}{GitHub}.
+Like \textit{NGCF}, this method produces implicit ratings in the form of a top-$N$ list.
 \\\\
 The idea of a GCN is to learn the representation of nodes by smoothing features over the graph \cite{LightGCN}.
 This is done by performing graph convolution where features of neighboring nodes are aggregated to give a new representation of the target node.
@@ -36,5 +37,5 @@ Finally, when the embeddings at different layers are combined with a weighted su
 \\
 After the layer combination, the final embeddings can be used to make predictions with the model as seen in \autoref{eqn:lgcn-pred}.
 \begin{align}\label{eqn:lgcn-pred}
-    \hat{y}_{ui} = e_{u}^T e_i
+    \hat{y}_{ui} = e_U^{*^\textrm{T}} e_i^*
 \end{align}
