@@ -68,11 +68,7 @@ In the following subsection, we will try to answer the following questions:
 \textit{IS-UserBased} utilizes context by performing item splitting as described in \autoref{method:IS-UserBased-Graph}.
 While this item splitting approach is a simple method to model the context for items, it generates more sparsity in the data.
 Before performing the item splitting, two users could be connected through a common item, but this connection will be broken in case they did not rate the item in the same context.
-For example, if user $u_1$ rated the item $i_1$ in the context \textit{(morning, monday)} and user $u_2$ rated the same item in context \textit{(evening, monday)}, the item splitting will result in them having interacted with two different fictional items.
-To combat this sparsity, we decided to look into adding side-information to the items to re-establish this connection.
-One way to do this is by adding side-information about the movie, such as director, actors, or genre as we have seen in the \textit{KGAT} method.
-We theorize that adding this side-information could help improve the recommendations generated, since it allows re-connecting these fictional items through multiple relations.
-Additionally, utilizing this along a multi-hop approach as seen in \textit{KGAT}, we may be able to infer that a user has a preference for a given genre or actor in a given context, rather than just a preference for a given movie.\\
+For example, if user $u_1$ rated the item $i_1$ in the context \textit{(morning, monday)} and user $u_2$ rated the same item in context \textit{(evening, monday)}, the item splitting will result in them having interacted with two different fictional items.\\
 \textit{CAMF} on the other hand does not experience the sparsity problems seen in the \textit{IS-UserBased} approach.
 In \textit{CAMF-C} a parameter is instead introduced for each contextual value, and for \textit{CAMF-CI} a parameter is introduced for each contextual value and item pair as mentioned in \autoref{subsec:camf}.
 A potential problem with the amount of model parameters in \textit{CAMF-C}, however, is the training data needed to contain a sufficient amount of recorded interactions within the different contexts. 
