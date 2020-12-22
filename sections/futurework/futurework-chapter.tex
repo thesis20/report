@@ -4,6 +4,10 @@ In \autoref{sec:discussion}, we highlighted multiple possible directions for fut
 
 \subsection{Side-information to improve density}
 The \textit{IS-UserBased} method shows potential for getting good results, but due to its item splitting approach, it creates a greater level of sparsity than already exists in the datasets.
+To combat this sparsity, we decided to look into adding side-information to the items to re-establish this connection.
+One way to do this is by adding side-information about the movie, such as director, actors, or genre as we have seen in the \textit{KGAT} method.
+We theorize that adding this side-information could help improve the recommendations generated, since it allows re-connecting these fictional items through multiple relations.
+Additionally, utilizing this along a multi-hop approach as seen in \textit{KGAT}, we may be able to infer that a user has a preference for a given genre or actor in a given context, rather than just a preference for a given movie.\\
 For future work on this method, adding side-information to items or users may help alleviate this sparsity and reconnect the fictional items it creates.
 Adding this side-information to other methods such as \textit{NGCF} or \textit{LightGCN} may also be interesting to look into.
 
