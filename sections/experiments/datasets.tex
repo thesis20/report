@@ -240,7 +240,7 @@ Again, there is only a single user which makes the calculation quite simple.
 In the example the first recommended item is relevant, the second is not, and the third and fourth are relevant.
 Then the DCG* is calculated which is done by sorting the recommendation set such that the most relevant items come first, resulting in the largest possible DCG value.
 \begin{align*}
-    DCG*@N = \frac{1}{1} &\left (\frac{1}{log_2 (1+1)} + \frac{1}{log_2 (2+1)} \right.\\
+    DCG^*@N = \frac{1}{1} &\left (\frac{1}{log_2 (1+1)} + \frac{1}{log_2 (2+1)} \right.\\
     & \left.+ \frac{1}{log_2 (3+1)} + \frac{0}{log_2 (4+1)}\right) \\
     & = 2.13
 \end{align*}
