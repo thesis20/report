@@ -18,9 +18,11 @@ The expression for predicting ratings with the \textit{CAMF} models is seen in \
 We have that $\hat{r}_{uic_1...c_k}$ is the predicted rating for user $u$ for item $i$ under the contextual values $c_1...c_k$.
 The variables $\vec{v_u} $ and $ \vec{q_i}$ are the feature vectors for user $u$ and item $i$ which are multiplied.
 This part is identical to what happens in matrix factorization, where the rating matrix is decomposed into the multiplication of two feature matrices, where one contains the features for each user and the other contains the features for each item.
-$\bar{i}$ is the global average rating for item $i$ and $\bar{b_u}$ is a user bias. 
+$\bar{i}$ is the global average rating for item $i$ and $\bar{b_u}$ is a user bias.
+$\bar{b_u}$ is randomly initialized for each user and is learned as one of the model parameters.
 $B_{ijc_j}$ are the parameters modeling the interaction of the contextual conditions and the items.
-For the \textit{CAMF-CI} model, $B_{ijc_j}$ will result in a lot of parameters, and for \textit{CAMF-C} it will result in less, as a result of how the two different approaches perform the contextual modeling.
+For the \textit{CAMF-CI} model, $B_{ijc_j}$ will result in a lot of parameters as there is a parameter for every combination of item $i$ and contextual value $c_j$.
+For \textit{CAMF-C} it will result in less, as this approach only has a single parameter for each contextual value, meaning that, in practice, $B_{ijc_j}$ and $B_{fjc_j}$ are equal for every item $i$ and $f$.
 All of the parameters in the model, except for the average item rating, are learned through stochastic gradient descent.
 This is done through the use of the loss function seen in \autoref{eqn:camf-loss-func}.
 \begin{equation}
