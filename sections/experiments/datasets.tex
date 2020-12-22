@@ -91,7 +91,6 @@ Properties relating to algorithmic effectiveness such as prediction accuracy, co
     &\textbf{MSE} &\textbf{RMSE} &\textbf{MAE} &\textbf{Precision} &\textbf{Recall} &\textbf{NDCG} &\textbf{F1} &\textbf{Hit rate} &\textbf{MAP} \\\cmidrule{2-10}
     \textbf{KGAT\cite{KGAT}} & & & & & x & x & & & \\\cmidrule{1-10}
     \textbf{IS-UserBased\cite{GraphBasedCollaborativePaper}} & & & & x & & & & & x \\\cmidrule{1-10}
-    \textbf{NeuMF\cite{neuMF}} & & & & & & x & & x & \\\cmidrule{1-10}
     \textbf{LightGCN\cite{LightGCN}} & & & & & x & x & & & \\\cmidrule{1-10}
     \textbf{NGCF\cite{NGCF} } & & & & & x & x & & & \\\cmidrule{1-10}
     \textbf{DeepWalk\cite{DeepWalk}} & & & & Implicit & Implicit & & x & & \\\cmidrule{1-10}
@@ -109,7 +108,6 @@ Properties relating to algorithmic effectiveness such as prediction accuracy, co
         &\textbf{Method used}\\\cmidrule{1-2}
         \textbf{KGAT\cite{KGAT}} & Training, validation, test (70\%, 10\%, 20\%) \\\cmidrule{1-2}
         \textbf{IS-UserBased\cite{GraphBasedCollaborativePaper}} & 10-fold cross validation  \\\cmidrule{1-2}
-        \textbf{NeuMF\cite{neuMF}} &  Leave-one-out \\\cmidrule{1-2}
         \textbf{LightGCN\cite{LightGCN}} & From original authors (including splits) \\\cmidrule{1-2}
         \textbf{NGCF\cite{NGCF} } & Training, validation, test (70\%, 10\%, 20\%) \\\cmidrule{1-2}
         \textbf{DeepWalk\cite{DeepWalk}} & 10-fold cross validation \\\cmidrule{1-2}
@@ -267,7 +265,7 @@ Most of the examined papers perform offline evaluation, mainly employing Recall@
         \textbf{Frappé} & 96,203 & 957 & 4,082 & 8 & 2.46\% \\\cmidrule{1-6}
         \textbf{InCarMusic} & 4,012 & 139 & 42 & 8 & 68.72\% \\\cmidrule{1-6}
         \textbf{DePaulMovie} & 5,029 & 79 & 97 & 3 & 65.63\% \\\cmidrule{1-6}
-        \textbf{Yahoo!} & 211,231 & 11,915 & 7,642 & 2 & 0.23\% \\\cmidrule{1-6}
+        \textbf{Yahoo!} & 211,231 & 11,915 & 7,642 & 0 & 0.23\% \\\cmidrule{1-6}
     \bottomrule
     \end{tabular}
 \end{table*}
