@@ -1,8 +1,8 @@
 \subsubsection{Neural Graph Collaborative Filtering}\label{subsec:ngcf-desc}
-\textit{Neural Graph Collaborative Filtering} (NGCF) is a method for collaborative filtering, employing a user-item bipartite graph structure.
+\textit{Neural Graph Collaborative Filtering} (NGCF), proposed by Wang et al. in \cite{NGCF}, is a method for collaborative filtering, employing a user-item bipartite graph structure.
 Different to \textit{IS-UserBased} and \textit{CAMF} that make rating precitions, this method instead produces implicit ratings in the form of a top-$N$ list.
 Learnable collaborative filtering models contain two key components: embedding, which transforms users and items to representations, and interaction modeling, which reconstructs interactions based on these embeddings.
-\textit{NGCF} aims to enhance recommendation by integrating user-item interactions into the embedding function, which has previously been built with descriptive features only, such as ID and attributes.
+\textit{NGCF} aims to enhance recommendation by integrating user-item interactions into the embedding function, which has previously been built with descriptive features only, such as ID.
 It does this through three components: an embedding layer that initializes user and item embeddings, embedding propagation layers that refine the embeddings, and a prediction layer aggregating the refined embeddings.
 An initial embedding for a user $u$ is described as an embedding vector $e_u \in \R^d$, where $d$ is the embedding size.
 Embeddings are propagated through two operations, construction and aggregation.
@@ -33,7 +33,7 @@ Finally, the inner product is calculated between the user and given item represe
 where $*$ is used to denote the final concatenated representation of the user and the item.
 Learning model parameters with \textit{NGCF} is done through optimizing the pairwise Bayesian Personalized Ranking (BPR) loss.
 BPR assumes that observed interactions should be assigned higher prediction values than unobserved ones since these are more reflective of preferences.
-The objective function is defined in \autoref{eqn:ngcf-loss}.
+The loss function is defined in \autoref{eqn:ngcf-loss}.
 \begin{equation}\label{eqn:ngcf-loss}
     Loss = \sum_{(u, i, j) \in O} - \textrm{ln} \: \sigma (\hat{y}_{ui} - \hat{y}_{uj}) + \lambda ||\Theta||_2^2
 \end{equation}
