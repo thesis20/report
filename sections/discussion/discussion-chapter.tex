@@ -85,9 +85,9 @@ However, using side-information instead of context it ends up outperforming both
 Looking at the other context-based methods, \textit{CAMF-C} and \textit{CAMF-CI}, they end up with respectively second and forth place in the F1@10 metric on the LDOS-CoMoDa dataset, only being outperformed by SVD and SVD++.\\
 For MovieLens, \textit{CAMF-C} gets first place on F1@10, and \textit{CAMF-CI} is fifth place, being outperformed by \textit{SVD, SVD++} and \textit{DeepWalk}.\\
 Looking at the results in general, the \textit{IS-Userbased} method does well on Recall@10, and \textit{CAMF} methods do well on F1@10 scores, which bodes well for using context and side-information.\\
-The MAP@10 results are a slightly more inconclusive on the other hand, we see that the \textit{IS-UserBased} method achieves the best results on the Yahoo! dataset, while the \textit{CAMF} methods perform very poorly on the same dataset.
+The MAP@10 results are a slightly more inconclusive on the other hand, we see on \autoref{graph:MAP10} that the \textit{IS-UserBased} method achieves the best results on the Yahoo! dataset, while the \textit{CAMF} methods perform very poorly on the same dataset.
 For the two other datasets, both methods give mediocre results.
-Finally, for the NDCG@10 metric, we see that \textit{IS-Userbased} performs very well on the Yahoo! dataset, mediocre on LDOS-CoMoDa and poorly on MovieLens.
+Finally, for the NDCG@10 metric shown on \autoref{graph:NDCG10}, we see that \textit{IS-Userbased} performs very well on the Yahoo! dataset, mediocre on LDOS-CoMoDa and poorly on MovieLens.
 \\\\
 The Yahoo! dataset does not contain timestamps, nor any other contextual information.
 It includes age of the user and their gender, which are considered to be user attributes rather than contextual information.
