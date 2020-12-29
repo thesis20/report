@@ -17,7 +17,7 @@ x y y-min y-max
 title    = {MovieLens: RMSE},
 width  = 0.5*\textwidth,
 height = 8cm,
-symbolic x coords={{SVD},{SVD++},{Random},{CAMF-CI},{CAMF-C},{DeepWalk + kNN},{IS-UserBased},{NMF}},
+symbolic x coords={{CAMF-C},{SVD},{NMF},{SVD++},{CAMF-CI},{DeepWalk + kNN},{IS-UserBased},{Random}},
 minor ytick={0.9,1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8},
 yminorgrids,
 xtick=data,
@@ -34,7 +34,7 @@ plot[very thick, error bars/.cd, y dir=minus, y explicit]
 table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
 \end{axis} 
 \end{tikzpicture}
-\caption{Graph that shows RMSE for MovieLens}
+\caption{Graph that shows RMSE for MovieLens.}
 \label{fig:movielens-rmse}
 \end{figure}
 
@@ -55,7 +55,7 @@ x y y-min y-max
 title    = {MovieLens: MAE},
 width  = 0.5*\textwidth,
 height = 8cm,
-symbolic x coords={{SVD},{SVD++},{Random},{CAMF-CI},{CAMF-C},{DeepWalk + kNN},{IS-UserBased},{NMF}},
+symbolic x coords={{SVD},{CAMF-C},{SVD++},{NMF},{CAMF-CI},{DeepWalk + kNN},{IS-UserBased},{Random}},
 minor ytick={0.7,0.8,0.9,1,1.1,1.2,1.3,1.4},
 yminorgrids,
 xtick=data,
@@ -72,7 +72,7 @@ plot[very thick, error bars/.cd, y dir=minus, y explicit]
 table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
 \end{axis} 
 \end{tikzpicture}
-\caption{Graph that shows MAE for MovieLens}
+\caption{Graph that shows MAE for MovieLens.}
 \label{fig:movielens-mae}
 \end{figure}
 
@@ -96,7 +96,7 @@ x y y-min y-max
 title    = {MovieLens: Precision@10},
 width  = 0.5*\textwidth,
 height = 8cm,
-symbolic x coords={{SVD},{SVD++},{Random},{CAMF-CI},{CAMF-C},{DeepWalk + kNN},{IS-UserBased},{NMF},{LightGCN},{NGCF},{KGAT}},
+symbolic x coords={{CAMF-C},{SVD},{CAMF-CI},{SVD++},{NMF},{DeepWalk + kNN},{Random},{KGAT},{IS-UserBased},{NGCF},{LightGCN}},
 minor ytick={0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8},
 yminorgrids,
 xtick=data,
@@ -113,7 +113,7 @@ plot[very thick, error bars/.cd, y dir=minus, y explicit]
 table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
 \end{axis} 
 \end{tikzpicture}
-\caption{Graph that shows Precision@10 for MovieLens}
+\caption{Graph that shows Precision@10 for MovieLens.}
 \label{fig:movielens-precision}
 \end{figure}
 
@@ -137,7 +137,7 @@ x y y-min y-max
 title    = {MovieLens: Recall@10},
 width  = 0.5*\textwidth,
 height = 8cm,
-symbolic x coords={{SVD},{SVD++},{Random},{CAMF-CI},{CAMF-C},{DeepWalk + kNN},{IS-UserBased},{NMF},{LightGCN},{NGCF},{KGAT}},
+symbolic x coords={{IS-UserBased},{DeepWalk + kNN},{CAMF-C},{SVD},{CAMF-CI},{SVD++},{NMF},{Random},{KGAT},{NGCF},{LightGCN}},
 minor ytick={0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8},
 yminorgrids,
 xtick=data,
@@ -154,7 +154,7 @@ plot[very thick, error bars/.cd, y dir=minus, y explicit]
 table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
 \end{axis} 
 \end{tikzpicture}
-\caption{Graph that shows Recall@10 for MovieLens}
+\caption{Graph that shows Recall@10 for MovieLens.}
 \label{fig:movielens-recall}
 \end{figure}
 
@@ -178,7 +178,7 @@ x y y-min y-max
 title  = {MovieLens: NDCG@10},
 width  = 0.5*\textwidth,
 height = 8cm,
-symbolic x coords={{SVD},{SVD++},{Random},{CAMF-CI},{CAMF-C},{DeepWalk + kNN},{IS-UserBased},{NMF},{LightGCN},{NGCF},{KGAT}},
+symbolic x coords={{KGAT},{IS-UserBased},{DeepWalk + kNN},{SVD},{Random},{NMF},{SVD++},{NGCF},{CAMF-CI},{CAMF-C},{LightGCN}},
 minor ytick={0.0,0.1,0.2,0.3,0.4,0.5,0.6},
 yminorgrids,
 xtick=data,
@@ -195,7 +195,7 @@ plot[very thick, error bars/.cd, y dir=minus, y explicit]
 table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
 \end{axis}
 \end{tikzpicture}
-\caption{Graph that shows NDCG@10 for MovieLens}
+\caption{Graph that shows NDCG@10 for MovieLens.}
 \label{fig:movielens-ndcg}
 \end{figure}
 
@@ -219,7 +219,7 @@ x y y-min y-max
 title  = {MovieLens: MAP@10},
 width  = 0.5*\textwidth,
 height = 8cm,
-symbolic x coords={{SVD},{SVD++},{Random},{CAMF-CI},{CAMF-C},{DeepWalk + kNN},{IS-UserBased},{NMF},{LightGCN},{NGCF},{KGAT}},
+symbolic x coords={{SVD},{IS-UserBased},{NMF},{SVD++},{Random},{CAMF-C},{DeepWalk + kNN},{CAMF-CI},{NGCF},{LightGCN},{KGAT}},
 minor ytick={0.0,0.1},
 yminorgrids,
 xtick=data,
@@ -261,7 +261,7 @@ x y y-min y-max
 title  = {MovieLens: F1@10},
 width  = 0.5*\textwidth,
 height = 8cm,
-symbolic x coords={{SVD},{SVD++},{Random},{CAMF-CI},{CAMF-C},{DeepWalk + kNN},{IS-UserBased},{NMF},{LightGCN},{NGCF},{KGAT}},
+symbolic x coords={{CAMF-C},{SVD},{DeepWalk + kNN},{CAMF-CI},{SVD++},{NMF},{IS-UserBased},{Random},{KGAT},{NGCF},{LightGCN}},
 minor ytick={0.0,0.1},
 yminorgrids,
 xtick=data,
@@ -278,6 +278,6 @@ plot[very thick, error bars/.cd, y dir=minus, y explicit]
 table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
 \end{axis}
 \end{tikzpicture}
-\caption{Graph that shows F1@10 for MovieLens}
+\caption{Graph that shows F1@10 for MovieLens.}
 \label{fig:movielens-f1}
 \end{figure}
