@@ -53,6 +53,7 @@ However, as we wanted the focus of this paper to be a broad comparison of state-
 For the rating prediction methods, this was done by generating a predicted rating for all items for a given user, and sorting it by estimated rating and presenting the highest rated values in this list to the user.
 This approach does, however, have a minor flaw: When doing top-$N$ recommendation for a user, more than $N$ items may have the same estimated rating, in which case only some of them will be given to the user.
 This can influence the results, since we do not know whether these $N$ items are the best, or if the best results are actually in the remainder of the list.
+It is not a case that will happen often in actual use cases, since the rating predictions will be real numbers, as opposed to integers in the datasets.
 None the less, the methods that are removed from their initial purpose have actually shown good results in other metrics, such as SVD performing the best in Precision@10 on the MovieLens dataset shown on \autoref{graph:MLPrecRecF1}, even though it is meant for rating prediction.
 
 \subsection{Graph-based methods, context-aware methods and utilizing side information}
@@ -138,6 +139,9 @@ This means the data could lose some of the contextual impact if timestamp is the
 
 \subsubsection{The performance of graph-based methods} 
 The results were shortly examined in \autoref{subsec:resultsofexperiment}, where it was noted that the graph-based methods generally did not perform well.
+It is important to note that the graph-based methods focus on top-$N$ recommendations, for which they utilize implicit ratings.
+This may give them a disadvantage compared to rating prediction methods, since these use explicit ratings meaning they have more available information that can help them order the recommendations for the user.
+\\
 For Precision@10 and F1@10, only \textit{NGCF} achieved comparable results on a single dataset, which was LDOS-CoMoDa.
 \textit{IS-UserBased} and \textit{KGAT} generally showed good performance on recall.
 In terms of frontloading the top-$N$ list, \textit{KGAT}, \textit{NGCF} and \textit{IS-UserBased} show the best results on MovieLens, LDOS-CoMoDa and Yahoo! respectively.
