@@ -269,8 +269,8 @@ In general, it does not seem like the graph-based methods are suitable for this 
 \subsubsection{Frappé}
 The Frappé dataset is a little different, in that it is the only dataset used without ratings, focusing solely on interactions.
 As such, only results from methods that are able to produce a top-$N$ list are reported.
-For Precision@10 we see that \textit{LightGCN} outperforms the others, and \textit{KGAT} shows very poor performance on the metric compared to both \textit{LightGCN} and \textit{NGCF}.
+For Precision@10 we see that \textit{LightGCN} outperforms the others, and \textit{NGCF} shows poor performance on the metric compared to both \textit{LightGCN} and \textit{KGAT}.
 For Recall@10 however, \textit{KGAT} shows the best performance by a substantial amount, whereas \textit{LightGCN} and \textit{NGCF} perform mostly evenly.
-\textit{KGAT}'s poor performance on Precision@10, however, still leads to it underperforming on F1@10, where \textit{LightGCN} once again outperforms \textit{NGCF}.
+\textit{KGAT}'s overall performance on Precision@10 and Recall@10 lead to it performing the best on F1@10, where \textit{LightGCN} also outperforms \textit{NGCF}.
 For these metrics, we see that the random baseline performs substantially worse than the state-of-the-art methods.
 \textit{KGAT} outperforms the other methods except for random on NDCG@10, while performing poorly on MAP@10, which \textit{NGCF} performs the best on with the exception of random that surprisingly performs decently on the MAP@10 metric.
