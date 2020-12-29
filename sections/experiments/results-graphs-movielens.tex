@@ -239,3 +239,45 @@ table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
 \caption{Graph that shows MAP@10 for MovieLens}
 \label{fig:movielens-map}
 \end{figure}
+
+
+\pgfplotstableread{
+x y y-min y-max
+{SVD} 0.673 0.006 0.003
+{SVD++} 0.651 0.009 0.004
+{Random} 0.469 0.005 0.002
+{CAMF-CI} 0.668 0.001 0.002
+{CAMF-C} 0.683 0.009 0.007
+{DeepWalk + kNN} 0.669 0.006 0.004
+{IS-UserBased} 0.478 0.013 0.018
+{NMF} 0.651 0.009 0.007
+{LightGCN} 0.199 0.003 0.002
+{NGCF}  0.269 0.010 0.005
+{KGAT} 0.280 0.004 0.006
+}{\differanser}
+\begin{figure}
+\begin{tikzpicture}[scale=1] 
+\begin{axis} [
+title  = {MovieLens: F1@10},
+width  = 0.5*\textwidth,
+height = 8cm,
+symbolic x coords={{SVD},{SVD++},{Random},{CAMF-CI},{CAMF-C},{DeepWalk + kNN},{IS-UserBased},{NMF},{LightGCN},{NGCF},{KGAT}},
+minor ytick={0.0,0.1},
+yminorgrids,
+xtick=data,
+ticklabel style = {font=\tiny},
+x tick label style={rotate=60,anchor=east},
+legend style={at={(0.05,0.95)},anchor=north west,cells={anchor=west},column
+sep=1ex}
+]
+\addplot+[blue, very thick, forget plot,only marks] 
+plot[very thick, error bars/.cd, y dir=plus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-max}] {\differanser};
+\addplot+[red, very thick, only marks,xticklabels=\empty] 
+plot[very thick, error bars/.cd, y dir=minus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
+\end{axis}
+\end{tikzpicture}
+\caption{Graph that shows F1@10 for MovieLens}
+\label{fig:movielens-f1}
+\end{figure}

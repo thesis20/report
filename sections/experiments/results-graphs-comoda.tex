@@ -240,3 +240,45 @@ table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
 \caption{Graph that shows MAP@10 for LDOS-CoMoDa}
 \label{fig:comoda-map}
 \end{figure}
+
+\pgfplotstableread{
+x y y-min y-max
+{SVD} 0.616 0.025 0.042
+{SVD++} 0.614 0.026 0.039
+{Random} 0.363 0.020 0.016
+{CAMF-CI}  0.608 0.031 0.040
+{CAMF-C}  0.615 0.028 0.033
+{DeepWalk + kNN} 0.523 0.034 0.015
+{IS-UserBased} 0.272 0.049 0.040
+{NMF} 0.550 0.031 0.043
+{LightGCN} 0.0738 0.0378 0.0189
+{NGCF}  0.465 0.376 0.106
+{KGAT} 0.093 0.045 0.015
+}{\differanser}
+\begin{figure}
+
+\begin{tikzpicture}[scale=1] 
+\begin{axis} [
+title  = {LDOS-CoMoDa: F1@10},
+width  = 0.5*\textwidth,
+height = 8cm,
+symbolic x coords={{SVD},{SVD++},{Random},{CAMF-CI},{CAMF-C},{DeepWalk + kNN},{IS-UserBased},{NMF},{LightGCN},{NGCF},{KGAT}},
+minor ytick={0.0,0.1},
+yminorgrids,
+xtick=data,
+ticklabel style = {font=\tiny},
+x tick label style={rotate=60,anchor=east},
+legend style={at={(0.05,0.95)},anchor=north west,cells={anchor=west},column
+sep=1ex}
+]
+\addplot+[blue, very thick, forget plot,only marks] 
+plot[very thick, error bars/.cd, y dir=plus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-max}] {\differanser};
+\addplot+[red, very thick, only marks,xticklabels=\empty] 
+plot[very thick, error bars/.cd, y dir=minus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
+\end{axis}
+\end{tikzpicture}
+\caption{Graph that shows F1@10 for LDOS-CoMoDa}
+\label{fig:comoda-f1}
+\end{figure}

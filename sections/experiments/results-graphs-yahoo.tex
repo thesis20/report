@@ -237,3 +237,45 @@ table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
 \caption{Graph that shows MAP@10 for Yahoo!}
 \label{fig:yahoo-map}
 \end{figure}
+
+
+\pgfplotstableread{
+x y y-min y-max
+{SVD} 0.543 0.001 0.001
+{SVD++} 0.540 0.002 0.001
+{Random} 0.308 0.003 0.003
+{CAMF-CI} 0.543 0.002 0.001
+{CAMF-C}  0.548 0.003 0.004
+{DeepWalk + kNN} 0.436 0.002 0.002
+{IS-UserBased} 0.350 0.013 0.025
+{NMF} 0.523 0.001 0.001
+{LightGCN} 0.206 0.002 0.002
+{NGCF}  0.198 0.004 0.011
+{KGAT} 0.194 0.004 0.004
+}{\differanser}
+\begin{figure}
+\begin{tikzpicture}[scale=1] 
+\begin{axis} [
+title  = {Yahoo!: F1@10},
+width  = 0.5*\textwidth,
+height = 8cm,
+symbolic x coords={{SVD},{SVD++},{Random},{CAMF-CI},{CAMF-C},{DeepWalk + kNN},{IS-UserBased},{NMF},{LightGCN},{NGCF},{KGAT}},
+minor ytick={0.0,0.1},
+yminorgrids,
+xtick=data,
+ticklabel style = {font=\tiny},
+x tick label style={rotate=60,anchor=east},
+legend style={at={(0.05,0.95)},anchor=north west,cells={anchor=west},column
+sep=1ex}
+]
+\addplot+[blue, very thick, forget plot,only marks] 
+plot[very thick, error bars/.cd, y dir=plus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-max}] {\differanser};
+\addplot+[red, very thick, only marks,xticklabels=\empty] 
+plot[very thick, error bars/.cd, y dir=minus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
+\end{axis}
+\end{tikzpicture}
+\caption{Graph that shows F1@10 for Yahoo!}
+\label{fig:yahoo-f1}
+\end{figure}
