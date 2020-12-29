@@ -1,0 +1,169 @@
+\pgfplotstableread{
+x y y-min y-max
+{KGAT} 0.174 0.012 0.010
+{LightGCN} 0.086 0.009 0.012
+{NGCF} 0.126 0.022 0.027
+{Random}  0.46898 0.06749 0.06089
+}{\differanser}
+\begin{figure}
+\begin{tikzpicture}[scale=1] 
+\begin{axis} [
+title    = {Frappé: NDCG@10},
+width  = 0.5*\textwidth,
+height = 8cm,
+symbolic x coords={{Random}, {KGAT}, {NGCF}, {LightGCN}},
+minor ytick={0.9,1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8},
+yminorgrids,
+xtick=data,
+ticklabel style = {font=\tiny},
+x tick label style={rotate=60,anchor=east},
+legend style={at={(0.05,0.95)},anchor=north west,cells={anchor=west},column
+sep=1ex}
+]
+\addplot+[blue, very thick, forget plot,only marks] 
+plot[very thick, error bars/.cd, y dir=plus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-max}] {\differanser};
+\addplot+[red, very thick, only marks,xticklabels=\empty] 
+plot[very thick, error bars/.cd, y dir=minus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
+\end{axis} 
+\end{tikzpicture}
+\caption{Graph that shows NDCG@10 for Frappé.}
+\label{fig:frappe-ndcg}
+\end{figure}
+
+\pgfplotstableread{
+x y y-min y-max
+{KGAT} 0.050 0.004 0.005
+{LightGCN} 0.056 0.003 0.002
+{NGCF} 0.047 0.008 0.007
+{Random}  0.00202 0.0003 0.00029
+}{\differanser}
+\begin{figure}
+\begin{tikzpicture}[scale=1] 
+\begin{axis} [
+title    = {Frappé: Precision@10},
+width  = 0.5*\textwidth,
+height = 8cm,
+symbolic x coords={{LightGCN},{KGAT},{NGCF},{Random}},
+minor ytick={0},
+yminorgrids,
+xtick=data,
+ticklabel style = {font=\tiny},
+x tick label style={rotate=60,anchor=east},
+legend style={at={(0.05,0.95)},anchor=north west,cells={anchor=west},column
+sep=1ex}
+]
+\addplot+[blue, very thick, forget plot,only marks] 
+plot[very thick, error bars/.cd, y dir=plus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-max}] {\differanser};
+\addplot+[red, very thick, only marks,xticklabels=\empty] 
+plot[very thick, error bars/.cd, y dir=minus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
+\end{axis} 
+\end{tikzpicture}
+\caption{Graph that shows Precision@10 for Frappé.}
+\label{fig:frappe-precision}
+\end{figure}
+
+\pgfplotstableread{
+x y y-min y-max
+{KGAT} 0.090 0.007 0.003
+{LightGCN} 0.071 0.009 0.011
+{NGCF} 0.075 0.009 0.010
+{Random}  0.00227 0.00073 0.00148
+}{\differanser}
+\begin{figure}
+\begin{tikzpicture}[scale=1] 
+\begin{axis} [
+title    = {Frappé: Recall@10},
+width  = 0.5*\textwidth,
+height = 8cm,
+symbolic x coords={{KGAT},{NGCF},{LightGCN},{Random}},
+minor ytick={0},
+yminorgrids,
+xtick=data,
+ticklabel style = {font=\tiny},
+x tick label style={rotate=60,anchor=east},
+legend style={at={(0.05,0.95)},anchor=north west,cells={anchor=west},column
+sep=1ex}
+]
+\addplot+[blue, very thick, forget plot,only marks] 
+plot[very thick, error bars/.cd, y dir=plus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-max}] {\differanser};
+\addplot+[red, very thick, only marks,xticklabels=\empty] 
+plot[very thick, error bars/.cd, y dir=minus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
+\end{axis} 
+\end{tikzpicture}
+\caption{Graph that shows Recall@10 for Frappé.}
+\label{fig:frappe-recall}
+\end{figure}
+
+\pgfplotstableread{
+x y y-min y-max
+{KGAT} 0.000001 0.000001 0.000003
+{LightGCN} 0.000012 0.000002 0.000002
+{NGCF} 0.000029 0.000009 0.000006
+{Random}  0.00099 0.00051 0.00063
+}{\differanser}
+\begin{figure}
+\begin{tikzpicture}[scale=1]
+\begin{axis} [
+title    = {Frappé: MAP@10},
+width  = 0.5*\textwidth,
+height = 8cm,
+symbolic x coords={{Random},{NGCF},{LightGCN},{KGAT}},
+minor ytick={0},
+yminorgrids,
+xtick=data,
+ticklabel style = {font=\tiny},
+x tick label style={rotate=60,anchor=east},
+legend style={at={(0.05,0.95)},anchor=north west,cells={anchor=west},column
+sep=1ex}
+]
+\addplot+[blue, very thick, forget plot,only marks] 
+plot[very thick, error bars/.cd, y dir=plus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-max}] {\differanser};
+\addplot+[red, very thick, only marks,xticklabels=\empty] 
+plot[very thick, error bars/.cd, y dir=minus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
+\end{axis} 
+\end{tikzpicture}
+\caption{Graph that shows MAP@10 for Frappé.}
+\label{fig:frappe-map}
+\end{figure}
+
+\pgfplotstableread{
+x y y-min y-max
+{KGAT} 0.064 0.005 0.005
+{LightGCN} 0.063 0.006 0.005
+{NGCF} 0.058 0.009 0.008
+{Random} 0.0021 0.0004 0.0008
+}{\differanser}
+\begin{figure}
+\begin{tikzpicture}[scale=1]
+\begin{axis} [
+title    = {Frappé: F1@10},
+width  = 0.5*\textwidth,
+height = 8cm,
+symbolic x coords={{KGAT},{LightGCN},{NGCF},{Random}},
+minor ytick={0},
+yminorgrids,
+xtick=data,
+ticklabel style = {font=\tiny},
+x tick label style={rotate=60,anchor=east},
+legend style={at={(0.05,0.95)},anchor=north west,cells={anchor=west},column
+sep=1ex}
+]
+\addplot+[blue, very thick, forget plot,only marks] 
+plot[very thick, error bars/.cd, y dir=plus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-max}] {\differanser};
+\addplot+[red, very thick, only marks,xticklabels=\empty] 
+plot[very thick, error bars/.cd, y dir=minus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
+\end{axis} 
+\end{tikzpicture}
+\caption{Graph that shows F1@10 for Frappé.}
+\label{fig:frappe-f1}
+\end{figure}
