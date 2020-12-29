@@ -1,0 +1,220 @@
+% Movielens
+\pgfplotstableread{
+x y y-min y-max
+{SVD} 0.935 0.003 0.007
+{SVD++} 0.962 0.003 0.003
+{Random} 1.702 0.007 0.013
+{CAMF-CI}  0.978 0.007 0.002
+{CAMF-C}  0.931 0.002 0.004
+{DeepWalk + kNN} 1.124 0.010 0.004
+{IS-UserBased} 1.366 0.018 0.021
+{NMF} 0.962 0.003 0.004
+}{\differanser}
+\begin{tikzpicture}[scale=1] 
+\begin{axis} [
+title    = {MovieLens: RMSE},
+width  = 0.5*\textwidth,
+height = 8cm,
+symbolic x coords={{SVD},{SVD++},{Random},{CAMF-CI},{CAMF-C},{DeepWalk + kNN},{IS-UserBased},{NMF}},
+minor ytick={0.9,1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8},
+yminorgrids,
+xtick=data,
+ticklabel style = {font=\tiny},
+x tick label style={rotate=60,anchor=east},
+legend style={at={(0.05,0.95)},anchor=north west,cells={anchor=west},column
+sep=1ex}
+]
+\addplot+[blue, very thick, forget plot,only marks] 
+plot[very thick, error bars/.cd, y dir=plus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-max}] {\differanser};
+\addplot+[red, very thick, only marks,xticklabels=\empty] 
+plot[very thick, error bars/.cd, y dir=minus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
+\end{axis} 
+\end{tikzpicture}
+
+\pgfplotstableread{
+x y y-min y-max
+{SVD} 0.737 0.003 0.005
+{SVD++} 0.757 0.004 0.002
+{Random} 1.391 0.008 0.014
+{CAMF-CI}  0.773 0.004 0.004
+{CAMF-C}  0.738 0.005 0.004
+{DeepWalk + kNN} 0.871 0.006 0.005
+{IS-UserBased} 1.041 0.013 0.010
+{NMF} 0.757 0.004 0.002
+}{\differanser}
+\begin{tikzpicture}[scale=1] 
+\begin{axis} [
+title    = {MovieLens: MAE},
+width  = 0.5*\textwidth,
+height = 8cm,
+symbolic x coords={{SVD},{SVD++},{Random},{CAMF-CI},{CAMF-C},{DeepWalk + kNN},{IS-UserBased},{NMF}},
+minor ytick={0.7,0.8,0.9,1,1.1,1.2,1.3,1.4},
+yminorgrids,
+xtick=data,
+ticklabel style = {font=\tiny},
+x tick label style={rotate=60,anchor=east},
+legend style={at={(0.05,0.95)},anchor=north west,cells={anchor=west},column
+sep=1ex}
+]
+\addplot+[blue, very thick, forget plot,only marks] 
+plot[very thick, error bars/.cd, y dir=plus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-max}] {\differanser};
+\addplot+[red, very thick, only marks,xticklabels=\empty] 
+plot[very thick, error bars/.cd, y dir=minus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
+\end{axis} 
+\end{tikzpicture}
+
+\pgfplotstableread{
+x y y-min y-max
+{SVD} 0.719 0.008 0.009
+{SVD++} 0.702 0.006 0.009
+{Random} 0.538 0.009 0.005
+{CAMF-CI}  0.713 0.007 0.007
+{CAMF-C}  0.726 0.012 0.007
+{DeepWalk + kNN} 0.679 0.005 0.006
+{IS-UserBased} 0.344 0.013 0.022
+{NMF} 0.702 0.006 0.009
+{LightGCN} 0.300 0.020 0.007
+{NGCF} 0.339 0.008 0.006
+{KGAT} 0.000 0.00 0.00 %TODO update
+}{\differanser}
+\begin{tikzpicture}[scale=1] 
+\begin{axis} [
+title    = {MovieLens: Precision},
+width  = 0.5*\textwidth,
+height = 8cm,
+symbolic x coords={{SVD},{SVD++},{Random},{CAMF-CI},{CAMF-C},{DeepWalk + kNN},{IS-UserBased},{NMF},{LightGCN},{NGCF},{KGAT}},
+minor ytick={0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8},
+yminorgrids,
+xtick=data,
+ticklabel style = {font=\tiny},
+x tick label style={rotate=60,anchor=east},
+legend style={at={(0.05,0.95)},anchor=north west,cells={anchor=west},column
+sep=1ex}
+]
+\addplot+[blue, very thick, forget plot,only marks] 
+plot[very thick, error bars/.cd, y dir=plus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-max}] {\differanser};
+\addplot+[red, very thick, only marks,xticklabels=\empty] 
+plot[very thick, error bars/.cd, y dir=minus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
+\end{axis} 
+\end{tikzpicture}
+
+\pgfplotstableread{
+x y y-min y-max
+{SVD} 0.633 0.007 0.004
+{SVD++} 0.606 0.010 0.010
+{Random} 0.415 0.002 0.001
+{CAMF-CI}  0.629 0.007 0.002
+{CAMF-C}  0.645 0.011 0.005
+{DeepWalk + kNN} 0.659 0.006 0.004
+{IS-UserBased} 0.785 0.013 0.011
+{NMF} 0.606 0.010 0.010
+{LightGCN} 0.235 0.014 0.005
+{NGCF} 0.223 0.010 0.005
+{KGAT} 0.001 0.01 0.01 %TODO update
+}{\differanser}
+\begin{tikzpicture}[scale=1] 
+\begin{axis} [
+title    = {MovieLens: Recall},
+width  = 0.5*\textwidth,
+height = 8cm,
+symbolic x coords={{SVD},{SVD++},{Random},{CAMF-CI},{CAMF-C},{DeepWalk + kNN},{IS-UserBased},{NMF},{LightGCN},{NGCF},{KGAT}},
+minor ytick={0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8},
+yminorgrids,
+xtick=data,
+ticklabel style = {font=\tiny},
+x tick label style={rotate=60,anchor=east},
+legend style={at={(0.05,0.95)},anchor=north west,cells={anchor=west},column
+sep=1ex}
+]
+\addplot+[blue, very thick, forget plot,only marks] 
+plot[very thick, error bars/.cd, y dir=plus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-max}] {\differanser};
+\addplot+[red, very thick, only marks,xticklabels=\empty] 
+plot[very thick, error bars/.cd, y dir=minus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
+\end{axis} 
+\end{tikzpicture}
+
+\pgfplotstableread{
+x y y-min y-max
+{SVD} 0.508 0.014 0.010
+{SVD++} 0.441 0.050 0.042
+{Random} 0.476 0.016 0.014
+{CAMF-CI}  0.402 0.046 0.095
+{CAMF-C}  0.375 0.032 0.068
+{DeepWalk + kNN} 0.512 0.003 0.017
+{IS-UserBased} 0.527 0.036 0.016
+{NMF} 0.443 0.042 0.045
+{LightGCN} 0.374 0.023 0.009
+{NGCF}  0.420 0.010 0.007
+{KGAT} 0.001 0.01 0.01 %TODO update
+}{\differanser}
+\begin{tikzpicture}[scale=1] 
+\begin{axis} [
+title  = {MovieLens: NDCG},
+width  = 0.5*\textwidth,
+height = 8cm,
+symbolic x coords={{SVD},{SVD++},{Random},{CAMF-CI},{CAMF-C},{DeepWalk + kNN},{IS-UserBased},{NMF},{LightGCN},{NGCF},{KGAT}},
+minor ytick={0.0,0.1,0.2,0.3,0.4,0.5,0.6},
+yminorgrids,
+xtick=data,
+ticklabel style = {font=\tiny},
+x tick label style={rotate=60,anchor=east},
+legend style={at={(0.05,0.95)},anchor=north west,cells={anchor=west},column
+sep=1ex}
+]
+\addplot+[blue, very thick, forget plot,only marks] 
+plot[very thick, error bars/.cd, y dir=plus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-max}] {\differanser};
+\addplot+[red, very thick, only marks,xticklabels=\empty] 
+plot[very thick, error bars/.cd, y dir=minus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
+\end{axis}
+\end{tikzpicture}
+
+\pgfplotstableread{
+x y y-min y-max
+{SVD} 0.0163 0.0147 0.0174
+{SVD++} 0.0047 0.0042 0.0052
+{Random} 0.0044 0.0041 0.0048
+{CAMF-CI}  0.00071 0.00037 0.0010
+{CAMF-C}  0.00248 0.00067 0.0058
+{DeepWalk + kNN} 0.029 0.0272 0.0313
+{IS-UserBased} 0.012 0.0107 0.0128
+{NMF} 0.0049 0.0045 0.0053
+{LightGCN} 0.001 0.001 0.001 %TODO update
+{NGCF}  0.000254 0.000248 0.000258
+{KGAT} 0.001 0.01 0.01 %TODO update
+}{\differanser}
+\begin{tikzpicture}[scale=1] 
+\begin{axis} [
+title  = {MovieLens: MAP},
+width  = 0.5*\textwidth,
+height = 8cm,
+symbolic x coords={{SVD},{SVD++},{Random},{CAMF-CI},{CAMF-C},{DeepWalk + kNN},{IS-UserBased},{NMF},{LightGCN},{NGCF},{KGAT}},
+minor ytick={0.0,0.1,0.2,0.3,0.4,0.5,0.6},
+yminorgrids,
+xtick=data,
+ticklabel style = {font=\tiny},
+x tick label style={rotate=60,anchor=east},
+legend style={at={(0.05,0.95)},anchor=north west,cells={anchor=west},column
+sep=1ex}
+]
+\addplot+[blue, very thick, forget plot,only marks] 
+plot[very thick, error bars/.cd, y dir=plus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-max}] {\differanser};
+\addplot+[red, very thick, only marks,xticklabels=\empty] 
+plot[very thick, error bars/.cd, y dir=minus, y explicit]
+table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
+\end{axis}
+\end{tikzpicture}
+
+
+% Yahoo
+
