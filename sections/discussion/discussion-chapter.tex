@@ -53,7 +53,7 @@ However, as we wanted the focus of this paper to be a broad comparison of state-
 For the rating prediction methods, this was done by generating a predicted rating for all items for a given user, and sorting it by estimated rating and presenting the highest rated values in this list to the user.
 This approach does, however, have a minor flaw: When doing top-$N$ recommendation for a user, more than $N$ items may have the same estimated rating, in which case only some of them will be given to the user.
 This can influence the results, since we do not know whether these $N$ items are the best, or if the best results are actually in the remainder of the list.
-None the less, the methods that are removed from their initial purpose have actually shown good results in other metrics, such as SVD performing the best in Precision@10 on the MovieLens dataset, even though it is meant for rating prediction.
+None the less, the methods that are removed from their initial purpose have actually shown good results in other metrics, such as SVD performing the best in Precision@10 on the MovieLens dataset shown on \autoref{graph:MLPrecRecF1}, even though it is meant for rating prediction.
 
 \subsection{Graph-based methods, context-aware methods and utilizing side information}
 In the following subsection, we will try to answer the following questions: 
@@ -76,18 +76,18 @@ Otherwise the contextual parameters will not be learned properly.
 This is especially prominent in the \textit{CAMF-CI} approach as the amount of model parameters scales with the amount of items in the dataset.
 
 \subsubsection{Did context and side information matter?}
-As reported in \autoref{subsec:resultsofexperiment}, \textit{IS-UserBased} showed the highest Recall@10 score for the LDOS-CoMoDa and MovieLens datasets, which are the datasets with contextual information.
+As reported in \autoref{subsec:resultsofexperiment}, \textit{IS-UserBased} showed the highest Recall@10 score for the MovieLens and LDOS-CoMoDa datasets, shown on \autoref{graph:MLPrecRecF1} and \autoref{graph:CoMoDaPrecRecF1}, which are the datasets with contextual information.
 However, at the same time it had the second worst Precision@10, which is most likely due to the Precision/Recall trade-off discussed in \autoref{subsub:precrectradeoff}.
 Due to the very low Precision@10 score, it ends up with the third worst F1@10 score of the 11 methods, only surpassing \textit{LightGCN} and \textit{KGAT}.
-To do a more complete comparison, the method was also run using side-information for item splitting for the Yahoo! dataset, in which case it once again had the best Recall@10 score, and the third lowest Precision@10.
+To do a more complete comparison, the method was also run using side-information for item splitting for the Yahoo! dataset shown in \autoref{graph:YahooPrecRecF1}, in which case it once again had the best Recall@10 score, and the third lowest Precision@10.
 In this case, it outperformed \textit{NGCF} and \textit{KGAT} for the Precision@10 score.
 However, using side-information instead of context it ends up outperforming both \textit{NGCF}, \textit{KGAT}, \textit{LightGCN} and Random in F1@10 scores.\\
 Looking at the other context-based methods, \textit{CAMF-C} and \textit{CAMF-CI}, they end up with respectively second and forth place in the F1@10 metric on the LDOS-CoMoDa dataset, only being outperformed by SVD and SVD++.\\
 For MovieLens, \textit{CAMF-C} gets first place on F1@10, and \textit{CAMF-CI} is fifth place, being outperformed by \textit{SVD, SVD++} and \textit{DeepWalk}.\\
 Looking at the results in general, the \textit{IS-Userbased} method does well on Recall@10, and \textit{CAMF} methods do well on F1@10 scores, which bodes well for using context and side-information.\\
-The MAP@10 results are a slightly more inconclusive on the other hand, we see that the \textit{IS-UserBased} method achieves the best results on the Yahoo! dataset, while the \textit{CAMF} methods perform very poorly on the same dataset.
+The MAP@10 results are a slightly more inconclusive on the other hand, we see on \autoref{graph:MAP10} that the \textit{IS-UserBased} method achieves the best results on the Yahoo! dataset, while the \textit{CAMF} methods perform very poorly on the same dataset.
 For the two other datasets, both methods give mediocre results.
-Finally, for the NDCG@10 metric, we see that \textit{IS-Userbased} performs very well on the Yahoo! dataset, mediocre on LDOS-CoMoDa and poorly on MovieLens.
+Finally, for the NDCG@10 metric shown on \autoref{graph:NDCG10}, we see that \textit{IS-Userbased} performs very well on the Yahoo! dataset, mediocre on LDOS-CoMoDa and poorly on MovieLens.
 \\\\
 The Yahoo! dataset does not contain timestamps, nor any other contextual information.
 It includes age of the user and their gender, which are considered to be user attributes rather than contextual information.
@@ -112,7 +112,7 @@ To check whether using the side-information in contextual methods made a differe
     \bottomrule
     \end{tabular}
 \end{table*}
-As seen on \autoref{tab:movielenscontextsideinfo}, the model generally performs better when provided with side-information rather than contextual information.
+As seen on \autoref{tab:movielenscontextsideinfo}, the models generally perform better when provided with side-information rather than contextual information.
 \\\\
 To conclude, it is inconclusive whether adding context or side-information improves the methods in general, but we have observed that it does well on some metrics in some datasets, while performing poorly on others.
 These varying performances amongst datasets can be due to a variety of factors, including the size and density of the datasets, the quality of the contextual variables used and how the contextual variables have been discretized.\\
