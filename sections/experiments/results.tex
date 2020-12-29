@@ -253,15 +253,16 @@ Overall, we see a tendency for the graph-based methods to perform poorly on this
 For the Yahoo! Movies dataset, we opted to use side-information such as gender and age group as the contextual variables for the context-aware methods since the dataset does not contain any contextual information with the recorded interactions.
 Because of this, we do not expect the context-aware methods to perform better than the other baselines.
 We see that \textit{SVD++} performs best in terms of RMSE and MAE, closely followed by other methods such as \textit{SVD}, \textit{CAMF}, and \textit{NMF}.
-\textit{CAMF-C} is able to achieve the highest Precision@10 which could suggest that it is able to utilize the side information, but it is only marginally better than \textit{SVD}, \textit{SVD++}, and \textit{CAMF-C}.
+\textit{CAMF-C} is able to achieve the highest Precision@10 which could suggest that it is able to utilize the side information, but it is only marginally better than \textit{SVD}, \textit{SVD++}, and \textit{CAMF-CI}.
 For Recall@10, MAP@10, and NDCG@10 \textit{IS-UserBased} is the best performing method.
 As this method is context-aware, this could suggest that it is able to improve its predictions using side information.
 The high values of MAP@10 and NDCG@10 also suggest that it is better at recommending relevant items in the front of the list compared to other methods.
-However \textit{IS-UserBased} does not perform well in Precision@10 nor RMSE and MAE.
-\textit{DeepWalk} only performs well on Recall@10 and NDCG@10 and struggles on the other metrics.
+However \textit{IS-UserBased} does not perform well on Precision@10 nor RMSE and MAE.
+\textit{DeepWalk} only performs well on Recall@10, NDCG@10 and MAP@10 and struggles on the other metrics.
 \\
 In terms of graph-based methods, they do not perform well on this dataset.
-\textit{LightGCN} is able to achieve a comparable Precision@10 to the other methods, but its Recall@10 and NDCG@10 are worse than many of the baselines.
+\textit{LightGCN}, \textit{NGCF} and \textit{KGAT} all perform evenly in Precision@10, but still show worse results than the methods that are not graph-based.
+\textit{LightGCN} shows the best Precision@10 of the graph-based methods, but its Recall@10 and NDCG@10 are worse than many of the baselines.
 All of the graph-based methods achieve much worse MAP@10 values than the non-graph-based methods.
 \textit{KGAT} has a very low Precision@10 but achieves an NDCG@10 that is comparable to the other baselines.
 In general, it does not seem like the graph-based methods are suitable for this kind of dataset.
