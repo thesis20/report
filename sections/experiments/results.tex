@@ -242,10 +242,10 @@ The MovieLens 100k dataset does not contain any contextual variables outside of 
 \autoref{subsec:experimentprotocol} defined how the timestamp was discretized into the day of the week and a time interval.
 Compared to the LDOS-CoMoDa we expected context-aware methods to not perform substantially better since only context based on the timestamp is available compared to the different contextual variables included in the LDOS-CoMoDa dataset. 
 In terms of the methods that handle context, we see that \textit{CAMF-C} achieves the highest Precision@10 and F1@10, while \textit{IS-UserBased} underperforms most methods on Precision@10 and outperforms all methods on Recall@10.
-In terms of NDCG@10 \textit{IS-UserBased} underperforms on MovieLens compared to other datasets, showing the worst results, while both \textit{CAMF} methods also provide poor NDCG@10.
-\textit{KGAT}, a graph-based method utilizing side information performs the best in terms of NDCG@10 on the MovieLens data but underperforms on MAP@10, Precision@10, and F1@10.
+In terms of NDCG@10 \textit{LightGCN} underperforms on MovieLens, showing the worst results, while both \textit{CAMF} methods also provide poorer NDCG@10.
+\textit{KGAT}, a graph-based method utilizing side-information performs the best in terms of NDCG@10 on the MovieLens data but underperforms on MAP@10.
 Other graph-based methods, such as \textit{NGCF} and \textit{LightGCN} show similar poor performances as well on this dataset, being outperformed on Precision@10, Recall@10, F1@10, and MAP@10.
-\textit{DeepWalk} excels on the MAP@10 metric and outperforms other graph-based methods on Precision@10, Recall@10, and F1@10, showing results close to SVD-based approaches.
+\textit{DeepWalk} outperforms other graph-based methods on Precision@10, Recall@10, and F1@10, showing results close to SVD-based approaches.
 In terms of RMSE and MAE, we see that both \textit{CAMF} and both \textit{SVD} approaches perform the best, with \textit{Random} underperforming as expected.
 Overall, we see a tendency for the graph-based methods to perform poorly on this dataset except for \textit{DeepWalk}, while the SVD-based methods perform the best in terms of F1@10.
 
