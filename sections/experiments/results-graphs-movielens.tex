@@ -1,4 +1,5 @@
-% Movielens
+% MovieLens
+
 \pgfplotstableread{
 x y y-min y-max
 {SVD} 0.935 0.003 0.007
@@ -77,9 +78,9 @@ x y y-min y-max
 {DeepWalk + kNN} 0.679 0.005 0.006
 {IS-UserBased} 0.344 0.013 0.022
 {NMF} 0.702 0.006 0.009
-{LightGCN} 0.300 0.020 0.007
+{LightGCN} 0.249 0.003 0.004
 {NGCF} 0.339 0.008 0.006
-{KGAT} 0.000 0.00 0.00 %TODO update
+{KGAT} 0.353 0.007 0.009
 }{\differanser}
 \begin{tikzpicture}[scale=1] 
 \begin{axis} [
@@ -114,9 +115,9 @@ x y y-min y-max
 {DeepWalk + kNN} 0.659 0.006 0.004
 {IS-UserBased} 0.785 0.013 0.011
 {NMF} 0.606 0.010 0.010
-{LightGCN} 0.235 0.014 0.005
+{LightGCN} 0.166 0.004 0.004
 {NGCF} 0.223 0.010 0.005
-{KGAT} 0.001 0.01 0.01 %TODO update
+{KGAT} 0.232 0.004 0.005
 }{\differanser}
 \begin{tikzpicture}[scale=1] 
 \begin{axis} [
@@ -151,9 +152,9 @@ x y y-min y-max
 {DeepWalk + kNN} 0.512 0.003 0.017
 {IS-UserBased} 0.527 0.036 0.016
 {NMF} 0.443 0.042 0.045
-{LightGCN} 0.374 0.023 0.009
+{LightGCN} 0.295 0.007 0.006
 {NGCF}  0.420 0.010 0.007
-{KGAT} 0.001 0.01 0.01 %TODO update
+{KGAT} 0.691 0.007 0.015
 }{\differanser}
 \begin{tikzpicture}[scale=1] 
 \begin{axis} [
@@ -180,17 +181,17 @@ table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
 
 \pgfplotstableread{
 x y y-min y-max
-{SVD} 0.0163 0.0147 0.0174
-{SVD++} 0.0047 0.0042 0.0052
-{Random} 0.0044 0.0041 0.0048
-{CAMF-CI}  0.00071 0.00037 0.0010
-{CAMF-C}  0.00248 0.00067 0.0058
-{DeepWalk + kNN} 0.029 0.0272 0.0313
-{IS-UserBased} 0.012 0.0107 0.0128
-{NMF} 0.0049 0.0045 0.0053
-{LightGCN} 0.001 0.001 0.001 %TODO update
-{NGCF}  0.000254 0.000248 0.000258
-{KGAT} 0.001 0.01 0.01 %TODO update
+{SVD} 0.0163 0.0016 0.0011
+{SVD++} 0.0047 0.0005 0.0005
+{Random} 0.0044 0.0003 0.0004
+{CAMF-CI}  0.00071 0.00034 0.00029
+{CAMF-C}  0.00248 0.00181 0.0033
+{DeepWalk + kNN} 0.029 0.0018 0.0023
+{IS-UserBased} 0.012 0.0013 0.0008
+{NMF} 0.0049 0.0004 0.0004
+{LightGCN} 0.000079 0.000001 0
+{NGCF}  0.000254 0.000006 0.000004
+{KGAT} 0.00004 0 0
 }{\differanser}
 \begin{tikzpicture}[scale=1] 
 \begin{axis} [
@@ -198,7 +199,7 @@ title  = {MovieLens: MAP},
 width  = 0.5*\textwidth,
 height = 8cm,
 symbolic x coords={{SVD},{SVD++},{Random},{CAMF-CI},{CAMF-C},{DeepWalk + kNN},{IS-UserBased},{NMF},{LightGCN},{NGCF},{KGAT}},
-minor ytick={0.0,0.1,0.2,0.3,0.4,0.5,0.6},
+minor ytick={0.0,0.1},
 yminorgrids,
 xtick=data,
 ticklabel style = {font=\tiny},
@@ -214,7 +215,3 @@ plot[very thick, error bars/.cd, y dir=minus, y explicit]
 table[x=x,y=y,y error expr=\thisrow{y-min}] {\differanser};
 \end{axis}
 \end{tikzpicture}
-
-
-% Yahoo
-
