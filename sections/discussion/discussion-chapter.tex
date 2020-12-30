@@ -30,14 +30,14 @@ This means that if the amount of relevant items increases, the algorithm is more
 However, an increasing number of relevant items penalizes recall, thus there is a trade-off.
 As such, simply looking at one of these metrics can be misleading, as the results can be influenced in this manner.
 We thus use F1 as a metric to combine these metrics and generate more comparable results between the methods.
-Because of the trade-off, F1 is the most interesting metric for comparison, and the results for this metric can be found in \autoref{fig:comoda-f1}, \autoref{fig:yahoo-f1}, \autoref{fig:movielens-f1} and \autoref{fig:frappe-f1}.
+Because of the trade-off, F1 is the most interesting metric for comparison, and the results for this metric can be found in \Cref{fig:comoda-f1,fig:yahoo-f1,fig:movielens-f1,fig:frappe-f1}.
 
 \subsubsection{Comparison of MAP@N and NDCG}
 MAP@N and NDCG@N serve a similar purpose, as defined in \autoref{sec:evaluationmetrics}.
 For the predicted top-$N$ list we are not just interested in hitting relevant items, but also frontloading the list with these relevant items.
 These metrics serve to measure how well a method accomplishes this.
-As is evident from \autoref{fig:comoda-map}, \autoref{fig:yahoo-map}, \autoref{fig:movielens-map} and \autoref{fig:frappe-map} the MAP@N metric is very punishing, culminating in results of very small values approaching 0.
-NDCG@N on the other hand, as shown on \autoref{fig:comoda-ndcg}, \autoref{fig:yahoo-ndcg}, \autoref{fig:movielens-ndcg} and \autoref{fig:frappe-ndcg}, tends to report more easily relatable results between 0 and 1 as an indicator.
+As is evident from \Cref{fig:comoda-map,fig:yahoo-map,fig:movielens-map,fig:frappe-map} the MAP@N metric is very punishing, culminating in results of very small values approaching 0.
+NDCG@N on the other hand, as shown on \Cref{fig:comoda-ndcg,fig:yahoo-ndcg,fig:movielens-ndcg,fig:frappe-ndcg}, tends to report more easily relatable results between 0 and 1 as an indicator.
 The reason for this discrepancy is in the way the calculation takes place.
 NDCG@N looks at whether or not items are frontloaded in a top-$N$ list whenever the top-$N$ list contains relevant items, unlike MAP@N, for which any list of top-$N$ contributes to the final results, rather than just those containing relevant items.
 A shortcoming of the NDCG@N approach is that it is easier for baselines such as \textit{Random} to perform well on this metric.
@@ -76,18 +76,18 @@ Otherwise the contextual parameters will not be learned properly.
 This is especially prominent in the \textit{CAMF-CI} approach as the amount of model parameters scales with the amount of items in the dataset.
 
 \subsubsection{Did context and side information matter?}
-As reported in \autoref{subsec:resultsofexperiment}, \textit{IS-UserBased} showed the highest Recall@10 score for the LDOS-CoMoDa and MovieLens datasets, shown on \autoref{fig:comoda-recall} and \autoref{fig:movielens-recall}, which are the datasets with contextual information.
+As reported in \autoref{subsec:resultsofexperiment}, \textit{IS-UserBased} showed the highest Recall@10 score for the LDOS-CoMoDa and MovieLens datasets, shown on \Cref{fig:comoda-recall,fig:movielens-recall}, which are the datasets with contextual information.
 However, at the same time it had the second worst Precision@10, which is most likely due to the Precision/Recall trade-off discussed in \autoref{subsub:precrectradeoff}.
 Due to the very low Precision@10 score, it ends up with the third worst F1@10 score of the 11 methods, only surpassing \textit{LightGCN} and \textit{KGAT}.
-To do a more complete comparison, the method was also run using side-information for item splitting for the Yahoo! dataset shown in \autoref{fig:yahoo-precision}, \autoref{fig:yahoo-recall} and \autoref{fig:yahoo-f1} where it once again had the best Recall@10 score, and the third lowest Precision@10.
+To do a more complete comparison, the method was also run using side-information for item splitting for the Yahoo! dataset shown in \Cref{fig:yahoo-precision,fig:yahoo-recall,fig:yahoo-f1} where it once again had the best Recall@10 score, and the third lowest Precision@10.
 In this case, it outperformed \textit{NGCF} and \textit{KGAT} for the Precision@10 score.
 However, using side-information instead of context it ends up outperforming both \textit{NGCF}, \textit{KGAT}, \textit{LightGCN} and Random in F1@10 scores.\\
 Looking at the other context-based methods, \textit{CAMF-C} and \textit{CAMF-CI}, they end up with respectively second and forth place in the F1@10 metric on the LDOS-CoMoDa dataset, only being outperformed by SVD and SVD++.\\
 For MovieLens, \textit{CAMF-C} gets first place on F1@10, and \textit{CAMF-CI} is fifth place, being outperformed by \textit{SVD, SVD++} and \textit{DeepWalk}.\\
 Looking at the results in general, the \textit{IS-Userbased} method does well on Recall@10, and \textit{CAMF} methods do well on F1@10 scores, which bodes well for using context and side-information.\\
 The MAP@10 results are a slightly more inconclusive on the other hand, we see on \autoref{fig:yahoo-map} that the \textit{IS-UserBased} method achieves the best results on the Yahoo! dataset, while the \textit{CAMF} methods perform very poorly on the same dataset.
-For the two other datasets, both methods give mediocre results, shown on \autoref{fig:comoda-map} and \autoref{fig:movielens-map}.
-Finally, for the NDCG@10 metric shown on \autoref{fig:comoda-ndcg}, \autoref{fig:yahoo-ndcg}, \autoref{fig:movielens-ndcg} and \autoref{fig:frappe-ndcg}, we see that \textit{IS-Userbased} performs very well on the Yahoo! dataset, mediocre on LDOS-CoMoDa and poorly on MovieLens.
+For the two other datasets, both methods give mediocre results, shown on \Cref{fig:comoda-map,fig:movielens-map}.
+Finally, for the NDCG@10 metric shown on \Cref{fig:comoda-ndcg,fig:yahoo-ndcg,fig:movielens-ndcg,fig:frappe-ndcg}, we see that \textit{IS-Userbased} performs very well on the Yahoo! dataset, mediocre on LDOS-CoMoDa and poorly on MovieLens.
 \\\\
 The Yahoo! dataset does not contain timestamps, nor any other contextual information.
 It includes age of the user and their gender, which are considered to be user attributes rather than contextual information.
