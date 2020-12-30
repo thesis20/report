@@ -7,14 +7,14 @@ Like \textit{NGCF}, this method produces implicit ratings in the form of a top-$
 \\\\
 The idea of a GCN is to learn the representation of nodes by smoothing features over the graph \cite{LightGCN}.
 This is done by performing graph convolution where features of neighboring nodes are aggregated to give a new representation of the target node.
-They propose an aggregation function called Light Graph Convolution (LGC) seen in \autoref{eqn:lgc}.
+They propose an aggregation function called Light Graph Convolution (LGC) seen in \Cref{eqn:lgc}.
 \begin{align}\label{eqn:lgc}
     e_{u}^{(k+1)}=\sum_{i\in N_u}\frac{1}{\sqrt{\left | N_u \right |}\sqrt{\left | N_i \right |}}e_{i}^{(k)},\nonumber\\
     e_{i}^{(k+1)}=\sum_{u\in N_i}\frac{1}{\sqrt{\left | N_i \right |}\sqrt{\left | N_u \right |}}e_{u}^{(k)}
 \end{align}
 $e_{u}^{(k+1)}$ and $e_{i}^{(k+1)}$ are the embeddings at layer $k+1$ for a user $u$ and item $i$ respectively.
 $N_u$ are the items that user $u$ has interacted with and $N_i$ are the users that have interacted with item $i$.
-Note that this aggregation does not contain any nonlinear activation function nor any feature transformation, unlike NGCF's aggregation function described in \autoref{eqn:ngcf-agg}.
+Note that this aggregation does not contain any nonlinear activation function nor any feature transformation, unlike NGCF's aggregation function described in \Cref{eqn:ngcf-agg}.
 $\frac{1}{\sqrt{\left | N_u \right |}\sqrt{\left | N_i \right |}}$ is a symmetric normalization term which makes sure that the embeddings do not scale with increasing graph convolution operations.
 In LGC the target node is not included in the aggregation and only the neighboring nodes are used which means that it does not handle self-connections.
 This is instead handled in a later operation where the layers are combined.
@@ -26,7 +26,7 @@ When the embeddings at the final layer have been computed, layers are combined t
     e_{u} = \sum_{k=0}^K \alpha_k e_{u}^{(k)} \nonumber\\
     e_{i} = \sum_{k=0}^K \alpha_k e_{i}^{(k)}
 \end{align}
-In \autoref{eqn:lgcn-layer-comb} we have $\alpha_k \geq 0$ which is a weight that indicates the importance of the embedding on layer $k$.
+In \Cref{eqn:lgcn-layer-comb} we have $\alpha_k \geq 0$ which is a weight that indicates the importance of the embedding on layer $k$.
 They found that setting this parameter to $1/(K+1)$ uniformly led to a good performance, but the parameter can be learned as a model parameter.
 There are a few reasons why the layer combination is a good thing to do.
 First of all, the embeddings become over-smoothed with an increasing number of layers, meaning that the embeddings slowly become indistinguishable when too much graph convolution is done.
@@ -35,7 +35,7 @@ Secondly, the embeddings at the different layers capture different features that
 For example, aggregation at the first layer captures the direct interactions between users and items, the second layer captures users that have an overlap in their item interactions, and so on.
 Finally, when the embeddings at different layers are combined with a weighted sum, the effect of graph convolution with self-connections is captured.
 \\
-After the layer combination, the final embeddings can be used to make predictions with the model as seen in \autoref{eqn:lgcn-pred}.
+After the layer combination, the final embeddings can be used to make predictions with the model as seen in \Cref{eqn:lgcn-pred}.
 \begin{align}\label{eqn:lgcn-pred}
     \hat{y}_{ui} = e_U^{*^\textrm{T}} e_i^*
 \end{align}
