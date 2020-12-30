@@ -21,7 +21,7 @@ An example of how a bipartite graph could look can be seen on \autoref{fig:bipar
 \begin{tikzpicture}[thick,
     every node/.style={draw,circle},
     fsnode/.style={fill=myblue},
-    ssnode/.style={fill=mygreen},
+    ssnode/.style={fill=myred},
     every fit/.style={ellipse,draw,inner sep=-2pt,text width=2cm},
     shorten >= 3pt,shorten <= 3pt
   ]
@@ -41,7 +41,7 @@ An example of how a bipartite graph could look can be seen on \autoref{fig:bipar
   % the set U
   \node [myblue,fit=(fu1) (fu3),label=above:$U$] {};
   % the set I
-  \node [mygreen,fit=(si1) (si4),label=above:$I$] {};
+  \node [myred,fit=(si1) (si4),label=above:$I$] {};
   
   % the edges
   \draw (fu1) -- (si1);
