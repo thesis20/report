@@ -7,11 +7,11 @@ In this section we look at the results from the experiments.
 \input{sections/experiments/results-graphs-yahoo.tex}
 \input{sections/experiments/results-graphs-movielens.tex}
 \input{sections/experiments/results-graphs-frappe.tex}
-
-\autoref{graph:MLRMSEMAE}, \autoref{graph:YahooRMSEMAE} and \autoref{graph:CoMoDaRMSEMAE} visualize RMSE and MAE for MovieLens, Yahoo! and CoMoDa respectively.
-Precision@10, Recall@10 and F1@10 are visualized in \autoref{graph:MLPrecRecF1}, \autoref{graph:YahooPrecRecF1} and \autoref{graph:CoMoDaPrecRecF1} for MovieLens, Yahoo! and CoMoDa respectively.
-Finally, \autoref{graph:MAP10} visualizes MAP@10 scores for all datasets, while \autoref{graph:NDCG10} visualizes NDCG@10 scores for all datasets.
-
+\Cref{fig:comoda-rmse,fig:yahoo-rmse,fig:movielens-rmse} visualize RMSE and MAE for LDOS-CoMoDa, Yahoo! and MovieLens respectively, whereas \Cref{fig:comoda-mae,fig:yahoo-mae,fig:movielens-mae} visualize MAE for the respective datasets.\\
+For the LDOS-CoMoDa dataset, the metrics Precision@10, Recall@10, NDCG@10, MAP@10 and F1@10 are visualized in respectively \Cref{fig:comoda-precision,fig:comoda-recall,fig:comoda-ndcg,fig:comoda-map,fig:comoda-f1}.
+Likewise, for the MovieLens 100K datasets the metrics are visualized in \Cref{fig:movielens-precision,fig:movielens-recall,fig:movielens-ndcg,fig:movielens-map,fig:movielens-f1}.
+The same metrics for Yahoo! Movies are visualized in \Cref{fig:yahoo-precision,fig:yahoo-recall,fig:yahoo-ndcg,fig:yahoo-map,fig:yahoo-f1}.
+Finally, the Frappé dataset visualizes results on Precision@10, Recall@10, NDCG@10, MAP@10 and F1@10 on respectively \Cref{fig:frappe-precision,fig:frappe-recall,fig:frappe-ndcg,fig:frappe-map,fig:frappe-f1}.
 
 \subsubsection{LDOS-CoMoDa}
 For the experiments conducted on the LDOS-CoMoDa dataset, we should see the methods that handle context do well, as this dataset has many context variables that the rating depends on.
