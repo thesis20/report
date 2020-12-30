@@ -30,6 +30,7 @@ where $W_1^{(l)}$ and $W_2^{(l)}$ once again are trainable matrices, and $e_i^{(
 The embedding from item $i$ to user $u$ for the layer $l$ is calculated by taking the element-wise product of the embeddings for the previous layer, and the weight matrices for the given layer.
 These are then multiplied with the $\frac{1}{\sqrt{|N_u||N_i|}}$ term to control the decay of the weights, ensuring they do not grow too large.
 The embedding from user to user is found by multiplying the first weight matrix at the given layer with the user embedding from the previous layer.
+\\
 After $L$ layers of propagation there are multiple representations for user $u$, ${e_u^{(1)},...,e_u^{(L)}}$. These representations are concatenated for the final representation, meaning each corresponding entry in the different embeddings are combined for the final embedding, and the same operation is performed on the item representations.
 Finally, the inner product is calculated between the user and given item representation, as shown in \Cref{eqn:ngcf-predict}:
 \begin{equation}\label{eqn:ngcf-predict}

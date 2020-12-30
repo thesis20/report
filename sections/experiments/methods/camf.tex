@@ -2,9 +2,11 @@
 Another approach to CARS is \textit{context-aware matrix factorization} (CAMF)\cite{baltrunasCAMF}.
 As no implementation was available for the method, all results are based on our implementation.
 The method is an extension of the classical Matrix Factorization (MF) approach which takes the contextual side information into account when making rating predictions.
+\\
 There are different models of \textit{CAMF} that deal with different levels of granularity in terms of the context.
 For \textit{CAMF-C}, it is assumed that each of the contextual values has a global influence on the ratings independently of the items.
 In the \textit{CAMF-C} model, a single parameter is introduced for each value of each contextual factor.
+\\
 The second model is \textit{CAMF-CI} which introduces a parameter for each contextual value and item pair, meaning that it has a finer granularity.
 By modelling it like this, it can capture when the contextual factors have a different effect on the rating depending on which item it is.
 In this case, \textit{CAMF} is able to capture two different levels of granularity.
@@ -22,6 +24,7 @@ $\bar{i}$ is the global average rating for item $i$ and $\bar{b_u}$ is a user bi
 $\bar{b_u}$ is randomly initialized for each user and is learned as one of the model parameters.
 $B_{ijc_j}$ are the parameters modeling the interaction of the contextual conditions and the items.
 For the \textit{CAMF-CI} model, $B_{ijc_j}$ will result in a lot of parameters as there is a parameter for every combination of item $i$ and contextual value $c_j$.
+\\\\
 For \textit{CAMF-C} it will result in less, as this approach only has a single parameter for each contextual value, meaning that, in practice, $B_{ijc_j}$ and $B_{fjc_j}$ are equal for every item $i$ and $f$.
 All of the parameters in the model, except for the average item rating, are learned through stochastic gradient descent.
 This is done through the use of the loss function seen in \Cref{eqn:camf-loss-func}.

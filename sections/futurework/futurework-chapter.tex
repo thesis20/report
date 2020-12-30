@@ -13,13 +13,21 @@ Adding this side-information to other methods such as \textit{NGCF} or \textit{L
 
 \subsection{Adding context to existing methods}
 It could be interesting to look at ways to add context to \textit{LightGCN} or \textit{NGCF}.
+As they generally performed worse, this might improve their performance for various metrics.
 One way of doing this could be by employing methods to represent context in a format usable by the initial embeddings for these methods, and investigating results on the contextual datasets.
 
 \subsection{Data discretization}
-We defined certain categories for discretization.
+We defined certain categories for discretization in \Cref{subsub:datadiscretization}.
 A potential way to extend the results would be to employ different categories and examine changes in results.
 
 \subsection{Collect better context datasets}
 One of the major problems when working with CARS is the lack of datasets that have both useful contextual variables and a reasonable amount of interactions.
 Currently, the most appropriate datasets for CARS are CoMoDa with 2,296 ratings and 12 contextual variables, or MovieLens 100k which has 100,000 ratings but only a timestamp as contextual information.
 In order to further investigate CARS, it is necessary to gather more information with useful contextual information.
+
+\subsection{Explicit and implicit rating investigation}
+In \Cref{subsub:graphperformance} we speculate that the worse performance of \textit{LightGCN}, \textit{NGCF} and \textit{KGAT} is due to utilizing implicit ratings.
+A more in depth investigation and comparison of utilizing implicit and explicit ratings would be necessary to confirm this.
+
+\subsection{Investigating more CARS methods}
+Another extension is to simply involve more CARS methods in the experiment to gain a better understanding of their performance in relation to methods that do not utilize context.

@@ -29,6 +29,7 @@ When the embeddings at the final layer have been computed, layers are combined t
 In \Cref{eqn:lgcn-layer-comb} we have $\alpha_k \geq 0$ which is a weight that indicates the importance of the embedding on layer $k$.
 They found that setting this parameter to $1/(K+1)$ uniformly led to a good performance, but the parameter can be learned as a model parameter.
 There are a few reasons why the layer combination is a good thing to do.
+\\
 First of all, the embeddings become over-smoothed with an increasing number of layers, meaning that the embeddings slowly become indistinguishable when too much graph convolution is done.
 This may be avoided by combining the embeddings at the different layers in the final step of the model.
 Secondly, the embeddings at the different layers capture different features that would not be expressed if only the last layer's embeddings were used for the final embeddings.

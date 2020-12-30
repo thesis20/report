@@ -3,10 +3,7 @@ In the experiments, we ran a number of methods on four different datasets that c
 The methods included two context-aware methods, some state-of-the-art graph-based methods, and some simple baselines.
 These methods were evaluated on a number of different metrics that showed their performance on the different datasets.
 In this section we look at the results from the experiments.
-\input{sections/experiments/results-graphs-comoda.tex}
-\input{sections/experiments/results-graphs-yahoo.tex}
-\input{sections/experiments/results-graphs-movielens.tex}
-\input{sections/experiments/results-graphs-frappe.tex}
+\\\\
 \Cref{fig:comoda-rmse,fig:yahoo-rmse,fig:movielens-rmse} visualize RMSE and MAE for LDOS-CoMoDa, Yahoo! and MovieLens respectively, whereas \Cref{fig:comoda-mae,fig:yahoo-mae,fig:movielens-mae} visualize MAE for the respective datasets.\\
 For the LDOS-CoMoDa dataset, the metrics Precision@10, Recall@10, NDCG@10, MAP@10 and F1@10 are visualized in respectively \Cref{fig:comoda-precision,fig:comoda-recall,fig:comoda-ndcg,fig:comoda-map,fig:comoda-f1}.
 Likewise, for the MovieLens 100K datasets the metrics are visualized in \Cref{fig:movielens-precision,fig:movielens-recall,fig:movielens-ndcg,fig:movielens-map,fig:movielens-f1}.
@@ -18,11 +15,13 @@ For the experiments conducted on the LDOS-CoMoDa dataset, we should see the meth
 Two of these context variables are used for the experiments, which are the dominantEmo and Physical as these are some of the most influential, as described in \Cref{subsec:desc-of-datasets}.
 The methods that handle context are \textit{IS-UserBased} and the \textit{CAMF} methods.
 We see that \textit{IS-UserBased} has the largest Recall@10, but also the third smallest Precision@10, resulting in a small F1@10 value, and in general, it does not perform well on LDOS-CoMoDa, which is surprising as it is able to utilize the context.
+\\
 Both \textit{CAMF-C} and \textit{CAMF-CI} perform well on LDOS-CoMoDA in terms of most metrics, except for MAP@10 and NDCG@10.
 They are able to achieve the lowest prediction errors amongst all methods in terms of RMSE and MAE, which could indicate that they are able to make good use of the context.
 Close to the results of the \textit{CAMF} methods we have baselines such as \textit{SVD} and \textit{SVD++} which both are competitive in terms of Precision@10, Recall@10 and F1@10. 
 These also achieve the highest MAP@10 values but do not have as low prediction errors as the \textit{CAMF} methods.
 \textit{NMF} generally performs a little worse in all metrics compared to \textit{SVD}, except for NDCG@10.
+\\
 The \textit{DeepWalk + kNN} method has high prediction errors and low Precision@10 but has the second-highest Recall@10 and one of the highest NDCG@10 values.
 Finally, we have the methods that do not handle rating predictions but only do top-$N$ recommendations, so these do not have RMSE and MAE values, since they work with interactions rather than ratings.
 We see that \textit{LightGCN} is not able to perform well on any of the metrics.
@@ -34,24 +33,29 @@ To summarize, we expected the context-aware methods to perform well on the LDOS-
 The \textit{CAMF} methods do perform well as expected, and \textit{IS-UserBased} performs well in Recall@10, NDCG@10, RMSE and MAE but poorly in the remaining metrics.
 The results of the experiment could also indicate that \textit{NGCF} could be interesting to look at in terms of adding context, as it is able to perform well on a context dataset without utilizing the context available. 
 \textit{NGCF} is also a graph-based approach which, as mentioned in \Cref{sec:graph-rec-sys}, is able to alleviate the sparsity problem introduced by adding context.
+\input{sections/experiments/results-graphs-comoda.tex}
 
 \subsubsection{MovieLens 100k}
 The MovieLens 100k dataset does not contain any contextual variables outside of a timestamp that can be discretized.
 \Cref{subsec:experimentprotocol} defined how the timestamp was discretized into the day of the week and a time interval.
 Compared to the LDOS-CoMoDa we expected context-aware methods to not perform substantially better since only context based on the timestamp is available compared to the different contextual variables included in the LDOS-CoMoDa dataset. 
 In terms of the methods that handle context, we see that \textit{CAMF-C} achieves the highest Precision@10 and F1@10, while \textit{IS-UserBased} underperforms most methods on Precision@10 and outperforms all methods on Recall@10.
+\\
 In terms of NDCG@10 \textit{LightGCN} underperforms on MovieLens, showing the worst results, while both \textit{CAMF} methods also provide poorer NDCG@10.
 \textit{KGAT}, a graph-based method utilizing side-information performs the best in terms of NDCG@10 on the MovieLens data but underperforms on MAP@10.
 Other graph-based methods, such as \textit{NGCF} and \textit{LightGCN} show similar poor performances as well on this dataset, being outperformed on Precision@10, Recall@10, F1@10, and MAP@10.
-\textit{DeepWalk} outperforms other graph-based methods on Precision@10, Recall@10, and F1@10, showing results close to SVD-based approaches.
+\textit{DeepWalk} outperforms other graph-based methods on Precision@10, Recall@10, and F1@10, showing results close to SVD-based approaches, as well as the best results on MAP@10.
+\\
 In terms of RMSE and MAE, we see that both \textit{CAMF} and both \textit{SVD} approaches perform the best, with \textit{Random} underperforming as expected.
 Overall, we see a tendency for the graph-based methods to perform poorly on this dataset except for \textit{DeepWalk}, while the SVD-based methods perform the best in terms of F1@10.
+\input{sections/experiments/results-graphs-movielens.tex}
 
 \subsubsection{Yahoo! Movies}
 For the Yahoo! Movies dataset, we opted to use side-information such as gender and age group as the contextual variables for the context-aware methods since the dataset does not contain any contextual information with the recorded interactions.
 Because of this, we do not expect the context-aware methods to perform better than the other baselines.
 We see that \textit{SVD++} performs best in terms of RMSE and MAE, closely followed by other methods such as \textit{SVD}, \textit{CAMF}, and \textit{NMF}.
 \textit{CAMF-C} is able to achieve the highest Precision@10 which could suggest that it is able to utilize the side information, but it is only marginally better than \textit{SVD}, \textit{SVD++}, and \textit{CAMF-CI}.
+\\
 For Recall@10, MAP@10, and NDCG@10 \textit{IS-UserBased} is the best performing method.
 As this method is context-aware, this could suggest that it is able to improve its predictions using side information.
 The high values of MAP@10 and NDCG@10 also suggest that it is better at recommending relevant items in the front of the list compared to other methods.
@@ -62,7 +66,9 @@ However \textit{IS-UserBased} does not perform well on Precision@10 nor RMSE.
 \textit{LightGCN} shows the best Precision@10 of these methods, but its Recall@10 and NDCG@10 are worse than many of the baselines.
 The methods achieve much worse MAP@10 values than the other methods.
 \textit{KGAT} has a very low Precision@10 but achieves an NDCG@10 that is almost comparable to the other baselines.
+\\
 In general, it does not seem like these three methods are suitable for this kind of dataset.
+\input{sections/experiments/results-graphs-yahoo.tex}
 
 \subsubsection{Frappé}
 The Frappé dataset is a little different, in that it is the only dataset containing implicit ratings, focusing solely on interactions.
@@ -72,3 +78,4 @@ For Recall@10 however, \textit{KGAT} shows the best performance by a substantial
 \textit{KGAT}'s overall performance on Precision@10 and Recall@10 lead to it performing the best on F1@10, where \textit{LightGCN} also outperforms \textit{NGCF}.
 For these metrics, we see that the random baseline performs substantially worse than the state-of-the-art methods.
 \textit{KGAT} outperforms the other methods except for random on NDCG@10, while performing poorly on MAP@10, which \textit{NGCF} performs the best on with the exception of random that surprisingly performs decently on the MAP@10 metric.
+\input{sections/experiments/results-graphs-frappe.tex}

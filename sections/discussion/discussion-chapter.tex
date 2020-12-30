@@ -29,6 +29,7 @@ A trade-off between precision and recall is expected as mentioned in \Cref{sec:e
 This is due to their definitions: Precision@N uses the length of the proposed top-$N$ list as the denominator while recall uses the number of total relevant items.
 This means that if the amount of relevant items increases, the algorithm is more likely to hit a relevant item in the recommendation, thus improving overall precision.
 However, an increasing number of relevant items penalizes recall, thus there is a trade-off.
+\\
 As such, simply looking at one of these metrics can be misleading, as the results can be influenced in this manner.
 We thus use F1 as a metric to combine these metrics and generate more comparable results between the methods.
 Because of the trade-off, F1 is the most interesting metric for comparison, and the results for this metric can be found in \Cref{fig:comoda-f1,fig:yahoo-f1,fig:movielens-f1,fig:frappe-f1}.
@@ -37,10 +38,12 @@ Because of the trade-off, F1 is the most interesting metric for comparison, and 
 MAP@N and NDCG@N serve a similar purpose, as defined in \Cref{sec:evaluationmetrics}.
 For the predicted top-$N$ list we are not just interested in hitting relevant items, but also frontloading the list with these relevant items.
 These metrics serve to measure how well a method accomplishes this.
+\\
 As is evident from \Cref{fig:comoda-map,fig:yahoo-map,fig:movielens-map,fig:frappe-map} the MAP@N metric is very punishing, culminating in results of very small values approaching 0.
 NDCG@N on the other hand, as shown on \Cref{fig:comoda-ndcg,fig:yahoo-ndcg,fig:movielens-ndcg,fig:frappe-ndcg}, tends to report more easily relatable results between 0 and 1 as an indicator.
 The reason for this discrepancy is in the way the calculation takes place.
 NDCG@N looks at whether or not items are frontloaded in a top-$N$ list whenever the top-$N$ list contains relevant items, unlike MAP@N, for which any list of top-$N$ contributes to the final results, rather than just those containing relevant items.
+\\
 A shortcoming of the NDCG@N approach is that it is easier for baselines such as \textit{Random} to perform well on this metric.
 Since it counts frontloaded items only in lists that contain relevant items, \textit{Random} can get lucky and produce a small amount of lists for a small amount of users containing frontloaded items and thus achieve a good result.
 This is why it achieves comparable results to other methods that would be expected to outperform a random choice on this metric.
@@ -50,6 +53,7 @@ The algorithms investigated were split into two categories: top-$N$ recommendati
 While some of the algorithms, such as \textit{SVD, SVD++}, focus on rating prediction, most of the algorithms focus on generating a top-$N$ list of recommendations for a given user.
 This means that some of the metrics used for the various methods may not be related to their original goals, such as using the SVD algorithms for top-$N$ recommendations.
 However, as we wanted the focus of this paper to be a broad comparison of state-of-the-art methods, we concluded that it would be beneficial to include all algorithms in all metrics.
+\\
 For the rating prediction methods, this was done by generating a predicted rating for all items for a given user, and sorting it by estimated rating and presenting the highest rated values in this list to the user.
 This approach does, however, have a minor flaw: When doing top-$N$ recommendation for a user, more than $N$ items may have the same estimated rating, in which case only some of them will be given to the user.
 This can influence the results, since we do not know whether these $N$ items are the best, or if the best results are actually in the remainder of the list.
@@ -68,6 +72,7 @@ In the following subsection, we will try to answer the following questions:
 \subsubsection{Challenges with utilizing context}
 \textit{IS-UserBased} utilizes context by performing item splitting as described in \Cref{method:IS-UserBased-Graph}.
 While this item splitting approach is a simple method to model the context for items, it generates more sparsity in the data.
+\\
 Before performing the item splitting, two users could be connected through a common item, but this connection will be broken in case they did not rate the item in the same context.
 For example, if user $u_1$ rated the item $i_1$ in the context \textit{(morning, Monday)} and user $u_2$ rated the same item in context \textit{(evening, Monday)}, the item splitting will result in them having interacted with two different fictional items.\\
 \textit{CAMF} on the other hand does not experience the sparsity problems seen in the \textit{IS-UserBased} approach.
@@ -80,11 +85,12 @@ This is especially prominent in the \textit{CAMF-CI} approach as the amount of m
 As reported in \Cref{subsec:resultsofexperiment}, \textit{IS-UserBased} showed the highest Recall@10 score for the LDOS-CoMoDa and MovieLens datasets, shown on \Cref{fig:comoda-recall,fig:movielens-recall}, which are the datasets with contextual information.
 However, at the same time it had the third worst Precision@10 on LDOS-CoMoDa and MovieLens shown on \Cref{fig:comoda-precision,fig:movielens-precision} which is most likely due to the Precision/Recall trade-off discussed in \Cref{subsub:precrectradeoff}.
 Due to the very low Precision@10 score, it ends up with the third worst F1@10 score of the 11 methods on LDOS-CoMoDa shown on \Cref{fig:comoda-f1}, only surpassing \textit{LightGCN} and \textit{KGAT}.
+\\
 To do a more complete comparison, the method was also run using side-information for item splitting for the Yahoo! dataset shown in \Cref{fig:yahoo-precision,fig:yahoo-recall,fig:yahoo-f1} where it once again had the best Recall@10 score, and the fourth lowest Precision@10.
 In this case, it outperformed \textit{NGCF}, \textit{LightGCN} and \textit{KGAT} for the Precision@10 score.
 However, using side-information instead of context it ends up outperforming both \textit{NGCF}, \textit{KGAT}, \textit{LightGCN} and Random in F1@10 scores.\\
-Looking at the other context-based methods, \textit{CAMF-C} and \textit{CAMF-CI}, they end up with respectively second and forth place in the F1@10 metric on the LDOS-CoMoDa dataset, only being outperformed by SVD and SVD++.\\
-For MovieLens, \textit{CAMF-C} gets first place on F1@10, and \textit{CAMF-CI} is fourth place, being outperformed by \textit{SVD} and \textit{DeepWalk}.\\
+Looking at the other context-based methods, \textit{CAMF-C} and \textit{CAMF-CI}, they end up with respectively second and forth place in the F1@10 metric on the LDOS-CoMoDa dataset, only being outperformed by SVD and SVD++.
+For MovieLens, \textit{CAMF-C} gets first place on F1@10, and \textit{CAMF-CI} is fourth place, being outperformed by \textit{SVD} and \textit{DeepWalk}.
 Looking at the results in general, the \textit{IS-UserBased} method does well on Recall@10, and \textit{CAMF} methods do well on F1@10 scores, which bodes well for using context and side-information.\\
 The MAP@10 results are a slightly more inconclusive on the other hand, we see on \Cref{fig:yahoo-map} that the \textit{IS-UserBased} method achieves the best results on the Yahoo! dataset, while the \textit{CAMF} methods perform very poorly on the same dataset.
 For the two other datasets, both methods give mediocre results, shown on \Cref{fig:comoda-map,fig:movielens-map}.
@@ -93,9 +99,11 @@ Finally, for the NDCG@10 metric shown on \Cref{fig:comoda-ndcg,fig:yahoo-ndcg,fi
 The Yahoo! dataset does not contain timestamps, nor any other contextual information.
 It includes age of the user and their gender, which are considered to be user attributes rather than contextual information.
 As such, this dataset only contains side-information.
+\\
 \Cref{subsec:desc-of-datasets} described how this side-information was used as contextual variables for context-aware methods.
 This could influence the results on this datasets for the methods utilizing context.
 However, on the results we see generally poorer performance for Precision@10 on the Yahoo! dataset.
+\\
 For the context-aware methods, we do not see a larger decrease in performance compared to the other methods, indicating that utilizing this side-information as context does not negatively impact the results.
 An explanation for the worse performance is likely the increased sparsity of the Yahoo! dataset, making better results more difficult to achieve.\\
 To check whether using the side-information in contextual methods made a difference, we re-ran the the \textit{CAMF} and \textit{IS-UserBased} methods on the MovieLens dataset using respectively context (timestamp) and side-information (age and gender) for the models.
@@ -122,6 +130,7 @@ These varying performances amongst datasets can be due to a variety of factors, 
 For the datasets we chose to focus on certain contextual variables or side information categories.
 In \Cref{subsec:experimentprotocol} we defined the side information categories as well as the contextual variables used.
 We chose to discretize the timestamp for the rating in the MovieLens dataset, leading to two different variables, \textit{time of day} and \textit{day of the week}.
+\\
 This discretization could have been done differently, such as extracting seasonal data to look at, for example, summer and winter as context, or simply including less discretized categories, such as only the weekend and week for day of the week, or larger intervals for the time of the day.
 For future work, it may be interesting to look into other ways to discretize the timestamp in ways such as season, holidays, or whether it is weekend or not, to confirm whether this has a significant impact on the quality of recommendations.
 
@@ -129,15 +138,18 @@ For future work, it may be interesting to look into other ways to discretize the
 A timestamp is often the only available context variable in larger datasets that can be extracted and used.
 However, as mentioned in \Cref{subsub:desc-comoda}, an assumption that has to be made when doing so is that the rating was given by the user at the time of finishing consumption of the item, if we wish to use it for recommendations.
 For example, if a user just signed up for a service in the summer and starts rating Christmas movies, the system might assume that the user has a preference for watching Christmas movies in the summer.
+\\
 To combat this, the collection of data will have to keep track of both when the rating was made, and when the item was consumed.
 This information is not available in any datasets that we are aware of, meaning that the assumption that a rating is made soon after consumption is required.
+\\
 As described in \Cref{subsec:desc-of-datasets}, \cite{COMODA2013} defines that some of the most influential context variables are the dominant emotions during the watching of the movie as well as the final emotion felt.
 As such, we can infer that ratings provided shortly after watching do a better job of reflecting the contextual influence on the rating.
 However, this cannot be guaranteed as some users might rate a batch of items in quick succession, or even rate a single item after a substantial amount of time has passed since consumption.
+\\
 This means the data could lose some of the contextual impact if timestamp is the only context variable that is available or inferable.
 \Cref{tbl:contextprotocol} defines the context variables used for the experiments, in which it is shown that the MovieLens dataset only has a timestamp for context, meaning this is at least a factor for the results on this dataset. 
 
-\subsubsection{The performance of graph-based methods} 
+\subsubsection{The performance of graph-based methods}\label{subsub:graphperformance} 
 The results were shortly examined in \Cref{subsec:resultsofexperiment}, where it was noted that the graph-based methods generally did not perform well.
 It is important to note that the graph-based methods focus on top-$N$ recommendations, for which they utilize implicit ratings.
 This may give them a disadvantage compared to rating prediction methods, since these use explicit ratings meaning they have more available information that can help them order the recommendations for the user.
@@ -146,6 +158,7 @@ For Precision@10 and F1@10, only \textit{NGCF} achieved comparable results on a 
 \textit{IS-UserBased} generally showed good performance on Recall@10.
 In terms of frontloading the top-$N$ list, \textit{KGAT}, \textit{NGCF} and \textit{IS-UserBased} show the best NDCG@10 results on MovieLens, LDOS-CoMoDa and Yahoo! respectively.
 While this does not indicate that the graph-based methods overall outperform the other methods, they show decent performance in terms of frontloading items.
+\\
 A reason for the poorer performance of graph-based methods might be the sizes of the datasets.
 We suspect this because the datasets that were used for the development of these methods are generally a lot larger.
 For example, the smallest dataset used in the \textit{LightGCN}\cite{LightGCN} paper has about a million interactions.

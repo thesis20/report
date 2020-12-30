@@ -154,6 +154,7 @@ RMSE is calculated according to \Cref{eqn:RMSE}.
 \end{equation}
 The top-$N$ recommendation problem is the task of recommending a list $L(u)$ to an active user $u$ containing $N$ items to likely be of interest.
 Evaluating the quality of such method can be done by splitting $I$ into a training set $I_{train}$ used to learn $L$ and a test set $I_{test}$ for each user $u$.
+\\
 Let $T(u) \subset I_u \cap I_{test}$, where $I_u$ is the subset of items that have been rated by user $u$, then precision can be calculated according to \Cref{eqn:precision}, and recall according to \Cref{eqn:recall}.
 Precision defines the proportion of relevant instances among the predicted relevant items, while recall is the proportion of true positives that were correctly predicted.
 A trade off between these measures is expected.
