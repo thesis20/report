@@ -8,18 +8,18 @@ Learnable collaborative filtering models contain two key components: embedding, 
 It does this through three components: an embedding layer that initializes user and item embeddings, embedding propagation layers that refine the embeddings, and a prediction layer aggregating the refined embeddings.
 An initial embedding for a user $u$ is described as an embedding vector $e_u \in \R^d$, where $d$ is the embedding size.
 Embeddings are propagated through two operations, construction and aggregation.
-The embedding from item $i$ to user $u$ is defined in \autoref{eqn:ngcf-embed}:
+The embedding from item $i$ to user $u$ is defined in \cref{eqn:ngcf-embed}:
 \begin{equation}\label{eqn:ngcf-embed}
     m_{u \leftarrow i} = \frac{1}{\sqrt{|N_u||N_i|}} (W_1e_i + W_2(e_i \odot e_u))
 \end{equation}
 where $m_{u \leftarrow i}$ is the information to be propagated, $N_u$ and $N_i$ are the first-hop neighbors of user $u$ and item $i$, which are the neighbors that can be reached in one step from the node, $W_1, W_2 \in \R^{(d' \times d)}$ are trainable weight matrices, meaning they are the values that get updated, $d'$ is the transformation size and $\odot$ is the element-wise product.
 The element-wise product ensures that the interaction between the embedding of item $i$ and user $u$ contributes to the result.
-Aggregation for multiple layers is defined in \autoref{eqn:ngcf-agg}:
+Aggregation for multiple layers is defined in \cref{eqn:ngcf-agg}:
 \begin{equation}\label{eqn:ngcf-agg}
     e_{u}^{(l)} = \textrm{LeakyReLU}(m_{u \leftarrow u} + \sum_{i \in N_u} m_{u \leftarrow i})
 \end{equation}
 where $e_u^{(l)}$ is the representation of $u$ obtained at the layer and LeakyReLU is the activation function.
-The information being propagated, $m_{u \leftarrow i}$ and $m_{u \leftarrow u}$ is defined in \autoref{eqn:ngcf-userrep}:
+The information being propagated, $m_{u \leftarrow i}$ and $m_{u \leftarrow u}$ is defined in \cref{eqn:ngcf-userrep}:
 \begin{equation}\label{eqn:ngcf-userrep}
   \begin{cases}
     m_{u \leftarrow i}^{(l)} = \frac{1}{\sqrt{|N_u||N_i|}} (W_1^{(l)} e_i^{(l-1)} + W_2^{(l)} (e_i^{(l-1)} \odot e_u^{(l-1)}))\\
@@ -31,17 +31,17 @@ The embedding from item $i$ to user $u$ for the layer $l$ is calculated by takin
 These are then multiplied with the $\frac{1}{\sqrt{|N_u||N_i|}}$ term to control the decay of the weights, ensuring they do not grow too large.
 The embedding from user to user is found by multiplying the first weight matrix at the given layer with the user embedding from the previous layer.
 After $L$ layers of propagation there are multiple representations for user $u$, ${e_u^{(1)},...,e_u^{(L)}}$. These representations are concatenated for the final representation, meaning each corresponding entry in the different embeddings are combined for the final embedding, and the same operation is performed on the item representations.
-Finally, the inner product is calculated between the user and given item representation, as shown in \autoref{eqn:ngcf-predict}:
+Finally, the inner product is calculated between the user and given item representation, as shown in \cref{eqn:ngcf-predict}:
 \begin{equation}\label{eqn:ngcf-predict}
   \hat{y}(u, i) = e_U^{*^\textrm{T}} e_i^*
 \end{equation}
 where $*$ is used to denote the final concatenated representation of the user and the item.
 Learning model parameters with \textit{NGCF} is done through optimizing the pairwise Bayesian Personalized Ranking (BPR) loss.
 BPR assumes that observed interactions should be assigned higher prediction values than unobserved ones since these are more reflective of preferences.
-The loss function is defined in \autoref{eqn:ngcf-loss}.
+The loss function is defined in \cref{eqn:ngcf-loss}.
 \begin{equation}\label{eqn:ngcf-loss}
     Loss = \sum_{(u, i, j) \in O} - \textrm{ln} \: \sigma (\hat{y}_{ui} - \hat{y}_{uj}) + \lambda ||\Theta||_2^2
 \end{equation}
 where $O = {(u, i, j) | (u, i) \in R^+, (u, j) \in R^-}$, where $i$ and $j$ are items from respectively observed interactions $R^+$ and unobserved interactions $R^-$, $\sigma$ is the sigmoid function, $\Theta$ denotes all trainable model parameters and $\lambda$ is a regularization parameter.
 \textit{NGCF} employs dropout to avoid overfitting in neural networks, which is a method of discarding data at random.
-\textit{NGCF} randomly drops information being propagated through \autoref{eqn:ngcf-userrep} by a probability, as well as dropping nodes in training by randomly blocking and discarding all its outgoing information.
+\textit{NGCF} randomly drops information being propagated through \cref{eqn:ngcf-userrep} by a probability, as well as dropping nodes in training by randomly blocking and discarding all its outgoing information.
