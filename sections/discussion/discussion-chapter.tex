@@ -150,3 +150,10 @@ A reason for the poorer performance of graph-based methods might be the sizes of
 We suspect this because the datasets that were used for the development of these methods are generally a lot larger.
 For example, the smallest dataset used in the \textit{LightGCN}\cite{LightGCN} paper has about a million interactions.
 Therefore it could be interesting to run the experiment on a larger dataset to see if the graph-based methods achieve better performance.
+\\\\
+To test whether the size of the dataset matters for the graph-based methods, the experiment was re-run on the MovieLens dataset with one million interactions.
+The results can be seen in \autoref{app:tables}.
+The results were somewhat the same as was seen for MovieLens 100k.
+None of the graph-based methods performed well on this dataset, and they only had comparable results with their NDCG@10 values.
+Therefore it cannot be concluded that the size of the dataset is what makes the graph-based methods run poorly. 
+Instead, we suspect, as mentioned earlier, that the main reason they perform poorly is that they do not utilize explicit ratings like the other methods do, but are rather intended to be used for datasets with implicit ratings.
