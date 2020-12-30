@@ -108,16 +108,16 @@ For the context-aware methods, we do not see a larger decrease in performance co
 An explanation for the worse performance is likely the increased sparsity of the Yahoo! dataset, making better results more difficult to achieve.\\
 To check whether using the side-information in contextual methods made a difference, we re-ran the the \textit{CAMF} and \textit{IS-UserBased} methods on the MovieLens dataset using respectively context (timestamp) and side-information (age and gender) for the models.
 \begin{table*}[!htp]\centering
-    \caption{Results for using respectively context and side-information for the MovieLens dataset, highlighted numbers are the best results.}\label{tab:movielenscontextsideinfo}
+    \caption{Results for using respectively context and side-information for the MovieLens dataset, bold numbers are the best results and underlined are the worst.}\label{tab:movielenscontextsideinfo}
     \scriptsize
     \begin{tabular}{lrrrrrrrr}\toprule
     &\textbf{RMSE} &\textbf{MAE} &\textbf{Precision@10} &\textbf{Recall@10} &\textbf{MAP@10} &\textbf{NDCG} &\textbf{F1@10} \\\cmidrule{2-8}
-    \textbf{CAMF-C Context} &0.931 &0.738 &\textbf{0.726} &0.645 &0.0025 &0.375 &0.683 \\\cmidrule{1-8}
-    \textbf{CAMF-CI Context} &0.978 &0.773 &0.713 &0.629 &0.0007 &0.402 &0.668 \\\cmidrule{1-8}
+    \textbf{CAMF-C Context} &0.931 &0.738 &\textbf{0.726} &0.645 &0.0025 &\ul{0.375} &0.683 \\\cmidrule{1-8}
+    \textbf{CAMF-CI Context} &0.978 &0.773 &0.713 &\ul{0.629} &0.0007 &0.402 &0.668 \\\cmidrule{1-8}
     \textbf{CAMF-C Side-info} &\textbf{0.930} &\textbf{0.736} &\textbf{0.726} &0.646 &0.0026 &0.376 &\textbf{0.684} \\\cmidrule{1-8}
-    \textbf{CAMF-CI Side-info} &0.952 &0.753 &0.714 &0.630 &0.0005 &0.403 &0.669 \\\cmidrule{1-8}
+    \textbf{CAMF-CI Side-info} &0.952 &0.753 &0.714 &0.630 &\ul{0.0005} &0.403 &0.669 \\\cmidrule{1-8}
     \textbf{IS-UserBased Side-info} &1.329 &0.976 &0.536 &\textbf{0.789} &\textbf{0.0220} &\textbf{0.538} &0.638 \\\cmidrule{1-8}
-    \textbf{IS-UserBased Context} &1.366 &1.041 &0.344 &0.785 &0.0120 &0.527 &0.478 \\\cmidrule{1-8}
+    \textbf{IS-UserBased Context} &\ul{1.366} &\ul{1.041} &\ul{0.344} &0.785 &0.0120 &0.527 &\ul{0.478} \\\cmidrule{1-8}
     \bottomrule
     \end{tabular}
 \end{table*}

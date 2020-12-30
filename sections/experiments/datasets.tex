@@ -87,17 +87,17 @@ For the purposes of this paper, offline evaluation metrics are the focus as the 
 \begin{table*}[!htp]\centering
     \caption{Metrics used.}\label{tab:metricsused}
     \scriptsize
-    \begin{tabular}{lccccccccc}\toprule
-    &\textbf{MSE} &\textbf{RMSE} &\textbf{MAE} &\textbf{Precision} &\textbf{Recall} &\textbf{NDCG} &\textbf{F1} &\textbf{Hit rate} &\textbf{MAP} \\\cmidrule{2-10}
-    \textbf{KGAT\cite{KGAT}} & & & & & x & x & & & \\\cmidrule{1-10}
-    \textbf{IS-UserBased\cite{GraphBasedCollaborativePaper}} & & & & x & & & & & x \\\cmidrule{1-10}
-    \textbf{LightGCN\cite{LightGCN}} & & & & & x & x & & & \\\cmidrule{1-10}
-    \textbf{NGCF\cite{NGCF} } & & & & & x & x & & & \\\cmidrule{1-10}
-    \textbf{DeepWalk\cite{DeepWalk}} & & & & Implicit & Implicit & & x & & \\\cmidrule{1-10}
-    \textbf{NMF\cite{NMF} } & x & & & & & & & & \\\cmidrule{1-10}
-    \textbf{CAMF(I)\cite{baltrunasCAMF} } & & & x & & & & & & \\\cmidrule{1-10}
-    \textbf{SVD\cite{standardMF} } & x & x & & & & & & & \\\cmidrule{1-10}
-    \textbf{SVD++\cite{svd++} } & & x & & & & & & & \\\cmidrule{1-10}
+    \begin{tabular}{lcccccccc}\toprule
+    &\textbf{MSE} &\textbf{RMSE} &\textbf{MAE} &\textbf{Precision} &\textbf{Recall} &\textbf{NDCG} &\textbf{F1} &\textbf{MAP} \\\cmidrule{2-9}
+    \textbf{KGAT\cite{KGAT}} & & & & & x & x & & \\\cmidrule{1-9}
+    \textbf{IS-UserBased\cite{GraphBasedCollaborativePaper}} & & & & x & & & & x \\\cmidrule{1-9}
+    \textbf{LightGCN\cite{LightGCN}} & & & & & x & x & & \\\cmidrule{1-9}
+    \textbf{NGCF\cite{NGCF} } & & & & & x & x & & \\\cmidrule{1-9}
+    \textbf{DeepWalk\cite{DeepWalk}} & & & & Implicit & Implicit & & x & \\\cmidrule{1-9}
+    \textbf{NMF\cite{NMF} } & x & & & & & & & \\\cmidrule{1-9}
+    \textbf{CAMF\cite{baltrunasCAMF} } & & & x & & & & & \\\cmidrule{1-9}
+    \textbf{SVD\cite{standardMF} } & x & x & & & & & & \\\cmidrule{1-9}
+    \textbf{SVD++\cite{svd++} } & & x & & & & & & \\\cmidrule{1-9}
     \bottomrule
 
     \end{tabular}
@@ -113,7 +113,7 @@ For the purposes of this paper, offline evaluation metrics are the focus as the 
         \textbf{NGCF\cite{NGCF} } & Training, validation, test (70\%, 10\%, 20\%) \\\cmidrule{1-2}
         \textbf{DeepWalk\cite{DeepWalk}} & 10-fold cross validation \\\cmidrule{1-2}
         \textbf{NMF\cite{NMF} } & 80/20 split and 5-fold cross validation \\\cmidrule{1-2}
-        \textbf{CAMF(I)\cite{baltrunasCAMF} } & 25 splits of training, test (90\%, 10\%) \\\cmidrule{1-2}
+        \textbf{CAMF\cite{baltrunasCAMF} } & 25 splits of training, test (90\%, 10\%) \\\cmidrule{1-2}
         \textbf{SVD\cite{standardMF} } & Netflix prize testing \\\cmidrule{1-2}
         \textbf{SVD++\cite{svd++} } & Test, validation (both 1.4 million ratings) \\\cmidrule{1-2}
     \bottomrule
