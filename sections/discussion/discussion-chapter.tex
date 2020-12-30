@@ -1,5 +1,5 @@
 \section{Discussion}\label{sec:discussion}
-The following section will investigate the results acquired in \cref{sec:experiments}.
+The following section will investigate the results acquired in \Cref{sec:experiments}.
 The reported values for the different metrics will be discussed in order to gain an understanding of why the different methods perform as reported, and which results are interesting.
 The comparability between different methods and datasets will also be discussed, as well as what information can be inferred in relation to the datasets.
 Finally, the usefulness of context and side-information for recommendation will be examined, as well as the performance of graph-based methods.
@@ -24,7 +24,7 @@ However the RMSE and MAE metrics can still be used when optimizing an algorithm 
 In terms of usage when evaluating if a method is useful in real-world applications, metrics that look at the quality of the top-$N$ predictions are more useful as those recommendations are what the user will be interacting with.
 
 \subsubsection{The trade-off between precision and recall and the F1-measure}\label{subsub:precrectradeoff}
-A trade-off between precision and recall is expected as mentioned in \cref{sec:evaluationmetrics}.
+A trade-off between precision and recall is expected as mentioned in \Cref{sec:evaluationmetrics}.
 This is due to their definitions: Precision@N uses the length of the proposed top-$N$ list as the denominator while recall uses the number of total relevant items.
 This means that if the amount of relevant items increases, the algorithm is more likely to hit a relevant item in the recommendation, thus improving overall precision.
 However, an increasing number of relevant items penalizes recall, thus there is a trade-off.
@@ -34,11 +34,11 @@ We thus use F1 as a metric to combine these metrics and generate more comparable
 Because of the trade-off, F1 is the most interesting metric for comparison.
 
 \subsubsection{Comparison of MAP@N and NDCG}
-MAP@N and NDCG@N serve a similar purpose, as defined in \cref{sec:evaluationmetrics}.
+MAP@N and NDCG@N serve a similar purpose, as defined in \Cref{sec:evaluationmetrics}.
 For the predicted top-$N$ list we are not just interested in hitting relevant items, but also frontloading the list with these relevant items.
 These metrics serve to measure how well a method accomplishes this.
-As is evident from \cref{graph:MAP10}, the MAP@N metric is very punishing, culminating in results of very small values approaching 0.
-NDCG@N on the other hand, as shown on \cref{graph:NDCG10}, tends to report more easily relatable results between 0 and 1 as an indicator.
+As is evident from \Cref{graph:MAP10}, the MAP@N metric is very punishing, culminating in results of very small values approaching 0.
+NDCG@N on the other hand, as shown on \Cref{graph:NDCG10}, tends to report more easily relatable results between 0 and 1 as an indicator.
 The reason for this discrepancy is in the way the calculation takes place.
 NDCG@N looks at whether or not items are frontloaded in a top-$N$ list whenever the top-$N$ list contains relevant items, unlike MAP@N, for which any list of top-$N$ contributes to the final results, rather than just those containing relevant items.
 A shortcoming of the NDCG@N approach is that it is easier for baselines such as \textit{Random} to perform well on this metric.
@@ -54,7 +54,7 @@ For the rating prediction methods, this was done by generating a predicted ratin
 This approach does, however, have a minor flaw: When doing top-$N$ recommendation for a user, more than $N$ items may have the same estimated rating, in which case only some of them will be given to the user.
 This can influence the results, since we do not know whether these $N$ items are the best, or if the best results are actually in the remainder of the list.
 It is not a case that will happen often in actual use cases, since the rating predictions will be real numbers, as opposed to integers in the datasets.
-None the less, the methods that are removed from their initial purpose have actually shown good results in other metrics, such as SVD performing the best in Precision@10 on the MovieLens dataset shown on \cref{graph:MLPrecRecF1}, even though it is meant for rating prediction.
+None the less, the methods that are removed from their initial purpose have actually shown good results in other metrics, such as SVD performing the best in Precision@10 on the MovieLens dataset shown on \Cref{graph:MLPrecRecF1}, even though it is meant for rating prediction.
 
 \subsection{Graph-based methods, context-aware methods and utilizing side information}
 In the following subsection, we will try to answer the following questions: 
@@ -66,29 +66,29 @@ In the following subsection, we will try to answer the following questions:
 \end{itemize}
 
 \subsubsection{Challenges with utilizing context}
-\textit{IS-UserBased} utilizes context by performing item splitting as described in \cref{method:IS-UserBased-Graph}.
+\textit{IS-UserBased} utilizes context by performing item splitting as described in \Cref{method:IS-UserBased-Graph}.
 While this item splitting approach is a simple method to model the context for items, it generates more sparsity in the data.
 Before performing the item splitting, two users could be connected through a common item, but this connection will be broken in case they did not rate the item in the same context.
 For example, if user $u_1$ rated the item $i_1$ in the context \textit{(morning, monday)} and user $u_2$ rated the same item in context \textit{(evening, monday)}, the item splitting will result in them having interacted with two different fictional items.\\
 \textit{CAMF} on the other hand does not experience the sparsity problems seen in the \textit{IS-UserBased} approach.
-In \textit{CAMF-C} a parameter is instead introduced for each contextual value, and for \textit{CAMF-CI} a parameter is introduced for each contextual value and item pair as mentioned in \cref{subsec:camf}.
+In \textit{CAMF-C} a parameter is instead introduced for each contextual value, and for \textit{CAMF-CI} a parameter is introduced for each contextual value and item pair as mentioned in \Cref{subsec:camf}.
 A potential problem with the amount of model parameters in \textit{CAMF-C}, however, is the training data needed to contain a sufficient amount of recorded interactions within the different contexts. 
 Otherwise the contextual parameters will not be learned properly.
 This is especially prominent in the \textit{CAMF-CI} approach as the amount of model parameters scales with the amount of items in the dataset.
 
 \subsubsection{Did context and side information matter?}
-As reported in \cref{subsec:resultsofexperiment}, \textit{IS-UserBased} showed the highest Recall@10 score for the MovieLens and LDOS-CoMoDa datasets, shown on \cref{graph:MLPrecRecF1} and \cref{graph:CoMoDaPrecRecF1}, which are the datasets with contextual information.
-However, at the same time it had the second worst Precision@10, which is most likely due to the Precision/Recall trade-off discussed in \cref{subsub:precrectradeoff}.
+As reported in \Cref{subsec:resultsofexperiment}, \textit{IS-UserBased} showed the highest Recall@10 score for the MovieLens and LDOS-CoMoDa datasets, shown on \Cref{graph:MLPrecRecF1} and \Cref{graph:CoMoDaPrecRecF1}, which are the datasets with contextual information.
+However, at the same time it had the second worst Precision@10, which is most likely due to the Precision/Recall trade-off discussed in \Cref{subsub:precrectradeoff}.
 Due to the very low Precision@10 score, it ends up with the third worst F1@10 score of the 11 methods, only surpassing \textit{LightGCN} and \textit{KGAT}.
-To do a more complete comparison, the method was also run using side-information for item splitting for the Yahoo! dataset shown in \cref{graph:YahooPrecRecF1}, in which case it once again had the best Recall@10 score, and the third lowest Precision@10.
+To do a more complete comparison, the method was also run using side-information for item splitting for the Yahoo! dataset shown in \Cref{graph:YahooPrecRecF1}, in which case it once again had the best Recall@10 score, and the third lowest Precision@10.
 In this case, it outperformed \textit{NGCF} and \textit{KGAT} for the Precision@10 score.
 However, using side-information instead of context it ends up outperforming both \textit{NGCF}, \textit{KGAT}, \textit{LightGCN} and Random in F1@10 scores.\\
 Looking at the other context-based methods, \textit{CAMF-C} and \textit{CAMF-CI}, they end up with respectively second and forth place in the F1@10 metric on the LDOS-CoMoDa dataset, only being outperformed by SVD and SVD++.\\
 For MovieLens, \textit{CAMF-C} gets first place on F1@10, and \textit{CAMF-CI} is fifth place, being outperformed by \textit{SVD, SVD++} and \textit{DeepWalk}.\\
 Looking at the results in general, the \textit{IS-Userbased} method does well on Recall@10, and \textit{CAMF} methods do well on F1@10 scores, which bodes well for using context and side-information.\\
-The MAP@10 results are a slightly more inconclusive on the other hand, we see on \cref{graph:MAP10} that the \textit{IS-UserBased} method achieves the best results on the Yahoo! dataset, while the \textit{CAMF} methods perform very poorly on the same dataset.
+The MAP@10 results are a slightly more inconclusive on the other hand, we see on \Cref{graph:MAP10} that the \textit{IS-UserBased} method achieves the best results on the Yahoo! dataset, while the \textit{CAMF} methods perform very poorly on the same dataset.
 For the two other datasets, both methods give mediocre results.
-Finally, for the NDCG@10 metric shown on \cref{graph:NDCG10}, we see that \textit{IS-Userbased} performs very well on the Yahoo! dataset, mediocre on LDOS-CoMoDa and poorly on MovieLens.
+Finally, for the NDCG@10 metric shown on \Cref{graph:NDCG10}, we see that \textit{IS-Userbased} performs very well on the Yahoo! dataset, mediocre on LDOS-CoMoDa and poorly on MovieLens.
 \\\\
 The Yahoo! dataset does not contain timestamps, nor any other contextual information.
 It includes age of the user and their gender, which are considered to be user attributes rather than contextual information.
@@ -113,32 +113,32 @@ To check whether using the side-information in contextual methods made a differe
     \bottomrule
     \end{tabular}
 \end{table*}
-As seen on \cref{tab:movielenscontextsideinfo}, the models generally perform better when provided with side-information rather than contextual information.
+As seen on \Cref{tab:movielenscontextsideinfo}, the models generally perform better when provided with side-information rather than contextual information.
 \\\\
 To conclude, it is inconclusive whether adding context or side-information improves the methods in general, but we have observed that it does well on some metrics in some datasets, while performing poorly on others.
 These varying performances amongst datasets can be due to a variety of factors, including the size and density of the datasets, the quality of the contextual variables used and how the contextual variables have been discretized.\\
 
 \subsubsection{Discretization of context}
 For the datasets we chose to focus on certain contextual variables or side information categories.
-In \cref{subsec:experimentprotocol} we defined the side information categories as well as the contextual variables used.
+In \Cref{subsec:experimentprotocol} we defined the side information categories as well as the contextual variables used.
 We chose to discretize the timestamp for the rating in the MovieLens dataset, leading to two different variables, \textit{time of day} and \textit{day of the week}.
 This discretization could have been done differently, such as extracting seasonal data to look at, for example, summer and winter as context, or simply including less discretized categories, such as only the weekend and week for day of the week, or larger intervals for the time of the day.
 For future work, it may be interesting to look into other ways to discretize the timestamp in ways such as season, holidays, or whether it is weekend or not, to confirm whether this has a significant impact on the quality of recommendations.
 
 \subsubsection{Timestamp as a context variable}
 A timestamp is often the only available context variable in larger datasets that can be extracted and used.
-However, as mentioned in \cref{subsub:desc-comoda}, an assumption that has to be made when doing so is that the rating was given by the user at the time of finishing consumption of the item, if we wish to use it for recommendations.
+However, as mentioned in \Cref{subsub:desc-comoda}, an assumption that has to be made when doing so is that the rating was given by the user at the time of finishing consumption of the item, if we wish to use it for recommendations.
 For example, if a user just signed up for a service in the summer and starts rating Christmas movies, the system might assume that the user has a preference for watching Christmas movies in the summer.
 To combat this, the collection of data will have to keep track of both when the rating was made, and when the item was consumed.
 This information is not available in any datasets that we are aware of, meaning that the assumption that a rating is made soon after consumption is required.
-As described in \cref{subsec:desc-of-datasets}, \cite{COMODA2013} defines that some of the most influential context variables are the dominant emotions during the watching of the movie as well as the final emotion felt.
+As described in \Cref{subsec:desc-of-datasets}, \cite{COMODA2013} defines that some of the most influential context variables are the dominant emotions during the watching of the movie as well as the final emotion felt.
 As such, we can infer that ratings provided shortly after watching do a better job of reflecting the contextual influence on the rating.
 However, this cannot be guaranteed as some users might rate a batch of items in quick succession, or even rate a single item after a substantial amount of time has passed since consumption.
 This means the data could lose some of the contextual impact if timestamp is the only context variable that is available or inferable.
 \Cref{tbl:contextprotocol} defines the context variables used for the experiments, in which it is shown that the MovieLens dataset only has a timestamp for context, meaning this is at least a factor for the results on this dataset. 
 
 \subsubsection{The performance of graph-based methods} 
-The results were shortly examined in \cref{subsec:resultsofexperiment}, where it was noted that the graph-based methods generally did not perform well.
+The results were shortly examined in \Cref{subsec:resultsofexperiment}, where it was noted that the graph-based methods generally did not perform well.
 It is important to note that the graph-based methods focus on top-$N$ recommendations, for which they utilize implicit ratings.
 This may give them a disadvantage compared to rating prediction methods, since these use explicit ratings meaning they have more available information that can help them order the recommendations for the user.
 \\

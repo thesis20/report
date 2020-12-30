@@ -120,16 +120,16 @@ For the purposes of this paper, offline evaluation metrics are the focus as the 
     \end{tabular}
 \end{table}
 \\\\
-\cref{tab:metricsused} shows the metrics used for evaluation for the relevant methods, while \cref{tab:methodsused} examines each paper for the evaluation protocol.
+\Cref{tab:metricsused} shows the metrics used for evaluation for the relevant methods, while \Cref{tab:methodsused} examines each paper for the evaluation protocol.
 It is evident that most of these papers focus on offline evaluation, investigating metrics related to algorithmic precision and efficiency, such as root-mean-square error (RMSE), mean absolute error (MAE) and F1-measure.
 These metrics are useful for two important problems associated with recommender systems: rating prediction and top-$N$ recommendation\cite{RecommenderHandbook2015}.
 \\
 The rating prediction problem concerns itself with predicting the rating that a user $u$ will give an unrated item $i$ denoted as $r_{ui}$, which is often defined as learning a function $f : U \times I \rightarrow S$, that predicts the rating $f(u, i)$ of a user $u$ for a new item $i$, where $U$ the set of users, $I$ is the set of items, and $S$ is the set of possible values for a rating.
 Typically, ratings in a set of ratings $R$ are divided into a training set $R_{train}$ used to learn $f$, and a test set $R_{test}$ used for evaluation prediction accuracy, which is usually done through MAE and RMSE.
 These metrics compare the predicted ratings to the observed values in the test set, meaning they depend on the magnitude of the errors made.
-\cref{tab:rmsevsmae} illustrates two potential test sets along with fictive predicted errors for the items they contain.
+\Cref{tab:rmsevsmae} illustrates two potential test sets along with fictive predicted errors for the items they contain.
 The main difference between the two metrics is that RMSE penalizes larger errors more harshly compared to MAE.
-RMSE would prefer test set 1 in \cref{tab:rmsevsmae}, even though it has an aggregated error of 6 compared to test set 2 with an error of 4, due to the larger error of 4 on item 3.
+RMSE would prefer test set 1 in \Cref{tab:rmsevsmae}, even though it has an aggregated error of 6 compared to test set 2 with an error of 4, due to the larger error of 4 on item 3.
 The RMSE for the first test set would be 1.73 versus 2 on the second set.
 MAE would prefer test set 2 with a score of 1 versus 1.5 on the first.
 \begin{table}[]\centering
@@ -142,19 +142,19 @@ MAE would prefer test set 2 with a score of 1 versus 1.5 on the first.
     \bottomrule
     \end{tabular}
 \end{table}
-MAE is calculated according to \cref{eqn:MAE}.
+MAE is calculated according to \Cref{eqn:MAE}.
 \begin{equation}
     \label{eqn:MAE}
     MAE(f) = \frac{1}{|R_{test}|} \sum\limits_{r_{ui} \epsilon R_{test}} |f(u,i)-r_{ui}|
 \end{equation}
-RMSE is calculated according to \cref{eqn:RMSE}.
+RMSE is calculated according to \Cref{eqn:RMSE}.
 \begin{equation}
     \label{eqn:RMSE}
     RMSE(f) = \sqrt{\frac{1}{R_{test}} \sum\limits_{r_{ui} \epsilon R_{test}} (f(u, i) - r_{ui})^2}
 \end{equation}
 The top-$N$ recommendation problem is the task of recommending a list $L(u)$ to an active user $u$ containing $N$ items to likely be of interest.
 Evaluating the quality of such method can be done by splitting $I$ into a training set $I_{train}$ used to learn $L$ and a test set $I_{test}$ for each user $u$.
-Let $T(u) \subset I_u \cap I_{test}$, where $I_u$ is the subset of items that have been rated by user $u$, then precision can be calculated according to \cref{eqn:precision}, and recall according to \cref{eqn:recall}.
+Let $T(u) \subset I_u \cap I_{test}$, where $I_u$ is the subset of items that have been rated by user $u$, then precision can be calculated according to \Cref{eqn:precision}, and recall according to \Cref{eqn:recall}.
 Precision defines the proportion of relevant instances among the predicted relevant items, while recall is the proportion of true positives that were correctly predicted.
 A trade off between these measures is expected.
 Allowing longer recommendation lists improves recall and is likely to reduce precision\cite{RecommenderHandbook2015}.
@@ -167,13 +167,13 @@ Allowing longer recommendation lists improves recall and is likely to reduce pre
     Recall@N(L) = \frac{1}{|U|} \sum\limits_{u \epsilon U} \frac{|L(u) \cap T(u)|}{|T(u)|}
 \end{equation}
 The F1-measure is also employed by some of the papers.
-This measure summarizes precision and recall into a single number as defined in \cref{eqn:f1}.
+This measure summarizes precision and recall into a single number as defined in \Cref{eqn:f1}.
 It is useful for the purposes of comparison rather than employing either recall or precision by itself, taking the trade off into account.
 \begin{equation}
     \label{eqn:f1}
     F1@N = \frac{2*Precision@N(L)*Recall@N(L)}{Precision@N(L)+Recall@N(L)}
 \end{equation}
-To give an example of the calculation of Precision(L), Recall(L) and F1-measure, a top-$N$ set and a relevant item set is defined in \cref{eqn:item-lists} to be used for the calculation.
+To give an example of the calculation of Precision(L), Recall(L) and F1-measure, a top-$N$ set and a relevant item set is defined in \Cref{eqn:item-lists} to be used for the calculation.
 \begin{align}
     T(u) = \{item1, \: item3, \: item4, \: item5,\nonumber \\
      item6\} \nonumber \\
@@ -187,49 +187,49 @@ Note that for this example there is only a single user.
     Precision@N(L) = \frac{1}{1} \sum\limits_{u \epsilon 1}\frac{3}{4} = 0.75\\
     Recall@N(L) = \frac{1}{1} \sum\limits_{u \epsilon 1} \frac{3}{5} = 0.60
 \end{align*}
-These values can then be used to calculate the F1-score according to \cref{eqn:f1}.
+These values can then be used to calculate the F1-score according to \Cref{eqn:f1}.
 \begin{align*}
     F1@N = \frac{2*0.75*0.60}{0.75+0.60} = 0.667
 \end{align*}
 Other metrics are derived from these basic information retrieval metrics, with \textit{Mean Average Precision} (MAP) representing a popular metric\cite{ChoosingMetricsEvaluation}.
 To calculate MAP, the first step is to calculate the \textit{Average Precision} (AP).
 This measure takes each relevant item and calculates precision in relation to the position of the item in the recommendation set.
-This is defined in \cref{eq:averageprecision}, where $Precision(n)$ is the precision at the $n^{th}$ item and $Relevant(n)$ is an indicator that the item was relevant, taking the value of either 1 if relevant, or 0 if not.
+This is defined in \Cref{eq:averageprecision}, where $Precision(n)$ is the precision at the $n^{th}$ item and $Relevant(n)$ is an indicator that the item was relevant, taking the value of either 1 if relevant, or 0 if not.
 The denominator used for the calculation is normalized to be the smaller of either the length of the list, the $N$ value, or the number of relevant items in case the user has less than $N$ observed ratings.
 A point to note about AP is that it rewards recommendation lists with relevant items appearing at the front of the list, leading to a higher AP value in comparison to lists where relevant items appear nearer the $N$ value. 
 \begin{equation}
     \label{eq:averageprecision}
     AP@N = \frac{\sum\limits_{n=1}^N (Precision@N(n) \times Relevant(n))}{min(|Relevant(N)|,\:N)}
 \end{equation}
-Once the AP is calculated for a single user $u$, MAP@N for a recommender system is defined through \cref{eq:map}, where $U$ is the set of all users: 
+Once the AP is calculated for a single user $u$, MAP@N for a recommender system is defined through \Cref{eq:map}, where $U$ is the set of all users: 
 \begin{equation}
     \label{eq:map}
     MAP@N = \frac{\sum\limits_{u=1}^{|U|} AP_u}{|U|}
 \end{equation}
-To show an example of how to calculate AP and MAP, the sets defined in \cref{eqn:item-lists} are used once again.
+To show an example of how to calculate AP and MAP, the sets defined in \Cref{eqn:item-lists} are used once again.
 Here we have that $N$ is 4 as that is the length of the recommendation list $L(u)$.
 \begin{align}
     AP@N = \frac{(\frac{1}{1}*1+\frac{1}{2}*0+\frac{2}{3}*1+\frac{3}{4}*1)}{4} = 0.604 \label{eqn:ap-example}
 \end{align}
-The Precision@N from $n=1$ to $N$, multiplied by 1 if item $n$ is relevant and 0 if not, are all summed together in the numerator as seen in \cref{eqn:ap-example}.
+The Precision@N from $n=1$ to $N$, multiplied by 1 if item $n$ is relevant and 0 if not, are all summed together in the numerator as seen in \Cref{eqn:ap-example}.
 The resulting value is then divided by the minimum of either $N$ or the length of the relevant item set for the user, which in this case is equal to $N$.
 To find the MAP value, the AP values are simply summed together for each user in $U$ and divided by $|U|$.
 In this example we only have a single user, so the MAP is the same as the AP.
 \\\\
 Finally, some of the papers use the Discounted Cumulative Gain (DCG) metric or the normalized version NDCG.
-Assuming each user $u$ has a gain $g_{ui}$ from being recommended item $i$, then the average DCG for a list of $J$ items is defined in \cref{eqn:dcg}, where $i_j$ is the item at position $j$ in the list, and the logarithm base is a free parameter, where $2$ is most commonly used to ensure all positions are discounted.
+Assuming each user $u$ has a gain $g_{ui}$ from being recommended item $i$, then the average DCG for a list of $J$ items is defined in \Cref{eqn:dcg}, where $i_j$ is the item at position $j$ in the list, and the logarithm base is a free parameter, where $2$ is most commonly used to ensure all positions are discounted.
 This metric also rewards lists that frontload relevant items.
 \begin{equation}
     \label{eqn:dcg}
     DCG@N = \frac{1}{|U|} \sum\limits_{u=1}^{|U|} \sum\limits_{l = 1}^{|L|} \frac{g_{ui_l}}{log_b (l+1)}
 \end{equation}
-NDCG is defined in \cref{eqn:ndcg}, where $DCG*$ is the ideal DCG, which is defined by sorting the DCG vector such that the most relevant items appear in the start of the list\cite{dcgpaper}, resulting in the biggest possible DCG value.
+NDCG is defined in \Cref{eqn:ndcg}, where $DCG*$ is the ideal DCG, which is defined by sorting the DCG vector such that the most relevant items appear in the start of the list\cite{dcgpaper}, resulting in the biggest possible DCG value.
 \begin{equation}
     \label{eqn:ndcg}
     NDCG@N = \frac{DCG}{DCG*}
 \end{equation}
 \\\\
-Once again the sets in \cref{eqn:item-lists} can be used to give an example of how to calculate DCG and NDCG.
+Once again the sets in \Cref{eqn:item-lists} can be used to give an example of how to calculate DCG and NDCG.
 In the example, the gain $g_{ui}$ is set to be $1$ when a relevant item is being recommended, and $log_2$ is used.
 Again, there is only a single user which makes the calculation quite simple.
 \begin{align*}
@@ -249,11 +249,11 @@ Now the NDCG can be found by dividing the DCG value with the DCG* value.
     NDCG@N = \frac{1.93}{2.13} = 0.91
 \end{align*}
 Now that the metrics have been examined, we will look into splitting the data.
-Most of the papers examined throughout this research employ cross validation across a number of folds, in a range of 5-10 folds, as seen on \cref{tab:methodsused}.
+Most of the papers examined throughout this research employ cross validation across a number of folds, in a range of 5-10 folds, as seen on \Cref{tab:methodsused}.
 Another interesting aspect to look into for the various papers that have been researched is which metrics they use for comparisons.
-The results of this can be seen on \cref{tab:metricsused}.
+The results of this can be seen on \Cref{tab:metricsused}.
 \\\\
-A summary of the details of the datasets can be seen in \cref{tab:datasetstats}.
+A summary of the details of the datasets can be seen in \Cref{tab:datasetstats}.
 The most interesting datasets for context-aware recommendation and side-information are LDOS-CoMoDa due to the amount of contextual values, the Yahoo! dataset due to the size and inclusion of side-information, the MovieLens datasets due to their size and ability to extract a temporal context, as well as Frappé due to its size.
 Most of the examined papers perform offline evaluation, mainly employing Recall@N and NDCG@N to evaluate the algorithms, and cross-validate on the sets when testing.
 \begin{table*}[]\centering
