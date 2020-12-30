@@ -19,6 +19,7 @@ For example, when a user is happy, it can be expected that every movie will be r
 The issue is that this will probably not change the top-$N$ list of recommended items, so instead one should use metrics such as Precision@N, Recall@N, or F1@N to determine the value of the context variables.
 The interesting context variables to examine would be the ones that affect individual items or categories of items differently.
 That would result in a change in the order of preference when doing recommendations.
+\\
 RMSE and MAE may not be able to express this but a better or worse Precision@N, Recall@N, F1@N would be able to capture this.
 However the RMSE and MAE metrics can still be used when optimizing an algorithm as they give an indication of how far the predicted ratings are from the actual ratings.
 In terms of usage when evaluating if a method is useful in real-world applications, metrics that look at the quality of the top-$N$ predictions are more useful as those recommendations are what the user will be interacting with.
@@ -46,14 +47,14 @@ This is why it achieves comparable results to other methods that would be expect
 
 \subsubsection{Are the results comparable?}
 The algorithms investigated were split into two categories: top-$N$ recommendations and rating prediction.
-While some of the algorithms (\textit{SVD, SVD++}) focus on rating prediction, most of the algorithms focus on generating a top-$N$ list of recommendations for a given user.
+While some of the algorithms, such as \textit{SVD, SVD++}, focus on rating prediction, most of the algorithms focus on generating a top-$N$ list of recommendations for a given user.
 This means that some of the metrics used for the various methods may not be related to their original goals, such as using the SVD algorithms for top-$N$ recommendations.
 However, as we wanted the focus of this paper to be a broad comparison of state-of-the-art methods, we concluded that it would be beneficial to include all algorithms in all metrics.
 For the rating prediction methods, this was done by generating a predicted rating for all items for a given user, and sorting it by estimated rating and presenting the highest rated values in this list to the user.
 This approach does, however, have a minor flaw: When doing top-$N$ recommendation for a user, more than $N$ items may have the same estimated rating, in which case only some of them will be given to the user.
 This can influence the results, since we do not know whether these $N$ items are the best, or if the best results are actually in the remainder of the list.
 It is not a case that will happen often in actual use cases, since the rating predictions will be real numbers, as opposed to integers in the datasets.
-None the less, the methods that are removed from their initial purpose have actually shown good results in other metrics, such as SVD performing the best in Precision@10 on the MovieLens dataset shown on \Cref{fig:movielens-precision}, even though it is meant for rating prediction.
+None the less, the methods that are removed from their initial purpose have actually shown good results in other metrics, such as CAMF-C performing the best in Precision@10 on the MovieLens dataset shown on \Cref{fig:movielens-precision}, even though it is meant for rating prediction.
 
 \subsection{Graph-based methods, context-aware methods and utilizing side information}
 In the following subsection, we will try to answer the following questions: 
@@ -68,7 +69,7 @@ In the following subsection, we will try to answer the following questions:
 \textit{IS-UserBased} utilizes context by performing item splitting as described in \Cref{method:IS-UserBased-Graph}.
 While this item splitting approach is a simple method to model the context for items, it generates more sparsity in the data.
 Before performing the item splitting, two users could be connected through a common item, but this connection will be broken in case they did not rate the item in the same context.
-For example, if user $u_1$ rated the item $i_1$ in the context \textit{(morning, monday)} and user $u_2$ rated the same item in context \textit{(evening, monday)}, the item splitting will result in them having interacted with two different fictional items.\\
+For example, if user $u_1$ rated the item $i_1$ in the context \textit{(morning, Monday)} and user $u_2$ rated the same item in context \textit{(evening, Monday)}, the item splitting will result in them having interacted with two different fictional items.\\
 \textit{CAMF} on the other hand does not experience the sparsity problems seen in the \textit{IS-UserBased} approach.
 In \textit{CAMF-C} a parameter is instead introduced for each contextual value, and for \textit{CAMF-CI} a parameter is introduced for each contextual value and item pair as mentioned in \Cref{subsec:camf}.
 A potential problem with the amount of model parameters in \textit{CAMF-C}, however, is the training data needed to contain a sufficient amount of recorded interactions within the different contexts. 
@@ -77,25 +78,25 @@ This is especially prominent in the \textit{CAMF-CI} approach as the amount of m
 
 \subsubsection{Did context and side information matter?}
 As reported in \Cref{subsec:resultsofexperiment}, \textit{IS-UserBased} showed the highest Recall@10 score for the LDOS-CoMoDa and MovieLens datasets, shown on \Cref{fig:comoda-recall,fig:movielens-recall}, which are the datasets with contextual information.
-However, at the same time it had the second worst Precision@10, which is most likely due to the Precision/Recall trade-off discussed in \Cref{subsub:precrectradeoff}.
-Due to the very low Precision@10 score, it ends up with the third worst F1@10 score of the 11 methods, only surpassing \textit{LightGCN} and \textit{KGAT}.
-To do a more complete comparison, the method was also run using side-information for item splitting for the Yahoo! dataset shown in \Cref{fig:yahoo-precision,fig:yahoo-recall,fig:yahoo-f1} where it once again had the best Recall@10 score, and the third lowest Precision@10.
-In this case, it outperformed \textit{NGCF} and \textit{KGAT} for the Precision@10 score.
+However, at the same time it had the third worst Precision@10 on LDOS-CoMoDa and MovieLens shown on \Cref{fig:comoda-precision,fig:movielens-precision} which is most likely due to the Precision/Recall trade-off discussed in \Cref{subsub:precrectradeoff}.
+Due to the very low Precision@10 score, it ends up with the third worst F1@10 score of the 11 methods on LDOS-CoMoDa shown on \Cref{fig:comoda-f1}, only surpassing \textit{LightGCN} and \textit{KGAT}.
+To do a more complete comparison, the method was also run using side-information for item splitting for the Yahoo! dataset shown in \Cref{fig:yahoo-precision,fig:yahoo-recall,fig:yahoo-f1} where it once again had the best Recall@10 score, and the fourth lowest Precision@10.
+In this case, it outperformed \textit{NGCF}, \textit{LightGCN} and \textit{KGAT} for the Precision@10 score.
 However, using side-information instead of context it ends up outperforming both \textit{NGCF}, \textit{KGAT}, \textit{LightGCN} and Random in F1@10 scores.\\
 Looking at the other context-based methods, \textit{CAMF-C} and \textit{CAMF-CI}, they end up with respectively second and forth place in the F1@10 metric on the LDOS-CoMoDa dataset, only being outperformed by SVD and SVD++.\\
-For MovieLens, \textit{CAMF-C} gets first place on F1@10, and \textit{CAMF-CI} is fifth place, being outperformed by \textit{SVD, SVD++} and \textit{DeepWalk}.\\
-Looking at the results in general, the \textit{IS-Userbased} method does well on Recall@10, and \textit{CAMF} methods do well on F1@10 scores, which bodes well for using context and side-information.\\
+For MovieLens, \textit{CAMF-C} gets first place on F1@10, and \textit{CAMF-CI} is fourth place, being outperformed by \textit{SVD} and \textit{DeepWalk}.\\
+Looking at the results in general, the \textit{IS-UserBased} method does well on Recall@10, and \textit{CAMF} methods do well on F1@10 scores, which bodes well for using context and side-information.\\
 The MAP@10 results are a slightly more inconclusive on the other hand, we see on \Cref{fig:yahoo-map} that the \textit{IS-UserBased} method achieves the best results on the Yahoo! dataset, while the \textit{CAMF} methods perform very poorly on the same dataset.
 For the two other datasets, both methods give mediocre results, shown on \Cref{fig:comoda-map,fig:movielens-map}.
-Finally, for the NDCG@10 metric shown on \Cref{fig:comoda-ndcg,fig:yahoo-ndcg,fig:movielens-ndcg,fig:frappe-ndcg}, we see that \textit{IS-Userbased} performs very well on the Yahoo! dataset, mediocre on LDOS-CoMoDa and poorly on MovieLens.
+Finally, for the NDCG@10 metric shown on \Cref{fig:comoda-ndcg,fig:yahoo-ndcg,fig:movielens-ndcg}, we see that \textit{IS-UserBased} performs very well on the Yahoo! dataset, mediocre on LDOS-CoMoDa and poorly on MovieLens.
 \\\\
 The Yahoo! dataset does not contain timestamps, nor any other contextual information.
 It includes age of the user and their gender, which are considered to be user attributes rather than contextual information.
 As such, this dataset only contains side-information.
 \Cref{subsec:desc-of-datasets} described how this side-information was used as contextual variables for context-aware methods.
 This could influence the results on this datasets for the methods utilizing context.
-However, on the results we see generally poorer performance for all methods on the Yahoo! dataset with the exception of \textit{IS-UserBased}, but not substantially.
-For the context-aware methods, we do not see a decrease in performance compared to the other methods, indicating that utilizing this side-information as context does not negatively impact the results.
+However, on the results we see generally poorer performance for Precision@10 on the Yahoo! dataset.
+For the context-aware methods, we do not see a larger decrease in performance compared to the other methods, indicating that utilizing this side-information as context does not negatively impact the results.
 An explanation for the worse performance is likely the increased sparsity of the Yahoo! dataset, making better results more difficult to achieve.\\
 To check whether using the side-information in contextual methods made a difference, we re-ran the the \textit{CAMF} and \textit{IS-UserBased} methods on the MovieLens dataset using respectively context (timestamp) and side-information (age and gender) for the models.
 \begin{table*}[!htp]\centering
@@ -103,16 +104,16 @@ To check whether using the side-information in contextual methods made a differe
     \scriptsize
     \begin{tabular}{lrrrrrrrr}\toprule
     &\textbf{RMSE} &\textbf{MAE} &\textbf{Precision@10} &\textbf{Recall@10} &\textbf{MAP@10} &\textbf{NDCG} &\textbf{F1@10} \\\cmidrule{2-8}
-    \textbf{CAMF-C Context} &0.931 &0.738 &\textbf{0.726} &0.645 &0.0025 &0.375 &\textbf{0.683} \\\cmidrule{1-8}
-    \textbf{CAMF-CI Context} &0.978 &0.773 &0.713 &0.628 &0.0007 &0.403 &0.668 \\\cmidrule{1-8}
-    \textbf{CAMF-C Side-info} &\textbf{0.930} &\textbf{0.736} &0.726 &0.646 &0.0026 &0.376 &0.684 \\\cmidrule{1-8}
+    \textbf{CAMF-C Context} &0.931 &0.738 &\textbf{0.726} &0.645 &0.0025 &0.375 &0.683 \\\cmidrule{1-8}
+    \textbf{CAMF-CI Context} &0.978 &0.773 &0.713 &0.629 &0.0007 &0.402 &0.668 \\\cmidrule{1-8}
+    \textbf{CAMF-C Side-info} &\textbf{0.930} &\textbf{0.736} &\textbf{0.726} &0.646 &0.0026 &0.376 &\textbf{0.684} \\\cmidrule{1-8}
     \textbf{CAMF-CI Side-info} &0.952 &0.753 &0.714 &0.630 &0.0005 &0.403 &0.669 \\\cmidrule{1-8}
     \textbf{IS-UserBased Side-info} &1.329 &0.976 &0.536 &\textbf{0.789} &\textbf{0.0220} &\textbf{0.538} &0.638 \\\cmidrule{1-8}
-    \textbf{IS-UserBased Context} &1.366 &1.041 &0.344 &0.785 &0.0120 &0.270 &0.478 \\\cmidrule{1-8}
+    \textbf{IS-UserBased Context} &1.366 &1.041 &0.344 &0.785 &0.0120 &0.527 &0.478 \\\cmidrule{1-8}
     \bottomrule
     \end{tabular}
 \end{table*}
-As seen on \Cref{tab:movielenscontextsideinfo}, the models generally perform better when provided with side-information rather than contextual information.
+As seen on \Cref{tab:movielenscontextsideinfo}, the models generally perform slightly better when provided with side-information rather than contextual information.
 \\\\
 To conclude, it is inconclusive whether adding context or side-information improves the methods in general, but we have observed that it does well on some metrics in some datasets, while performing poorly on others.
 These varying performances amongst datasets can be due to a variety of factors, including the size and density of the datasets, the quality of the contextual variables used and how the contextual variables have been discretized.\\
@@ -142,13 +143,12 @@ It is important to note that the graph-based methods focus on top-$N$ recommenda
 This may give them a disadvantage compared to rating prediction methods, since these use explicit ratings meaning they have more available information that can help them order the recommendations for the user.
 \\
 For Precision@10 and F1@10, only \textit{NGCF} achieved comparable results on a single dataset, which was LDOS-CoMoDa.
-\textit{IS-UserBased} and \textit{KGAT} generally showed good performance on recall.
-In terms of frontloading the top-$N$ list, \textit{KGAT}, \textit{NGCF} and \textit{IS-UserBased} show the best results on MovieLens, LDOS-CoMoDa and Yahoo! respectively.
+\textit{IS-UserBased} generally showed good performance on Recall@10.
+In terms of frontloading the top-$N$ list, \textit{KGAT}, \textit{NGCF} and \textit{IS-UserBased} show the best NDCG@10 results on MovieLens, LDOS-CoMoDa and Yahoo! respectively.
 While this does not indicate that the graph-based methods overall outperform the other methods, they show decent performance in terms of frontloading items.
 A reason for the poorer performance of graph-based methods might be the sizes of the datasets.
 We suspect this because the datasets that were used for the development of these methods are generally a lot larger.
 For example, the smallest dataset used in the \textit{LightGCN}\cite{LightGCN} paper has about a million interactions.
-Therefore it could be interesting to run the experiment on a larger dataset to see if the graph-based methods achieve better performance.
 \\\\
 To test whether the size of the dataset matters for the graph-based methods, the experiment was re-run on the MovieLens dataset with one million interactions.
 The results can be seen in \Cref{app:tables}.
